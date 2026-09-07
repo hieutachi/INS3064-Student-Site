@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6: Database Design — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Normalisation and relationships">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_2_mysql_database/session_06_database_design.md">
+<meta name="source-sha256" content="fd47fe95129139ff20b6321551cc5c400a0829a8c72f5e8f32ff912fbb6c1806">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 06 · Ebook</p><h1>Database Design</h1><p class="lead">Normalisation and relationships</p><div class="head-meta"><span class="chip">Part 2 · MySQL and databases</span><span class="chip">Normalisation</span><span class="chip">Keys</span><span class="chip">Relationships</span></div><div class="head-actions"><a class="button-link primary" href="../slides/06-database-design.html">Open the slide deck</a><a class="button-link" href="../sessions/session-06.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">18 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-normalization">1. Normalization</a></li><li class="depth-3"><a href="#11-why-do-we-need-normalization">1.1 Why Do We Need Normalization?</a></li><li class="depth-3"><a href="#12-normal-forms">1.2 Normal Forms</a></li><li class="depth-2"><a href="#2-relationships">2. Relationships</a></li><li class="depth-3"><a href="#21-one-to-one-11">2.1 One-to-One (1:1)</a></li><li class="depth-3"><a href="#22-one-to-many-1n">2.2 One-to-Many (1:N)</a></li><li class="depth-3"><a href="#23-many-to-many-nn">2.3 Many-to-Many (N:N)</a></li><li class="depth-2"><a href="#3-foreign-keys">3. Foreign keys</a></li><li class="depth-3"><a href="#31-syntax">3.1 Syntax</a></li><li class="depth-3"><a href="#32-on-delete-on-update-options">3.2 ON DELETE / ON UPDATE Options</a></li><li class="depth-2"><a href="#4-design-example-e-commerce-database">4. Design example: E-commerce database</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-blog-database-design">Exercise 1: Blog Database Design</a></li><li class="depth-2"><a href="#exercise-2-library-database-design">Exercise 2: Library Database Design</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li></ol></details><article class="doc" data-source="English/part_2_mysql_database/session_06_database_design.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 3 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-normalization">Read one theory section</a><span class="path-target">1. Normalization</span></li><li><a href="#exercise-1-blog-database-design">Build the first exercise yourself</a><span class="path-target">Exercise 1: Blog Database Design</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>Today we will learn how to design a <strong>professional database</strong> with Normalization and Relationships.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 6 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand database normalization</li><li>Design table relationships</li><li>Create primary and foreign keys</li><li>Apply database design best practices</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO3</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>normalization</strong> concepts (1NF, 2NF, 3NF)</li>
+<li>Design <strong>table relationships</strong>: one-to-one, one-to-many, many-to-many</li>
+<li>Create <strong>primary keys</strong> and <strong>foreign keys</strong></li>
+<li>Apply <strong>database design best practices</strong></li>
+<li>Design complete and efficient database schemas</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-normalization"><span class="h-num">1</span>Normalization<a class="anchor" href="#1-normalization" aria-label="Link to 1. Normalization">#</a></h2>
+<h3 id="11-why-do-we-need-normalization"><span class="h-num">1.1</span>Why Do We Need Normalization?<a class="anchor" href="#11-why-do-we-need-normalization" aria-label="Link to 1.1 Why Do We Need Normalization?">#</a></h3>
+<p><strong>Problems without normalization:</strong></p>
+<figure class="code-block is-plain" data-language="diagram" data-lines="8"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">8 lines</span></span></figcaption><pre tabindex="0"><code>Table: orders (NOT NORMALIZED)
+┌────┬──────────┬───────────────┬──────────────┬───────────┐
+│ id │ customer │ customer_addr │ product      │ price     │
+├────┼──────────┼───────────────┼──────────────┼───────────┤
+│ 1  │ Nguyen A │ 123 ABC St    │ Laptop       │ 1000      │
+│ 2  │ Nguyen A │ 123 ABC St    │ Mouse        │ 25        │
+│ 3  │ Tran B   │ 456 XYZ St    │ Laptop       │ 1000      │
+└────┴──────────┴───────────────┴──────────────┴───────────┘</code></pre></figure><p><strong>Issues:</strong></p>
+<ul><li>❌ Duplicated data (same customer, same address)</li>
+<li>❌ Hard to update (change address → must update many rows)</li>
+<li>❌ Wastes storage</li>
+</ul>
+<h3 id="12-normal-forms"><span class="h-num">1.2</span>Normal Forms<a class="anchor" href="#12-normal-forms" aria-label="Link to 1.2 Normal Forms">#</a></h3>
+<h4 id="1nf-first-normal-form">1NF (First Normal Form)<a class="anchor" href="#1nf-first-normal-form" aria-label="Link to 1NF (First Normal Form)">#</a></h4>
+<ul><li>Each cell contains only <strong>one value</strong></li>
+<li>No repeated columns (no column arrays like <code>phone1</code>, <code>phone2</code>, <code>phone3</code>)</li>
+</ul>
+<p>Read this comparison, do not run it: it declares <code>students</code> twice on purpose, so
+MySQL would stop at the second <code>CREATE TABLE</code>.</p>
+<figure class="code-block is-code is-read-only" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-flag">Broken on purpose</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- ❌ Violates 1NF</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> students (
+    id <span class="t-type">INT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)<span class="t-op">,</span>
+    phones <span class="t-type">VARCHAR</span>(<span class="t-num">200</span>)  <span class="t-com">-- &quot;0901234567, 0909876543&quot;</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- ✅ Correct 1NF</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> student_phones (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    student_id <span class="t-type">INT</span><span class="t-op">,</span>
+    phone <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (student_id) <span class="t-kw">REFERENCES</span> students(id)
+)<span class="t-op">;</span></code></pre></figure><h4 id="2nf-second-normal-form">2NF (Second Normal Form)<a class="anchor" href="#2nf-second-normal-form" aria-label="Link to 2NF (Second Normal Form)">#</a></h4>
+<ul><li>Satisfies 1NF</li>
+<li>No <strong>partial dependency</strong> on a composite primary key</li>
+</ul>
+<p>(If primary key is <code>(student_id, course_id)</code> → non-key columns must depend on <strong>both</strong>, not only one.)</p>
+<h4 id="3nf-third-normal-form">3NF (Third Normal Form)<a class="anchor" href="#3nf-third-normal-form" aria-label="Link to 3NF (Third Normal Form)">#</a></h4>
+<ul><li>Satisfies 2NF</li>
+<li>No <strong>transitive dependency</strong> (non-key columns should not depend on other non-key columns)</li>
+</ul>
+<h2 id="2-relationships"><span class="h-num">2</span>Relationships<a class="anchor" href="#2-relationships" aria-label="Link to 2. Relationships">#</a></h2>
+
+<aside class="callout is-rules" aria-labelledby="rules-where-to-run-the-examples-in-this-section"><p class="callout-title" id="rules-where-to-run-the-examples-in-this-section">Where to run the examples in this section</p><div class="callout-body"><p>Sections 2 and 3 are small standalone sketches, and some of them use the same
+table names as the shop schema in Section 4. Put them in their own scratch
+database so nothing collides:</p>
+<figure class="code-block is-code" data-language="sql" data-lines="2"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> design_practice<span class="t-op">;</span>
+<span class="t-kw">USE</span> design_practice<span class="t-op">;</span></code></pre></figure></div></aside>
+<h3 id="21-one-to-one-11"><span class="h-num">2.1</span>One-to-One (1:1)<a class="anchor" href="#21-one-to-one-11" aria-label="Link to 2.1 One-to-One (1:1)">#</a></h3>
+<p>Each record in Table A is linked to <strong>one</strong> record in Table B.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="15"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Example: User and Profile</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> profiles (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    user_id <span class="t-type">INT</span> <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>  <span class="t-com">-- UNIQUE = 1:1</span>
+    full_name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)<span class="t-op">,</span>
+    bio <span class="t-type">TEXT</span><span class="t-op">,</span>
+    avatar <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (user_id) <span class="t-kw">REFERENCES</span> users(id)
+)<span class="t-op">;</span></code></pre></figure><h3 id="22-one-to-many-1n"><span class="h-num">2.2</span>One-to-Many (1:N)<a class="anchor" href="#22-one-to-many-1n" aria-label="Link to 2.2 One-to-Many (1:N)">#</a></h3>
+<p>One record in Table A is linked to <strong>many</strong> records in Table B.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="13"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Example: Category and Products</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> products (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>  <span class="t-com">-- Not UNIQUE = 1:N</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span></code></pre></figure><h3 id="23-many-to-many-nn"><span class="h-num">2.3</span>Many-to-Many (N:N)<a class="anchor" href="#23-many-to-many-nn" aria-label="Link to 2.3 Many-to-Many (N:N)">#</a></h3>
+<p>Many records in Table A are linked to many records in Table B.</p>
+<p>We use a <strong>junction table</strong> (bridge table).</p>
+<figure class="code-block is-code" data-language="sql" data-lines="22"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Example: Students and Courses</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> courses (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Junction table (enrollments)</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> enrollments (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    student_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    course_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    enrolled_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    grade <span class="t-type">DECIMAL</span>(<span class="t-num">3</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (student_id) <span class="t-kw">REFERENCES</span> students(id)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (course_id) <span class="t-kw">REFERENCES</span> courses(id)<span class="t-op">,</span>
+    <span class="t-kw">UNIQUE</span> <span class="t-kw">KEY</span> (student_id<span class="t-op">,</span> course_id)  <span class="t-com">-- Prevent duplicate enrollment</span>
+)<span class="t-op">;</span></code></pre></figure><h2 id="3-foreign-keys"><span class="h-num">3</span>Foreign keys<a class="anchor" href="#3-foreign-keys" aria-label="Link to 3. Foreign keys">#</a></h2>
+<h3 id="31-syntax"><span class="h-num">3.1</span>Syntax<a class="anchor" href="#31-syntax" aria-label="Link to 3.1 Syntax">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="14"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">14 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- customers must exist before orders can point at it</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> customers (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> orders (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    customer_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    total <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (customer_id) <span class="t-kw">REFERENCES</span> customers(id)
+        <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span>
+        <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-kw">CASCADE</span>
+)<span class="t-op">;</span></code></pre></figure><h3 id="32-on-delete-on-update-options"><span class="h-num">3.2</span>ON DELETE / ON UPDATE Options<a class="anchor" href="#32-on-delete-on-update-options" aria-label="Link to 3.2 ON DELETE / ON UPDATE Options">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><code>CASCADE</code></td><td>Delete/Update child rows together</td></tr><tr><td><code>SET NULL</code></td><td>Set to NULL when parent is deleted</td></tr><tr><td><code>RESTRICT</code></td><td>Prevent delete/update if children exist</td></tr><tr><td><code>NO ACTION</code></td><td>Same as RESTRICT in MySQL</td></tr></tbody></table></div>
+<p>This next block is a <strong>fragment</strong>, not a complete statement — it is the line you
+put inside a <code>CREATE TABLE</code>. Running it on its own is a syntax error.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="4"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- When deleting a category, set product.category_id = NULL</span>
+<span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+    <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">SET</span> <span class="t-kw">NULL</span>
+    <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-kw">CASCADE</span><span class="t-op">;</span></code></pre></figure><h2 id="4-design-example-e-commerce-database"><span class="h-num">4</span>Design example: E-commerce database<a class="anchor" href="#4-design-example-e-commerce-database" aria-label="Link to 4. Design example: E-commerce database">#</a></h2>
+<p>This is the <code>shop_db</code> schema that Session 07 queries. Run the whole block in
+order: each <code>FOREIGN KEY</code> needs the table it points at to exist already.</p>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="66"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">66 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Database for online shop</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> shop_db<span class="t-op">;</span>
+<span class="t-kw">USE</span> shop_db<span class="t-op">;</span>
+
+<span class="t-com">-- 1. Users</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    role <span class="t-type">ENUM</span>(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;customer&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;customer&#39;</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- 2. Categories</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    parent_id <span class="t-type">INT</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (parent_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- 3. Products</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> products (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    sale_price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    stock <span class="t-type">INT</span> <span class="t-kw">DEFAULT</span> <span class="t-num">0</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- 4. Orders</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> orders (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    user_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    total <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    status <span class="t-type">ENUM</span>(<span class="t-str">&#39;pending&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;processing&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;shipped&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;delivered&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;cancelled&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;pending&#39;</span><span class="t-op">,</span>
+    shipping_address <span class="t-type">TEXT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (user_id) <span class="t-kw">REFERENCES</span> users(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- 5. Order Items (N:N between Orders and Products)</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> order_items (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    order_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    product_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    quantity <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (order_id) <span class="t-kw">REFERENCES</span> orders(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (product_id) <span class="t-kw">REFERENCES</span> products(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- 6. Product Images (1:N)</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> product_images (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    product_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    image_url <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    is_primary <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">FALSE</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (product_id) <span class="t-kw">REFERENCES</span> products(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span>
+)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> <code>SHOW TABLES;</code> lists six tables. Keep this database — Session
+07 uses it for every JOIN.</p>
+<h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-blog-database-design">Exercise 1: Blog Database Design<a class="anchor" href="#exercise-1-blog-database-design" aria-label="Link to Exercise 1: Blog Database Design">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Goal:</strong> Design database for a blog application</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Users (authors)</li>
+<li>Categories</li>
+<li>Posts</li>
+<li>Comments</li>
+<li>Tags (N:N with Posts)</li>
+</ul>
+<h2 id="exercise-2-library-database-design">Exercise 2: Library Database Design<a class="anchor" href="#exercise-2-library-database-design" aria-label="Link to Exercise 2: Library Database Design">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Goal:</strong> Design database for a library</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Books</li>
+<li>Members</li>
+<li>Borrowings (borrowing records)</li>
+<li>Authors (N:N with Books)</li>
+</ul>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand normalization concepts</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can design different types of relationships</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use foreign keys correctly</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can design a complete database schema</span></li>
+</ul>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/07-advanced-sql.html">Session 07 - Advanced SQL →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="05-introduction-to-sql.html"><span class="pager-label">Previous</span><span class="pager-title">Introduction to SQL</span></a><a class="pager-link is-next" href="07-advanced-sql.html"><span class="pager-label">Next</span><span class="pager-title">Advanced SQL</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

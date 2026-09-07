@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Security Methods — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Security Methods">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_4_security_jquery/session_14_security_methods.md">
+<meta name="source-sha256" content="79a0901d27c7082f73198a18db89fc462f5232366daf2d2b70199e3081c78756">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 14 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Security Methods</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1.1 What is SQL Injection?</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.3 Prevention</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">2.1 What is XSS?</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">2.3 Vulnerable Example</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">2.4 Prevention</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">3.1 What is CSRF?</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">3.3 Prevention with CSRF Token</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">4.1 Hashing Passwords</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">4.2 Password Policy</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">5. Input validation &amp; sanitization</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">6. File upload security</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">7. Security headers</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">Exercise 1: Secure Login Form</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">Exercise 2: Secure File Upload</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">Key takeaways</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Security Methods</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1.1 What is SQL Injection?</option><option value="7">8. 1.3 Prevention</option><option value="8">9. 2.1 What is XSS?</option><option value="9">10. 2.3 Vulnerable Example</option><option value="10">11. 2.4 Prevention</option><option value="11">12. 3.1 What is CSRF?</option><option value="12">13. 3.3 Prevention with CSRF Token</option><option value="13">14. 4.1 Hashing Passwords</option><option value="14">15. 4.2 Password Policy</option><option value="15">16. 5. Input validation &amp; sanitization</option><option value="16">17. 6. File upload security</option><option value="17">18. 7. Security headers</option><option value="18">19. Section: Practice</option><option value="19">20. Exercise 1: Secure Login Form</option><option value="20">21. Exercise 2: Secure File Upload</option><option value="21">22. Key takeaways</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 22</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Security Methods" aria-label="Slide 1 of 22"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Security Methods</h2><p class="title-lead">SQL injection, XSS, CSRF</p><p class="title-meta"><span>Session 14 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>1 / 22</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 22"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>SQL injection</span></li><li><span>Cross-site scripting (XSS)</span></li><li><span>Cross-site request forgery (CSRF)</span></li><li><span>Password security</span></li><li><span>Input validation &amp; sanitization</span></li><li><span>File upload security</span></li><li><span>Security headers</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>2 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>In this session, we will learn about <strong>common web security vulnerabilities</strong> and how to protect your PHP applications from <strong>SQL Injection</strong>, <strong>XSS</strong>, and <strong>CSRF</strong>.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>3 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 14 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand web security threats</li><li>Prevent SQL Injection</li><li>Prevent XSS attacks</li><li>Implement CSRF protection</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO6</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>4 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>web security threats</strong></li>
+<li><strong>Prevent SQL Injection</strong> attacks</li>
+<li><strong>Prevent XSS</strong> (Cross-Site Scripting) attacks</li>
+<li><strong>Implement CSRF</strong> protection</li>
+<li>Apply security best practices</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>5 / 22</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 22"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 14</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>6 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. SQL injection" aria-label="Slide 7 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 What is SQL Injection?</span></p><h2 class="slide-title"><span class="h-num">1</span>SQL injection</h2><div class="slide-body"><p><strong>SQL Injection</strong> = Attack technique where the attacker injects malicious SQL code through user input.</p>
+<h3 class="slide-h"><span class="h-num">1.2</span>Vulnerable Code Example</h3>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="10"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ❌ Vulnerable code</span>
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;username&#39;</span>];
+<span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>];
+
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users WHERE username = &#39;$username&#39; AND password = &#39;$password&#39;&quot;</span>;
+<span class="t-com">// If user enters: username = admin&#39; --</span>
+<span class="t-com">// SQL becomes: SELECT * FROM users WHERE username = &#39;admin&#39; --&#39; AND password = &#39;&#39;</span>
+<span class="t-com">// =&gt; Login without password!</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>7 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="1. SQL injection" aria-label="Slide 8 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.3 Prevention</span></p><h2 class="slide-title"><span class="h-num">1</span>SQL injection</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ✅ Use Prepared Statements</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users WHERE username = ? AND password = ?&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-var">$username</span>, <span class="t-var">$password</span>]);
+
+<span class="t-com">// ✅ Named parameters</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users WHERE username = :username AND password = :password&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([
+    <span class="t-str">&#39;:username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$username</span>,
+    <span class="t-str">&#39;:password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$password</span>,
+]);
+
+<span class="t-com">// ✅ Escape strings (only if you must build the query)</span>
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">quote</span>(<span class="t-var">$username</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>8 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="2. Cross-site scripting (XSS)" aria-label="Slide 9 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 What is XSS?</span></p><h2 class="slide-title"><span class="h-num">2</span>Cross-site scripting (XSS)</h2><div class="slide-body"><p><strong>XSS</strong> = Attack where the attacker injects malicious JavaScript into a web page viewed by other users.</p>
+<h3 class="slide-h"><span class="h-num">2.2</span>Types of XSS</h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>Stored XSS</strong></td><td>Script stored in DB and shown to many users</td></tr><tr><td><strong>Reflected XSS</strong></td><td>Script sent via URL / request, reflected in response</td></tr><tr><td><strong>DOM-based XSS</strong></td><td>Script executed on client side (JS only)</td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>9 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="2. Cross-site scripting (XSS)" aria-label="Slide 10 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 Vulnerable Example</span></p><h2 class="slide-title"><span class="h-num">2</span>Cross-site scripting (XSS)</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="7"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ❌ Vulnerable code</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;name&#39;</span>];
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello, $name!&quot;</span>;
+<span class="t-com">// URL: page.php?name=&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;</span>
+<span class="t-com">// =&gt; Malicious script is executed!</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>10 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="2. Cross-site scripting (XSS)" aria-label="Slide 11 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.4 Prevention</span></p><h2 class="slide-title"><span class="h-num">2</span>Cross-site scripting (XSS)</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="15"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ✅ Escape output with htmlspecialchars()</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello, &quot;</span> <span class="t-op">.</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$name</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-op">.</span> <span class="t-str">&quot;!&quot;</span>;
+
+<span class="t-com">// ✅ Helper function</span>
+<span class="t-kw">function</span> <span class="t-fn">e</span>(<span class="t-type">string</span> <span class="t-var">$string</span>)<span class="t-op">:</span> string {
+    <span class="t-kw">return</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$string</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+}
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello, &quot;</span> <span class="t-op">.</span> <span class="t-fn">e</span>(<span class="t-var">$name</span>) <span class="t-op">.</span> <span class="t-str">&quot;!&quot;</span>;
+
+<span class="t-com">// ✅ Content Security Policy header</span>
+<span class="t-fn">header</span>(<span class="t-str">&quot;Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>11 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="3. Cross-site request forgery (CSRF)" aria-label="Slide 12 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.1 What is CSRF?</span></p><h2 class="slide-title"><span class="h-num">3</span>Cross-site request forgery (CSRF)</h2><div class="slide-body"><p><strong>CSRF</strong> = Attack where the attacker tricks a logged-in user into performing unwanted actions.</p>
+<h3 class="slide-h"><span class="h-num">3.2</span>Attack Example</h3>
+<figure class="code-block is-code is-compact" data-language="html" data-lines="3"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">3 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">&lt;!-- Malicious page --&gt;</span>
+<span class="t-tag">&lt;img</span> <span class="t-att">src</span>=<span class="t-str">&quot;https://bank.com/transfer?to=hacker&amp;amount=1000&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-com">&lt;!-- If the user is logged in to bank.com, money may be transferred! --&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>12 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-13" tabindex="-1" data-slide data-slide-title="3. Cross-site request forgery (CSRF)" aria-label="Slide 13 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.3 Prevention with CSRF Token</span></p><h2 class="slide-title"><span class="h-num">3</span>Cross-site request forgery (CSRF)</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="32"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">32 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// csrf.php</span>
+<span class="t-fn">session_start</span>();
+
+<span class="t-kw">function</span> <span class="t-fn">generateCsrfToken</span>()<span class="t-op">:</span> string {
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;csrf_token&#39;</span>])) {
+        <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;csrf_token&#39;</span>] <span class="t-op">=</span> <span class="t-fn">bin2hex</span>(<span class="t-fn">random_bytes</span>(<span class="t-num">32</span>));
+    }
+    <span class="t-kw">return</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;csrf_token&#39;</span>];
+}
+
+<span class="t-kw">function</span> <span class="t-fn">verifyCsrfToken</span>(<span class="t-type">string</span> <span class="t-var">$token</span>)<span class="t-op">:</span> bool {
+    <span class="t-kw">return</span> <span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;csrf_token&#39;</span>]) <span class="t-op">&amp;&amp;</span> <span class="t-fn">hash_equals</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;csrf_token&#39;</span>], <span class="t-var">$token</span>);
+}
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!--</span> In form <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;hidden&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;csrf_token&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= generateCsrfToken() ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-op">&lt;!--</span> other fields <span class="t-op">--&gt;</span>
+    <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Submit<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+
+<span class="t-meta">&lt;?php</span>
+<span class="t-com">// Handling form</span>
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">verifyCsrfToken</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;csrf_token&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>)) {
+        <span class="t-fn">die</span>(<span class="t-str">&#39;CSRF token validation failed&#39;</span>);
+    }
+    <span class="t-com">// Process form...</span>
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>13 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-14" tabindex="-1" data-slide data-slide-title="4. Password security" aria-label="Slide 14 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.1 Hashing Passwords</span></p><h2 class="slide-title"><span class="h-num">4</span>Password security</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ✅ Hash password on registration</span>
+<span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>];
+<span class="t-var">$hashedPassword</span> <span class="t-op">=</span> <span class="t-fn">password_hash</span>(<span class="t-var">$password</span>, <span class="t-const">PASSWORD_DEFAULT</span>);
+
+<span class="t-com">// Save $hashedPassword to database</span>
+
+<span class="t-com">// ✅ Verify password on login</span>
+<span class="t-var">$inputPassword</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>];
+<span class="t-var">$storedHash</span> <span class="t-op">=</span> <span class="t-var">$user</span>[<span class="t-str">&#39;password&#39;</span>];  <span class="t-com">// From DB</span>
+
+<span class="t-kw">if</span> (<span class="t-fn">password_verify</span>(<span class="t-var">$inputPassword</span>, <span class="t-var">$storedHash</span>)) {
+    <span class="t-com">// Login success</span>
+} <span class="t-kw">else</span> {
+    <span class="t-com">// Wrong password</span>
+}
+
+<span class="t-com">// ✅ Check if hash needs rehashing (when algorithm changes)</span>
+<span class="t-kw">if</span> (<span class="t-fn">password_needs_rehash</span>(<span class="t-var">$storedHash</span>, <span class="t-const">PASSWORD_DEFAULT</span>)) {
+    <span class="t-var">$newHash</span> <span class="t-op">=</span> <span class="t-fn">password_hash</span>(<span class="t-var">$inputPassword</span>, <span class="t-const">PASSWORD_DEFAULT</span>);
+    <span class="t-com">// Update DB with $newHash</span>
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>14 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-15" tabindex="-1" data-slide data-slide-title="4. Password security" aria-label="Slide 15 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Password Policy</span></p><h2 class="slide-title"><span class="h-num">4</span>Password security</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="27"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">function</span> <span class="t-fn">validatePassword</span>(<span class="t-type">string</span> <span class="t-var">$password</span>)<span class="t-op">:</span> <span class="t-kw">array</span> {
+    <span class="t-var">$errors</span> <span class="t-op">=</span> [];
+    
+    <span class="t-kw">if</span> (<span class="t-fn">strlen</span>(<span class="t-var">$password</span>) <span class="t-op">&lt;</span> <span class="t-num">8</span>) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Password must be at least 8 characters&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&#39;/[A-Z]/&#39;</span>, <span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Password must contain at least one uppercase letter&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&#39;/[a-z]/&#39;</span>, <span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Password must contain at least one lowercase letter&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&#39;/[0-9]/&#39;</span>, <span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Password must contain at least one number&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&#39;/[!@#$%^&amp;*]/&#39;</span>, <span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Password must contain at least one special character&quot;</span>;
+    }
+    
+    <span class="t-kw">return</span> <span class="t-var">$errors</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>15 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-16" tabindex="-1" data-slide data-slide-title="5. Input validation &amp; sanitization" aria-label="Slide 16 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">5</span>Input validation &amp; sanitization</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="35"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">35 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ✅ Validation helpers</span>
+<span class="t-kw">function</span> <span class="t-fn">validateEmail</span>(<span class="t-type">string</span> <span class="t-var">$email</span>)<span class="t-op">:</span> bool {
+    <span class="t-kw">return</span> (<span class="t-type">bool</span>) <span class="t-fn">filter_var</span>(<span class="t-var">$email</span>, <span class="t-const">FILTER_VALIDATE_EMAIL</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">validateUrl</span>(<span class="t-type">string</span> <span class="t-var">$url</span>)<span class="t-op">:</span> bool {
+    <span class="t-kw">return</span> (<span class="t-type">bool</span>) <span class="t-fn">filter_var</span>(<span class="t-var">$url</span>, <span class="t-const">FILTER_VALIDATE_URL</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">validateInt</span>(<span class="t-type">string</span> <span class="t-var">$value</span>, <span class="t-op">?</span><span class="t-type">int</span> <span class="t-var">$min</span> <span class="t-op">=</span> <span class="t-lit">null</span>, <span class="t-op">?</span><span class="t-type">int</span> <span class="t-var">$max</span> <span class="t-op">=</span> <span class="t-lit">null</span>)<span class="t-op">:</span> <span class="t-type">int</span><span class="t-op">|</span><span class="t-lit">false</span> {
+    <span class="t-var">$options</span> <span class="t-op">=</span> [];
+    <span class="t-kw">if</span> (<span class="t-var">$min</span> <span class="t-op">!==</span> <span class="t-lit">null</span>) <span class="t-var">$options</span>[<span class="t-str">&#39;min_range&#39;</span>] <span class="t-op">=</span> <span class="t-var">$min</span>;
+    <span class="t-kw">if</span> (<span class="t-var">$max</span> <span class="t-op">!==</span> <span class="t-lit">null</span>) <span class="t-var">$options</span>[<span class="t-str">&#39;max_range&#39;</span>] <span class="t-op">=</span> <span class="t-var">$max</span>;
+    
+    <span class="t-kw">return</span> <span class="t-fn">filter_var</span>(<span class="t-var">$value</span>, <span class="t-const">FILTER_VALIDATE_INT</span>, [<span class="t-str">&#39;options&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$options</span>]);
+}
+
+<span class="t-com">// ✅ Sanitization helpers</span>
+<span class="t-kw">function</span> <span class="t-fn">sanitizeString</span>(<span class="t-type">string</span> <span class="t-var">$string</span>)<span class="t-op">:</span> string {
+    <span class="t-kw">return</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-fn">trim</span>(<span class="t-var">$string</span>), <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">sanitizeEmail</span>(<span class="t-type">string</span> <span class="t-var">$email</span>)<span class="t-op">:</span> string {
+    <span class="t-kw">return</span> <span class="t-fn">filter_var</span>(<span class="t-var">$email</span>, <span class="t-const">FILTER_SANITIZE_EMAIL</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">sanitizeUrl</span>(<span class="t-type">string</span> <span class="t-var">$url</span>)<span class="t-op">:</span> string {
+    <span class="t-kw">return</span> <span class="t-fn">filter_var</span>(<span class="t-var">$url</span>, <span class="t-const">FILTER_SANITIZE_URL</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">sanitizeInt</span>(<span class="t-type">string</span> <span class="t-var">$value</span>)<span class="t-op">:</span> int {
+    <span class="t-kw">return</span> (<span class="t-type">int</span>) <span class="t-fn">filter_var</span>(<span class="t-var">$value</span>, <span class="t-const">FILTER_SANITIZE_NUMBER_INT</span>);
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>16 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-17" tabindex="-1" data-slide data-slide-title="6. File upload security" aria-label="Slide 17 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">6</span>File upload security</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="35"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">35 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">function</span> <span class="t-fn">secureFileUpload</span>(<span class="t-kw">array</span> <span class="t-var">$file</span>, <span class="t-type">string</span> <span class="t-var">$uploadDir</span>)<span class="t-op">:</span> <span class="t-kw">array</span> {
+    <span class="t-com">// Check upload error</span>
+    <span class="t-kw">if</span> (<span class="t-var">$file</span>[<span class="t-str">&#39;error&#39;</span>] <span class="t-op">!==</span> <span class="t-const">UPLOAD_ERR_OK</span>) {
+        <span class="t-kw">return</span> [<span class="t-str">&#39;error&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Upload failed&#39;</span>];
+    }
+    
+    <span class="t-com">// Check size (max 5MB)</span>
+    <span class="t-kw">if</span> (<span class="t-var">$file</span>[<span class="t-str">&#39;size&#39;</span>] <span class="t-tag">&gt;</span> <span class="t-num">5</span> <span class="t-op">*</span> <span class="t-num">1024</span> <span class="t-op">*</span> <span class="t-num">1024</span>) {
+        <span class="t-kw">return</span> [<span class="t-str">&#39;error&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;File too large&#39;</span>];
+    }
+    
+    <span class="t-com">// Check MIME type</span>
+    <span class="t-var">$allowedTypes</span> <span class="t-op">=</span> [<span class="t-str">&#39;image/jpeg&#39;</span>, <span class="t-str">&#39;image/png&#39;</span>, <span class="t-str">&#39;image/gif&#39;</span>];
+    <span class="t-var">$finfo</span> <span class="t-op">=</span> <span class="t-fn">finfo_open</span>(<span class="t-const">FILEINFO_MIME_TYPE</span>);
+    <span class="t-var">$mimeType</span> <span class="t-op">=</span> <span class="t-fn">finfo_file</span>(<span class="t-var">$finfo</span>, <span class="t-var">$file</span>[<span class="t-str">&#39;tmp_name&#39;</span>]);
+    <span class="t-fn">finfo_close</span>(<span class="t-var">$finfo</span>);
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">in_array</span>(<span class="t-var">$mimeType</span>, <span class="t-var">$allowedTypes</span>, <span class="t-lit">true</span>)) {
+        <span class="t-kw">return</span> [<span class="t-str">&#39;error&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Invalid file type&#39;</span>];
+    }
+    
+    <span class="t-com">// Generate safe file name</span>
+    <span class="t-var">$extension</span> <span class="t-op">=</span> <span class="t-fn">pathinfo</span>(<span class="t-var">$file</span>[<span class="t-str">&#39;name&#39;</span>], <span class="t-const">PATHINFO_EXTENSION</span>);
+    <span class="t-var">$newName</span> <span class="t-op">=</span> <span class="t-fn">bin2hex</span>(<span class="t-fn">random_bytes</span>(<span class="t-num">16</span>)) <span class="t-op">.</span> <span class="t-str">&#39;.&#39;</span> <span class="t-op">.</span> <span class="t-var">$extension</span>;
+    <span class="t-var">$destination</span> <span class="t-op">=</span> <span class="t-var">$uploadDir</span> <span class="t-op">.</span> <span class="t-str">&#39;/&#39;</span> <span class="t-op">.</span> <span class="t-var">$newName</span>;
+    
+    <span class="t-com">// Move file</span>
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">move_uploaded_file</span>(<span class="t-var">$file</span>[<span class="t-str">&#39;tmp_name&#39;</span>], <span class="t-var">$destination</span>)) {
+        <span class="t-kw">return</span> [<span class="t-str">&#39;error&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Failed to save file&#39;</span>];
+    }
+    
+    <span class="t-kw">return</span> [<span class="t-str">&#39;success&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>, <span class="t-str">&#39;filename&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$newName</span>];
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>17 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="7. Security headers" aria-label="Slide 18 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">7</span>Security headers</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="9"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Add at the top of each page or in a central place</span>
+<span class="t-fn">header</span>(<span class="t-str">&quot;X-Content-Type-Options: nosniff&quot;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&quot;X-Frame-Options: DENY&quot;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&quot;X-XSS-Protection: 1; mode=block&quot;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&quot;Strict-Transport-Security: max-age=31536000; includeSubDomains&quot;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&quot;Content-Security-Policy: default-src &#39;self&#39;&quot;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&quot;Referrer-Policy: strict-origin-when-cross-origin&quot;</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>18 / 22</span></p></section>
+<section class="deck-slide is-part" id="slide-19" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 19 of 22"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 14</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>19 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-20" tabindex="-1" data-slide data-slide-title="Exercise 1: Secure Login Form" aria-label="Slide 20 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: Secure Login Form</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Add CSRF protection</li>
+<li>Prevent SQL Injection (PDO + prepared statements)</li>
+<li>Escape output to prevent XSS</li>
+<li>Hash passwords securely</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>20 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-21" tabindex="-1" data-slide data-slide-title="Exercise 2: Secure File Upload" aria-label="Slide 21 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: Secure File Upload</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Validate file type</li>
+<li>Limit file size</li>
+<li>Generate safe file name</li>
+<li>Store files outside public web root if possible</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>21 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-22" tabindex="-1" data-slide data-slide-title="Key takeaways" aria-label="Slide 22 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Key takeaways</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand SQL Injection and how to prevent it</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand XSS and how to prevent it</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand CSRF and how to protect against it</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Apply password, input, and file upload security best practices</span></li>
+</ul>
+<p><strong>Next: <a href="../ebook/15-jquery-and-ajax.html">Session 15 - jQuery Introduction →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 14</span><span>22 / 22</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

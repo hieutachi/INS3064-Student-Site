@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 13: Cookies and Sessions — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="State and authentication">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_4_security_jquery/session_13_cookies_sessions.md">
+<meta name="source-sha256" content="f10b66f10f177cdc2fa7f96d30f4e5c8b8a25d91b1be553893ec26b7ea2f7f36">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 13 · Ebook</p><h1>Cookies and Sessions</h1><p class="lead">State and authentication</p><div class="head-meta"><span class="chip">Part 4 · Security and jQuery</span><span class="chip">Cookies</span><span class="chip">Sessions</span><span class="chip">Login</span></div><div class="head-actions"><a class="button-link primary" href="../slides/13-cookies-and-sessions.html">Open the slide deck</a><a class="button-link" href="../sessions/session-13.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">23 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-cookies">1. Cookies</a></li><li class="depth-3"><a href="#11-what-is-a-cookie">1.1 What is a Cookie?</a></li><li class="depth-3"><a href="#12-creating-cookies">1.2 Creating Cookies</a></li><li class="depth-3"><a href="#13-reading-cookies">1.3 Reading Cookies</a></li><li class="depth-3"><a href="#14-deleting-cookies">1.4 Deleting Cookies</a></li><li class="depth-2"><a href="#2-sessions">2. Sessions</a></li><li class="depth-3"><a href="#21-what-is-a-session">2.1 What is a Session?</a></li><li class="depth-3"><a href="#22-starting-a-session">2.2 Starting a Session</a></li><li class="depth-3"><a href="#23-cookie-vs-session">2.3 Cookie vs Session</a></li><li class="depth-2"><a href="#3-login-system">3. Login system</a></li><li class="depth-3"><a href="#31-database">3.1 Database</a></li><li class="depth-3"><a href="#32-register">3.2 Register</a></li><li class="depth-3"><a href="#33-login">3.3 Login</a></li><li class="depth-3"><a href="#34-auth-middleware">3.4 Auth Middleware</a></li><li class="depth-3"><a href="#35-logout">3.5 Logout</a></li><li class="depth-3"><a href="#36-protected-page">3.6 Protected Page</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-complete-auth-system">Exercise 1: Complete Auth System</a></li><li class="depth-2"><a href="#exercise-2-role-based-access">Exercise 2: Role-based Access</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li></ol></details><article class="doc" data-source="English/part_4_security_jquery/session_13_cookies_sessions.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 3 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-cookies">Read one theory section</a><span class="path-target">1. Cookies</span></li><li><a href="#exercise-1-complete-auth-system">Build the first exercise yourself</a><span class="path-target">Exercise 1: Complete Auth System</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>In this session, we will learn how to manage <strong>user state</strong> with <strong>Cookies</strong> and <strong>Sessions</strong>, and how to build a simple authentication system.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 13 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand cookies and sessions</li><li>Implement user authentication</li><li>Manage session data</li><li>Create login/logout functionality</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO7</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>cookies and sessions</strong> in PHP</li>
+<li><strong>Implement user authentication</strong></li>
+<li><strong>Manage session data</strong> effectively</li>
+<li>Create <strong>login/logout functionality</strong></li>
+<li>Build secure user sessions</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-cookies"><span class="h-num">1</span>Cookies<a class="anchor" href="#1-cookies" aria-label="Link to 1. Cookies">#</a></h2>
+<h3 id="11-what-is-a-cookie"><span class="h-num">1.1</span>What is a Cookie?<a class="anchor" href="#11-what-is-a-cookie" aria-label="Link to 1.1 What is a Cookie?">#</a></h3>
+<p><strong>Cookie</strong> = Small piece of data stored in the user&#39;s browser.</p>
+<p>Common use cases:</p>
+<ul><li>Remember user preferences (language, theme)</li>
+<li>&quot;Remember me&quot; login</li>
+<li>Tracking (analytics)</li>
+</ul>
+<h3 id="12-creating-cookies"><span class="h-num">1.2</span>Creating Cookies<a class="anchor" href="#12-creating-cookies" aria-label="Link to 1.2 Creating Cookies">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="15"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Create simple cookies</span>
+<span class="t-fn">setcookie</span>(<span class="t-str">&quot;username&quot;</span>, <span class="t-str">&quot;john&quot;</span>, <span class="t-fn">time</span>() <span class="t-op">+</span> <span class="t-num">3600</span>);          <span class="t-com">// 1 hour</span>
+<span class="t-fn">setcookie</span>(<span class="t-str">&quot;theme&quot;</span>, <span class="t-str">&quot;dark&quot;</span>, <span class="t-fn">time</span>() <span class="t-op">+</span> (<span class="t-num">86400</span> <span class="t-op">*</span> <span class="t-num">30</span>));     <span class="t-com">// 30 days</span>
+
+<span class="t-com">// Cookie with options (PHP 7.3+)</span>
+<span class="t-fn">setcookie</span>(<span class="t-str">&quot;remember&quot;</span>, <span class="t-str">&quot;yes&quot;</span>, [
+    <span class="t-str">&#39;expires&#39;</span>  <span class="t-op">=&gt;</span> <span class="t-fn">time</span>() <span class="t-op">+</span> (<span class="t-num">86400</span> <span class="t-op">*</span> <span class="t-num">30</span>),
+    <span class="t-str">&#39;path&#39;</span>     <span class="t-op">=&gt;</span> <span class="t-str">&#39;/&#39;</span>,
+    <span class="t-str">&#39;domain&#39;</span>   <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>,
+    <span class="t-str">&#39;secure&#39;</span>   <span class="t-op">=&gt;</span> <span class="t-lit">true</span>,   <span class="t-com">// only over HTTPS</span>
+    <span class="t-str">&#39;httponly&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>,   <span class="t-com">// not accessible via JavaScript</span>
+    <span class="t-str">&#39;samesite&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Strict&#39;</span>
+]);
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="13-reading-cookies"><span class="h-num">1.3</span>Reading Cookies<a class="anchor" href="#13-reading-cookies" aria-label="Link to 1.3 Reading Cookies">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="9"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Read cookie</span>
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-var">$_COOKIE</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;Guest&#39;</span>;
+
+<span class="t-com">// Check if exists</span>
+<span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_COOKIE</span>[<span class="t-str">&#39;theme&#39;</span>])) {
+    <span class="t-var">$theme</span> <span class="t-op">=</span> <span class="t-var">$_COOKIE</span>[<span class="t-str">&#39;theme&#39;</span>];
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="14-deleting-cookies"><span class="h-num">1.4</span>Deleting Cookies<a class="anchor" href="#14-deleting-cookies" aria-label="Link to 1.4 Deleting Cookies">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="4"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Delete cookie (set expiration in the past)</span>
+<span class="t-fn">setcookie</span>(<span class="t-str">&quot;username&quot;</span>, <span class="t-str">&quot;&quot;</span>, <span class="t-fn">time</span>() <span class="t-op">-</span> <span class="t-num">3600</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 id="2-sessions"><span class="h-num">2</span>Sessions<a class="anchor" href="#2-sessions" aria-label="Link to 2. Sessions">#</a></h2>
+<h3 id="21-what-is-a-session"><span class="h-num">2.1</span>What is a Session?<a class="anchor" href="#21-what-is-a-session" aria-label="Link to 2.1 What is a Session?">#</a></h3>
+<p><strong>Session</strong> = Data stored on the <strong>server</strong>, identified by a <strong>session ID</strong> stored in a cookie.</p>
+<p>Used for:</p>
+<ul><li>User authentication</li>
+<li>Shopping cart</li>
+<li>Temporary data between requests</li>
+</ul>
+<h3 id="22-starting-a-session"><span class="h-num">2.2</span>Starting a Session<a class="anchor" href="#22-starting-a-session" aria-label="Link to 2.2 Starting a Session">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Must be called before any output</span>
+<span class="t-fn">session_start</span>();
+
+<span class="t-com">// Store data</span>
+<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>] <span class="t-op">=</span> <span class="t-num">1</span>;
+<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">=</span> <span class="t-str">&#39;john&#39;</span>;
+<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;role&#39;</span>] <span class="t-op">=</span> <span class="t-str">&#39;admin&#39;</span>;
+
+<span class="t-com">// Read data</span>
+<span class="t-var">$userId</span> <span class="t-op">=</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>] <span class="t-op">??</span> <span class="t-lit">null</span>;
+
+<span class="t-com">// Check if exists</span>
+<span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>])) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Logged in as: &quot;</span> <span class="t-op">.</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;username&#39;</span>];
+}
+
+<span class="t-com">// Remove a session variable</span>
+<span class="t-kw">unset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;temp_data&#39;</span>]);
+
+<span class="t-com">// Destroy all session data</span>
+<span class="t-fn">session_destroy</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="23-cookie-vs-session"><span class="h-num">2.3</span>Cookie vs Session<a class="anchor" href="#23-cookie-vs-session" aria-label="Link to 2.3 Cookie vs Session">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Feature</th><th>Cookie</th><th>Session</th></tr></thead><tbody><tr><td>Storage</td><td>Browser</td><td>Server</td></tr><tr><td>Size</td><td>~4KB</td><td>No strict limit</td></tr><tr><td>Security</td><td>Lower (client-side)</td><td>Higher (server-side)</td></tr><tr><td>Lifetime</td><td>Configurable</td><td>Until browser close (by default)</td></tr><tr><td>Usage</td><td>Remember me, preferences</td><td>Authentication, sensitive data</td></tr></tbody></table></div>
+<h2 id="3-login-system"><span class="h-num">3</span>Login system<a class="anchor" href="#3-login-system" aria-label="Link to 3. Login system">#</a></h2>
+<h3 id="31-database"><span class="h-num">3.1</span>Database<a class="anchor" href="#31-database" aria-label="Link to 3.1 Database">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    username <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    role <span class="t-type">ENUM</span>(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;user&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Sample user (password: 123456, hash not shown here)</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> users (username<span class="t-op">,</span> email<span class="t-op">,</span> password<span class="t-op">,</span> role) <span class="t-kw">VALUES</span>
+(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;admin@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;$2y$10$...&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;admin&#39;</span>)<span class="t-op">;</span></code></pre></figure><h3 id="32-register"><span class="h-num">3.2</span>Register<a class="anchor" href="#32-register" aria-label="Link to 3.2 Register">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="66"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">66 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// register.php</span>
+<span class="t-fn">session_start</span>();
+<span class="t-kw">require_once</span> <span class="t-str">&#39;classes/Database.php&#39;</span>;
+
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+<span class="t-var">$data</span> <span class="t-op">=</span> [<span class="t-str">&#39;username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>, <span class="t-str">&#39;email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>];
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$data</span> <span class="t-op">=</span> [
+        <span class="t-str">&#39;username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>),
+        <span class="t-str">&#39;email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>),
+        <span class="t-str">&#39;password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>,
+        <span class="t-str">&#39;confirm_password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;confirm_password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>,
+    ];
+    
+    <span class="t-com">// Validation</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;username&#39;</span>])) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Username is required&quot;</span>;
+    } <span class="t-kw">elseif</span> (<span class="t-fn">strlen</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;username&#39;</span>]) <span class="t-op">&lt;</span> <span class="t-num">3</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Username must be at least 3 characters&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;email&#39;</span>])) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Email is required&quot;</span>;
+    } <span class="t-kw">elseif</span> (<span class="t-op">!</span><span class="t-fn">filter_var</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;email&#39;</span>], <span class="t-const">FILTER_VALIDATE_EMAIL</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Invalid email&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-fn">strlen</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;password&#39;</span>]) <span class="t-op">&lt;</span> <span class="t-num">6</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Password must be at least 6 characters&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-var">$data</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">!==</span> <span class="t-var">$data</span>[<span class="t-str">&#39;confirm_password&#39;</span>]) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;confirm_password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Passwords do not match&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+        
+        <span class="t-com">// Check existing user</span>
+        <span class="t-var">$existing</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(
+            <span class="t-str">&quot;SELECT id FROM users WHERE username = ? OR email = ?&quot;</span>,
+            [<span class="t-var">$data</span>[<span class="t-str">&#39;username&#39;</span>], <span class="t-var">$data</span>[<span class="t-str">&#39;email&#39;</span>]]
+        );
+        
+        <span class="t-kw">if</span> (<span class="t-var">$existing</span>) {
+            <span class="t-var">$errors</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Username or email already exists&quot;</span>;
+        } <span class="t-kw">else</span> {
+            <span class="t-com">// Insert user</span>
+            <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(
+                <span class="t-str">&quot;INSERT INTO users (username, email, password) VALUES (?, ?, ?)&quot;</span>,
+                [
+                    <span class="t-var">$data</span>[<span class="t-str">&#39;username&#39;</span>],
+                    <span class="t-var">$data</span>[<span class="t-str">&#39;email&#39;</span>],
+                    <span class="t-fn">password_hash</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;password&#39;</span>], <span class="t-const">PASSWORD_DEFAULT</span>),
+                ]
+            );
+            
+            <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;success&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Registration successful! Please login.&quot;</span>;
+            <span class="t-fn">header</span>(<span class="t-str">&#39;Location: login.php&#39;</span>);
+            exit;
+        }
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="33-login"><span class="h-num">3.3</span>Login<a class="anchor" href="#33-login" aria-label="Link to 3.3 Login">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="100"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">100 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// login.php</span>
+<span class="t-fn">session_start</span>();
+<span class="t-kw">require_once</span> <span class="t-str">&#39;classes/Database.php&#39;</span>;
+
+<span class="t-com">// Redirect if already logged in</span>
+<span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>])) {
+    <span class="t-fn">header</span>(<span class="t-str">&#39;Location: dashboard.php&#39;</span>);
+    exit;
+}
+
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+    <span class="t-var">$remember</span> <span class="t-op">=</span> <span class="t-kw">isset</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;remember&#39;</span>]);
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$username</span>) <span class="t-op">||</span> <span class="t-kw">empty</span>(<span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;login&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Please enter username and password&quot;</span>;
+    } <span class="t-kw">else</span> {
+        <span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+        <span class="t-var">$user</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(
+            <span class="t-str">&quot;SELECT * FROM users WHERE username = ? OR email = ?&quot;</span>,
+            [<span class="t-var">$username</span>, <span class="t-var">$username</span>]
+        );
+        
+        <span class="t-kw">if</span> (<span class="t-var">$user</span> <span class="t-op">&amp;&amp;</span> <span class="t-fn">password_verify</span>(<span class="t-var">$password</span>, <span class="t-var">$user</span>[<span class="t-str">&#39;password&#39;</span>])) {
+            <span class="t-com">// Login success</span>
+            <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>] <span class="t-op">=</span> <span class="t-var">$user</span>[<span class="t-str">&#39;id&#39;</span>];
+            <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">=</span> <span class="t-var">$user</span>[<span class="t-str">&#39;username&#39;</span>];
+            <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;role&#39;</span>] <span class="t-op">=</span> <span class="t-var">$user</span>[<span class="t-str">&#39;role&#39;</span>];
+            
+            <span class="t-com">// Remember me via cookie (simple version)</span>
+            <span class="t-kw">if</span> (<span class="t-var">$remember</span>) {
+                <span class="t-var">$token</span> <span class="t-op">=</span> <span class="t-fn">bin2hex</span>(<span class="t-fn">random_bytes</span>(<span class="t-num">32</span>));
+                <span class="t-fn">setcookie</span>(<span class="t-str">&#39;remember_token&#39;</span>, <span class="t-var">$token</span>, <span class="t-fn">time</span>() <span class="t-op">+</span> (<span class="t-num">86400</span> <span class="t-op">*</span> <span class="t-num">30</span>), <span class="t-str">&#39;/&#39;</span>, <span class="t-str">&#39;&#39;</span>, <span class="t-lit">false</span>, <span class="t-lit">true</span>);
+                <span class="t-com">// Save token to database for this user (not shown)</span>
+            }
+            
+            <span class="t-fn">header</span>(<span class="t-str">&#39;Location: dashboard.php&#39;</span>);
+            exit;
+        } <span class="t-kw">else</span> {
+            <span class="t-var">$errors</span>[<span class="t-str">&#39;login&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Invalid username or password&quot;</span>;
+        }
+    }
+}
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Login<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;link</span> href<span class="t-op">=</span><span class="t-str">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot;</span> rel<span class="t-op">=</span><span class="t-str">&quot;stylesheet&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;bg-light&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;container&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;row justify-content-center mt-5&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-4&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-header text-center&quot;</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;h4</span><span class="t-tag">&gt;</span>🔐 Login<span class="t-tag">&lt;/h4</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-body&quot;</span><span class="t-tag">&gt;</span>
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;success&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;alert alert-success&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;success&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                            <span class="t-meta">&lt;?php</span> <span class="t-kw">unset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;success&#39;</span>]); <span class="t-meta">?&gt;</span>
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+                        
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;login&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;alert alert-danger&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;login&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+                        
+                        <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mb-3&quot;</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Username <span class="t-kw">or</span> Email<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;username&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control&quot;</span> 
+                                       value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($username) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mb-3&quot;</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Password<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control&quot;</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mb-3 form-check&quot;</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;checkbox&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;remember&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-check-input&quot;</span> id<span class="t-op">=</span><span class="t-str">&quot;remember&quot;</span><span class="t-tag">&gt;</span>
+                                <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-check-label&quot;</span> <span class="t-kw">for</span><span class="t-op">=</span><span class="t-str">&quot;remember&quot;</span><span class="t-tag">&gt;</span>Remember me<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                            <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-primary w-100&quot;</span><span class="t-tag">&gt;</span>Login<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;p</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mt-3 text-center&quot;</span><span class="t-tag">&gt;</span>
+                            Don&#39;t have an account<span class="t-op">?</span> <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;register.php&quot;</span><span class="t-tag">&gt;</span>Register<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure><h3 id="34-auth-middleware"><span class="h-num">3.4</span>Auth Middleware<a class="anchor" href="#34-auth-middleware" aria-label="Link to 3.4 Auth Middleware">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="32"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">32 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// includes/auth.php</span>
+<span class="t-fn">session_start</span>();
+
+<span class="t-kw">function</span> <span class="t-fn">isLoggedIn</span>()<span class="t-op">:</span> bool {
+    <span class="t-kw">return</span> <span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>]);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">requireLogin</span>()<span class="t-op">:</span> void {
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">isLoggedIn</span>()) {
+        <span class="t-fn">header</span>(<span class="t-str">&#39;Location: login.php&#39;</span>);
+        exit;
+    }
+}
+
+<span class="t-kw">function</span> <span class="t-fn">requireAdmin</span>()<span class="t-op">:</span> void {
+    <span class="t-fn">requireLogin</span>();
+    <span class="t-kw">if</span> ((<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;role&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;user&#39;</span>) <span class="t-op">!==</span> <span class="t-str">&#39;admin&#39;</span>) {
+        <span class="t-fn">header</span>(<span class="t-str">&#39;Location: unauthorized.php&#39;</span>);
+        exit;
+    }
+}
+
+<span class="t-kw">function</span> <span class="t-fn">getCurrentUser</span>()<span class="t-op">:</span> <span class="t-op">?</span><span class="t-kw">array</span> {
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">isLoggedIn</span>()) <span class="t-kw">return</span> <span class="t-lit">null</span>;
+    <span class="t-kw">return</span> [
+        <span class="t-str">&#39;id&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>],
+        <span class="t-str">&#39;username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;username&#39;</span>],
+        <span class="t-str">&#39;role&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_SESSION</span>[<span class="t-str">&#39;role&#39;</span>],
+    ];
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="35-logout"><span class="h-num">3.5</span>Logout<a class="anchor" href="#35-logout" aria-label="Link to 3.5 Logout">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="22"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// logout.php</span>
+<span class="t-fn">session_start</span>();
+
+<span class="t-com">// Clear session array</span>
+<span class="t-var">$_SESSION</span> <span class="t-op">=</span> [];
+
+<span class="t-com">// Delete session cookie</span>
+<span class="t-kw">if</span> (<span class="t-fn">ini_get</span>(<span class="t-str">&quot;session.use_cookies&quot;</span>)) {
+    <span class="t-var">$params</span> <span class="t-op">=</span> <span class="t-fn">session_get_cookie_params</span>();
+    <span class="t-fn">setcookie</span>(<span class="t-fn">session_name</span>(), <span class="t-str">&#39;&#39;</span>, <span class="t-fn">time</span>() <span class="t-op">-</span> <span class="t-num">42000</span>, <span class="t-var">$params</span>[<span class="t-str">&quot;path&quot;</span>]);
+}
+
+<span class="t-com">// Delete remember cookie</span>
+<span class="t-fn">setcookie</span>(<span class="t-str">&#39;remember_token&#39;</span>, <span class="t-str">&#39;&#39;</span>, <span class="t-fn">time</span>() <span class="t-op">-</span> <span class="t-num">3600</span>, <span class="t-str">&#39;/&#39;</span>);
+
+<span class="t-com">// Destroy session</span>
+<span class="t-fn">session_destroy</span>();
+
+<span class="t-fn">header</span>(<span class="t-str">&#39;Location: login.php&#39;</span>);
+exit;
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="36-protected-page"><span class="h-num">3.6</span>Protected Page<a class="anchor" href="#36-protected-page" aria-label="Link to 3.6 Protected Page">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// dashboard.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;includes/auth.php&#39;</span>;
+<span class="t-fn">requireLogin</span>();
+
+<span class="t-var">$user</span> <span class="t-op">=</span> <span class="t-fn">getCurrentUser</span>();
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Dashboard<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>Welcome, <span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$user</span>[<span class="t-str">&#39;username&#39;</span>]) <span class="t-meta">?&gt;</span><span class="t-op">!&lt;/</span>h1<span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Role<span class="t-op">:</span> <span class="t-meta">&lt;?=</span> <span class="t-var">$user</span>[<span class="t-str">&#39;role&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;logout.php&quot;</span><span class="t-tag">&gt;</span>Logout<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-complete-auth-system">Exercise 1: Complete Auth System<a class="anchor" href="#exercise-1-complete-auth-system" aria-label="Link to Exercise 1: Complete Auth System">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Registration with validation</li>
+<li>Login with &quot;remember me&quot;</li>
+<li>Profile page</li>
+<li>Change password feature</li>
+</ul>
+<h2 id="exercise-2-role-based-access">Exercise 2: Role-based Access<a class="anchor" href="#exercise-2-role-based-access" aria-label="Link to Exercise 2: Role-based Access">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Admin dashboard (admin only)</li>
+<li>User dashboard</li>
+<li>Show an &quot;Unauthorized&quot; page for restricted access</li>
+</ul>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand Cookies and Sessions</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Build a basic authentication system</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Manage and protect session data</span></li>
+</ul>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/14-security-methods.html">Session 14 - Security Methods →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="12-web-application-development.html"><span class="pager-label">Previous</span><span class="pager-title">Web Application Development</span></a><a class="pager-link is-next" href="14-security-methods.html"><span class="pager-label">Next</span><span class="pager-title">Security Methods</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

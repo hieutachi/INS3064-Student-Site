@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4: Introduction to MySQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Databases and phpMyAdmin">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_2_mysql_database/session_04_intro_mysql.md">
+<meta name="source-sha256" content="4e0d5823d0769752426e1c419c6e1eb00fdddf044d6cc83a6654b3c444640802">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 04 · Ebook</p><h1>Introduction to MySQL</h1><p class="lead">Databases and phpMyAdmin</p><div class="head-meta"><span class="chip">Part 2 · MySQL and databases</span><span class="chip">MySQL</span><span class="chip">phpMyAdmin</span><span class="chip">Tables</span></div><div class="head-actions"><a class="button-link primary" href="../slides/04-introduction-to-mysql.html">Open the slide deck</a><a class="button-link" href="../sessions/session-04.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">38 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-what-is-database">1. What is database?</a></li><li class="depth-3"><a href="#11-definition">1.1 Definition</a></li><li class="depth-3"><a href="#12-why-do-we-need-database">1.2 Why Do We Need Database?</a></li><li class="depth-3"><a href="#13-what-is-mysql">1.3 What is MySQL?</a></li><li class="depth-2"><a href="#2-installation-and-configuration">2. Installation and configuration</a></li><li class="depth-3"><a href="#21-mysql-in-xampp">2.1 MySQL in XAMPP</a></li><li class="depth-3"><a href="#22-access-phpmyadmin">2.2 Access phpMyAdmin</a></li><li class="depth-3"><a href="#23-phpmyadmin-interface">2.3 phpMyAdmin Interface</a></li><li class="depth-2"><a href="#3-create-database">3. Create database</a></li><li class="depth-3"><a href="#31-via-phpmyadmin">3.1 Via phpMyAdmin</a></li><li class="depth-3"><a href="#32-via-sql">3.2 Via SQL</a></li><li class="depth-2"><a href="#4-create-table">4. CREATE TABLE</a></li><li class="depth-3"><a href="#41-table-structure">4.1 Table Structure</a></li><li class="depth-3"><a href="#42-create-table-with-sql">4.2 Create Table with SQL</a></li><li class="depth-3"><a href="#43-create-table-via-phpmyadmin">4.3 Create Table via phpMyAdmin</a></li><li class="depth-2"><a href="#5-mysql-data-types">5. MySQL data types</a></li><li class="depth-3"><a href="#51-numeric-types">5.1 Numeric Types</a></li><li class="depth-3"><a href="#52-string-types">5.2 String Types</a></li><li class="depth-3"><a href="#53-datetime-types">5.3 Date/Time Types</a></li><li class="depth-3"><a href="#54-other-types">5.4 Other Types</a></li><li class="depth-2"><a href="#6-constraints">6. Constraints</a></li><li class="depth-3"><a href="#61-types-of-constraints">6.1 Types of Constraints</a></li><li class="depth-3"><a href="#62-autoincrement">6.2 AUTOINCREMENT</a></li><li class="depth-1"><a href="#examples-illustrations">Examples &amp; illustrations</a></li><li class="depth-2"><a href="#example-create-database-for-blog-application">Example: Create Database for Blog Application</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-create-student-database">Exercise 1: Create Student Database</a></li><li class="depth-2"><a href="#exercise-2-create-product-database">Exercise 2: Create Product Database</a></li><li class="depth-2"><a href="#exercise-3-design-database-challenge">Exercise 3: Design Database (Challenge)</a></li><li class="depth-1"><a href="#knowledge-to-achieve">✅ Knowledge to achieve</a></li><li class="depth-1"><a href="#session-04-worksheet">📋 Session 04 worksheet</a></li><li class="depth-2"><a href="#questions">Questions</a></li><li class="depth-2"><a href="#exercises">Exercises</a></li><li class="depth-1"><a href="#preparation-for-session-05">🔗 Preparation for session 05</a></li><li class="depth-3"><a href="#will-learn">Will Learn:</a></li></ol></details><article class="doc" data-source="English/part_2_mysql_database/session_04_intro_mysql.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 3 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-what-is-database">Read one theory section</a><span class="path-target">1. What is database?</span></li><li><a href="#exercise-1-create-student-database">Build the first exercise yourself</a><span class="path-target">Exercise 1: Create Student Database</span></li><li><a href="#knowledge-to-achieve">Test yourself</a><span class="path-target">Knowledge to achieve</span></li></ol></div></aside><p>Welcome to the Database section! Today we will learn about MySQL - the most popular database management system for web.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 4 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand what Database is</li><li>Install and configure MySQL</li><li>Use phpMyAdmin</li><li>Create first Database and Table</li></ul></div><div class="brief-item"><span class="brief-key">Preparation</span><p class="brief-value">XAMPP installed</p></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO3</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will:</p>
+<ul><li><strong>Understand</strong> what Database and MySQL are</li>
+<li><strong>Use</strong> phpMyAdmin to manage database</li>
+<li><strong>Create</strong> Database and Table</li>
+<li><strong>Understand</strong> data types in MySQL</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-what-is-database"><span class="h-num">1</span>What is database?<a class="anchor" href="#1-what-is-database" aria-label="Link to 1. What is database?">#</a></h2>
+<h3 id="11-definition"><span class="h-num">1.1</span>Definition<a class="anchor" href="#11-definition" aria-label="Link to 1.1 Definition">#</a></h3>
+<p><strong>Database (Cơ sở dữ liệu)</strong> = Organized storage place for data, can retrieve, manage and update.</p>
+
+<aside class="callout is-analogy" aria-labelledby="analogy-real-life-analogy"><p class="callout-title" id="analogy-real-life-analogy">Real-life Analogy</p><div class="callout-body"><p>Database is like an <strong>office filing cabinet</strong>:</p>
+<ul><li><strong>Database</strong> = Filing cabinet</li>
+<li><strong>Table</strong> = Drawer</li>
+<li><strong>Row</strong> = One file</li>
+<li><strong>Column</strong> = Information items on the file</li>
+</ul>
+</div></aside>
+<h3 id="12-why-do-we-need-database"><span class="h-num">1.2</span>Why Do We Need Database?<a class="anchor" href="#12-why-do-we-need-database" aria-label="Link to 1.2 Why Do We Need Database?">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Problem</th><th>Without DB</th><th>With DB</th></tr></thead><tbody><tr><td>Storage</td><td>Text files, hard to manage</td><td>Structured, easy to manage</td></tr><tr><td>Search</td><td>Slow, must read all</td><td>Fast with index</td></tr><tr><td>Security</td><td>Hard to control</td><td>Has users, permissions</td></tr><tr><td>Concurrency</td><td>Data conflicts</td><td>Transaction handling</td></tr></tbody></table></div>
+<h3 id="13-what-is-mysql"><span class="h-num">1.3</span>What is MySQL?<a class="anchor" href="#13-what-is-mysql" aria-label="Link to 1.3 What is MySQL?">#</a></h3>
+<p><strong>MySQL</strong> = Most popular Relational Database Management System (RDBMS).</p>
+<p><strong>Features:</strong></p>
+<ul><li>✅ Free, open source</li>
+<li>✅ Fast, stable</li>
+<li>✅ Easy to use</li>
+<li>✅ Great integration with PHP</li>
+<li>✅ Large community</li>
+</ul>
+<p><strong>Who uses MySQL?</strong></p>
+<ul><li>Facebook, Twitter, YouTube, Wikipedia, WordPress</li>
+</ul>
+<h2 id="2-installation-and-configuration"><span class="h-num">2</span>Installation and configuration<a class="anchor" href="#2-installation-and-configuration" aria-label="Link to 2. Installation and configuration">#</a></h2>
+<h3 id="21-mysql-in-xampp"><span class="h-num">2.1</span>MySQL in XAMPP<a class="anchor" href="#21-mysql-in-xampp" aria-label="Link to 2.1 MySQL in XAMPP">#</a></h3>
+<p>MySQL is already installed in XAMPP:</p>
+<ol><li>Open XAMPP Control Panel</li>
+<li>Start <strong>MySQL</strong></li>
+<li>Status: Running (green)</li>
+</ol>
+<h3 id="22-access-phpmyadmin"><span class="h-num">2.2</span>Access phpMyAdmin<a class="anchor" href="#22-access-phpmyadmin" aria-label="Link to 2.2 Access phpMyAdmin">#</a></h3>
+<p><strong>phpMyAdmin</strong> = Web tool to manage MySQL</p>
+<ol><li>Open browser</li>
+<li>Visit: <code>http://localhost/phpmyadmin</code></li>
+<li>Login:<ul><li>Username: <code>root</code></li>
+<li>Password: (leave blank)</li>
+</ul>
+</li>
+</ol>
+<h3 id="23-phpmyadmin-interface"><span class="h-num">2.3</span>phpMyAdmin Interface<a class="anchor" href="#23-phpmyadmin-interface" aria-label="Link to 2.3 phpMyAdmin Interface">#</a></h3>
+<figure class="code-block is-plain" data-language="diagram" data-lines="15"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">15 lines</span></span></figcaption><pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────┐
+│ phpMyAdmin                                                   │
+├─────────────┬───────────────────────────────────────────────┤
+│             │                                               │
+│ [Databases] │  Server: localhost                            │
+│ ├── mysql   │  Server version: 8.0.x                        │
+│ ├── test    │                                               │
+│ └── ...     │  [SQL] [Status] [Users] [Export] [Import]     │
+│             │                                               │
+│             │  ┌─────────────────────────────────────────┐  │
+│             │  │ Create database                         │  │
+│             │  │ [____________] [Create]                 │  │
+│             │  └─────────────────────────────────────────┘  │
+│             │                                               │
+└─────────────┴───────────────────────────────────────────────┘</code></pre></figure><h2 id="3-create-database"><span class="h-num">3</span>Create database<a class="anchor" href="#3-create-database" aria-label="Link to 3. Create database">#</a></h2>
+<h3 id="31-via-phpmyadmin"><span class="h-num">3.1</span>Via phpMyAdmin<a class="anchor" href="#31-via-phpmyadmin" aria-label="Link to 3.1 Via phpMyAdmin">#</a></h3>
+<ol><li>Click <strong>New</strong> (or Databases)</li>
+<li>Enter database name: <code>ins3064_db</code></li>
+<li>Select Collation: <code>utf8mb4_unicode_ci</code></li>
+<li>Click <strong>Create</strong></li>
+</ol>
+<h3 id="32-via-sql"><span class="h-num">3.2</span>Via SQL<a class="anchor" href="#32-via-sql" aria-label="Link to 3.2 Via SQL">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="10"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create database</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> ins3064_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4
+<span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+
+<span class="t-com">-- Use database</span>
+<span class="t-kw">USE</span> ins3064_db<span class="t-op">;</span>
+
+<span class="t-com">-- View list of databases</span>
+<span class="t-kw">SHOW</span> DATABASES<span class="t-op">;</span></code></pre></figure>
+<aside class="callout is-warn" aria-labelledby="warn-drop-database-removes-everything-inside-it"><p class="callout-title" id="warn-drop-database-removes-everything-inside-it">DROP DATABASE removes everything inside it</p><div class="callout-body"><p>Keep <code>ins3064_db</code> — Section 4 creates a table in it. Only run this when you
+genuinely want the database and all its tables gone.</p>
+<figure class="code-block is-code is-read-only" data-language="sql" data-lines="2"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Destructive: deletes the database and every table in it</span>
+<span class="t-kw">DROP</span> <span class="t-kw">DATABASE</span> ins3064_db<span class="t-op">;</span></code></pre></figure></div></aside>
+<aside class="callout is-rules" aria-labelledby="rules-naming-rules"><p class="callout-title" id="rules-naming-rules">Naming Rules</p><div class="callout-body"><ul><li>Use lowercase</li>
+<li>No spaces</li>
+<li>Use underscore: <code>my_database</code></li>
+<li>Meaningful: <code>shop_db</code>, <code>blog_db</code></li>
+</ul>
+</div></aside>
+<h2 id="4-create-table"><span class="h-num">4</span>CREATE TABLE<a class="anchor" href="#4-create-table" aria-label="Link to 4. CREATE TABLE">#</a></h2>
+<h3 id="41-table-structure"><span class="h-num">4.1</span>Table Structure<a class="anchor" href="#41-table-structure" aria-label="Link to 4.1 Table Structure">#</a></h3>
+<figure class="code-block is-plain" data-language="diagram" data-lines="9"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">9 lines</span></span></figcaption><pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────────────┐
+│ Table: students (6 of its 10 columns)                               │
+├─────┬──────────────┬──────────┬─────────┬───────┬───────────────────┤
+│ id  │ student_code │ name     │ email   │ class │ created_at        │
+├─────┼──────────────┼──────────┼─────────┼───────┼───────────────────┤
+│ 1   │ ST001        │ John Doe │ j@e.com │ ICT1  │ 2024-01-01 10:00  │
+│ 2   │ ST002        │ Jane S.  │ s@e.com │ ICT1  │ 2024-01-02 11:00  │
+│ 3   │ ST003        │ Bob J.   │ b@e.com │ ICT2  │ 2024-01-03 12:00  │
+└─────┴──────────────┴──────────┴─────────┴───────┴───────────────────┘</code></pre></figure><h3 id="42-create-table-with-sql"><span class="h-num">4.2</span>Create Table with SQL<a class="anchor" href="#42-create-table-with-sql" aria-label="Link to 4.2 Create Table with SQL">#</a></h3>
+<p>This is the <code>students</code> table used by Session 05 as well, so create it with every
+column those queries need. Run it inside <code>ins3064_db</code> from Section 3.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create table students</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    student_code <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    phone <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    class <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    age <span class="t-type">INT</span><span class="t-op">,</span>
+    gpa <span class="t-type">DECIMAL</span>(<span class="t-num">3</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- View table structure</span>
+<span class="t-kw">DESCRIBE</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- View list of tables</span>
+<span class="t-kw">SHOW</span> TABLES<span class="t-op">;</span></code></pre></figure>
+<aside class="callout is-warn" aria-labelledby="warn-drop-table-deletes-the-table-and-every-row-in-it"><p class="callout-title" id="warn-drop-table-deletes-the-table-and-every-row-in-it">DROP TABLE deletes the table and every row in it</p><div class="callout-body"><p>Do not run this next line yet. Session 05 queries the <code>students</code> table you just
+created. Come back to it only when you want to start over from an empty database.</p>
+<figure class="code-block is-code is-read-only" data-language="sql" data-lines="2"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Destructive: deletes the table and all its data</span>
+<span class="t-kw">DROP</span> <span class="t-kw">TABLE</span> students<span class="t-op">;</span></code></pre></figure></div></aside>
+<h3 id="43-create-table-via-phpmyadmin"><span class="h-num">4.3</span>Create Table via phpMyAdmin<a class="anchor" href="#43-create-table-via-phpmyadmin" aria-label="Link to 4.3 Create Table via phpMyAdmin">#</a></h3>
+<ol><li>Select database</li>
+<li>Click <strong>New</strong> (Create table)</li>
+<li>Enter table name: <code>students</code></li>
+<li>Number of columns: 10</li>
+<li>Fill information for each column</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h2 id="5-mysql-data-types"><span class="h-num">5</span>MySQL data types<a class="anchor" href="#5-mysql-data-types" aria-label="Link to 5. MySQL data types">#</a></h2>
+<h3 id="51-numeric-types"><span class="h-num">5.1</span>Numeric Types<a class="anchor" href="#51-numeric-types" aria-label="Link to 5.1 Numeric Types">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Range</th><th>Example</th></tr></thead><tbody><tr><td><code>TINYINT</code></td><td>Small integer</td><td>-128 to 127</td><td>Age</td></tr><tr><td><code>INT</code></td><td>Integer</td><td>±2 billion</td><td>ID</td></tr><tr><td><code>BIGINT</code></td><td>Large integer</td><td>Very large</td><td>Views</td></tr><tr><td><code>DECIMAL(M,D)</code></td><td>Precise decimal</td><td>-</td><td>Money (10,2)</td></tr><tr><td><code>FLOAT</code></td><td>Floating point</td><td>-</td><td>Score</td></tr></tbody></table></div>
+<h3 id="52-string-types"><span class="h-num">5.2</span>String Types<a class="anchor" href="#52-string-types" aria-label="Link to 5.2 String Types">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Length</th><th>Example</th></tr></thead><tbody><tr><td><code>CHAR(N)</code></td><td>Fixed string</td><td>0-255</td><td>Code (10)</td></tr><tr><td><code>VARCHAR(N)</code></td><td>Variable string</td><td>0-65535</td><td>Name (100)</td></tr><tr><td><code>TEXT</code></td><td>Long text</td><td>65535</td><td>Content</td></tr><tr><td><code>LONGTEXT</code></td><td>Very long text</td><td>4GB</td><td>Article</td></tr></tbody></table></div>
+<h3 id="53-datetime-types"><span class="h-num">5.3</span>Date/Time Types<a class="anchor" href="#53-datetime-types" aria-label="Link to 5.3 Date/Time Types">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Format</th><th>Example</th></tr></thead><tbody><tr><td><code>DATE</code></td><td>Date</td><td>YYYY-MM-DD</td><td>2024-01-15</td></tr><tr><td><code>TIME</code></td><td>Time</td><td>HH:MM:SS</td><td>14:30:00</td></tr><tr><td><code>DATETIME</code></td><td>Date + Time</td><td>YYYY-MM-DD HH:MM:SS</td><td>2024-01-15 14:30:00</td></tr><tr><td><code>TIMESTAMP</code></td><td>Timestamp</td><td>Auto update</td><td>created_at</td></tr></tbody></table></div>
+<h3 id="54-other-types"><span class="h-num">5.4</span>Other Types<a class="anchor" href="#54-other-types" aria-label="Link to 5.4 Other Types">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>BOOLEAN</code></td><td>True/False</td><td>is_active</td></tr><tr><td><code>ENUM</code></td><td>List of values</td><td>status ENUM(&#39;active&#39;,&#39;inactive&#39;)</td></tr><tr><td><code>JSON</code></td><td>JSON data</td><td>settings</td></tr></tbody></table></div>
+<h2 id="6-constraints"><span class="h-num">6</span>Constraints<a class="anchor" href="#6-constraints" aria-label="Link to 6. Constraints">#</a></h2>
+<h3 id="61-types-of-constraints"><span class="h-num">6.1</span>Types of Constraints<a class="anchor" href="#61-types-of-constraints" aria-label="Link to 6.1 Types of Constraints">#</a></h3>
+<p>A <code>FOREIGN KEY</code> can only point at a table that already exists, so <code>categories</code>
+has to be created before <code>products</code>.</p>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="26"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">26 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- The table the foreign key points at must exist first</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> products (
+    <span class="t-com">-- PRIMARY KEY: Primary key, unique, not null</span>
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+
+    <span class="t-com">-- NOT NULL: Must have value</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+
+    <span class="t-com">-- UNIQUE: Unique value</span>
+    sku <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+
+    <span class="t-com">-- DEFAULT: Default value</span>
+    status <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;active&#39;</span><span class="t-op">,</span>
+
+    <span class="t-com">-- CHECK: Check condition (MySQL 8.0+)</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">CHECK</span> (price <span class="t-op">&gt;</span> <span class="t-num">0</span>)<span class="t-op">,</span>
+
+    <span class="t-com">-- FOREIGN KEY: Foreign key</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> both tables created. If you run the <code>products</code> block on its
+own you get <code>errno: 150 &quot;Foreign key constraint is incorrectly formed&quot;</code> — that is
+MySQL saying it cannot find <code>categories</code>.</p>
+<h3 id="62-autoincrement"><span class="h-num">6.2</span>AUTO_INCREMENT<a class="anchor" href="#62-autoincrement" aria-label="Link to 6.2 AUTOINCREMENT">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Auto increment ID</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Insert without ID</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> users (name) <span class="t-kw">VALUES</span> (<span class="t-str">&#39;John&#39;</span>)<span class="t-op">;</span>
+<span class="t-com">-- id = 1 (automatic)</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> users (name) <span class="t-kw">VALUES</span> (<span class="t-str">&#39;Jane&#39;</span>)<span class="t-op">;</span>
+<span class="t-com">-- id = 2 (automatic)</span></code></pre></figure><h2 class="part-divider" id="examples-illustrations"><span>Examples &amp; illustrations</span></h2>
+<h2 id="example-create-database-for-blog-application">Example: Create Database for Blog Application<a class="anchor" href="#example-create-database-for-blog-application" aria-label="Link to Example: Create Database for Blog Application">#</a></h2>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="62"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">62 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create database</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> blog_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4
+<span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+
+<span class="t-kw">USE</span> blog_db<span class="t-op">;</span>
+
+<span class="t-com">-- Table users</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    username <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    full_name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)<span class="t-op">,</span>
+    avatar <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    role <span class="t-type">ENUM</span>(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;author&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;user&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    updated_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span> <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table categories</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table posts</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> posts (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    title <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    content <span class="t-type">LONGTEXT</span><span class="t-op">,</span>
+    excerpt <span class="t-type">TEXT</span><span class="t-op">,</span>
+    featured_image <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    status <span class="t-type">ENUM</span>(<span class="t-str">&#39;draft&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;published&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;archived&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;draft&#39;</span><span class="t-op">,</span>
+    views <span class="t-type">INT</span> <span class="t-kw">DEFAULT</span> <span class="t-num">0</span><span class="t-op">,</span>
+    author_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    updated_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span> <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    published_at <span class="t-type">DATETIME</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (author_id) <span class="t-kw">REFERENCES</span> users(id)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table comments</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> comments (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    content <span class="t-type">TEXT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    post_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    user_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    parent_id <span class="t-type">INT</span><span class="t-op">,</span>
+    is_approved <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">FALSE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (post_id) <span class="t-kw">REFERENCES</span> posts(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (user_id) <span class="t-kw">REFERENCES</span> users(id)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (parent_id) <span class="t-kw">REFERENCES</span> comments(id)
+)<span class="t-op">;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-create-student-database">Exercise 1: Create Student Database<a class="anchor" href="#exercise-1-create-student-database" aria-label="Link to Exercise 1: Create Student Database">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create database to manage students</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create database: <code>student_management</code></li>
+<li>Create table <code>students</code>: id, student_id, name, email, phone, class, gpa, created_at</li>
+<li>Create table <code>classes</code>: id, name, department</li>
+</ul>
+<h2 id="exercise-2-create-product-database">Exercise 2: Create Product Database<a class="anchor" href="#exercise-2-create-product-database" aria-label="Link to Exercise 2: Create Product Database">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create database for online shop</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create database: <code>shop_db</code></li>
+<li>Create table <code>categories</code>: id, name, description</li>
+<li>Create table <code>products</code>: id, name, price, stock, category_id, created_at</li>
+</ul>
+<h2 id="exercise-3-design-database-challenge">Exercise 3: Design Database (Challenge)<a class="anchor" href="#exercise-3-design-database-challenge" aria-label="Link to Exercise 3: Design Database (Challenge)">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Design database for library management application</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Manage: Books, Readers, Borrowing records</li>
+<li>Determine tables and relationships</li>
+</ul>
+<h2 id="knowledge-to-achieve"><span class="h-icon" aria-hidden="true">✅</span>Knowledge to achieve<a class="anchor" href="#knowledge-to-achieve" aria-label="Link to ✅ Knowledge to achieve">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand what Database and MySQL are</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use phpMyAdmin</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can create Database and Table</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand data types</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand constraints</span></li>
+</ul>
+<h2 id="session-04-worksheet"><span class="h-icon" aria-hidden="true">📋</span>Session 04 worksheet<a class="anchor" href="#session-04-worksheet" aria-label="Link to 📋 Session 04 worksheet">#</a></h2>
+<p><strong>Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+<h2 id="questions">Questions<a class="anchor" href="#questions" aria-label="Link to Questions">#</a></h2>
+<ol><li>What&#39;s the difference between CHAR and VARCHAR?</li>
+<li>What is PRIMARY KEY used for?</li>
+<li>How does AUTO_INCREMENT work?</li>
+</ol>
+<h2 id="exercises">Exercises<a class="anchor" href="#exercises" aria-label="Link to Exercises">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Student Database</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Product Database</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Library Design (Bonus)</span></li>
+</ul>
+<h2 id="preparation-for-session-05"><span class="h-icon" aria-hidden="true">🔗</span>Preparation for session 05<a class="anchor" href="#preparation-for-session-05" aria-label="Link to 🔗 Preparation for session 05">#</a></h2>
+<p><strong>Next Session:</strong> Introduction to SQL</p>
+<h3 id="will-learn">Will Learn:<a class="anchor" href="#will-learn" aria-label="Link to Will Learn:">#</a></h3>
+<ul><li>SELECT, INSERT, UPDATE, DELETE</li>
+<li>WHERE, ORDER BY, LIMIT</li>
+<li>Basic SQL functions</li>
+</ul>
+<hr class="rule">
+<p><strong>Next Chapter: <a href="../ebook/05-introduction-to-sql.html">Session 05 - Introduction to SQL →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="03-dynamic-websites-and-forms.html"><span class="pager-label">Previous</span><span class="pager-title">Dynamic Websites and Forms</span></a><a class="pager-link is-next" href="05-introduction-to-sql.html"><span class="pager-label">Next</span><span class="pager-title">Introduction to SQL</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

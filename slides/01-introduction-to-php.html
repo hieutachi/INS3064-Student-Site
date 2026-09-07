@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Introduction to PHP — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Introduction to PHP">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_1_php_foundation/session_01_intro_php.md">
+<meta name="source-sha256" content="3cee1ee5f2c1af19814afed4e7eaff03c57b5a7aa5515571f555fbb2879a7ea9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 1 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Introduction to PHP</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1.1 Definition</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.2 Why Learn PHP?</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">1.3 How Does PHP Work? (1/2)</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">1.3 How Does PHP Work? (2/2)</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">2.1 PHP Tags</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">echo - Most Common</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">print - Similar to echo</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">2.3 Comments</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">2.4 Embedding PHP in HTML</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">3. Rules &amp; best practices (1/2)</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">3. Rules &amp; best practices (2/2)</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">4. Theory summary</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">Section: Examples</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">Example 1: Hello World (1/2)</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">Example 1: Hello World (2/2)</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">Example 2: PHP + HTML (1/3)</span></button></li><li><button type="button" data-deck-jump="22"><span class="rail-index">23</span><span class="rail-title">Example 2: PHP + HTML (2/3)</span></button></li><li><button type="button" data-deck-jump="23"><span class="rail-index">24</span><span class="rail-title">Example 2: PHP + HTML (3/3)</span></button></li><li><button type="button" data-deck-jump="24"><span class="rail-index">25</span><span class="rail-title">Example 3: Simple Calculator (1/2)</span></button></li><li><button type="button" data-deck-jump="25"><span class="rail-index">26</span><span class="rail-title">Example 3: Simple Calculator (2/2)</span></button></li><li><button type="button" data-deck-jump="26"><span class="rail-index">27</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="27"><span class="rail-index">28</span><span class="rail-title">4.1 Environment Setup</span></button></li><li><button type="button" data-deck-jump="28"><span class="rail-index">29</span><span class="rail-title">Exercise 1: Hello World (1/2)</span></button></li><li><button type="button" data-deck-jump="29"><span class="rail-index">30</span><span class="rail-title">Exercise 1: Hello World (2/2)</span></button></li><li><button type="button" data-deck-jump="30"><span class="rail-index">31</span><span class="rail-title">Exercise 2: Personal Profile Page (1/7)</span></button></li><li><button type="button" data-deck-jump="31"><span class="rail-index">32</span><span class="rail-title">Exercise 2: Personal Profile Page (2/7)</span></button></li><li><button type="button" data-deck-jump="32"><span class="rail-index">33</span><span class="rail-title">Exercise 2: Personal Profile Page (3/7)</span></button></li><li><button type="button" data-deck-jump="33"><span class="rail-index">34</span><span class="rail-title">Exercise 2: Personal Profile Page (4/7)</span></button></li><li><button type="button" data-deck-jump="34"><span class="rail-index">35</span><span class="rail-title">Exercise 2: Personal Profile Page (5/7)</span></button></li><li><button type="button" data-deck-jump="35"><span class="rail-index">36</span><span class="rail-title">Exercise 2: Personal Profile Page (6/7)</span></button></li><li><button type="button" data-deck-jump="36"><span class="rail-index">37</span><span class="rail-title">Exercise 2: Personal Profile Page (7/7)</span></button></li><li><button type="button" data-deck-jump="37"><span class="rail-index">38</span><span class="rail-title">Exercise 3: Simple Calculator (Challenge)</span></button></li><li><button type="button" data-deck-jump="38"><span class="rail-index">39</span><span class="rail-title">4.3 Common Error Troubleshooting</span></button></li><li><button type="button" data-deck-jump="39"><span class="rail-index">40</span><span class="rail-title">Knowledge to achieve after session</span></button></li><li><button type="button" data-deck-jump="40"><span class="rail-index">41</span><span class="rail-title">Additional Knowledge (Bonus)</span></button></li><li><button type="button" data-deck-jump="41"><span class="rail-index">42</span><span class="rail-title">Self-Check Learning Objectives</span></button></li><li><button type="button" data-deck-jump="42"><span class="rail-index">43</span><span class="rail-title">Session 01 worksheet</span></button></li><li><button type="button" data-deck-jump="43"><span class="rail-index">44</span><span class="rail-title">A1. Key Concepts</span></button></li><li><button type="button" data-deck-jump="44"><span class="rail-index">45</span><span class="rail-title">A3. Essay Questions</span></button></li><li><button type="button" data-deck-jump="45"><span class="rail-index">46</span><span class="rail-title">Exercise 1: Fix code errors</span></button></li><li><button type="button" data-deck-jump="46"><span class="rail-index">47</span><span class="rail-title">Practical exercise 1: Personal Information Page</span></button></li><li><button type="button" data-deck-jump="47"><span class="rail-index">48</span><span class="rail-title">Practical exercise 2: Welcome Page (Challenge)</span></button></li><li><button type="button" data-deck-jump="48"><span class="rail-index">49</span><span class="rail-title">D1. Understanding Level (Rate 1-5)</span></button></li><li><button type="button" data-deck-jump="49"><span class="rail-index">50</span><span class="rail-title">Save your practice work</span></button></li><li><button type="button" data-deck-jump="50"><span class="rail-index">51</span><span class="rail-title">Preparation for session 02</span></button></li><li><button type="button" data-deck-jump="51"><span class="rail-index">52</span><span class="rail-title">Reference materials</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Introduction to PHP</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1.1 Definition</option><option value="7">8. 1.2 Why Learn PHP?</option><option value="8">9. 1.3 How Does PHP Work? (1/2)</option><option value="9">10. 1.3 How Does PHP Work? (2/2)</option><option value="10">11. 2.1 PHP Tags</option><option value="11">12. echo - Most Common</option><option value="12">13. print - Similar to echo</option><option value="13">14. 2.3 Comments</option><option value="14">15. 2.4 Embedding PHP in HTML</option><option value="15">16. 3. Rules &amp; best practices (1/2)</option><option value="16">17. 3. Rules &amp; best practices (2/2)</option><option value="17">18. 4. Theory summary</option><option value="18">19. Section: Examples</option><option value="19">20. Example 1: Hello World (1/2)</option><option value="20">21. Example 1: Hello World (2/2)</option><option value="21">22. Example 2: PHP + HTML (1/3)</option><option value="22">23. Example 2: PHP + HTML (2/3)</option><option value="23">24. Example 2: PHP + HTML (3/3)</option><option value="24">25. Example 3: Simple Calculator (1/2)</option><option value="25">26. Example 3: Simple Calculator (2/2)</option><option value="26">27. Section: Practice</option><option value="27">28. 4.1 Environment Setup</option><option value="28">29. Exercise 1: Hello World (1/2)</option><option value="29">30. Exercise 1: Hello World (2/2)</option><option value="30">31. Exercise 2: Personal Profile Page (1/7)</option><option value="31">32. Exercise 2: Personal Profile Page (2/7)</option><option value="32">33. Exercise 2: Personal Profile Page (3/7)</option><option value="33">34. Exercise 2: Personal Profile Page (4/7)</option><option value="34">35. Exercise 2: Personal Profile Page (5/7)</option><option value="35">36. Exercise 2: Personal Profile Page (6/7)</option><option value="36">37. Exercise 2: Personal Profile Page (7/7)</option><option value="37">38. Exercise 3: Simple Calculator (Challenge)</option><option value="38">39. 4.3 Common Error Troubleshooting</option><option value="39">40. Knowledge to achieve after session</option><option value="40">41. Additional Knowledge (Bonus)</option><option value="41">42. Self-Check Learning Objectives</option><option value="42">43. Session 01 worksheet</option><option value="43">44. A1. Key Concepts</option><option value="44">45. A3. Essay Questions</option><option value="45">46. Exercise 1: Fix code errors</option><option value="46">47. Practical exercise 1: Personal Information Page</option><option value="47">48. Practical exercise 2: Welcome Page (Challenge)</option><option value="48">49. D1. Understanding Level (Rate 1-5)</option><option value="49">50. Save your practice work</option><option value="50">51. Preparation for session 02</option><option value="51">52. Reference materials</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 52</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Introduction to PHP" aria-label="Slide 1 of 52"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Introduction to PHP</h2><p class="title-lead">PHP foundations</p><p class="title-meta"><span>Session 01 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>1 / 52</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 52"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>What is PHP?</span></li><li><span>Basic PHP syntax</span></li><li><span>Rules &amp; best practices</span></li><li><span>Theory summary</span></li><li><span>Environment Setup</span></li><li><span>Main Practice Exercises</span></li><li><span>Common Error Troubleshooting</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>2 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>Welcome to the first session! Today we will get familiar with PHP - the world&#39;s most popular web programming language.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>3 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 1 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand what PHP is and why we need to learn it</li><li>Install and configure development environment</li><li>Write your first PHP program</li><li>Master basic PHP syntax</li></ul></div><div class="brief-item is-wide"><span class="brief-key">Preparation</span><ul><li>Read file 00_installation_guide.md</li><li>Install XAMPP</li><li>Install VS Code</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO1</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>4 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will:</p>
+<ul><li>Understand <strong>what PHP is</strong> and why it&#39;s important for web development</li>
+<li>Know how to <strong>install development environment</strong> for PHP</li>
+<li>Write your <strong>first PHP program</strong></li>
+<li>Master <strong>basic syntax</strong>: echo, print, comments</li>
+<li>Understand how to <strong>embed PHP in HTML</strong></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>5 / 52</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 52"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 01</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>6 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. What is PHP?" aria-label="Slide 7 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 Definition</span></p><h2 class="slide-title"><span class="h-num">1</span>What is PHP?</h2><div class="slide-body"><p><strong>PHP</strong> = <strong>P</strong>HP: <strong>H</strong>ypertext <strong>P</strong>reprocessor (recursive acronym)</p>
+<p>PHP is a server-side scripting language, designed specifically for web development.</p>
+
+<aside class="callout is-analogy" aria-labelledby="analogy-real-life-analogy"><p class="callout-title" id="analogy-real-life-analogy">Real-life Analogy</p><div class="callout-body"><p>Imagine a restaurant:</p>
+<ul><li><strong>HTML/CSS</strong> = Menu and table layout (interface)</li>
+<li><strong>PHP</strong> = Chef in the kitchen (processes logic, cooks)</li>
+<li><strong>MySQL</strong> = Storage room (stores data)</li>
+</ul>
+<p>The customer (browser) only sees the dish (HTML), not the chef working (PHP).</p>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>7 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="1. What is PHP?" aria-label="Slide 8 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Why Learn PHP?</span></p><h2 class="slide-title"><span class="h-num">1</span>What is PHP?</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Reason</th><th>Explanation</th></tr></thead><tbody><tr><td><strong>Popular</strong></td><td>77% of websites use PHP (WordPress, Facebook)</td></tr><tr><td><strong>Easy to Learn</strong></td><td>Simple syntax, rich documentation</td></tr><tr><td><strong>Free</strong></td><td>Open source, no licensing costs</td></tr><tr><td><strong>Great Integration</strong></td><td>Works seamlessly with MySQL, HTML, CSS</td></tr><tr><td><strong>Large Community</strong></td><td>Easy to find solutions when encountering problems</td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>8 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="1. What is PHP?" aria-label="Slide 9 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.3 How Does PHP Work?</span></p><h2 class="slide-title"><span class="h-num">1</span>What is PHP?<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><figure class="code-block is-plain is-compact" data-language="diagram" data-lines="16"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">16 lines</span></span></figcaption><pre tabindex="0"><code>┌─────────────┐     Request      ┌─────────────┐
+│   Browser   │ ───────────────► │ Web Server  │
+│  (Client)   │                  │  (Apache)   │
+└─────────────┘                  └──────┬──────┘
+       ▲                                │
+       │                                ▼
+       │                         ┌─────────────┐
+       │                         │    PHP      │
+       │                         │  Processor  │
+       │                         └──────┬──────┘
+       │                                │
+       │      HTML Response             ▼
+       │ ◄───────────────────── ┌─────────────┐
+       │                        │   MySQL     │
+       │                        │  Database   │
+       └─────────────────────── └─────────────┘</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>9 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="1. What is PHP?" aria-label="Slide 10 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.3 How Does PHP Work?</span></p><h2 class="slide-title"><span class="h-num">1</span>What is PHP?<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><p><strong>Process:</strong></p>
+<ol><li>Browser sends request to Web Server</li>
+<li>Server receives PHP file and passes to PHP Processor</li>
+<li>PHP processes code, may query Database</li>
+<li>PHP returns HTML to Server</li>
+<li>Server sends HTML to Browser</li>
+<li>Browser displays the webpage</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>10 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="2. Basic PHP syntax" aria-label="Slide 11 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 PHP Tags</span></p><h2 class="slide-title"><span class="h-num">2</span>Basic PHP syntax</h2><div class="slide-body"><p>PHP code is placed between special tags:</p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="3"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">3 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+    <span class="t-com">// PHP code goes here</span>
+<span class="t-meta">?&gt;</span></code></pre></figure>
+<aside class="callout is-warn" aria-labelledby="warn-important-notes"><p class="callout-title" id="warn-important-notes">Important Notes</p><div class="callout-body"><ul><li>PHP file must have <code>.php</code> extension</li>
+<li>Opening tag: <code>&lt;?php</code></li>
+<li>Closing tag: <code>?&gt;</code> (can be omitted if file contains only PHP)</li>
+<li>Each statement ends with semicolon <code>;</code></li>
+</ul>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>11 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="2. Basic PHP syntax" aria-label="Slide 12 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">echo - Most Common</span></p><h2 class="slide-title"><span class="h-num">2</span>Basic PHP syntax</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// echo - output to screen</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello World!&quot;</span>;           <span class="t-com">// String</span>
+<span class="t-kw">echo</span> <span class="t-num">123</span>;                      <span class="t-com">// Number</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello&quot;</span>, <span class="t-str">&quot; &quot;</span>, <span class="t-str">&quot;World!&quot;</span>;   <span class="t-com">// Multiple parameters</span>
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 class="slide-h">print - Similar to echo</h3>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="5"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// print - similar to echo but only accepts 1 parameter</span>
+<span class="t-kw">print</span> <span class="t-str">&quot;Hello World!&quot;</span>;
+<span class="t-kw">print</span>(<span class="t-str">&quot;Hello World!&quot;</span>);  <span class="t-com">// Can use parentheses</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>12 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-13" tabindex="-1" data-slide data-slide-title="2. Basic PHP syntax" aria-label="Slide 13 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">print - Similar to echo</span></p><h2 class="slide-title"><span class="h-num">2</span>Basic PHP syntax</h2><div class="slide-body"><aside class="callout is-compare" aria-labelledby="compare-comparison-echo-vs-print"><p class="callout-title" id="compare-comparison-echo-vs-print">Comparison: echo vs print</p><div class="callout-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Feature</th><th>echo</th><th>print</th></tr></thead><tbody><tr><td>Parameters</td><td>Multiple</td><td>Only 1</td></tr><tr><td>Return Value</td><td>None</td><td>Returns 1</td></tr><tr><td>Speed</td><td>Faster</td><td>Slower</td></tr><tr><td>Usage</td><td>More common</td><td>Less used</td></tr></tbody></table></div>
+<p><strong>Recommendation:</strong> Use <code>echo</code> in most cases.</p>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>13 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-14" tabindex="-1" data-slide data-slide-title="2. Basic PHP syntax" aria-label="Slide 14 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 Comments</span></p><h2 class="slide-title"><span class="h-num">2</span>Basic PHP syntax</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="18"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Single-line comment using //</span>
+
+<span class="t-com"># Single-line comment using # (less common)</span>
+
+<span class="t-com">/*
+   Multi-line comment
+   Use for long explanations
+   or temporarily hide code
+*/</span>
+
+<span class="t-com">/**
+ * PHPDoc comment
+ * Used to document functions, classes
+ * @param string $name User name
+ * @return string Greeting message
+ */</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>14 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-15" tabindex="-1" data-slide data-slide-title="2. Basic PHP syntax" aria-label="Slide 15 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.4 Embedding PHP in HTML</span></p><h2 class="slide-title"><span class="h-num">2</span>Basic PHP syntax</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="22"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span><span class="t-const">PHP</span> in <span class="t-const">HTML</span><span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>Hello<span class="t-op">!&lt;/</span>h1<span class="t-tag">&gt;</span>
+    
+    <span class="t-op">&lt;!--</span> Method <span class="t-num">1</span><span class="t-op">:</span> Using <span class="t-kw">echo</span> <span class="t-op">--&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-str">&quot;Today is: &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;Y-m-d&quot;</span>); <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-op">&lt;!--</span> Method <span class="t-num">2</span><span class="t-op">:</span> <span class="t-fn">Shorthand</span> (<span class="t-kw">if</span> enabled) <span class="t-op">--&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Current time<span class="t-op">:</span> <span class="t-meta">&lt;?=</span> <span class="t-fn">date</span>(<span class="t-str">&quot;H:i:s&quot;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-op">&lt;!--</span> Method <span class="t-num">3</span><span class="t-op">:</span> <span class="t-const">PHP</span> block <span class="t-op">--&gt;</span>
+    <span class="t-meta">&lt;?php</span>
+    <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;Student&quot;</span>;
+    <span class="t-var">$course</span> <span class="t-op">=</span> <span class="t-str">&quot;INS3064&quot;</span>;
+    <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Hello <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$name</span>; <span class="t-meta">?&gt;</span>, you are learning <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$course</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>15 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-16" tabindex="-1" data-slide data-slide-title="3. Rules &amp; best practices" aria-label="Slide 16 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">3</span>Rules &amp; best practices<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><aside class="callout is-good" aria-labelledby="good-best-practices"><p class="callout-title" id="good-best-practices">Best Practices</p><div class="callout-body"><ol><li><strong>Always use <code>&lt;?php</code></strong> instead of short tag <code>&lt;?</code></li>
+<li><strong>End statements with <code>;</code></strong></li>
+<li><strong>Write comments</strong> for complex code</li>
+<li><strong>Use meaningful file names</strong>: <code>login.php</code>, <code>products.php</code></li>
+<li><strong>Indent code</strong> for readability</li>
+</ol>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>16 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="3. Rules &amp; best practices" aria-label="Slide 17 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">3</span>Rules &amp; best practices<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><aside class="callout is-pitfall" aria-labelledby="pitfall-common-errors"><p class="callout-title" id="pitfall-common-errors">Common Errors</p><div class="callout-body"><figure class="code-block is-code is-compact is-read-only" data-language="php" data-lines="14"><figcaption><span class="code-language">PHP</span><span class="code-flag">Broken on purpose</span><span class="code-meta"><span class="code-lines">14 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ❌ Wrong: Missing semicolon</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello&quot;</span>
+
+<span class="t-com">// ✅ Correct:</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello&quot;</span>;
+
+<span class="t-com">// ❌ Wrong: Incorrect quote usage</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;He said &quot;</span>Hello<span class="t-str">&quot;&quot;</span>;
+
+<span class="t-com">// ✅ Correct: Escape or use single quotes</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;He said \&quot;Hello\&quot;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&#39;He said &quot;Hello&quot;&#39;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure></div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>17 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="4. Theory summary" aria-label="Slide 18 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">4</span>Theory summary</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Concept</th><th>Definition</th><th>Example</th></tr></thead><tbody><tr><td>PHP</td><td>Server-side language</td><td><code>&lt;?php ?&gt;</code></td></tr><tr><td>echo</td><td>Output to screen</td><td><code>echo &quot;Hello&quot;;</code></td></tr><tr><td>print</td><td>Output to screen</td><td><code>print &quot;Hello&quot;;</code></td></tr><tr><td>Comment</td><td>Code notes</td><td><code>// comment</code></td></tr><tr><td>Shorthand</td><td>Short syntax</td><td><code>&lt;?= $var ?&gt;</code></td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>18 / 52</span></p></section>
+<section class="deck-slide is-part" id="slide-19" tabindex="-1" data-slide data-slide-title="Examples" aria-label="Slide 19 of 52"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 01</p><h2>Examples</h2></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>19 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-20" tabindex="-1" data-slide data-slide-title="Example 1: Hello World" aria-label="Slide 20 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 1: Hello World<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><p><strong>Scenario:</strong> Create a simple webpage displaying &quot;Hello World&quot;</p>
+<p><strong>Code:</strong></p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="8"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// File: hello.php</span>
+<span class="t-com">// First PHP program</span>
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello World!&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;br&gt;&quot;</span>;  <span class="t-com">// Line break in HTML</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Welcome to PHP!&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure><p><strong>Explanation:</strong></p>
+<ul><li>Line 1-2: Comment explaining the file</li>
+<li>Line 4: Output &quot;Hello World!&quot;</li>
+<li>Line 5: Output <code>&lt;br&gt;</code> tag for line break</li>
+<li>Line 6: Output welcome message</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>20 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-21" tabindex="-1" data-slide data-slide-title="Example 1: Hello World" aria-label="Slide 21 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 1: Hello World<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><p><strong>Output:</strong></p>
+<figure class="code-block is-plain is-compact" data-language="output" data-lines="2"><figcaption><span class="code-language">Output</span><span class="code-meta"><span class="code-lines">2 lines</span></span></figcaption><pre tabindex="0"><code>Hello World!
+Welcome to PHP!</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>21 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-22" tabindex="-1" data-slide data-slide-title="Example 2: PHP + HTML" aria-label="Slide 22 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 2: PHP + HTML<span class="slide-cont">1 of 3</span></h2><div class="slide-body"><p><strong>Scenario:</strong> Create a webpage with both HTML and PHP</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>22 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-23" tabindex="-1" data-slide data-slide-title="Example 2: PHP + HTML" aria-label="Slide 23 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 2: PHP + HTML<span class="slide-cont">2 of 3</span></h2><div class="slide-body"><p><strong>Code:</strong></p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="24"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">24 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span> lang<span class="t-op">=</span><span class="t-str">&quot;en&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> charset<span class="t-op">=</span><span class="t-str">&quot;UTF-8&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>My First <span class="t-const">PHP</span> Page<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+        body { font<span class="t-op">-</span>family<span class="t-op">:</span> Arial; padding<span class="t-op">:</span> 20px; }
+        <span class="t-op">.</span>info { background<span class="t-op">:</span> <span class="t-com">#f0f0f0; padding: 15px; border-radius: 5px; }</span>
+    <span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>🎉 Welcome to <span class="t-const">PHP</span><span class="t-op">!&lt;/</span>h1<span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;info&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-meta">&lt;?php</span>
+        <span class="t-com">// Display server information</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;PHP Version:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-fn">phpversion</span>() <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+        <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;Server:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;SERVER_SOFTWARE&#39;</span>] <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+        <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;Y-m-d&quot;</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+        <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;Time:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;H:i:s&quot;</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+        <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>23 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-24" tabindex="-1" data-slide data-slide-title="Example 2: PHP + HTML" aria-label="Slide 24 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 2: PHP + HTML<span class="slide-cont">3 of 3</span></h2><div class="slide-body"><p><strong>Explanation:</strong></p>
+<ul><li>HTML creates structure and style</li>
+<li>PHP is embedded in <code>&lt;?php ?&gt;</code> for dynamic processing</li>
+<li><code>phpversion()</code>: Function returns PHP version</li>
+<li><code>$_SERVER</code>: Superglobal variable containing server information</li>
+<li><code>date()</code>: Function formats date and time</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>24 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-25" tabindex="-1" data-slide data-slide-title="Example 3: Simple Calculator" aria-label="Slide 25 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 3: Simple Calculator<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><p><strong>Scenario:</strong> Display calculation results</p>
+<p><strong>Code:</strong></p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// File: calculator.php</span>
+<span class="t-com">// Basic calculation example</span>
+
+<span class="t-var">$a</span> <span class="t-op">=</span> <span class="t-num">10</span>;
+<span class="t-var">$b</span> <span class="t-op">=</span> <span class="t-num">5</span>;
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;h2&gt;Simple Calculator&lt;/h2&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;a = $a, b = $b&lt;/p&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;hr&gt;&quot;</span>;
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;Add: $a + $b = &quot;</span> <span class="t-op">.</span> (<span class="t-var">$a</span> <span class="t-op">+</span> <span class="t-var">$b</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;Subtract: $a - $b = &quot;</span> <span class="t-op">.</span> (<span class="t-var">$a</span> <span class="t-op">-</span> <span class="t-var">$b</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;Multiply: $a × $b = &quot;</span> <span class="t-op">.</span> (<span class="t-var">$a</span> <span class="t-op">*</span> <span class="t-var">$b</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;Divide: $a ÷ $b = &quot;</span> <span class="t-op">.</span> (<span class="t-var">$a</span> <span class="t-op">/</span> <span class="t-var">$b</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;Modulo: $a % $b = &quot;</span> <span class="t-op">.</span> (<span class="t-var">$a</span> <span class="t-op">%</span> <span class="t-var">$b</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>25 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-26" tabindex="-1" data-slide data-slide-title="Example 3: Simple Calculator" aria-label="Slide 26 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 3: Simple Calculator<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><p><strong>Output:</strong></p>
+<figure class="code-block is-plain is-compact" data-language="diagram" data-lines="8"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">8 lines</span></span></figcaption><pre tabindex="0"><code>Simple Calculator
+a = 10, b = 5
+─────────────────
+Add: 10 + 5 = 15
+Subtract: 10 - 5 = 5
+Multiply: 10 × 5 = 50
+Divide: 10 ÷ 5 = 2
+Modulo: 10 % 5 = 0</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>26 / 52</span></p></section>
+<section class="deck-slide is-part" id="slide-27" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 27 of 52"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 01</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>27 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-28" tabindex="-1" data-slide data-slide-title="4.1 Environment Setup" aria-label="Slide 28 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title"><span class="h-num">4.1</span>Environment Setup</h2><div class="slide-body"><p><strong>Required Tools:</strong></p>
+<ul><li>XAMPP installed and running</li>
+<li>VS Code</li>
+<li>Browser (Chrome/Firefox)</li>
+</ul>
+<p><strong>Setup Steps:</strong></p>
+<ol><li>Open XAMPP Control Panel</li>
+<li>Start Apache</li>
+<li>Create folder: <code>C:\xampp\htdocs\ins3064\session_01\</code></li>
+<li>Open folder in VS Code</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>28 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-29" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 29 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 1: Hello World</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Write your first PHP program</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create file <code>hello.php</code></li>
+<li>Output &quot;Hello, I am [Your Name]!&quot;</li>
+<li>Output &quot;Welcome to INS3064!&quot;</li>
+</ul>
+<p>🔧 <strong>Instructions:</strong></p>
+<p><strong>Step 1:</strong> Create file <code>hello.php</code></p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="8"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Exercise 1: Hello World</span>
+<span class="t-com">// Author: [Your Name]</span>
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello, I am [Your Name]!&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;br&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Welcome to INS3064!&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure><p><strong>Step 2:</strong> Open browser, visit: <code>http://localhost/ins3064/session_01/hello.php</code></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>29 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-30" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 30 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 1: Hello World</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected Result:</strong></span></p>
+<figure class="code-block is-plain is-compact" data-language="output" data-lines="2"><figcaption><span class="code-language">Output</span><span class="code-meta"><span class="code-lines">2 lines</span></span></figcaption><pre tabindex="0"><code>Hello, I am [Your Name]!
+Welcome to INS3064!</code></pre></figure><p class="note-line is-save"><span class="note-icon" aria-hidden="true">💾</span><span class="note-copy"><strong>File to Save:</strong> <code>hello.php</code></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>30 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-31" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 31 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">1 of 7</span></h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Combine PHP with HTML to create a profile page</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create file <code>profile.php</code></li>
+<li>Display: Full name, Student ID, Class, Email</li>
+<li>Beautiful CSS styling</li>
+<li>Display current date and time</li>
+</ul>
+<p>🔧 <strong>Instructions:</strong></p>
+<p>Build this in three steps. Each step is a page that already runs, so you always
+know whether you broke something in the step you just did.</p>
+<p><strong>Step 1:</strong> Create <code>profile.php</code> with the data and the text only. No styling yet.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>31 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-32" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 32 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">2 of 7</span></h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="21"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">21 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span> lang<span class="t-op">=</span><span class="t-str">&quot;en&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> charset<span class="t-op">=</span><span class="t-str">&quot;UTF-8&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Profile<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-meta">&lt;?php</span>
+    <span class="t-com">// Declare personal information</span>
+    <span class="t-var">$fullName</span>  <span class="t-op">=</span> <span class="t-str">&quot;John Doe&quot;</span>;
+    <span class="t-var">$studentId</span> <span class="t-op">=</span> <span class="t-str">&quot;123456789&quot;</span>;
+    <span class="t-var">$class</span>     <span class="t-op">=</span> <span class="t-str">&quot;INS3064-01&quot;</span>;
+    <span class="t-var">$email</span>     <span class="t-op">=</span> <span class="t-str">&quot;johndoe@email.com&quot;</span>;
+    <span class="t-meta">?&gt;</span>
+
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$fullName</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Student <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$class</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Student ID<span class="t-op">:</span> <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$studentId</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Email<span class="t-op">:</span> <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$email</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>32 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-33" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 33 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">3 of 7</span></h2><div class="slide-body"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected Result:</strong> Visit <code>http://localhost/ins3064/session_01/profile.php</code>
+and you see your name as a heading and three lines of information. Unstyled, but
+working. If you see the PHP code itself instead of your name, you opened the file
+directly rather than through <code>localhost</code>.</span></p>
+<p><strong>Step 2:</strong> Add the date and time, and group the information into rows. Replace
+the <code>&lt;body&gt;</code> with this:</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>33 / 52</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-34" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 34 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">4 of 7</span></h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="37"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">37 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;avatar&quot;</span><span class="t-tag">&gt;</span>👤<span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+        <span class="t-meta">&lt;?php</span>
+        <span class="t-var">$fullName</span>  <span class="t-op">=</span> <span class="t-str">&quot;John Doe&quot;</span>;
+        <span class="t-var">$studentId</span> <span class="t-op">=</span> <span class="t-str">&quot;123456789&quot;</span>;
+        <span class="t-var">$class</span>     <span class="t-op">=</span> <span class="t-str">&quot;INS3064-01&quot;</span>;
+        <span class="t-var">$email</span>     <span class="t-op">=</span> <span class="t-str">&quot;johndoe@email.com&quot;</span>;
+        <span class="t-meta">?&gt;</span>
+
+        <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$fullName</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;p</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;subtitle&quot;</span><span class="t-tag">&gt;</span>Student <span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$class</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;info&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;info-item&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;label&quot;</span><span class="t-tag">&gt;</span>📋 Student ID<span class="t-op">:&lt;/</span>span<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;value&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$studentId</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;info-item&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;label&quot;</span><span class="t-tag">&gt;</span>📚 Class<span class="t-op">:&lt;/</span>span<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;value&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$class</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;info-item&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;label&quot;</span><span class="t-tag">&gt;</span>📧 Email<span class="t-op">:&lt;/</span>span<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;value&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?php</span> <span class="t-kw">echo</span> <span class="t-var">$email</span>; <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;datetime&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span>
+            <span class="t-kw">echo</span> <span class="t-str">&quot;🗓️ &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;Y-m-d&quot;</span>) <span class="t-op">.</span> <span class="t-str">&quot; | &quot;</span>;
+            <span class="t-kw">echo</span> <span class="t-str">&quot;⏰ &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;H:i:s&quot;</span>);
+            <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>34 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-35" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 35 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">5 of 7</span></h2><div class="slide-body"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected Result:</strong> The same information, plus today&#39;s date and the current
+time. The <code>class</code> attributes do nothing yet — that is Step 3.</span></p>
+<p><strong>Step 3:</strong> Now style it. Add this <code>&lt;style&gt;</code> block inside <code>&lt;head&gt;</code>, and change the
+title to <code>&lt;title&gt;Profile - &lt;?php echo &quot;Your Name&quot;; ?&gt;&lt;/title&gt;</code>.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>35 / 52</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-36" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 36 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">6 of 7</span></h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="53"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">53 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+    <span class="t-op">*</span> { margin<span class="t-op">:</span> <span class="t-num">0</span>; padding<span class="t-op">:</span> <span class="t-num">0</span>; box<span class="t-op">-</span>sizing<span class="t-op">:</span> border<span class="t-op">-</span>box; }
+    body {
+        font<span class="t-op">-</span>family<span class="t-op">:</span> <span class="t-str">&#39;Segoe UI&#39;</span>, Arial, sans<span class="t-op">-</span>serif;
+        background<span class="t-op">:</span> linear<span class="t-op">-</span><span class="t-fn">gradient</span>(135deg, <span class="t-com">#667eea 0%, #764ba2 100%);</span>
+        min<span class="t-op">-</span>height<span class="t-op">:</span> 100vh;
+        display<span class="t-op">:</span> flex;
+        justify<span class="t-op">-</span>content<span class="t-op">:</span> center;
+        align<span class="t-op">-</span>items<span class="t-op">:</span> center;
+        padding<span class="t-op">:</span> 20px;
+    }
+    <span class="t-op">.</span>card {
+        background<span class="t-op">:</span> white;
+        border<span class="t-op">-</span>radius<span class="t-op">:</span> 15px;
+        padding<span class="t-op">:</span> 40px;
+        box<span class="t-op">-</span>shadow<span class="t-op">:</span> <span class="t-num">0</span> 15px 35px <span class="t-fn">rgba</span>(<span class="t-num">0</span>,<span class="t-num">0</span>,<span class="t-num">0</span>,<span class="t-num">0.2</span>);
+        max<span class="t-op">-</span>width<span class="t-op">:</span> 400px;
+        width<span class="t-op">:</span> <span class="t-num">100</span><span class="t-op">%</span>;
+        text<span class="t-op">-</span>align<span class="t-op">:</span> center;
+    }
+    <span class="t-op">.</span>avatar {
+        width<span class="t-op">:</span> 100px;
+        height<span class="t-op">:</span> 100px;
+        background<span class="t-op">:</span> linear<span class="t-op">-</span><span class="t-fn">gradient</span>(135deg, <span class="t-com">#667eea, #764ba2);</span>
+        border<span class="t-op">-</span>radius<span class="t-op">:</span> <span class="t-num">50</span><span class="t-op">%</span>;
+        margin<span class="t-op">:</span> <span class="t-num">0</span> auto 20px;
+        display<span class="t-op">:</span> flex;
+        align<span class="t-op">-</span>items<span class="t-op">:</span> center;
+        justify<span class="t-op">-</span>content<span class="t-op">:</span> center;
+        font<span class="t-op">-</span>size<span class="t-op">:</span> 40px;
+        color<span class="t-op">:</span> white;
+    }
+    h1 { color<span class="t-op">:</span> <span class="t-com">#333; margin-bottom: 5px; }</span>
+    <span class="t-op">.</span>subtitle { color<span class="t-op">:</span> <span class="t-com">#666; margin-bottom: 20px; }</span>
+    <span class="t-op">.</span>info { text<span class="t-op">-</span>align<span class="t-op">:</span> left; }
+    <span class="t-op">.</span>info<span class="t-op">-</span>item {
+        padding<span class="t-op">:</span> 10px <span class="t-num">0</span>;
+        border<span class="t-op">-</span>bottom<span class="t-op">:</span> 1px solid <span class="t-com">#eee;</span>
+        display<span class="t-op">:</span> flex;
+        justify<span class="t-op">-</span>content<span class="t-op">:</span> space<span class="t-op">-</span>between;
+    }
+    <span class="t-op">.</span>info<span class="t-op">-</span>item<span class="t-op">:</span>last<span class="t-op">-</span>child { border<span class="t-op">-</span>bottom<span class="t-op">:</span> none; }
+    <span class="t-op">.</span>label { color<span class="t-op">:</span> <span class="t-com">#888; }</span>
+    <span class="t-op">.</span>value { color<span class="t-op">:</span> <span class="t-com">#333; font-weight: 500; }</span>
+    <span class="t-op">.</span>datetime {
+        margin<span class="t-op">-</span>top<span class="t-op">:</span> 20px;
+        padding<span class="t-op">:</span> 15px;
+        background<span class="t-op">:</span> <span class="t-com">#f8f9fa;</span>
+        border<span class="t-op">-</span>radius<span class="t-op">:</span> 8px;
+        font<span class="t-op">-</span>size<span class="t-op">:</span> 14px;
+        color<span class="t-op">:</span> <span class="t-com">#666;</span>
+    }
+<span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>36 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-37" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 37 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 2: Personal Profile Page</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises<span class="slide-cont">7 of 7</span></h2><div class="slide-body"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected Result:</strong> A card centred on a purple gradient, with your name, three
+rows of information, and the date and time at the bottom. Refresh the page and the
+seconds change — that is the PHP running again on every request.</span></p>
+<p class="note-line is-save"><span class="note-icon" aria-hidden="true">💾</span><span class="note-copy"><strong>File to Save:</strong> <code>profile.php</code></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>37 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-38" tabindex="-1" data-slide data-slide-title="4.2 Main Practice Exercises" aria-label="Slide 38 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span><span class="slide-sub">Exercise 3: Simple Calculator (Challenge)</span></p><h2 class="slide-title"><span class="h-num">4.2</span>Main Practice Exercises</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create a page displaying calculations</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create file <code>calculator.php</code></li>
+<li>Declare 2 number variables</li>
+<li>Display results: add, subtract, multiply, divide</li>
+<li>Beautiful interface</li>
+</ul>
+<p>🔧 <strong>Code Hint:</strong></p>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$num1</span> <span class="t-op">=</span> <span class="t-num">25</span>;
+<span class="t-var">$num2</span> <span class="t-op">=</span> <span class="t-num">7</span>;
+
+<span class="t-com">// TODO: Display calculations</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>38 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-39" tabindex="-1" data-slide data-slide-title="4.3 Common Error Troubleshooting" aria-label="Slide 39 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title"><span class="h-num">4.3</span>Common Error Troubleshooting</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>Parse error: syntax error</td><td>Missing <code>;</code> or <code>}</code></td><td>Check syntax</td></tr><tr><td>Blank page</td><td>PHP errors not displayed</td><td>Enable <code>display_errors</code> in php.ini</td></tr><tr><td>404 Not Found</td><td>Wrong file path</td><td>Check file name and folder</td></tr><tr><td>Vietnamese not displayed</td><td>Missing charset</td><td>Add <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>39 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-40" tabindex="-1" data-slide data-slide-title="Knowledge to achieve after session" aria-label="Slide 40 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Knowledge to achieve after session</h2><div class="slide-body"><p>After this session, you must <strong>fully master</strong> the following:</p>
+<h3 class="slide-h">Theoretical Knowledge</h3>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand what PHP is and how it works</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Explain the request-response process</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Distinguish between client-side and server-side</span></li>
+</ul>
+<h3 class="slide-h">Practical Skills</h3>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write basic PHP files</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can embed PHP in HTML</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use echo, print, comments</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>40 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-41" tabindex="-1" data-slide data-slide-title="Knowledge to achieve after session" aria-label="Slide 41 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span><span class="slide-sub">Additional Knowledge (Bonus)</span></p><h2 class="slide-title">Knowledge to achieve after session</h2><div class="slide-body"><ul><li>💡 PHP can create PDFs, process images, send emails</li>
+<li>💡 Facebook, Wikipedia, WordPress use PHP</li>
+<li>💡 Next session: Variables, data types, operators</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>41 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-42" tabindex="-1" data-slide data-slide-title="Self-Check Learning Objectives" aria-label="Slide 42 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Self-Check Learning Objectives</h2><div class="slide-body"><p><strong>Self-Assessment Questions:</strong></p>
+<ol><li><strong>[Basic]</strong> Where does PHP run? Client or Server?</li>
+<li><strong>[Intermediate]</strong> What&#39;s the difference between <code>echo</code> and <code>print</code>?</li>
+<li><strong>[Advanced]</strong> Why is PHP popular in web development?</li>
+</ol>
+<p><strong>If you can answer all 3 questions, you&#39;re ready for the next session! ✅</strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>42 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-43" tabindex="-1" data-slide data-slide-title="Session 01 worksheet" aria-label="Slide 43 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Session 01 worksheet</h2><div class="slide-body"><p><strong>Student Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+<p><strong>Date:</strong> <span class="blank"></span>    <strong>Class:</strong> <span class="blank"></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>43 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-44" tabindex="-1" data-slide data-slide-title="Part A: Knowledge summary" aria-label="Slide 44 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">A1. Key Concepts</span></p><h2 class="slide-title">Part A: Knowledge summary</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Concept</th><th>Definition (In your own words)</th><th>Example</th></tr></thead><tbody><tr><td>PHP</td><td><span class="blank"></span></td><td><span class="blank"></span></td></tr><tr><td>echo</td><td><span class="blank"></span></td><td><span class="blank"></span></td></tr><tr><td>Server-side</td><td><span class="blank"></span></td><td><span class="blank"></span></td></tr></tbody></table></div>
+<h3 class="slide-h">A2. Multiple Choice Questions</h3>
+<ol><li><p>What does PHP stand for?</p>
+<ul><li>A) Personal Home Page</li>
+<li>B) PHP: Hypertext Preprocessor</li>
+<li>C) Pre Hypertext Processor</li>
+<li>D) Page Hypertext Programming</li>
+</ul>
+<p>Answer: <span class="blank"></span></p>
+</li>
+<li><p>What is the correct PHP opening tag?</p>
+<ul><li>A) <code>&lt;php&gt;</code></li>
+<li>B) <code>&lt;?php</code></li>
+<li>C) <code>&lt;script php&gt;</code></li>
+<li>D) <code>&lt;?PHP</code></li>
+</ul>
+<p>Answer: <span class="blank"></span></p>
+</li>
+<li><p>PHP statements end with?</p>
+<ul><li>A) Period (.)</li>
+<li>B) Comma (,)</li>
+<li>C) Semicolon (;)</li>
+<li>D) No ending needed</li>
+</ul>
+<p>Answer: <span class="blank"></span></p>
+</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>44 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-45" tabindex="-1" data-slide data-slide-title="Part A: Knowledge summary" aria-label="Slide 45 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">A3. Essay Questions</span></p><h2 class="slide-title">Part A: Knowledge summary</h2><div class="slide-body"><ol><li><p>Explain the process from when user enters URL until webpage displays?</p>
+<p>Answer: <span class="blank"></span></p>
+<p class="blank-line"><span class="blank is-wide"></span></p>
+</li>
+<li><p>Why should we use <code>echo</code> instead of <code>print</code>?</p>
+<p>Answer: <span class="blank"></span></p>
+<p class="blank-line"><span class="blank is-wide"></span></p>
+</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>45 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-46" tabindex="-1" data-slide data-slide-title="Part B: Theory exercises" aria-label="Slide 46 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">Exercise 1: Fix code errors</span></p><h2 class="slide-title">Part B: Theory exercises</h2><div class="slide-body"><p>Find and fix errors in the following code:</p>
+<figure class="code-block is-code is-compact is-read-only" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-flag">Broken on purpose</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ❌ Wrong on purpose: this file has two errors to find</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Hello World&quot;</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Welcome to PHP!&quot;</span>;
+<span class="t-kw">print</span> <span class="t-str">&quot;This is&quot;</span>, <span class="t-str">&quot;PHP&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure><p><strong>Answer:</strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>46 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-47" tabindex="-1" data-slide data-slide-title="Part C: Practical exercises" aria-label="Slide 47 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">Practical exercise 1: Personal Information Page</span></p><h2 class="slide-title">Part C: Practical exercises</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create a page displaying personal information</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Create file <code>myinfo.php</code></li>
+<li>Display: Full name, Date of birth, Hometown, Hobbies</li>
+<li>Beautiful CSS</li>
+<li>Display access date and time</li>
+</ol>
+<p class="note-line is-result"><span class="note-icon" aria-hidden="true">📤</span><span class="note-copy"><strong>Expected Result:</strong></span></p>
+<ul><li>Webpage displays complete information</li>
+<li>Beautiful, readable interface</li>
+</ul>
+<p class="note-line is-save"><span class="note-icon" aria-hidden="true">💾</span><span class="note-copy"><strong>File to Save:</strong> <code>myinfo.php</code></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>47 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-48" tabindex="-1" data-slide data-slide-title="Part C: Practical exercises" aria-label="Slide 48 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">Practical exercise 2: Welcome Page (Challenge)</span></p><h2 class="slide-title">Part C: Practical exercises</h2><div class="slide-body"><p class="note-line is-challenge"><span class="note-icon" aria-hidden="true">🏆</span><span class="note-copy"><strong>Challenge:</strong> Create a welcome page with dynamic information</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Display greeting based on time (Morning/Afternoon/Evening)</li>
+<li>Display day of week in English</li>
+<li>Count days remaining in month</li>
+</ol>
+<p class="note-line is-save"><span class="note-icon" aria-hidden="true">💾</span><span class="note-copy"><strong>File to Save:</strong> <code>welcome.php</code></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>48 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-49" tabindex="-1" data-slide data-slide-title="Part D: Self-assessment" aria-label="Slide 49 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span><span class="slide-sub">D1. Understanding Level (Rate 1-5)</span></p><h2 class="slide-title">Part D: Self-assessment</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Topic</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody><tr><td>Understand what PHP is</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Use echo/print</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Embed PHP in HTML</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr></tbody></table></div>
+<h3 class="slide-h">D2. Questions Needing Answers</h3>
+<p>Parts still unclear:</p>
+<h3 class="slide-h">D3. Time Spent</h3>
+<ul><li>Theory time: <span class="blank"></span> minutes</li>
+<li>Practice time: <span class="blank"></span> minutes</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>49 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-50" tabindex="-1" data-slide data-slide-title="Save your practice work" aria-label="Slide 50 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Save your practice work</h2><div class="slide-body"><p>This portal does not collect or grade files. Save the completed work in your local project and follow instructions announced by your lecturer.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>50 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-51" tabindex="-1" data-slide data-slide-title="Preparation for session 02" aria-label="Slide 51 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Next steps</span></p><h2 class="slide-title">Preparation for session 02</h2><div class="slide-body"><p><strong>Next Session:</strong> Programming PHP - Variables, Data Types, Operators</p>
+<h3 class="slide-h">Knowledge to Learn:</h3>
+<ul><li>Variables and declaration</li>
+<li>Data types in PHP</li>
+<li>Arithmetic, comparison, logical operators</li>
+<li>Conditional structures if-else</li>
+</ul>
+<h3 class="slide-h">Preparation:</h3>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Complete Session 01 exercises</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Read ahead about variables in PHP</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Review basic logic knowledge</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>51 / 52</span></p></section>
+<section class="deck-slide is-content" id="slide-52" tabindex="-1" data-slide data-slide-title="Reference materials" aria-label="Slide 52 of 52"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Reference</span></p><h2 class="slide-title">Reference materials</h2><div class="slide-body"><p><strong>Books &amp; Ebooks:</strong></p>
+<ul><li>PHP &amp; MySQL Web Development - Luke Welling</li>
+<li>Learning PHP, MySQL &amp; JavaScript - Robin Nixon</li>
+</ul>
+<p><strong>Websites &amp; Tutorials:</strong></p>
+<ul><li><a href="https://www.php.net/manual/" rel="noopener noreferrer">PHP Manual</a></li>
+<li><a href="https://www.w3schools.com/php/" rel="noopener noreferrer">W3Schools PHP</a></li>
+<li><a href="https://phptherightway.com/" rel="noopener noreferrer">PHP The Right Way</a></li>
+</ul>
+<p><strong>Videos:</strong></p>
+<ul><li><a href="https://youtube.com" rel="noopener noreferrer">PHP Tutorial for Beginners - YouTube</a></li>
+</ul>
+<p><strong>Next Chapter: <a href="../ebook/02-programming-with-php.html">Session 02 - Programming PHP →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 01</span><span>52 / 52</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

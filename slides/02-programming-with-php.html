@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Programming with PHP — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Programming with PHP">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_1_php_foundation/session_02_programming_php.md">
+<meta name="source-sha256" content="291772ffe3978b513d92a9b97e328b98893f6178f4e48838bd51c30f456300b3">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 2 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Programming with PHP</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1.1 What is a Variable?</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.2 Variable Naming Rules (1/2)</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">1.2 Variable Naming Rules (2/2)</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">1.3 Variable Declaration</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">2.1 Basic Data Types</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">2.2 String</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">2.3 Integer &amp; Float</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">2.4 Boolean</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">2.5 Array</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">3.1 Arithmetic Operators</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">3.2 Assignment Operators</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">3.3 Comparison Operators</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">3.4 Logical Operators</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">3.5 Increment/Decrement Operators</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">4.1 If-Else</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">4.2 Switch</span></button></li><li><button type="button" data-deck-jump="22"><span class="rail-index">23</span><span class="rail-title">4.3 For Loop</span></button></li><li><button type="button" data-deck-jump="23"><span class="rail-index">24</span><span class="rail-title">4.4 While Loop</span></button></li><li><button type="button" data-deck-jump="24"><span class="rail-index">25</span><span class="rail-title">4.5 Foreach Loop</span></button></li><li><button type="button" data-deck-jump="25"><span class="rail-index">26</span><span class="rail-title">5.1 Basic Functions</span></button></li><li><button type="button" data-deck-jump="26"><span class="rail-index">27</span><span class="rail-title">5.2 Functions With Type Hints (PHP 7+)</span></button></li><li><button type="button" data-deck-jump="27"><span class="rail-index">28</span><span class="rail-title">Section: Examples</span></button></li><li><button type="button" data-deck-jump="28"><span class="rail-index">29</span><span class="rail-title">Example 1: Calculate Average Score</span></button></li><li><button type="button" data-deck-jump="29"><span class="rail-index">30</span><span class="rail-title">Example 2: Student List</span></button></li><li><button type="button" data-deck-jump="30"><span class="rail-index">31</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="31"><span class="rail-index">32</span><span class="rail-title">Exercise 1: BMI Calculator</span></button></li><li><button type="button" data-deck-jump="32"><span class="rail-index">33</span><span class="rail-title">Exercise 2: Print Multiplication Table</span></button></li><li><button type="button" data-deck-jump="33"><span class="rail-index">34</span><span class="rail-title">Exercise 3: Find Prime Numbers (Challenge)</span></button></li><li><button type="button" data-deck-jump="34"><span class="rail-index">35</span><span class="rail-title">Theory</span></button></li><li><button type="button" data-deck-jump="35"><span class="rail-index">36</span><span class="rail-title">Session 02 worksheet</span></button></li><li><button type="button" data-deck-jump="36"><span class="rail-index">37</span><span class="rail-title">A. Multiple Choice</span></button></li><li><button type="button" data-deck-jump="37"><span class="rail-index">38</span><span class="rail-title">B. Essay Questions</span></button></li><li><button type="button" data-deck-jump="38"><span class="rail-index">39</span><span class="rail-title">C. Practical Exercises</span></button></li><li><button type="button" data-deck-jump="39"><span class="rail-index">40</span><span class="rail-title">Preparation for session 03</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Programming with PHP</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1.1 What is a Variable?</option><option value="7">8. 1.2 Variable Naming Rules (1/2)</option><option value="8">9. 1.2 Variable Naming Rules (2/2)</option><option value="9">10. 1.3 Variable Declaration</option><option value="10">11. 2.1 Basic Data Types</option><option value="11">12. 2.2 String</option><option value="12">13. 2.3 Integer &amp; Float</option><option value="13">14. 2.4 Boolean</option><option value="14">15. 2.5 Array</option><option value="15">16. 3.1 Arithmetic Operators</option><option value="16">17. 3.2 Assignment Operators</option><option value="17">18. 3.3 Comparison Operators</option><option value="18">19. 3.4 Logical Operators</option><option value="19">20. 3.5 Increment/Decrement Operators</option><option value="20">21. 4.1 If-Else</option><option value="21">22. 4.2 Switch</option><option value="22">23. 4.3 For Loop</option><option value="23">24. 4.4 While Loop</option><option value="24">25. 4.5 Foreach Loop</option><option value="25">26. 5.1 Basic Functions</option><option value="26">27. 5.2 Functions With Type Hints (PHP 7+)</option><option value="27">28. Section: Examples</option><option value="28">29. Example 1: Calculate Average Score</option><option value="29">30. Example 2: Student List</option><option value="30">31. Section: Practice</option><option value="31">32. Exercise 1: BMI Calculator</option><option value="32">33. Exercise 2: Print Multiplication Table</option><option value="33">34. Exercise 3: Find Prime Numbers (Challenge)</option><option value="34">35. Theory</option><option value="35">36. Session 02 worksheet</option><option value="36">37. A. Multiple Choice</option><option value="37">38. B. Essay Questions</option><option value="38">39. C. Practical Exercises</option><option value="39">40. Preparation for session 03</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 40</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Programming with PHP" aria-label="Slide 1 of 40"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Programming with PHP</h2><p class="title-lead">Variables, types, control flow</p><p class="title-meta"><span>Session 02 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>1 / 40</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 40"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>Variables in PHP</span></li><li><span>Data types</span></li><li><span>Operators</span></li><li><span>Control structures</span></li><li><span>Functions</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>2 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>Today we will learn how to store and process data in PHP - the most important foundation of programming!</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>3 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 2 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Declare and use variables</li><li>Understand data types</li><li>Use operators</li><li>Write control structures</li></ul></div><div class="brief-item"><span class="brief-key">Preparation</span><p class="brief-value">Complete Session 01 exercises</p></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO1</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>4 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will:</p>
+<ul><li><strong>Declare variables</strong> correctly in PHP</li>
+<li><strong>Distinguish</strong> between data types</li>
+<li><strong>Use</strong> various operators</li>
+<li><strong>Write</strong> control structures if-else, switch</li>
+<li><strong>Create</strong> loops for, while, foreach</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>5 / 40</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 40"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 02</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>6 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. Variables in PHP" aria-label="Slide 7 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 What is a Variable?</span></p><h2 class="slide-title"><span class="h-num">1</span>Variables in PHP</h2><div class="slide-body"><p><strong>Variable</strong> = Container for data, can change value during program execution.</p>
+
+<aside class="callout is-analogy" aria-labelledby="analogy-real-life-analogy"><p class="callout-title" id="analogy-real-life-analogy">Real-life Analogy</p><div class="callout-body"><p>Variables are like <strong>labeled containers</strong>:</p>
+<ul><li>Label = Variable name (<code>$name</code>)</li>
+<li>Content = Value (<code>&quot;John Doe&quot;</code>)</li>
+<li>You can change the content anytime</li>
+</ul>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>7 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="1. Variables in PHP" aria-label="Slide 8 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Variable Naming Rules</span></p><h2 class="slide-title"><span class="h-num">1</span>Variables in PHP<span class="slide-cont">1 of 2</span></h2><div class="slide-body"><figure class="code-block is-code is-compact is-read-only" data-language="php" data-lines="13"><figcaption><span class="code-language">PHP</span><span class="code-flag">Broken on purpose</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// ✅ Correct</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;John&quot;</span>;           <span class="t-com">// Lowercase</span>
+<span class="t-var">$userName</span> <span class="t-op">=</span> <span class="t-str">&quot;john123&quot;</span>;    <span class="t-com">// camelCase (recommended)</span>
+<span class="t-var">$user_name</span> <span class="t-op">=</span> <span class="t-str">&quot;john123&quot;</span>;   <span class="t-com">// snake_case</span>
+<span class="t-var">$_private</span> <span class="t-op">=</span> <span class="t-str">&quot;secret&quot;</span>;     <span class="t-com">// Starts with _</span>
+<span class="t-var">$name2</span> <span class="t-op">=</span> <span class="t-str">&quot;Jane&quot;</span>;          <span class="t-com">// Contains number (not at start)</span>
+
+<span class="t-com">// ❌ Wrong</span>
+$2name <span class="t-op">=</span> <span class="t-str">&quot;Error&quot;</span>;         <span class="t-com">// Starts with number</span>
+<span class="t-var">$user</span><span class="t-op">-</span>name <span class="t-op">=</span> <span class="t-str">&quot;Error&quot;</span>;     <span class="t-com">// Contains hyphen</span>
+<span class="t-var">$user</span> name <span class="t-op">=</span> <span class="t-str">&quot;Error&quot;</span>;     <span class="t-com">// Contains space</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>8 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="1. Variables in PHP" aria-label="Slide 9 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Variable Naming Rules</span></p><h2 class="slide-title"><span class="h-num">1</span>Variables in PHP<span class="slide-cont">2 of 2</span></h2><div class="slide-body"><aside class="callout is-rules" aria-labelledby="rules-rules"><p class="callout-title" id="rules-rules">Rules</p><div class="callout-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Rule</th><th>Example</th></tr></thead><tbody><tr><td>Must start with <code>$</code></td><td><code>$name</code></td></tr><tr><td>Next: letter or <code>_</code></td><td><code>$_name</code>, <code>$name</code></td></tr><tr><td>Can contain numbers (not at start)</td><td><code>$name1</code></td></tr><tr><td>Case-sensitive</td><td><code>$Name</code> ≠ <code>$name</code></td></tr></tbody></table></div>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>9 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="1. Variables in PHP" aria-label="Slide 10 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.3 Variable Declaration</span></p><h2 class="slide-title"><span class="h-num">1</span>Variables in PHP</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="13"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Declare and assign value</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;John Doe&quot;</span>;
+<span class="t-var">$age</span> <span class="t-op">=</span> <span class="t-num">20</span>;
+<span class="t-var">$gpa</span> <span class="t-op">=</span> <span class="t-num">3.5</span>;
+<span class="t-var">$isStudent</span> <span class="t-op">=</span> <span class="t-lit">true</span>;
+
+<span class="t-com">// Display variables</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;Name: $name&lt;br&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Age: $age&lt;br&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;GPA: $gpa&lt;br&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Is Student: &quot;</span> <span class="t-op">.</span> (<span class="t-var">$isStudent</span> <span class="t-op">?</span> <span class="t-str">&quot;Yes&quot;</span> <span class="t-op">:</span> <span class="t-str">&quot;No&quot;</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>10 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="2. Data types" aria-label="Slide 11 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 Basic Data Types</span></p><h2 class="slide-title"><span class="h-num">2</span>Data types</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><strong>String</strong></td><td>Character string</td><td><code>&quot;Hello&quot;</code>, <code>&#39;World&#39;</code></td></tr><tr><td><strong>Integer</strong></td><td>Whole number</td><td><code>42</code>, <code>-10</code>, <code>0</code></td></tr><tr><td><strong>Float</strong></td><td>Decimal number</td><td><code>3.14</code>, <code>-2.5</code></td></tr><tr><td><strong>Boolean</strong></td><td>True/False</td><td><code>true</code>, <code>false</code></td></tr><tr><td><strong>Array</strong></td><td>Array</td><td><code>[1, 2, 3]</code></td></tr><tr><td><strong>NULL</strong></td><td>No value</td><td><code>null</code></td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>11 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-12" tabindex="-1" data-slide data-slide-title="2. Data types" aria-label="Slide 12 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.2 String</span></p><h2 class="slide-title"><span class="h-num">2</span>Data types</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="28"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Single quotes - Literal string</span>
+<span class="t-var">$str1</span> <span class="t-op">=</span> <span class="t-str">&#39;Hello World&#39;</span>;
+<span class="t-var">$str1</span> <span class="t-op">=</span> <span class="t-str">&#39;Hello $name&#39;</span>;  <span class="t-com">// Output: Hello $name (doesn&#39;t parse variable)</span>
+
+<span class="t-com">// Double quotes - Parsed string</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;John&quot;</span>;
+<span class="t-var">$str2</span> <span class="t-op">=</span> <span class="t-str">&quot;Hello $name&quot;</span>;  <span class="t-com">// Output: Hello John (parses variable)</span>
+<span class="t-var">$str3</span> <span class="t-op">=</span> <span class="t-str">&quot;Hello {$name}!&quot;</span>; <span class="t-com">// Output: Hello John!</span>
+
+<span class="t-com">// String concatenation with dot (.)</span>
+<span class="t-var">$greeting</span> <span class="t-op">=</span> <span class="t-str">&quot;Hello, &quot;</span> <span class="t-op">.</span> <span class="t-var">$name</span> <span class="t-op">.</span> <span class="t-str">&quot;!&quot;</span>;
+
+<span class="t-com">// Heredoc - Multi-line string</span>
+<span class="t-var">$html</span> <span class="t-op">=</span> <span class="t-op">&lt;&lt;&lt;</span><span class="t-const">HTML</span>
+<span class="t-tag">&lt;div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>Hello <span class="t-var">$name</span><span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Welcome<span class="t-op">!&lt;/</span>p<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-const">HTML</span>;
+
+<span class="t-com">// Common string functions</span>
+<span class="t-kw">echo</span> <span class="t-fn">strlen</span>(<span class="t-str">&quot;Hello&quot;</span>);        <span class="t-com">// 5 - Length</span>
+<span class="t-kw">echo</span> <span class="t-fn">strtoupper</span>(<span class="t-str">&quot;hello&quot;</span>);    <span class="t-com">// HELLO - Uppercase</span>
+<span class="t-kw">echo</span> <span class="t-fn">strtolower</span>(<span class="t-str">&quot;HELLO&quot;</span>);    <span class="t-com">// hello - Lowercase</span>
+<span class="t-kw">echo</span> <span class="t-fn">substr</span>(<span class="t-str">&quot;Hello&quot;</span>, <span class="t-num">0</span>, <span class="t-num">3</span>);  <span class="t-com">// Hel - Substring</span>
+<span class="t-kw">echo</span> <span class="t-fn">str_replace</span>(<span class="t-str">&quot;o&quot;</span>, <span class="t-str">&quot;0&quot;</span>, <span class="t-str">&quot;Hello&quot;</span>); <span class="t-com">// Hell0 - Replace</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>12 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-13" tabindex="-1" data-slide data-slide-title="2. Data types" aria-label="Slide 13 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 Integer &amp; Float</span></p><h2 class="slide-title"><span class="h-num">2</span>Data types</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="29"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">29 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Integer (Whole numbers)</span>
+<span class="t-var">$int1</span> <span class="t-op">=</span> <span class="t-num">42</span>;
+<span class="t-var">$int2</span> <span class="t-op">=</span> <span class="t-op">-</span><span class="t-num">10</span>;
+<span class="t-var">$int3</span> <span class="t-op">=</span> <span class="t-num">0</span>;
+
+<span class="t-com">// Float (Decimal numbers)</span>
+<span class="t-var">$float1</span> <span class="t-op">=</span> <span class="t-num">3.14</span>;
+<span class="t-var">$float2</span> <span class="t-op">=</span> <span class="t-op">-</span><span class="t-num">2.5</span>;
+<span class="t-var">$float3</span> <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">.</span>5e3;  <span class="t-com">// 1500 (scientific notation)</span>
+
+<span class="t-com">// Type checking</span>
+<span class="t-fn">var_dump</span>(<span class="t-var">$int1</span>);   <span class="t-com">// int(42)</span>
+<span class="t-fn">var_dump</span>(<span class="t-var">$float1</span>); <span class="t-com">// float(3.14)</span>
+
+<span class="t-com">// Type casting</span>
+<span class="t-var">$str</span> <span class="t-op">=</span> <span class="t-str">&quot;123&quot;</span>;
+<span class="t-var">$num</span> <span class="t-op">=</span> (<span class="t-type">int</span>) <span class="t-var">$str</span>;     <span class="t-com">// 123</span>
+<span class="t-var">$num</span> <span class="t-op">=</span> <span class="t-fn">intval</span>(<span class="t-var">$str</span>);   <span class="t-com">// 123</span>
+
+<span class="t-com">// Math functions</span>
+<span class="t-kw">echo</span> <span class="t-fn">abs</span>(<span class="t-op">-</span><span class="t-num">5</span>);          <span class="t-com">// 5 - Absolute value</span>
+<span class="t-kw">echo</span> <span class="t-fn">round</span>(<span class="t-num">3.7</span>);       <span class="t-com">// 4 - Round</span>
+<span class="t-kw">echo</span> <span class="t-fn">ceil</span>(<span class="t-num">3.2</span>);        <span class="t-com">// 4 - Round up</span>
+<span class="t-kw">echo</span> <span class="t-fn">floor</span>(<span class="t-num">3.8</span>);       <span class="t-com">// 3 - Round down</span>
+<span class="t-kw">echo</span> <span class="t-fn">max</span>(<span class="t-num">1</span>, <span class="t-num">5</span>, <span class="t-num">3</span>);     <span class="t-com">// 5 - Maximum value</span>
+<span class="t-kw">echo</span> <span class="t-fn">min</span>(<span class="t-num">1</span>, <span class="t-num">5</span>, <span class="t-num">3</span>);     <span class="t-com">// 1 - Minimum value</span>
+<span class="t-kw">echo</span> <span class="t-fn">rand</span>(<span class="t-num">1</span>, <span class="t-num">100</span>);     <span class="t-com">// Random number 1-100</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>13 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-14" tabindex="-1" data-slide data-slide-title="2. Data types" aria-label="Slide 14 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.4 Boolean</span></p><h2 class="slide-title"><span class="h-num">2</span>Data types</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="18"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$isActive</span> <span class="t-op">=</span> <span class="t-lit">true</span>;
+<span class="t-var">$isDeleted</span> <span class="t-op">=</span> <span class="t-lit">false</span>;
+
+<span class="t-com">// Values considered FALSE:</span>
+<span class="t-com">// - false</span>
+<span class="t-com">// - 0 (integer)</span>
+<span class="t-com">// - 0.0 (float)</span>
+<span class="t-com">// - &quot;&quot; (empty string)</span>
+<span class="t-com">// - &quot;0&quot; (string &quot;0&quot;)</span>
+<span class="t-com">// - [] (empty array)</span>
+<span class="t-com">// - null</span>
+
+<span class="t-com">// Checking</span>
+<span class="t-kw">if</span> (<span class="t-var">$isActive</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Account is active&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>14 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-15" tabindex="-1" data-slide data-slide-title="2. Data types" aria-label="Slide 15 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.5 Array</span></p><h2 class="slide-title"><span class="h-num">2</span>Data types</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="36"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">36 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Indexed array</span>
+<span class="t-var">$fruits</span> <span class="t-op">=</span> [<span class="t-str">&quot;Apple&quot;</span>, <span class="t-str">&quot;Banana&quot;</span>, <span class="t-str">&quot;Orange&quot;</span>];
+<span class="t-var">$fruits</span> <span class="t-op">=</span> <span class="t-kw">array</span>(<span class="t-str">&quot;Apple&quot;</span>, <span class="t-str">&quot;Banana&quot;</span>, <span class="t-str">&quot;Orange&quot;</span>); <span class="t-com">// Old way</span>
+
+<span class="t-kw">echo</span> <span class="t-var">$fruits</span>[<span class="t-num">0</span>];  <span class="t-com">// Apple</span>
+<span class="t-kw">echo</span> <span class="t-var">$fruits</span>[<span class="t-num">1</span>];  <span class="t-com">// Banana</span>
+
+<span class="t-com">// Associative array (key-value)</span>
+<span class="t-var">$student</span> <span class="t-op">=</span> [
+    <span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;John Doe&quot;</span>,
+    <span class="t-str">&quot;age&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">20</span>,
+    <span class="t-str">&quot;gpa&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">3.5</span>
+];
+
+<span class="t-kw">echo</span> <span class="t-var">$student</span>[<span class="t-str">&quot;name&quot;</span>];  <span class="t-com">// John Doe</span>
+
+<span class="t-com">// Multidimensional array</span>
+<span class="t-var">$students</span> <span class="t-op">=</span> [
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;A&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">85</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;B&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">90</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;C&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">78</span>]
+];
+
+<span class="t-kw">echo</span> <span class="t-var">$students</span>[<span class="t-num">0</span>][<span class="t-str">&quot;name&quot;</span>];  <span class="t-com">// A</span>
+
+<span class="t-com">// Common array functions</span>
+<span class="t-var">$arr</span> <span class="t-op">=</span> [<span class="t-num">3</span>, <span class="t-num">1</span>, <span class="t-num">4</span>, <span class="t-num">1</span>, <span class="t-num">5</span>];
+<span class="t-kw">echo</span> <span class="t-fn">count</span>(<span class="t-var">$arr</span>);           <span class="t-com">// 5 - Count elements</span>
+<span class="t-fn">sort</span>(<span class="t-var">$arr</span>);                 <span class="t-com">// Sort ascending</span>
+<span class="t-fn">rsort</span>(<span class="t-var">$arr</span>);                <span class="t-com">// Sort descending</span>
+<span class="t-fn">print_r</span>(<span class="t-var">$arr</span>);              <span class="t-com">// Print array</span>
+<span class="t-fn">array_push</span>(<span class="t-var">$arr</span>, <span class="t-num">9</span>);        <span class="t-com">// Add to end</span>
+<span class="t-fn">array_pop</span>(<span class="t-var">$arr</span>);            <span class="t-com">// Remove from end</span>
+<span class="t-fn">in_array</span>(<span class="t-num">4</span>, <span class="t-var">$arr</span>);          <span class="t-com">// true - Check existence</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>15 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-16" tabindex="-1" data-slide data-slide-title="3. Operators" aria-label="Slide 16 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.1 Arithmetic Operators</span></p><h2 class="slide-title"><span class="h-num">3</span>Operators</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="11"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$a</span> <span class="t-op">=</span> <span class="t-num">10</span>;
+<span class="t-var">$b</span> <span class="t-op">=</span> <span class="t-num">3</span>;
+
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">+</span> <span class="t-var">$b</span>;   <span class="t-com">// 13 - Addition</span>
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">-</span> <span class="t-var">$b</span>;   <span class="t-com">// 7  - Subtraction</span>
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">*</span> <span class="t-var">$b</span>;   <span class="t-com">// 30 - Multiplication</span>
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">/</span> <span class="t-var">$b</span>;   <span class="t-com">// 3.333... - Division</span>
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">%</span> <span class="t-var">$b</span>;   <span class="t-com">// 1  - Modulo (remainder)</span>
+<span class="t-kw">echo</span> <span class="t-var">$a</span> <span class="t-op">**</span> <span class="t-var">$b</span>;  <span class="t-com">// 1000 - Exponentiation (10^3)</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>16 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="3. Operators" aria-label="Slide 17 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.2 Assignment Operators</span></p><h2 class="slide-title"><span class="h-num">3</span>Operators</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="10"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$x</span> <span class="t-op">=</span> <span class="t-num">10</span>;
+
+<span class="t-var">$x</span> <span class="t-op">+=</span> <span class="t-num">5</span>;   <span class="t-com">// $x = $x + 5  → 15</span>
+<span class="t-var">$x</span> <span class="t-op">-=</span> <span class="t-num">3</span>;   <span class="t-com">// $x = $x - 3  → 12</span>
+<span class="t-var">$x</span> <span class="t-op">*=</span> <span class="t-num">2</span>;   <span class="t-com">// $x = $x * 2  → 24</span>
+<span class="t-var">$x</span> <span class="t-op">/=</span> <span class="t-num">4</span>;   <span class="t-com">// $x = $x / 4  → 6</span>
+<span class="t-var">$x</span> <span class="t-op">%=</span> <span class="t-num">4</span>;   <span class="t-com">// $x = $x % 4  → 2</span>
+<span class="t-var">$x</span> <span class="t-op">.=</span> <span class="t-str">&quot;!&quot;</span>; <span class="t-com">// $x = $x . &quot;!&quot; → &quot;2!&quot;</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>17 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="3. Operators" aria-label="Slide 18 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.3 Comparison Operators</span></p><h2 class="slide-title"><span class="h-num">3</span>Operators</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$a</span> <span class="t-op">=</span> <span class="t-num">5</span>;
+<span class="t-var">$b</span> <span class="t-op">=</span> <span class="t-str">&quot;5&quot;</span>;
+
+<span class="t-com">// Value comparison</span>
+<span class="t-var">$a</span> <span class="t-op">==</span> <span class="t-var">$b</span>;    <span class="t-com">// true (5 == &quot;5&quot;)</span>
+<span class="t-var">$a</span> <span class="t-op">!=</span> <span class="t-var">$b</span>;    <span class="t-com">// false</span>
+
+<span class="t-com">// Value AND type comparison</span>
+<span class="t-var">$a</span> <span class="t-op">===</span> <span class="t-var">$b</span>;   <span class="t-com">// false (int !== string)</span>
+<span class="t-var">$a</span> <span class="t-op">!==</span> <span class="t-var">$b</span>;   <span class="t-com">// true</span>
+
+<span class="t-com">// Greater/Less than</span>
+<span class="t-var">$a</span> <span class="t-tag">&gt;</span> <span class="t-num">3</span>;      <span class="t-com">// true</span>
+<span class="t-var">$a</span> <span class="t-op">&lt;</span> <span class="t-num">3</span>;      <span class="t-com">// false</span>
+<span class="t-var">$a</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">5</span>;     <span class="t-com">// true</span>
+<span class="t-var">$a</span> <span class="t-op">&lt;=</span> <span class="t-num">5</span>;     <span class="t-com">// true</span>
+
+<span class="t-com">// Spaceship operator (PHP 7+)</span>
+<span class="t-num">1</span> <span class="t-op">&lt;=&gt;</span> <span class="t-num">2</span>;     <span class="t-com">// -1 (1 &lt; 2)</span>
+<span class="t-num">2</span> <span class="t-op">&lt;=&gt;</span> <span class="t-num">2</span>;     <span class="t-com">// 0  (2 == 2)</span>
+<span class="t-num">3</span> <span class="t-op">&lt;=&gt;</span> <span class="t-num">2</span>;     <span class="t-com">// 1  (3 &gt; 2)</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>18 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-19" tabindex="-1" data-slide data-slide-title="3. Operators" aria-label="Slide 19 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.4 Logical Operators</span></p><h2 class="slide-title"><span class="h-num">3</span>Operators</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="19"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$a</span> <span class="t-op">=</span> <span class="t-lit">true</span>;
+<span class="t-var">$b</span> <span class="t-op">=</span> <span class="t-lit">false</span>;
+
+<span class="t-com">// AND - Both must be true</span>
+<span class="t-var">$a</span> <span class="t-op">&amp;&amp;</span> <span class="t-var">$b</span>;    <span class="t-com">// false</span>
+<span class="t-var">$a</span> <span class="t-kw">and</span> <span class="t-var">$b</span>;   <span class="t-com">// false</span>
+
+<span class="t-com">// OR - At least one true</span>
+<span class="t-var">$a</span> <span class="t-op">||</span> <span class="t-var">$b</span>;    <span class="t-com">// true</span>
+<span class="t-var">$a</span> <span class="t-kw">or</span> <span class="t-var">$b</span>;    <span class="t-com">// true</span>
+
+<span class="t-com">// NOT - Invert</span>
+<span class="t-op">!</span><span class="t-var">$a</span>;         <span class="t-com">// false</span>
+<span class="t-op">!</span><span class="t-var">$b</span>;         <span class="t-com">// true</span>
+
+<span class="t-com">// XOR - Only one true</span>
+<span class="t-var">$a</span> <span class="t-kw">xor</span> <span class="t-var">$b</span>;   <span class="t-com">// true</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>19 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-20" tabindex="-1" data-slide data-slide-title="3. Operators" aria-label="Slide 20 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.5 Increment/Decrement Operators</span></p><h2 class="slide-title"><span class="h-num">3</span>Operators</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="11"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$x</span> <span class="t-op">=</span> <span class="t-num">5</span>;
+
+<span class="t-com">// Pre-increment/decrement (increment/decrement first, then use)</span>
+<span class="t-kw">echo</span> <span class="t-op">++</span><span class="t-var">$x</span>;  <span class="t-com">// 6 (increment x to 6, then print 6)</span>
+<span class="t-kw">echo</span> <span class="t-op">--</span><span class="t-var">$x</span>;  <span class="t-com">// 5 (decrement x to 5, then print 5)</span>
+
+<span class="t-com">// Post-increment/decrement (use first, then increment/decrement)</span>
+<span class="t-kw">echo</span> <span class="t-var">$x</span><span class="t-op">++</span>;  <span class="t-com">// 5 (print 5, then increment x to 6)</span>
+<span class="t-kw">echo</span> <span class="t-var">$x</span><span class="t-op">--</span>;  <span class="t-com">// 6 (print 6, then decrement x to 5)</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>20 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-21" tabindex="-1" data-slide data-slide-title="4. Control structures" aria-label="Slide 21 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.1 If-Else</span></p><h2 class="slide-title"><span class="h-num">4</span>Control structures</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="35"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">35 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$score</span> <span class="t-op">=</span> <span class="t-num">75</span>;
+
+<span class="t-com">// Simple if</span>
+<span class="t-kw">if</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">50</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Pass&quot;</span>;
+}
+
+<span class="t-com">// If-else</span>
+<span class="t-kw">if</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">50</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Pass&quot;</span>;
+} <span class="t-kw">else</span> {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Fail&quot;</span>;
+}
+
+<span class="t-com">// If-elseif-else</span>
+<span class="t-kw">if</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">90</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Excellent&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">80</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Good&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">70</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Fair&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">50</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Average&quot;</span>;
+} <span class="t-kw">else</span> {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Poor&quot;</span>;
+}
+
+<span class="t-com">// Ternary operator</span>
+<span class="t-var">$result</span> <span class="t-op">=</span> (<span class="t-var">$score</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">50</span>) <span class="t-op">?</span> <span class="t-str">&quot;Pass&quot;</span> <span class="t-op">:</span> <span class="t-str">&quot;Fail&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-var">$result</span>;
+
+<span class="t-com">// Null coalescing (PHP 7+)</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;Guest&#39;</span>;  <span class="t-com">// If not exists, use &#39;Guest&#39;</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>21 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-22" tabindex="-1" data-slide data-slide-title="4. Control structures" aria-label="Slide 22 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Switch</span></p><h2 class="slide-title"><span class="h-num">4</span>Control structures</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="27"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$day</span> <span class="t-op">=</span> <span class="t-fn">date</span>(<span class="t-str">&quot;l&quot;</span>);  <span class="t-com">// Get day of week name</span>
+
+<span class="t-kw">switch</span> (<span class="t-var">$day</span>) {
+    <span class="t-kw">case</span> <span class="t-str">&quot;Monday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Monday - Start of new week!&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">case</span> <span class="t-str">&quot;Tuesday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Tuesday&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">case</span> <span class="t-str">&quot;Wednesday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Wednesday - Midweek&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">case</span> <span class="t-str">&quot;Thursday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Thursday&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">case</span> <span class="t-str">&quot;Friday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Friday - Almost weekend!&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">case</span> <span class="t-str">&quot;Saturday&quot;</span><span class="t-op">:</span>
+    <span class="t-kw">case</span> <span class="t-str">&quot;Sunday&quot;</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Weekend - Rest!&quot;</span>;
+        <span class="t-kw">break</span>;
+    <span class="t-kw">default</span><span class="t-op">:</span>
+        <span class="t-kw">echo</span> <span class="t-str">&quot;Invalid day&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>22 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-23" tabindex="-1" data-slide data-slide-title="4. Control structures" aria-label="Slide 23 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.3 For Loop</span></p><h2 class="slide-title"><span class="h-num">4</span>Control structures</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Basic for loop</span>
+<span class="t-kw">for</span> (<span class="t-var">$i</span> <span class="t-op">=</span> <span class="t-num">1</span>; <span class="t-var">$i</span> <span class="t-op">&lt;=</span> <span class="t-num">5</span>; <span class="t-var">$i</span><span class="t-op">++</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Count: $i&lt;br&gt;&quot;</span>;
+}
+
+<span class="t-com">// For with array</span>
+<span class="t-var">$fruits</span> <span class="t-op">=</span> [<span class="t-str">&quot;Apple&quot;</span>, <span class="t-str">&quot;Banana&quot;</span>, <span class="t-str">&quot;Orange&quot;</span>];
+<span class="t-kw">for</span> (<span class="t-var">$i</span> <span class="t-op">=</span> <span class="t-num">0</span>; <span class="t-var">$i</span> <span class="t-op">&lt;</span> <span class="t-fn">count</span>(<span class="t-var">$fruits</span>); <span class="t-var">$i</span><span class="t-op">++</span>) {
+    <span class="t-kw">echo</span> <span class="t-var">$fruits</span>[<span class="t-var">$i</span>] <span class="t-op">.</span> <span class="t-str">&quot;&lt;br&gt;&quot;</span>;
+}
+
+<span class="t-com">// Multiplication table</span>
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;table border=&#39;1&#39;&gt;&quot;</span>;
+<span class="t-kw">for</span> (<span class="t-var">$i</span> <span class="t-op">=</span> <span class="t-num">1</span>; <span class="t-var">$i</span> <span class="t-op">&lt;=</span> <span class="t-num">10</span>; <span class="t-var">$i</span><span class="t-op">++</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;tr&gt;&quot;</span>;
+    <span class="t-kw">for</span> (<span class="t-var">$j</span> <span class="t-op">=</span> <span class="t-num">1</span>; <span class="t-var">$j</span> <span class="t-op">&lt;=</span> <span class="t-num">10</span>; <span class="t-var">$j</span><span class="t-op">++</span>) {
+        <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;td&gt;&quot;</span> <span class="t-op">.</span> (<span class="t-var">$i</span> <span class="t-op">*</span> <span class="t-var">$j</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/td&gt;&quot;</span>;
+    }
+    <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;/tr&gt;&quot;</span>;
+}
+<span class="t-kw">echo</span> <span class="t-str">&quot;&lt;/table&gt;&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>23 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-24" tabindex="-1" data-slide data-slide-title="4. Control structures" aria-label="Slide 24 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.4 While Loop</span></p><h2 class="slide-title"><span class="h-num">4</span>Control structures</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="15"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// While</span>
+<span class="t-var">$count</span> <span class="t-op">=</span> <span class="t-num">1</span>;
+<span class="t-kw">while</span> (<span class="t-var">$count</span> <span class="t-op">&lt;=</span> <span class="t-num">5</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Count: $count&lt;br&gt;&quot;</span>;
+    <span class="t-var">$count</span><span class="t-op">++</span>;
+}
+
+<span class="t-com">// Do-while (executes at least once)</span>
+<span class="t-var">$num</span> <span class="t-op">=</span> <span class="t-num">1</span>;
+<span class="t-kw">do</span> {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Number: $num&lt;br&gt;&quot;</span>;
+    <span class="t-var">$num</span><span class="t-op">++</span>;
+} <span class="t-kw">while</span> (<span class="t-var">$num</span> <span class="t-op">&lt;=</span> <span class="t-num">5</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>24 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-25" tabindex="-1" data-slide data-slide-title="4. Control structures" aria-label="Slide 25 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.5 Foreach Loop</span></p><h2 class="slide-title"><span class="h-num">4</span>Control structures</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="28"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Foreach with indexed array</span>
+<span class="t-var">$colors</span> <span class="t-op">=</span> [<span class="t-str">&quot;Red&quot;</span>, <span class="t-str">&quot;Green&quot;</span>, <span class="t-str">&quot;Blue&quot;</span>];
+<span class="t-kw">foreach</span> (<span class="t-var">$colors</span> <span class="t-kw">as</span> <span class="t-var">$color</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;$color&lt;br&gt;&quot;</span>;
+}
+
+<span class="t-com">// Foreach with associative array</span>
+<span class="t-var">$student</span> <span class="t-op">=</span> [
+    <span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;John Doe&quot;</span>,
+    <span class="t-str">&quot;age&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">20</span>,
+    <span class="t-str">&quot;gpa&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">3.5</span>
+];
+
+<span class="t-kw">foreach</span> (<span class="t-var">$student</span> <span class="t-kw">as</span> <span class="t-var">$key</span> <span class="t-op">=&gt;</span> <span class="t-var">$value</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;$key: $value&lt;br&gt;&quot;</span>;
+}
+
+<span class="t-com">// Foreach with multidimensional array</span>
+<span class="t-var">$students</span> <span class="t-op">=</span> [
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;A&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">85</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;B&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">90</span>]
+];
+
+<span class="t-kw">foreach</span> (<span class="t-var">$students</span> <span class="t-kw">as</span> <span class="t-var">$index</span> <span class="t-op">=&gt;</span> <span class="t-var">$s</span>) {
+    <span class="t-kw">echo</span> (<span class="t-var">$index</span> <span class="t-op">+</span> <span class="t-num">1</span>) <span class="t-op">.</span> <span class="t-str">&quot;. {$s[&#39;name&#39;]}: {$s[&#39;score&#39;]} points&lt;br&gt;&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>25 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-26" tabindex="-1" data-slide data-slide-title="5. Functions" aria-label="Slide 26 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">5.1 Basic Functions</span></p><h2 class="slide-title"><span class="h-num">5</span>Functions</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="28"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Declare function</span>
+<span class="t-kw">function</span> <span class="t-fn">sayHello</span>() {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Hello World!&quot;</span>;
+}
+
+<span class="t-com">// Call function</span>
+<span class="t-fn">sayHello</span>();
+
+<span class="t-com">// Function with parameters</span>
+<span class="t-kw">function</span> <span class="t-fn">greet</span>(<span class="t-var">$name</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Hello, $name!&quot;</span>;
+}
+<span class="t-fn">greet</span>(<span class="t-str">&quot;John&quot;</span>);
+
+<span class="t-com">// Function with default value</span>
+<span class="t-kw">function</span> <span class="t-fn">greetWithDefault</span>(<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;Guest&quot;</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Hello, $name!&quot;</span>;
+}
+<span class="t-fn">greetWithDefault</span>();      <span class="t-com">// Hello, Guest!</span>
+<span class="t-fn">greetWithDefault</span>(<span class="t-str">&quot;Jane&quot;</span>); <span class="t-com">// Hello, Jane!</span>
+
+<span class="t-com">// Function with return value</span>
+<span class="t-kw">function</span> <span class="t-fn">add</span>(<span class="t-var">$a</span>, <span class="t-var">$b</span>) {
+    <span class="t-kw">return</span> <span class="t-var">$a</span> <span class="t-op">+</span> <span class="t-var">$b</span>;
+}
+<span class="t-var">$sum</span> <span class="t-op">=</span> <span class="t-fn">add</span>(<span class="t-num">5</span>, <span class="t-num">3</span>);  <span class="t-com">// 8</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>26 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-27" tabindex="-1" data-slide data-slide-title="5. Functions" aria-label="Slide 27 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">5.2 Functions With Type Hints (PHP 7+)</span></p><h2 class="slide-title"><span class="h-num">5</span>Functions</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="16"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">16 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Type hints for parameters and return</span>
+<span class="t-kw">function</span> <span class="t-fn">calculateArea</span>(<span class="t-type">float</span> <span class="t-var">$width</span>, <span class="t-type">float</span> <span class="t-var">$height</span>)<span class="t-op">:</span> float {
+    <span class="t-kw">return</span> <span class="t-var">$width</span> <span class="t-op">*</span> <span class="t-var">$height</span>;
+}
+
+<span class="t-var">$area</span> <span class="t-op">=</span> <span class="t-fn">calculateArea</span>(<span class="t-num">5.5</span>, <span class="t-num">3.2</span>);  <span class="t-com">// 17.6</span>
+
+<span class="t-com">// Nullable types</span>
+<span class="t-kw">function</span> <span class="t-fn">findUser</span>(<span class="t-op">?</span><span class="t-type">int</span> <span class="t-var">$id</span>)<span class="t-op">:</span> <span class="t-op">?</span>string {
+    <span class="t-kw">if</span> (<span class="t-var">$id</span> <span class="t-op">===</span> <span class="t-lit">null</span>) {
+        <span class="t-kw">return</span> <span class="t-lit">null</span>;
+    }
+    <span class="t-kw">return</span> <span class="t-str">&quot;User $id&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>27 / 40</span></p></section>
+<section class="deck-slide is-part" id="slide-28" tabindex="-1" data-slide data-slide-title="Examples" aria-label="Slide 28 of 40"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 02</p><h2>Examples</h2></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>28 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-29" tabindex="-1" data-slide data-slide-title="Example 1: Calculate Average Score" aria-label="Slide 29 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 1: Calculate Average Score</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="27"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Calculate average score and grade</span>
+
+<span class="t-var">$math</span> <span class="t-op">=</span> <span class="t-num">8.5</span>;
+<span class="t-var">$physics</span> <span class="t-op">=</span> <span class="t-num">7.0</span>;
+<span class="t-var">$chemistry</span> <span class="t-op">=</span> <span class="t-num">9.0</span>;
+
+<span class="t-com">// Calculate average</span>
+<span class="t-var">$average</span> <span class="t-op">=</span> (<span class="t-var">$math</span> <span class="t-op">+</span> <span class="t-var">$physics</span> <span class="t-op">+</span> <span class="t-var">$chemistry</span>) <span class="t-op">/</span> <span class="t-num">3</span>;
+<span class="t-var">$average</span> <span class="t-op">=</span> <span class="t-fn">round</span>(<span class="t-var">$average</span>, <span class="t-num">2</span>);  <span class="t-com">// Round to 2 decimal places</span>
+
+<span class="t-com">// Grade classification</span>
+<span class="t-kw">if</span> (<span class="t-var">$average</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">9</span>) {
+    <span class="t-var">$grade</span> <span class="t-op">=</span> <span class="t-str">&quot;Excellent&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$average</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">8</span>) {
+    <span class="t-var">$grade</span> <span class="t-op">=</span> <span class="t-str">&quot;Good&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$average</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">7</span>) {
+    <span class="t-var">$grade</span> <span class="t-op">=</span> <span class="t-str">&quot;Fair&quot;</span>;
+} <span class="t-kw">elseif</span> (<span class="t-var">$average</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">5</span>) {
+    <span class="t-var">$grade</span> <span class="t-op">=</span> <span class="t-str">&quot;Average&quot;</span>;
+} <span class="t-kw">else</span> {
+    <span class="t-var">$grade</span> <span class="t-op">=</span> <span class="t-str">&quot;Poor&quot;</span>;
+}
+
+<span class="t-kw">echo</span> <span class="t-str">&quot;Average score: $average&lt;br&gt;&quot;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Grade: $grade&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>29 / 40</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-30" tabindex="-1" data-slide data-slide-title="Example 2: Student List" aria-label="Slide 30 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example 2: Student List</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="57"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">57 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$students</span> <span class="t-op">=</span> [
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;John Doe&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">85</span>, <span class="t-str">&quot;class&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;CS1&quot;</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;Jane Smith&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">92</span>, <span class="t-str">&quot;class&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;CS1&quot;</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;Bob Johnson&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">78</span>, <span class="t-str">&quot;class&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;CS2&quot;</span>],
+    [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;Alice Brown&quot;</span>, <span class="t-str">&quot;score&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">95</span>, <span class="t-str">&quot;class&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;CS2&quot;</span>],
+];
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Student List<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+        table { border<span class="t-op">-</span>collapse<span class="t-op">:</span> collapse; width<span class="t-op">:</span> <span class="t-num">100</span><span class="t-op">%</span>; }
+        th, td { border<span class="t-op">:</span> 1px solid <span class="t-com">#ddd; padding: 10px; text-align: left; }</span>
+        th { background<span class="t-op">:</span> <span class="t-com">#4CAF50; color: white; }</span>
+        tr<span class="t-op">:</span>nth<span class="t-op">-</span><span class="t-fn">child</span>(even) { background<span class="t-op">:</span> <span class="t-com">#f2f2f2; }</span>
+        <span class="t-op">.</span>high { color<span class="t-op">:</span> green; font<span class="t-op">-</span>weight<span class="t-op">:</span> bold; }
+        <span class="t-op">.</span>low { color<span class="t-op">:</span> red; }
+    <span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>📋 Student List<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;table</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>No<span class="t-op">.&lt;/</span>th<span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Name<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Class<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Score<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Grade<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$students</span> <span class="t-kw">as</span> <span class="t-var">$index</span> <span class="t-op">=&gt;</span> <span class="t-var">$student</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$index</span> <span class="t-op">+</span> <span class="t-num">1</span> <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$student</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$student</span>[<span class="t-str">&#39;class&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;&lt;?= $student[&#39;score&#39;] &gt;= 90 ? &#39;high&#39; : ($student[&#39;score&#39;] &lt; 80 ? &#39;low&#39; : &#39;&#39;) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?=</span> <span class="t-var">$student</span>[<span class="t-str">&#39;score&#39;</span>] <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span>
+                <span class="t-kw">if</span> (<span class="t-var">$student</span>[<span class="t-str">&#39;score&#39;</span>] <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">90</span>) <span class="t-kw">echo</span> <span class="t-str">&quot;Excellent&quot;</span>;
+                <span class="t-kw">elseif</span> (<span class="t-var">$student</span>[<span class="t-str">&#39;score&#39;</span>] <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">80</span>) <span class="t-kw">echo</span> <span class="t-str">&quot;Good&quot;</span>;
+                <span class="t-kw">elseif</span> (<span class="t-var">$student</span>[<span class="t-str">&#39;score&#39;</span>] <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">70</span>) <span class="t-kw">echo</span> <span class="t-str">&quot;Fair&quot;</span>;
+                <span class="t-kw">else</span> <span class="t-kw">echo</span> <span class="t-str">&quot;Average&quot;</span>;
+                <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;/table</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;strong</span><span class="t-tag">&gt;</span>Total students<span class="t-op">:&lt;/</span>strong<span class="t-tag">&gt;</span> <span class="t-meta">&lt;?=</span> <span class="t-fn">count</span>(<span class="t-var">$students</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>30 / 40</span></p></section>
+<section class="deck-slide is-part" id="slide-31" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 31 of 40"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 02</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>31 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-32" tabindex="-1" data-slide data-slide-title="Exercise 1: BMI Calculator" aria-label="Slide 32 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: BMI Calculator</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Calculate BMI and provide assessment</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Declare variables for height (m) and weight (kg)</li>
+<li>Calculate BMI = weight / (height)²</li>
+<li>Assessment: Underweight (&lt;18.5), Normal (18.5-24.9), Overweight (25-29.9), Obese (&gt;=30)</li>
+</ul>
+<figure class="code-block is-code is-compact" data-language="php" data-lines="11"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// TODO: Complete code</span>
+<span class="t-var">$height</span> <span class="t-op">=</span> <span class="t-num">1.70</span>;  <span class="t-com">// meters</span>
+<span class="t-var">$weight</span> <span class="t-op">=</span> <span class="t-num">65</span>;    <span class="t-com">// kg</span>
+
+<span class="t-com">// Calculate BMI</span>
+
+<span class="t-com">// Assessment</span>
+
+<span class="t-com">// Display result</span>
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>32 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-33" tabindex="-1" data-slide data-slide-title="Exercise 2: Print Multiplication Table" aria-label="Slide 33 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: Print Multiplication Table</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Use nested loops</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Print multiplication table from 2 to 9</li>
+<li>Beautiful HTML table format</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>33 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-34" tabindex="-1" data-slide data-slide-title="Exercise 3: Find Prime Numbers (Challenge)" aria-label="Slide 34 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 3: Find Prime Numbers (Challenge)</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Write function to check prime number</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Write function <code>isPrime($n)</code> returns true/false</li>
+<li>Print all prime numbers from 1 to 100</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>34 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-35" tabindex="-1" data-slide data-slide-title="Knowledge to achieve" aria-label="Slide 35 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span><span class="slide-sub">Theory</span></p><h2 class="slide-title">Knowledge to achieve</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand how to declare variables</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Distinguish between data types</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use operators</span></li>
+</ul>
+<h3 class="slide-h">Practice</h3>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write if-else, switch</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write loops for, while, foreach</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write basic functions</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>35 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-36" tabindex="-1" data-slide data-slide-title="Session 02 worksheet" aria-label="Slide 36 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Session 02 worksheet</h2><div class="slide-body"><p><strong>Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>36 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-37" tabindex="-1" data-slide data-slide-title="A. Multiple Choice" aria-label="Slide 37 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">A. Multiple Choice</h2><div class="slide-body"><ol><li><p>Which variable name is correct?</p>
+<ul><li>A) <code>$2name</code></li>
+<li>B) <code>$_name</code></li>
+<li>C) <code>$user-name</code></li>
+<li>D) <code>name</code></li>
+</ul>
+</li>
+<li><p><code>5 == &quot;5&quot;</code> returns?</p>
+<ul><li>A) true</li>
+<li>B) false</li>
+<li>C) Error</li>
+<li>D) null</li>
+</ul>
+</li>
+<li><p><code>5 === &quot;5&quot;</code> returns?</p>
+<ul><li>A) true</li>
+<li>B) false</li>
+<li>C) Error</li>
+<li>D) null</li>
+</ul>
+</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>37 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-38" tabindex="-1" data-slide data-slide-title="B. Essay Questions" aria-label="Slide 38 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">B. Essay Questions</h2><div class="slide-body"><ol><li><p>Write code to check if a number is even?</p>
+</li>
+<li><p>Write a loop to print numbers from 10 to 1 (countdown)?</p>
+</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>38 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-39" tabindex="-1" data-slide data-slide-title="C. Practical Exercises" aria-label="Slide 39 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">C. Practical Exercises</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Complete Exercise 1: BMI Calculator</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Complete Exercise 2: Multiplication table</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Complete Exercise 3: Prime numbers (Bonus)</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>39 / 40</span></p></section>
+<section class="deck-slide is-content" id="slide-40" tabindex="-1" data-slide data-slide-title="Preparation for session 03" aria-label="Slide 40 of 40"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Next steps</span></p><h2 class="slide-title">Preparation for session 03</h2><div class="slide-body"><p><strong>Next Session:</strong> Dynamic Websites - Form Handling</p>
+<h3 class="slide-h">Will Learn:</h3>
+<ul><li>HTML Form</li>
+<li>GET vs POST</li>
+<li>Process form data</li>
+<li>Validation</li>
+</ul>
+<p><strong>Next Chapter: <a href="../ebook/03-dynamic-websites-and-forms.html">Session 03 - Dynamic Websites →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 02</span><span>40 / 40</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

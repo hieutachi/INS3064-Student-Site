@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 8: Review and Midterm — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="PHP and SQL review">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_3_integration_advanced/session_08_review_midterm.md">
+<meta name="source-sha256" content="106c73d721cabc18686b0510dd2439d488b36aa3d30b2de2c2d75d275c8e5e3b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 08 · Ebook</p><h1>Review and Midterm</h1><p class="lead">PHP and SQL review</p><div class="head-meta"><span class="chip">Part 3 · Integration and advanced</span><span class="chip">Review</span><span class="chip">Practice</span><span class="chip">Checklists</span></div><div class="head-actions"><a class="button-link primary" href="../slides/08-review-and-midterm.html">Open the slide deck</a><a class="button-link" href="../sessions/session-08.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">18 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-1"><a href="#knowledge-summary">📚 Knowledge summary</a></li><li class="depth-2"><a href="#part-1-basic-php-sessions-1-3">Part 1: Basic PHP (Sessions 1-3)</a></li><li class="depth-3"><a href="#11-php-syntax">1.1 PHP Syntax</a></li><li class="depth-3"><a href="#12-form-handling">1.2 Form Handling</a></li><li class="depth-2"><a href="#part-2-mysql-sql-sessions-4-7">Part 2: MySQL &amp; SQL (Sessions 4-7)</a></li><li class="depth-3"><a href="#21-crud-operations">2.1 CRUD Operations</a></li><li class="depth-3"><a href="#22-join">2.2 JOIN</a></li><li class="depth-3"><a href="#23-group-by">2.3 GROUP BY</a></li><li class="depth-1"><a href="#review-outline">📋 Review outline</a></li><li class="depth-2"><a href="#theory-section-40">Theory Section (40%)</a></li><li class="depth-2"><a href="#practice-section-60">Practice Section (60%)</a></li><li class="depth-1"><a href="#review-exercises">📝 Review exercises</a></li><li class="depth-2"><a href="#exercise-1-php-form">Exercise 1: PHP Form</a></li><li class="depth-2"><a href="#exercise-2-sql-queries">Exercise 2: SQL Queries</a></li><li class="depth-2"><a href="#exercise-3-database-design">Exercise 3: Database Design</a></li><li class="depth-1"><a href="#exam-format">🎯 Exam format</a></li><li class="depth-1"><a href="#exam-tips">💡 Exam tips</a></li></ol></details><article class="doc" data-source="English/part_3_integration_advanced/session_08_review_midterm.md"><p>This session we will review all knowledge from Sessions 1-7 and prepare for the midterm exam.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Review basic PHP</li><li>Review MySQL &amp; SQL</li><li>Complete comprehensive exercises</li><li>Prepare for midterm exam</li></ul></div></div>
+<h2 id="knowledge-summary"><span class="h-icon" aria-hidden="true">📚</span>Knowledge summary<a class="anchor" href="#knowledge-summary" aria-label="Link to 📚 Knowledge summary">#</a></h2>
+<h2 id="part-1-basic-php-sessions-1-3">Part 1: Basic PHP (Sessions 1-3)<a class="anchor" href="#part-1-basic-php-sessions-1-3" aria-label="Link to Part 1: Basic PHP (Sessions 1-3)">#</a></h2>
+<h3 id="11-php-syntax"><span class="h-num">1.1</span>PHP Syntax<a class="anchor" href="#11-php-syntax" aria-label="Link to 1.1 PHP Syntax">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="32"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">32 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Variables</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-str">&quot;John&quot;</span>;
+<span class="t-var">$age</span> <span class="t-op">=</span> <span class="t-num">20</span>;
+<span class="t-var">$gpa</span> <span class="t-op">=</span> <span class="t-num">3.5</span>;
+<span class="t-var">$isStudent</span> <span class="t-op">=</span> <span class="t-lit">true</span>;
+
+<span class="t-com">// Arrays</span>
+<span class="t-var">$fruits</span> <span class="t-op">=</span> [<span class="t-str">&quot;Apple&quot;</span>, <span class="t-str">&quot;Banana&quot;</span>, <span class="t-str">&quot;Orange&quot;</span>];
+<span class="t-var">$student</span> <span class="t-op">=</span> [<span class="t-str">&quot;name&quot;</span> <span class="t-op">=&gt;</span> <span class="t-str">&quot;John&quot;</span>, <span class="t-str">&quot;age&quot;</span> <span class="t-op">=&gt;</span> <span class="t-num">20</span>];
+
+<span class="t-com">// Conditionals</span>
+<span class="t-kw">if</span> (<span class="t-var">$age</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-num">18</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Adult&quot;</span>;
+} <span class="t-kw">else</span> {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Minor&quot;</span>;
+}
+
+<span class="t-com">// Loops</span>
+<span class="t-kw">for</span> (<span class="t-var">$i</span> <span class="t-op">=</span> <span class="t-num">0</span>; <span class="t-var">$i</span> <span class="t-op">&lt;</span> <span class="t-num">10</span>; <span class="t-var">$i</span><span class="t-op">++</span>) {
+    <span class="t-kw">echo</span> <span class="t-var">$i</span>;
+}
+
+<span class="t-kw">foreach</span> (<span class="t-var">$fruits</span> <span class="t-kw">as</span> <span class="t-var">$fruit</span>) {
+    <span class="t-kw">echo</span> <span class="t-var">$fruit</span>;
+}
+
+<span class="t-com">// Functions</span>
+<span class="t-kw">function</span> <span class="t-fn">greet</span>(<span class="t-var">$name</span>) {
+    <span class="t-kw">return</span> <span class="t-str">&quot;Hello, $name!&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="12-form-handling"><span class="h-num">1.2</span>Form Handling<a class="anchor" href="#12-form-handling" aria-label="Link to 1.2 Form Handling">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Process POST form</span>
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-fn">filter_var</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>], <span class="t-const">FILTER_VALIDATE_EMAIL</span>);
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$name</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Name is required&quot;</span>;
+    }
+}
+<span class="t-meta">?&gt;</span>
+
+<span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;name&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Submit<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span></code></pre></figure><h2 id="part-2-mysql-sql-sessions-4-7">Part 2: MySQL &amp; SQL (Sessions 4-7)<a class="anchor" href="#part-2-mysql-sql-sessions-4-7" aria-label="Link to Part 2: MySQL &amp; SQL (Sessions 4-7)">#</a></h2>
+<h3 id="21-crud-operations"><span class="h-num">2.1</span>CRUD Operations<a class="anchor" href="#21-crud-operations" aria-label="Link to 2.1 CRUD Operations">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- CREATE</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> students (name<span class="t-op">,</span> email<span class="t-op">,</span> age) 
+<span class="t-kw">VALUES</span> (<span class="t-str">&#39;John&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;john@email.com&#39;</span><span class="t-op">,</span> <span class="t-num">20</span>)<span class="t-op">;</span>
+
+<span class="t-com">-- READ</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&gt;</span> <span class="t-num">18</span> <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> name<span class="t-op">;</span>
+
+<span class="t-com">-- UPDATE</span>
+<span class="t-kw">UPDATE</span> students <span class="t-kw">SET</span> age <span class="t-op">=</span> <span class="t-num">21</span> <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span>
+
+<span class="t-com">-- DELETE</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span></code></pre></figure><h3 id="22-join"><span class="h-num">2.2</span>JOIN<a class="anchor" href="#22-join" aria-label="Link to 2.2 JOIN">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="9"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- INNER JOIN</span>
+<span class="t-kw">SELECT</span> p.name<span class="t-op">,</span> c.name <span class="t-kw">AS</span> category
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">INNER</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span>
+
+<span class="t-com">-- LEFT JOIN</span>
+<span class="t-kw">SELECT</span> p.name<span class="t-op">,</span> c.name <span class="t-kw">AS</span> category
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">LEFT</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span></code></pre></figure><h3 id="23-group-by"><span class="h-num">2.3</span>GROUP BY<a class="anchor" href="#23-group-by" aria-label="Link to 2.3 GROUP BY">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="4"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">SELECT</span> category_id<span class="t-op">,</span> <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">AS</span> total<span class="t-op">,</span> <span class="t-fn">AVG</span>(price) <span class="t-kw">AS</span> avg_price
+<span class="t-kw">FROM</span> products
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> category_id
+<span class="t-kw">HAVING</span> total <span class="t-op">&gt;</span> <span class="t-num">5</span><span class="t-op">;</span></code></pre></figure><h2 id="review-outline"><span class="h-icon" aria-hidden="true">📋</span>Review outline<a class="anchor" href="#review-outline" aria-label="Link to 📋 Review outline">#</a></h2>
+<h2 id="theory-section-40">Theory Section (40%)<a class="anchor" href="#theory-section-40" aria-label="Link to Theory Section (40%)">#</a></h2>
+<ol><li><p><strong>PHP Basics</strong></p>
+<ul><li>Variables, data types</li>
+<li>Operators</li>
+<li>Control structures</li>
+<li>Functions</li>
+</ul>
+</li>
+<li><p><strong>Form Handling</strong></p>
+<ul><li>GET vs POST</li>
+<li>Validation</li>
+<li>Sanitization</li>
+</ul>
+</li>
+<li><p><strong>MySQL</strong></p>
+<ul><li>Data types</li>
+<li>Constraints</li>
+<li>Relationships</li>
+</ul>
+</li>
+<li><p><strong>SQL</strong></p>
+<ul><li>SELECT, INSERT, UPDATE, DELETE</li>
+<li>WHERE, ORDER BY, LIMIT</li>
+<li>JOIN, GROUP BY</li>
+</ul>
+</li>
+</ol>
+<h2 id="practice-section-60">Practice Section (60%)<a class="anchor" href="#practice-section-60" aria-label="Link to Practice Section (60%)">#</a></h2>
+<ol><li>Write PHP code to process forms</li>
+<li>Write SQL queries</li>
+<li>Design database</li>
+</ol>
+<h2 id="review-exercises"><span class="h-icon" aria-hidden="true">📝</span>Review exercises<a class="anchor" href="#review-exercises" aria-label="Link to 📝 Review exercises">#</a></h2>
+<h2 id="exercise-1-php-form">Exercise 1: PHP Form<a class="anchor" href="#exercise-1-php-form" aria-label="Link to Exercise 1: PHP Form">#</a></h2>
+<p>Create registration form with:</p>
+<ul><li>Full name (required, 2-50 characters)</li>
+<li>Email (required, valid email)</li>
+<li>Age (required, 18-100)</li>
+<li>Validate and display errors</li>
+</ul>
+<h2 id="exercise-2-sql-queries">Exercise 2: SQL Queries<a class="anchor" href="#exercise-2-sql-queries" aria-label="Link to Exercise 2: SQL Queries">#</a></h2>
+<p>Given database with tables: <code>users</code>, <code>orders</code>, <code>order_items</code>, <code>products</code></p>
+<ol><li>Get list of users who have placed orders</li>
+<li>Calculate total revenue by month</li>
+<li>Top 5 best-selling products</li>
+</ol>
+<h2 id="exercise-3-database-design">Exercise 3: Database Design<a class="anchor" href="#exercise-3-database-design" aria-label="Link to Exercise 3: Database Design">#</a></h2>
+<p>Design database for online course management system:</p>
+<ul><li>Users (students, instructors)</li>
+<li>Courses</li>
+<li>Enrollments</li>
+<li>Lessons</li>
+<li>Reviews</li>
+</ul>
+<h2 id="exam-format"><span class="h-icon" aria-hidden="true">🎯</span>Exam format<a class="anchor" href="#exam-format" aria-label="Link to 🎯 Exam format">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Section</th><th>Content</th><th>Points</th></tr></thead><tbody><tr><td>Multiple Choice</td><td>20 questions</td><td>40%</td></tr><tr><td>Essay</td><td>2-3 questions</td><td>30%</td></tr><tr><td>Practical</td><td>PHP Code + SQL</td><td>30%</td></tr></tbody></table></div>
+<p><strong>Time:</strong> 90 minutes</p>
+<p><strong>Allowed:</strong> No materials</p>
+<h2 id="exam-tips"><span class="h-icon" aria-hidden="true">💡</span>Exam tips<a class="anchor" href="#exam-tips" aria-label="Link to 💡 Exam tips">#</a></h2>
+<ol><li>Read questions carefully before answering</li>
+<li>Do easy questions first</li>
+<li>Check SQL syntax</li>
+<li>Pay attention to semicolon <code>;</code> in PHP</li>
+<li>Validate input when processing forms</li>
+</ol>
+<hr class="rule">
+<p><strong>Next Chapter: <a href="../ebook/09-error-handling-and-debugging.html">Session 09 - Error Handling →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="07-advanced-sql.html"><span class="pager-label">Previous</span><span class="pager-title">Advanced SQL</span></a><a class="pager-link is-next" href="09-error-handling-and-debugging.html"><span class="pager-label">Next</span><span class="pager-title">Error Handling and Debugging</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

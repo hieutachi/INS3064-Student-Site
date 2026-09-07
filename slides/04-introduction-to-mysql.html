@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Introduction to MySQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Introduction to MySQL">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_2_mysql_database/session_04_intro_mysql.md">
+<meta name="source-sha256" content="4e0d5823d0769752426e1c419c6e1eb00fdddf044d6cc83a6654b3c444640802">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 4 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Introduction to MySQL</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1.1 Definition</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.2 Why Do We Need Database?</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">2.1 MySQL in XAMPP</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">2.3 phpMyAdmin Interface</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">3.1 Via phpMyAdmin</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">3.2 Via SQL</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">4.1 Table Structure</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">4.2 Create Table with SQL (1/3)</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">4.2 Create Table with SQL (2/3)</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">4.2 Create Table with SQL (3/3)</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">5.1 Numeric Types</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">5.3 Date/Time Types</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">6.1 Types of Constraints (1/3)</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">6.1 Types of Constraints (2/3)</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">6.1 Types of Constraints (3/3)</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">Section: Examples</span></button></li><li><button type="button" data-deck-jump="22"><span class="rail-index">23</span><span class="rail-title">Example: Create Database for Blog Application</span></button></li><li><button type="button" data-deck-jump="23"><span class="rail-index">24</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="24"><span class="rail-index">25</span><span class="rail-title">Exercise 1: Create Student Database</span></button></li><li><button type="button" data-deck-jump="25"><span class="rail-index">26</span><span class="rail-title">Exercise 2: Create Product Database</span></button></li><li><button type="button" data-deck-jump="26"><span class="rail-index">27</span><span class="rail-title">Exercise 3: Design Database (Challenge)</span></button></li><li><button type="button" data-deck-jump="27"><span class="rail-index">28</span><span class="rail-title">Knowledge to achieve</span></button></li><li><button type="button" data-deck-jump="28"><span class="rail-index">29</span><span class="rail-title">Session 04 worksheet</span></button></li><li><button type="button" data-deck-jump="29"><span class="rail-index">30</span><span class="rail-title">Questions</span></button></li><li><button type="button" data-deck-jump="30"><span class="rail-index">31</span><span class="rail-title">Exercises</span></button></li><li><button type="button" data-deck-jump="31"><span class="rail-index">32</span><span class="rail-title">Preparation for session 05</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Introduction to MySQL</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1.1 Definition</option><option value="7">8. 1.2 Why Do We Need Database?</option><option value="8">9. 2.1 MySQL in XAMPP</option><option value="9">10. 2.3 phpMyAdmin Interface</option><option value="10">11. 3.1 Via phpMyAdmin</option><option value="11">12. 3.2 Via SQL</option><option value="12">13. 4.1 Table Structure</option><option value="13">14. 4.2 Create Table with SQL (1/3)</option><option value="14">15. 4.2 Create Table with SQL (2/3)</option><option value="15">16. 4.2 Create Table with SQL (3/3)</option><option value="16">17. 5.1 Numeric Types</option><option value="17">18. 5.3 Date/Time Types</option><option value="18">19. 6.1 Types of Constraints (1/3)</option><option value="19">20. 6.1 Types of Constraints (2/3)</option><option value="20">21. 6.1 Types of Constraints (3/3)</option><option value="21">22. Section: Examples</option><option value="22">23. Example: Create Database for Blog Application</option><option value="23">24. Section: Practice</option><option value="24">25. Exercise 1: Create Student Database</option><option value="25">26. Exercise 2: Create Product Database</option><option value="26">27. Exercise 3: Design Database (Challenge)</option><option value="27">28. Knowledge to achieve</option><option value="28">29. Session 04 worksheet</option><option value="29">30. Questions</option><option value="30">31. Exercises</option><option value="31">32. Preparation for session 05</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 32</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Introduction to MySQL" aria-label="Slide 1 of 32"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Introduction to MySQL</h2><p class="title-lead">Databases and phpMyAdmin</p><p class="title-meta"><span>Session 04 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>1 / 32</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 32"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>What is database?</span></li><li><span>Installation and configuration</span></li><li><span>Create database</span></li><li><span>CREATE TABLE</span></li><li><span>MySQL data types</span></li><li><span>Constraints</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>2 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>Welcome to the Database section! Today we will learn about MySQL - the most popular database management system for web.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>3 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 4 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand what Database is</li><li>Install and configure MySQL</li><li>Use phpMyAdmin</li><li>Create first Database and Table</li></ul></div><div class="brief-item"><span class="brief-key">Preparation</span><p class="brief-value">XAMPP installed</p></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO3</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>4 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will:</p>
+<ul><li><strong>Understand</strong> what Database and MySQL are</li>
+<li><strong>Use</strong> phpMyAdmin to manage database</li>
+<li><strong>Create</strong> Database and Table</li>
+<li><strong>Understand</strong> data types in MySQL</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>5 / 32</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 32"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 04</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>6 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. What is database?" aria-label="Slide 7 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 Definition</span></p><h2 class="slide-title"><span class="h-num">1</span>What is database?</h2><div class="slide-body"><p><strong>Database (Cơ sở dữ liệu)</strong> = Organized storage place for data, can retrieve, manage and update.</p>
+
+<aside class="callout is-analogy" aria-labelledby="analogy-real-life-analogy"><p class="callout-title" id="analogy-real-life-analogy">Real-life Analogy</p><div class="callout-body"><p>Database is like an <strong>office filing cabinet</strong>:</p>
+<ul><li><strong>Database</strong> = Filing cabinet</li>
+<li><strong>Table</strong> = Drawer</li>
+<li><strong>Row</strong> = One file</li>
+<li><strong>Column</strong> = Information items on the file</li>
+</ul>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>7 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="1. What is database?" aria-label="Slide 8 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Why Do We Need Database?</span></p><h2 class="slide-title"><span class="h-num">1</span>What is database?</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Problem</th><th>Without DB</th><th>With DB</th></tr></thead><tbody><tr><td>Storage</td><td>Text files, hard to manage</td><td>Structured, easy to manage</td></tr><tr><td>Search</td><td>Slow, must read all</td><td>Fast with index</td></tr><tr><td>Security</td><td>Hard to control</td><td>Has users, permissions</td></tr><tr><td>Concurrency</td><td>Data conflicts</td><td>Transaction handling</td></tr></tbody></table></div>
+<h3 class="slide-h"><span class="h-num">1.3</span>What is MySQL?</h3>
+<p><strong>MySQL</strong> = Most popular Relational Database Management System (RDBMS).</p>
+<p><strong>Features:</strong></p>
+<ul><li>✅ Free, open source</li>
+<li>✅ Fast, stable</li>
+<li>✅ Easy to use</li>
+<li>✅ Great integration with PHP</li>
+<li>✅ Large community</li>
+</ul>
+<p><strong>Who uses MySQL?</strong></p>
+<ul><li>Facebook, Twitter, YouTube, Wikipedia, WordPress</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>8 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="2. Installation and configuration" aria-label="Slide 9 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 MySQL in XAMPP</span></p><h2 class="slide-title"><span class="h-num">2</span>Installation and configuration</h2><div class="slide-body"><p>MySQL is already installed in XAMPP:</p>
+<ol><li>Open XAMPP Control Panel</li>
+<li>Start <strong>MySQL</strong></li>
+<li>Status: Running (green)</li>
+</ol>
+<h3 class="slide-h"><span class="h-num">2.2</span>Access phpMyAdmin</h3>
+<p><strong>phpMyAdmin</strong> = Web tool to manage MySQL</p>
+<ol><li>Open browser</li>
+<li>Visit: <code>http://localhost/phpmyadmin</code></li>
+<li>Login:<ul><li>Username: <code>root</code></li>
+<li>Password: (leave blank)</li>
+</ul>
+</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>9 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="2. Installation and configuration" aria-label="Slide 10 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 phpMyAdmin Interface</span></p><h2 class="slide-title"><span class="h-num">2</span>Installation and configuration</h2><div class="slide-body"><figure class="code-block is-plain is-compact" data-language="diagram" data-lines="15"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">15 lines</span></span></figcaption><pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────┐
+│ phpMyAdmin                                                   │
+├─────────────┬───────────────────────────────────────────────┤
+│             │                                               │
+│ [Databases] │  Server: localhost                            │
+│ ├── mysql   │  Server version: 8.0.x                        │
+│ ├── test    │                                               │
+│ └── ...     │  [SQL] [Status] [Users] [Export] [Import]     │
+│             │                                               │
+│             │  ┌─────────────────────────────────────────┐  │
+│             │  │ Create database                         │  │
+│             │  │ [____________] [Create]                 │  │
+│             │  └─────────────────────────────────────────┘  │
+│             │                                               │
+└─────────────┴───────────────────────────────────────────────┘</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>10 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="3. Create database" aria-label="Slide 11 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.1 Via phpMyAdmin</span></p><h2 class="slide-title"><span class="h-num">3</span>Create database</h2><div class="slide-body"><ol><li>Click <strong>New</strong> (or Databases)</li>
+<li>Enter database name: <code>ins3064_db</code></li>
+<li>Select Collation: <code>utf8mb4_unicode_ci</code></li>
+<li>Click <strong>Create</strong></li>
+</ol>
+<h3 class="slide-h"><span class="h-num">3.2</span>Via SQL</h3>
+<figure class="code-block is-code is-compact" data-language="sql" data-lines="10"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create database</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> ins3064_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4
+<span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+
+<span class="t-com">-- Use database</span>
+<span class="t-kw">USE</span> ins3064_db<span class="t-op">;</span>
+
+<span class="t-com">-- View list of databases</span>
+<span class="t-kw">SHOW</span> DATABASES<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>11 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="3. Create database" aria-label="Slide 12 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.2 Via SQL</span></p><h2 class="slide-title"><span class="h-num">3</span>Create database</h2><div class="slide-body"><aside class="callout is-warn" aria-labelledby="warn-drop-database-removes-everything-inside-it"><p class="callout-title" id="warn-drop-database-removes-everything-inside-it">DROP DATABASE removes everything inside it</p><div class="callout-body"><p>Keep <code>ins3064_db</code> — Section 4 creates a table in it. Only run this when you
+genuinely want the database and all its tables gone.</p>
+<figure class="code-block is-code is-compact is-read-only" data-language="sql" data-lines="2"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Destructive: deletes the database and every table in it</span>
+<span class="t-kw">DROP</span> <span class="t-kw">DATABASE</span> ins3064_db<span class="t-op">;</span></code></pre></figure></div></aside>
+<aside class="callout is-rules" aria-labelledby="rules-naming-rules"><p class="callout-title" id="rules-naming-rules">Naming Rules</p><div class="callout-body"><ul><li>Use lowercase</li>
+<li>No spaces</li>
+<li>Use underscore: <code>my_database</code></li>
+<li>Meaningful: <code>shop_db</code>, <code>blog_db</code></li>
+</ul>
+</div></aside></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>12 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-13" tabindex="-1" data-slide data-slide-title="4. CREATE TABLE" aria-label="Slide 13 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.1 Table Structure</span></p><h2 class="slide-title"><span class="h-num">4</span>CREATE TABLE</h2><div class="slide-body"><figure class="code-block is-plain is-compact" data-language="diagram" data-lines="9"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">9 lines</span></span></figcaption><pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────────────┐
+│ Table: students (6 of its 10 columns)                               │
+├─────┬──────────────┬──────────┬─────────┬───────┬───────────────────┤
+│ id  │ student_code │ name     │ email   │ class │ created_at        │
+├─────┼──────────────┼──────────┼─────────┼───────┼───────────────────┤
+│ 1   │ ST001        │ John Doe │ j@e.com │ ICT1  │ 2024-01-01 10:00  │
+│ 2   │ ST002        │ Jane S.  │ s@e.com │ ICT1  │ 2024-01-02 11:00  │
+│ 3   │ ST003        │ Bob J.   │ b@e.com │ ICT2  │ 2024-01-03 12:00  │
+└─────┴──────────────┴──────────┴─────────┴───────┴───────────────────┘</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>13 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-14" tabindex="-1" data-slide data-slide-title="4. CREATE TABLE" aria-label="Slide 14 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Create Table with SQL</span></p><h2 class="slide-title"><span class="h-num">4</span>CREATE TABLE<span class="slide-cont">1 of 3</span></h2><div class="slide-body"><p>This is the <code>students</code> table used by Session 05 as well, so create it with every
+column those queries need. Run it inside <code>ins3064_db</code> from Section 3.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>14 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-15" tabindex="-1" data-slide data-slide-title="4. CREATE TABLE" aria-label="Slide 15 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Create Table with SQL</span></p><h2 class="slide-title"><span class="h-num">4</span>CREATE TABLE<span class="slide-cont">2 of 3</span></h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create table students</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    student_code <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    phone <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    class <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    age <span class="t-type">INT</span><span class="t-op">,</span>
+    gpa <span class="t-type">DECIMAL</span>(<span class="t-num">3</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- View table structure</span>
+<span class="t-kw">DESCRIBE</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- View list of tables</span>
+<span class="t-kw">SHOW</span> TABLES<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>15 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-16" tabindex="-1" data-slide data-slide-title="4. CREATE TABLE" aria-label="Slide 16 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Create Table with SQL</span></p><h2 class="slide-title"><span class="h-num">4</span>CREATE TABLE<span class="slide-cont">3 of 3</span></h2><div class="slide-body"><aside class="callout is-warn" aria-labelledby="warn-drop-table-deletes-the-table-and-every-row-in-it"><p class="callout-title" id="warn-drop-table-deletes-the-table-and-every-row-in-it">DROP TABLE deletes the table and every row in it</p><div class="callout-body"><p>Do not run this next line yet. Session 05 queries the <code>students</code> table you just
+created. Come back to it only when you want to start over from an empty database.</p>
+<figure class="code-block is-code is-compact is-read-only" data-language="sql" data-lines="2"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Destructive: deletes the table and all its data</span>
+<span class="t-kw">DROP</span> <span class="t-kw">TABLE</span> students<span class="t-op">;</span></code></pre></figure></div></aside>
+<h3 class="slide-h"><span class="h-num">4.3</span>Create Table via phpMyAdmin</h3>
+<ol><li>Select database</li>
+<li>Click <strong>New</strong> (Create table)</li>
+<li>Enter table name: <code>students</code></li>
+<li>Number of columns: 10</li>
+<li>Fill information for each column</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>16 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="5. MySQL data types" aria-label="Slide 17 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">5.1 Numeric Types</span></p><h2 class="slide-title"><span class="h-num">5</span>MySQL data types</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Range</th><th>Example</th></tr></thead><tbody><tr><td><code>TINYINT</code></td><td>Small integer</td><td>-128 to 127</td><td>Age</td></tr><tr><td><code>INT</code></td><td>Integer</td><td>±2 billion</td><td>ID</td></tr><tr><td><code>BIGINT</code></td><td>Large integer</td><td>Very large</td><td>Views</td></tr><tr><td><code>DECIMAL(M,D)</code></td><td>Precise decimal</td><td>-</td><td>Money (10,2)</td></tr><tr><td><code>FLOAT</code></td><td>Floating point</td><td>-</td><td>Score</td></tr></tbody></table></div>
+<h3 class="slide-h"><span class="h-num">5.2</span>String Types</h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Length</th><th>Example</th></tr></thead><tbody><tr><td><code>CHAR(N)</code></td><td>Fixed string</td><td>0-255</td><td>Code (10)</td></tr><tr><td><code>VARCHAR(N)</code></td><td>Variable string</td><td>0-65535</td><td>Name (100)</td></tr><tr><td><code>TEXT</code></td><td>Long text</td><td>65535</td><td>Content</td></tr><tr><td><code>LONGTEXT</code></td><td>Very long text</td><td>4GB</td><td>Article</td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>17 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="5. MySQL data types" aria-label="Slide 18 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">5.3 Date/Time Types</span></p><h2 class="slide-title"><span class="h-num">5</span>MySQL data types</h2><div class="slide-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Format</th><th>Example</th></tr></thead><tbody><tr><td><code>DATE</code></td><td>Date</td><td>YYYY-MM-DD</td><td>2024-01-15</td></tr><tr><td><code>TIME</code></td><td>Time</td><td>HH:MM:SS</td><td>14:30:00</td></tr><tr><td><code>DATETIME</code></td><td>Date + Time</td><td>YYYY-MM-DD HH:MM:SS</td><td>2024-01-15 14:30:00</td></tr><tr><td><code>TIMESTAMP</code></td><td>Timestamp</td><td>Auto update</td><td>created_at</td></tr></tbody></table></div>
+<h3 class="slide-h"><span class="h-num">5.4</span>Other Types</h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>BOOLEAN</code></td><td>True/False</td><td>is_active</td></tr><tr><td><code>ENUM</code></td><td>List of values</td><td>status ENUM(&#39;active&#39;,&#39;inactive&#39;)</td></tr><tr><td><code>JSON</code></td><td>JSON data</td><td>settings</td></tr></tbody></table></div>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>18 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-19" tabindex="-1" data-slide data-slide-title="6. Constraints" aria-label="Slide 19 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.1 Types of Constraints</span></p><h2 class="slide-title"><span class="h-num">6</span>Constraints<span class="slide-cont">1 of 3</span></h2><div class="slide-body"><p>A <code>FOREIGN KEY</code> can only point at a table that already exists, so <code>categories</code>
+has to be created before <code>products</code>.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>19 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-20" tabindex="-1" data-slide data-slide-title="6. Constraints" aria-label="Slide 20 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.1 Types of Constraints</span></p><h2 class="slide-title"><span class="h-num">6</span>Constraints<span class="slide-cont">2 of 3</span></h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="sql" data-lines="26"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">26 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- The table the foreign key points at must exist first</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> products (
+    <span class="t-com">-- PRIMARY KEY: Primary key, unique, not null</span>
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+
+    <span class="t-com">-- NOT NULL: Must have value</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+
+    <span class="t-com">-- UNIQUE: Unique value</span>
+    sku <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+
+    <span class="t-com">-- DEFAULT: Default value</span>
+    status <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;active&#39;</span><span class="t-op">,</span>
+
+    <span class="t-com">-- CHECK: Check condition (MySQL 8.0+)</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">CHECK</span> (price <span class="t-op">&gt;</span> <span class="t-num">0</span>)<span class="t-op">,</span>
+
+    <span class="t-com">-- FOREIGN KEY: Foreign key</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>20 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-21" tabindex="-1" data-slide data-slide-title="6. Constraints" aria-label="Slide 21 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.1 Types of Constraints</span></p><h2 class="slide-title"><span class="h-num">6</span>Constraints<span class="slide-cont">3 of 3</span></h2><div class="slide-body"><p><strong>Expected result:</strong> both tables created. If you run the <code>products</code> block on its
+own you get <code>errno: 150 &quot;Foreign key constraint is incorrectly formed&quot;</code> — that is
+MySQL saying it cannot find <code>categories</code>.</p>
+<h3 class="slide-h"><span class="h-num">6.2</span>AUTO_INCREMENT</h3>
+<figure class="code-block is-code is-compact" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Auto increment ID</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Insert without ID</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> users (name) <span class="t-kw">VALUES</span> (<span class="t-str">&#39;John&#39;</span>)<span class="t-op">;</span>
+<span class="t-com">-- id = 1 (automatic)</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> users (name) <span class="t-kw">VALUES</span> (<span class="t-str">&#39;Jane&#39;</span>)<span class="t-op">;</span>
+<span class="t-com">-- id = 2 (automatic)</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>21 / 32</span></p></section>
+<section class="deck-slide is-part" id="slide-22" tabindex="-1" data-slide data-slide-title="Examples" aria-label="Slide 22 of 32"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 04</p><h2>Examples</h2></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>22 / 32</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-23" tabindex="-1" data-slide data-slide-title="Example: Create Database for Blog Application" aria-label="Slide 23 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Examples</span></p><h2 class="slide-title">Example: Create Database for Blog Application</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="sql" data-lines="62"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">62 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create database</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> blog_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4
+<span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+
+<span class="t-kw">USE</span> blog_db<span class="t-op">;</span>
+
+<span class="t-com">-- Table users</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    username <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    full_name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>)<span class="t-op">,</span>
+    avatar <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    role <span class="t-type">ENUM</span>(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;author&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;user&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    updated_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span> <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table categories</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table posts</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> posts (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    title <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    content <span class="t-type">LONGTEXT</span><span class="t-op">,</span>
+    excerpt <span class="t-type">TEXT</span><span class="t-op">,</span>
+    featured_image <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    status <span class="t-type">ENUM</span>(<span class="t-str">&#39;draft&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;published&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;archived&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;draft&#39;</span><span class="t-op">,</span>
+    views <span class="t-type">INT</span> <span class="t-kw">DEFAULT</span> <span class="t-num">0</span><span class="t-op">,</span>
+    author_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    updated_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span> <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    published_at <span class="t-type">DATETIME</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (author_id) <span class="t-kw">REFERENCES</span> users(id)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Table comments</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> comments (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    content <span class="t-type">TEXT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    post_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    user_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    parent_id <span class="t-type">INT</span><span class="t-op">,</span>
+    is_approved <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">FALSE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (post_id) <span class="t-kw">REFERENCES</span> posts(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (user_id) <span class="t-kw">REFERENCES</span> users(id)<span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (parent_id) <span class="t-kw">REFERENCES</span> comments(id)
+)<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>23 / 32</span></p></section>
+<section class="deck-slide is-part" id="slide-24" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 24 of 32"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 04</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>24 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-25" tabindex="-1" data-slide data-slide-title="Exercise 1: Create Student Database" aria-label="Slide 25 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: Create Student Database</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create database to manage students</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create database: <code>student_management</code></li>
+<li>Create table <code>students</code>: id, student_id, name, email, phone, class, gpa, created_at</li>
+<li>Create table <code>classes</code>: id, name, department</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>25 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-26" tabindex="-1" data-slide data-slide-title="Exercise 2: Create Product Database" aria-label="Slide 26 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: Create Product Database</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create database for online shop</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create database: <code>shop_db</code></li>
+<li>Create table <code>categories</code>: id, name, description</li>
+<li>Create table <code>products</code>: id, name, price, stock, category_id, created_at</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>26 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-27" tabindex="-1" data-slide data-slide-title="Exercise 3: Design Database (Challenge)" aria-label="Slide 27 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 3: Design Database (Challenge)</h2><div class="slide-body"><p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Design database for library management application</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Manage: Books, Readers, Borrowing records</li>
+<li>Determine tables and relationships</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>27 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-28" tabindex="-1" data-slide data-slide-title="Knowledge to achieve" aria-label="Slide 28 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Knowledge to achieve</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand what Database and MySQL are</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use phpMyAdmin</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can create Database and Table</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand data types</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand constraints</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>28 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-29" tabindex="-1" data-slide data-slide-title="Session 04 worksheet" aria-label="Slide 29 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Session 04 worksheet</h2><div class="slide-body"><p><strong>Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>29 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-30" tabindex="-1" data-slide data-slide-title="Questions" aria-label="Slide 30 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Questions</h2><div class="slide-body"><ol><li>What&#39;s the difference between CHAR and VARCHAR?</li>
+<li>What is PRIMARY KEY used for?</li>
+<li>How does AUTO_INCREMENT work?</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>30 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-31" tabindex="-1" data-slide data-slide-title="Exercises" aria-label="Slide 31 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Worksheet</span></p><h2 class="slide-title">Exercises</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Student Database</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Product Database</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Library Design (Bonus)</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>31 / 32</span></p></section>
+<section class="deck-slide is-content" id="slide-32" tabindex="-1" data-slide data-slide-title="Preparation for session 05" aria-label="Slide 32 of 32"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Next steps</span></p><h2 class="slide-title">Preparation for session 05</h2><div class="slide-body"><p><strong>Next Session:</strong> Introduction to SQL</p>
+<h3 class="slide-h">Will Learn:</h3>
+<ul><li>SELECT, INSERT, UPDATE, DELETE</li>
+<li>WHERE, ORDER BY, LIMIT</li>
+<li>Basic SQL functions</li>
+</ul>
+<p><strong>Next Chapter: <a href="../ebook/05-introduction-to-sql.html">Session 05 - Introduction to SQL →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 04</span><span>32 / 32</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

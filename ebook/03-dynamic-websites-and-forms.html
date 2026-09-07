@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3: Dynamic Websites and Forms — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Forms and validation">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_1_php_foundation/session_03_dynamic_websites.md">
+<meta name="source-sha256" content="a29fc45a4c78ce31e80bde22e2b4374d768914abc400997de9b07114b38eb7e5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 03 · Ebook</p><h1>Dynamic Websites and Forms</h1><p class="lead">Forms and validation</p><div class="head-meta"><span class="chip">Part 1 · PHP foundation</span><span class="chip">Forms</span><span class="chip">GET/POST</span><span class="chip">Validation</span></div><div class="head-actions"><a class="button-link primary" href="../slides/03-dynamic-websites-and-forms.html">Open the slide deck</a><a class="button-link" href="../sessions/session-03.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">29 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-basic-html-form">1. Basic HTML form</a></li><li class="depth-3"><a href="#11-form-structure">1.1 Form Structure</a></li><li class="depth-3"><a href="#12-input-types">1.2 Input Types</a></li><li class="depth-2"><a href="#2-get-vs-post">2. GET vs POST</a></li><li class="depth-3"><a href="#21-get-method">2.1 GET Method</a></li><li class="depth-3"><a href="#22-post-method">2.2 POST Method</a></li><li class="depth-2"><a href="#3-processing-forms-with-php">3. Processing forms with PHP</a></li><li class="depth-3"><a href="#31-superglobals">3.1 Superglobals</a></li><li class="depth-3"><a href="#32-check-form-submission">3.2 Check Form Submission</a></li><li class="depth-3"><a href="#33-self-processing-form">3.3 Self-Processing Form</a></li><li class="depth-2"><a href="#4-data-validation">4. Data validation</a></li><li class="depth-3"><a href="#41-validation-functions">4.1 Validation Functions</a></li><li class="depth-3"><a href="#42-data-sanitization">4.2 Data Sanitization</a></li><li class="depth-3"><a href="#43-comprehensive-validation-functions">4.3 Comprehensive Validation Functions</a></li><li class="depth-1"><a href="#examples-illustrations">Examples &amp; illustrations</a></li><li class="depth-2"><a href="#example-1-complete-registration-form">Example 1: Complete Registration Form</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-contact-form">Exercise 1: Contact Form</a></li><li class="depth-2"><a href="#exercise-2-calculator-form">Exercise 2: Calculator Form</a></li><li class="depth-2"><a href="#exercise-3-login-form-challenge">Exercise 3: Login Form (Challenge)</a></li><li class="depth-1"><a href="#knowledge-to-achieve">✅ Knowledge to achieve</a></li><li class="depth-1"><a href="#session-03-worksheet">📋 Session 03 worksheet</a></li><li class="depth-2"><a href="#questions">Questions</a></li><li class="depth-2"><a href="#exercises">Exercises</a></li><li class="depth-1"><a href="#preparation-for-session-04">🔗 Preparation for session 04</a></li><li class="depth-3"><a href="#will-learn">Will Learn:</a></li></ol></details><article class="doc" data-source="English/part_1_php_foundation/session_03_dynamic_websites.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 4 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-basic-html-form">Read one theory section</a><span class="path-target">1. Basic HTML form</span></li><li><a href="#example-1-complete-registration-form">Type the first worked example</a><span class="path-target">Example 1: Complete Registration Form</span></li><li><a href="#exercise-1-contact-form">Build the first exercise yourself</a><span class="path-target">Exercise 1: Contact Form</span></li><li><a href="#knowledge-to-achieve">Test yourself</a><span class="path-target">Knowledge to achieve</span></li></ol></div></aside><p>Today we will learn how to create interactive websites with users through Forms - the foundation of every web application!</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 3 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Create HTML Forms</li><li>Understand GET vs POST</li><li>Process form data with PHP</li><li>Validate data</li></ul></div><div class="brief-item"><span class="brief-key">Preparation</span><p class="brief-value">Complete Session 02 exercises</p></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO1, LO2</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will:</p>
+<ul><li><strong>Create</strong> HTML Forms with various input types</li>
+<li><strong>Distinguish</strong> GET and POST</li>
+<li><strong>Process</strong> form data with <code>$_GET</code>, <code>$_POST</code></li>
+<li><strong>Validate</strong> input data</li>
+<li><strong>Build</strong> basic registration and login forms</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-basic-html-form"><span class="h-num">1</span>Basic HTML form<a class="anchor" href="#1-basic-html-form" aria-label="Link to 1. Basic HTML form">#</a></h2>
+<h3 id="11-form-structure"><span class="h-num">1.1</span>Form Structure<a class="anchor" href="#11-form-structure" aria-label="Link to 1.1 Form Structure">#</a></h3>
+<figure class="code-block is-code" data-language="html" data-lines="5"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;form</span> <span class="t-att">action</span>=<span class="t-str">&quot;process.php&quot;</span> <span class="t-att">method</span>=<span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-com">&lt;!-- Input elements --&gt;</span>
+    <span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;text&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;username&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;submit&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;Submit&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span></code></pre></figure>
+<aside class="callout is-rules" aria-labelledby="rules-form-attributes"><p class="callout-title" id="rules-form-attributes">Form Attributes</p><div class="callout-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Attribute</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>action</code></td><td>URL to process form</td><td><code>action=&quot;login.php&quot;</code></td></tr><tr><td><code>method</code></td><td>Submission method</td><td><code>method=&quot;POST&quot;</code></td></tr><tr><td><code>enctype</code></td><td>Encoding type</td><td><code>enctype=&quot;multipart/form-data&quot;</code></td></tr></tbody></table></div>
+</div></aside>
+<h3 id="12-input-types"><span class="h-num">1.2</span>Input Types<a class="anchor" href="#12-input-types" aria-label="Link to 1.2 Input Types">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="html" data-lines="38"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">38 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">&lt;!-- Text input --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;text&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;username&quot;</span> <span class="t-att">placeholder</span>=<span class="t-str">&quot;Enter name&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Password --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;password&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;password&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Email --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;email&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;email&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Number --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;number&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;age&quot;</span> <span class="t-att">min</span>=<span class="t-str">&quot;1&quot;</span> <span class="t-att">max</span>=<span class="t-str">&quot;100&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Textarea --&gt;</span>
+<span class="t-tag">&lt;textarea</span> <span class="t-att">name</span>=<span class="t-str">&quot;message&quot;</span> <span class="t-att">rows</span>=<span class="t-str">&quot;5&quot;</span> <span class="t-att">cols</span>=<span class="t-str">&quot;30&quot;</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/textarea</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Select dropdown --&gt;</span>
+<span class="t-tag">&lt;select</span> <span class="t-att">name</span>=<span class="t-str">&quot;country&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;option</span> <span class="t-att">value</span>=<span class="t-str">&quot;&quot;</span><span class="t-tag">&gt;</span>-- Select --<span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;option</span> <span class="t-att">value</span>=<span class="t-str">&quot;vn&quot;</span><span class="t-tag">&gt;</span>Vietnam<span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;option</span> <span class="t-att">value</span>=<span class="t-str">&quot;us&quot;</span><span class="t-tag">&gt;</span>USA<span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/select</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Radio buttons --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;radio&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;gender&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;male&quot;</span><span class="t-tag">&gt;</span> Male
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;radio&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;gender&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;female&quot;</span><span class="t-tag">&gt;</span> Female
+
+<span class="t-com">&lt;!-- Checkbox --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;checkbox&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;agree&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;1&quot;</span><span class="t-tag">&gt;</span> I agree to terms
+
+<span class="t-com">&lt;!-- Hidden --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;hidden&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;token&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;abc123&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- File upload --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;file&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;avatar&quot;</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Submit --&gt;</span>
+<span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;submit&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;Submit&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;button</span> <span class="t-att">type</span>=<span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Submit<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span></code></pre></figure><h2 id="2-get-vs-post"><span class="h-num">2</span>GET vs POST<a class="anchor" href="#2-get-vs-post" aria-label="Link to 2. GET vs POST">#</a></h2>
+<h3 id="21-get-method"><span class="h-num">2.1</span>GET Method<a class="anchor" href="#21-get-method" aria-label="Link to 2.1 GET Method">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="7"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!--</span> form_get<span class="t-op">.</span>html <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;form</span> action<span class="t-op">=</span><span class="t-str">&quot;process.php&quot;</span> method<span class="t-op">=</span><span class="t-str">&quot;GET&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;search&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Search<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+
+<span class="t-op">&lt;!--</span> <span class="t-const">URL</span><span class="t-op">:</span> process<span class="t-op">.</span>php<span class="t-op">?</span>search<span class="t-op">=</span>php <span class="t-op">--&gt;</span></code></pre></figure><figure class="code-block is-code" data-language="php" data-lines="5"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// process.php</span>
+<span class="t-var">$search</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;search&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;You searched for: $search&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="22-post-method"><span class="h-num">2.2</span>POST Method<a class="anchor" href="#22-post-method" aria-label="Link to 2.2 POST Method">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!--</span> form_post<span class="t-op">.</span>html <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;form</span> action<span class="t-op">=</span><span class="t-str">&quot;process.php&quot;</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;username&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Login<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span></code></pre></figure><figure class="code-block is-code" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// process.php</span>
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;username&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-kw">echo</span> <span class="t-str">&quot;Username: $username&quot;</span>;
+<span class="t-meta">?&gt;</span></code></pre></figure>
+<aside class="callout is-compare" aria-labelledby="compare-comparison-get-vs-post"><p class="callout-title" id="compare-comparison-get-vs-post">Comparison: GET vs POST</p><div class="callout-body"><div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Feature</th><th>GET</th><th>POST</th></tr></thead><tbody><tr><td>Data</td><td>Visible in URL</td><td>Hidden in body</td></tr><tr><td>Length</td><td>Limited (~2048 chars)</td><td>Unlimited</td></tr><tr><td>Security</td><td>Poor (exposed in URL)</td><td>Better</td></tr><tr><td>Bookmark</td><td>Can bookmark</td><td>Cannot bookmark</td></tr><tr><td>Cache</td><td>Can cache</td><td>Cannot cache</td></tr><tr><td>Usage</td><td>Search, filters</td><td>Login, registration</td></tr></tbody></table></div>
+</div></aside>
+<h2 id="3-processing-forms-with-php"><span class="h-num">3</span>Processing forms with PHP<a class="anchor" href="#3-processing-forms-with-php" aria-label="Link to 3. Processing forms with PHP">#</a></h2>
+<h3 id="31-superglobals"><span class="h-num">3.1</span>Superglobals<a class="anchor" href="#31-superglobals" aria-label="Link to 3.1 Superglobals">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="16"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">16 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// $_GET - Data from URL</span>
+<span class="t-var">$id</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>];
+
+<span class="t-com">// $_POST - Data from POST form</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>];
+
+<span class="t-com">// $_REQUEST - Both GET and POST</span>
+<span class="t-var">$data</span> <span class="t-op">=</span> <span class="t-var">$_REQUEST</span>[<span class="t-str">&#39;data&#39;</span>];
+
+<span class="t-com">// $_SERVER - Server information</span>
+<span class="t-var">$method</span> <span class="t-op">=</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>];
+
+<span class="t-com">// $_FILES - File upload</span>
+<span class="t-var">$file</span> <span class="t-op">=</span> <span class="t-var">$_FILES</span>[<span class="t-str">&#39;avatar&#39;</span>];
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="32-check-form-submission"><span class="h-num">3.2</span>Check Form Submission<a class="anchor" href="#32-check-form-submission" aria-label="Link to 3.2 Check Form Submission">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="16"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">16 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Method 1: Check REQUEST_METHOD</span>
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-com">// Process form</span>
+}
+
+<span class="t-com">// Method 2: Check isset</span>
+<span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;submit&#39;</span>])) {
+    <span class="t-com">// Process form</span>
+}
+
+<span class="t-com">// Method 3: Check empty</span>
+<span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-kw">empty</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;username&#39;</span>])) {
+    <span class="t-com">// Has data</span>
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="33-self-processing-form"><span class="h-num">3.3</span>Self-Processing Form<a class="anchor" href="#33-self-processing-form" aria-label="Link to 3.3 Self-Processing Form">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="49"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">49 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// contact.php</span>
+<span class="t-var">$message</span> <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    
+    <span class="t-com">// Validate</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$name</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Please enter name&quot;</span>;
+    }
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$email</span>)) {
+        <span class="t-var">$errors</span>[] <span class="t-op">=</span> <span class="t-str">&quot;Please enter email&quot;</span>;
+    }
+    
+    <span class="t-com">// If no errors</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-var">$nameEsc</span> <span class="t-op">=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$name</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+        <span class="t-var">$emailEsc</span> <span class="t-op">=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$email</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+        <span class="t-var">$message</span> <span class="t-op">=</span> <span class="t-str">&quot;Thank you $nameEsc! We will contact you at $emailEsc&quot;</span>;
+    }
+}
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Contact<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-var">$message</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;success&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$message</span> <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+    
+    <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-var">$errors</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$errors</span> <span class="t-kw">as</span> <span class="t-var">$error</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$error</span> <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+    
+    <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;name&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($name ?? &#39;&#39;, ENT_QUOTES, &#39;UTF-8&#39;) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($email ?? &#39;&#39;, ENT_QUOTES, &#39;UTF-8&#39;) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Send<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure><h2 id="4-data-validation"><span class="h-num">4</span>Data validation<a class="anchor" href="#4-data-validation" aria-label="Link to 4. Data validation">#</a></h2>
+<h3 id="41-validation-functions"><span class="h-num">4.1</span>Validation Functions<a class="anchor" href="#41-validation-functions" aria-label="Link to 4.1 Validation Functions">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="33"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">33 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$input</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;input&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-com">// Check empty</span>
+<span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$input</span>)) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Cannot be empty&quot;</span>;
+}
+
+<span class="t-com">// Check length</span>
+<span class="t-kw">if</span> (<span class="t-fn">strlen</span>(<span class="t-var">$input</span>) <span class="t-op">&lt;</span> <span class="t-num">3</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Minimum 3 characters&quot;</span>;
+}
+
+<span class="t-com">// Check if numeric</span>
+<span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">is_numeric</span>(<span class="t-var">$input</span>)) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Must be a number&quot;</span>;
+}
+
+<span class="t-com">// Validate email</span>
+<span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">filter_var</span>(<span class="t-var">$input</span>, <span class="t-const">FILTER_VALIDATE_EMAIL</span>)) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Invalid email format&quot;</span>;
+}
+
+<span class="t-com">// Validate URL</span>
+<span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">filter_var</span>(<span class="t-var">$input</span>, <span class="t-const">FILTER_VALIDATE_URL</span>)) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Invalid URL&quot;</span>;
+}
+
+<span class="t-com">// Regex validation</span>
+<span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&quot;/^[a-zA-Z]+$/&quot;</span>, <span class="t-var">$input</span>)) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Only letters allowed&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="42-data-sanitization"><span class="h-num">4.2</span>Data Sanitization<a class="anchor" href="#42-data-sanitization" aria-label="Link to 4.2 Data Sanitization">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$input</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;input&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-com">// Remove whitespace from start/end</span>
+<span class="t-var">$input</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$input</span>);
+
+<span class="t-com">// Remove backslashes</span>
+<span class="t-var">$input</span> <span class="t-op">=</span> <span class="t-fn">stripslashes</span>(<span class="t-var">$input</span>);
+
+<span class="t-com">// Convert special characters to HTML entities</span>
+<span class="t-var">$input</span> <span class="t-op">=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$input</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+
+<span class="t-com">// Filter sanitize</span>
+<span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-fn">filter_var</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>], <span class="t-const">FILTER_SANITIZE_EMAIL</span>);
+<span class="t-var">$url</span> <span class="t-op">=</span> <span class="t-fn">filter_var</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;url&#39;</span>], <span class="t-const">FILTER_SANITIZE_URL</span>);
+<span class="t-var">$int</span> <span class="t-op">=</span> <span class="t-fn">filter_var</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;number&#39;</span>], <span class="t-const">FILTER_SANITIZE_NUMBER_INT</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="43-comprehensive-validation-functions"><span class="h-num">4.3</span>Comprehensive Validation Functions<a class="anchor" href="#43-comprehensive-validation-functions" aria-label="Link to 4.3 Comprehensive Validation Functions">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="22"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">function</span> <span class="t-fn">sanitize</span>(<span class="t-var">$data</span>) {
+    <span class="t-var">$data</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$data</span>);
+    <span class="t-var">$data</span> <span class="t-op">=</span> <span class="t-fn">stripslashes</span>(<span class="t-var">$data</span>);
+    <span class="t-var">$data</span> <span class="t-op">=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$data</span>, <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>);
+    <span class="t-kw">return</span> <span class="t-var">$data</span>;
+}
+
+<span class="t-kw">function</span> <span class="t-fn">validateEmail</span>(<span class="t-var">$email</span>) {
+    <span class="t-kw">return</span> <span class="t-fn">filter_var</span>(<span class="t-var">$email</span>, <span class="t-const">FILTER_VALIDATE_EMAIL</span>);
+}
+
+<span class="t-kw">function</span> <span class="t-fn">validateLength</span>(<span class="t-var">$str</span>, <span class="t-var">$min</span>, <span class="t-var">$max</span>) {
+    <span class="t-var">$len</span> <span class="t-op">=</span> <span class="t-fn">strlen</span>(<span class="t-var">$str</span>);
+    <span class="t-kw">return</span> <span class="t-var">$len</span> <span class="t-tag">&gt;</span><span class="t-op">=</span> <span class="t-var">$min</span> <span class="t-op">&amp;&amp;</span> <span class="t-var">$len</span> <span class="t-op">&lt;=</span> <span class="t-var">$max</span>;
+}
+
+<span class="t-kw">function</span> <span class="t-fn">validatePassword</span>(<span class="t-var">$password</span>) {
+    <span class="t-com">// At least 8 characters, uppercase, lowercase, number</span>
+    <span class="t-kw">return</span> <span class="t-fn">preg_match</span>(<span class="t-str">&#39;/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/&#39;</span>, <span class="t-var">$password</span>);
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 class="part-divider" id="examples-illustrations"><span>Examples &amp; illustrations</span></h2>
+<h2 id="example-1-complete-registration-form">Example 1: Complete Registration Form<a class="anchor" href="#example-1-complete-registration-form" aria-label="Link to Example 1: Complete Registration Form">#</a></h2>
+<p>This example is long because a real form does three separate jobs. Build it in
+three passes and test after each one.</p>
+<p><strong>Part 1 — the logic.</strong> Create <code>register.php</code> with only this. It checks the input
+and does nothing else yet.</p>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="50"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">50 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// register.php</span>
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+<span class="t-var">$success</span> <span class="t-op">=</span> <span class="t-lit">false</span>;
+
+<span class="t-com">// Keep entered values</span>
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-com">// Get and sanitize data</span>
+    <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+    <span class="t-var">$confirmPassword</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;confirm_password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+    <span class="t-var">$agree</span> <span class="t-op">=</span> <span class="t-kw">isset</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;agree&#39;</span>]);
+    
+    <span class="t-com">// Validate</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$name</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Please enter full name&quot;</span>;
+    } <span class="t-kw">elseif</span> (<span class="t-fn">strlen</span>(<span class="t-var">$name</span>) <span class="t-op">&lt;</span> <span class="t-num">2</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Name must be at least 2 characters&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$email</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Please enter email&quot;</span>;
+    } <span class="t-kw">elseif</span> (<span class="t-op">!</span><span class="t-fn">filter_var</span>(<span class="t-var">$email</span>, <span class="t-const">FILTER_VALIDATE_EMAIL</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Invalid email format&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$password</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Please enter password&quot;</span>;
+    } <span class="t-kw">elseif</span> (<span class="t-fn">strlen</span>(<span class="t-var">$password</span>) <span class="t-op">&lt;</span> <span class="t-num">6</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Password must be at least 6 characters&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-var">$password</span> <span class="t-op">!==</span> <span class="t-var">$confirmPassword</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;confirm_password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Passwords do not match&quot;</span>;
+    }
+    
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-var">$agree</span>) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;agree&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;You must agree to terms&quot;</span>;
+    }
+    
+    <span class="t-com">// If no errors</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-var">$success</span> <span class="t-op">=</span> <span class="t-lit">true</span>;
+        <span class="t-com">// TODO: Save to database</span>
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected result:</strong> a blank page. That is correct — there is no HTML yet. A
+parse error instead means a missing <code>;</code> or <code>}</code> somewhere above.</span></p>
+<p><strong>Part 2 — the form.</strong> Add this below the PHP. Now the page shows something,
+remembers what was typed, and prints the messages your logic produced.</p>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="72"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">72 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span> lang<span class="t-op">=</span><span class="t-str">&quot;en&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> charset<span class="t-op">=</span><span class="t-str">&quot;UTF-8&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Register Account<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;container&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>📝 Register Account<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-var">$success</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;success-message&quot;</span><span class="t-tag">&gt;</span>
+                🎉 Registration successful<span class="t-op">!</span> Welcome <span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$name</span>) <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">else</span><span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+        
+        <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-group&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Full Name <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;name&quot;</span> 
+                       value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($name) ?&gt;&quot;</span>
+                       <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;&lt;?= isset($errors[&#39;name&#39;]) ? &#39;error&#39; : &#39;&#39; ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error-message&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-group&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Email <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> 
+                       value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($email) ?&gt;&quot;</span>
+                       <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;&lt;?= isset($errors[&#39;email&#39;]) ? &#39;error&#39; : &#39;&#39; ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error-message&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-group&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Password <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span>
+                       <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;&lt;?= isset($errors[&#39;password&#39;]) ? &#39;error&#39; : &#39;&#39; ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error-message&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-group&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Confirm Password <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;confirm_password&quot;</span>
+                       <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;&lt;?= isset($errors[&#39;confirm_password&#39;]) ? &#39;error&#39; : &#39;&#39; ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;confirm_password&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error-message&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;confirm_password&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-group checkbox-group&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;checkbox&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;agree&quot;</span> id<span class="t-op">=</span><span class="t-str">&quot;agree&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span> <span class="t-kw">for</span><span class="t-op">=</span><span class="t-str">&quot;agree&quot;</span> style<span class="t-op">=</span><span class="t-str">&quot;font-weight: normal;&quot;</span><span class="t-tag">&gt;</span>
+                    I agree to terms of service
+                <span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;agree&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;error-message&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;agree&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            
+            <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Register<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected result:</strong> an unstyled but working form. Submit it empty and five
+messages appear. Type a name, submit again, and the name stays in its box — that
+is <code>value=&quot;&lt;?= htmlspecialchars($name) ?&gt;&quot;</code> doing its job.</span></p>
+<p><strong>Part 3 — the styling.</strong> Add this <code>&lt;style&gt;</code> block inside <code>&lt;head&gt;</code>. It only changes
+how the page looks; none of it affects the checks.</p>
+<figure class="code-block is-code is-tall" data-language="css" data-lines="48"><figcaption><span class="code-language">CSS</span><span class="code-meta"><span class="code-lines">48 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code>* <span class="t-op">{</span> <span class="t-att">box-sizing</span><span class="t-op">:</span> border-box<span class="t-op">;</span> <span class="t-op">}</span>
+body <span class="t-op">{</span>
+    <span class="t-att">font-family</span><span class="t-op">:</span> Arial<span class="t-op">,</span> sans-serif<span class="t-op">;</span>
+    <span class="t-att">background</span><span class="t-op">:</span> <span class="t-const">#f5f5f5</span><span class="t-op">;</span>
+    <span class="t-att">padding</span><span class="t-op">:</span> <span class="t-num">20px</span><span class="t-op">;</span>
+<span class="t-op">}</span>
+<span class="t-const">.container</span> <span class="t-op">{</span>
+    <span class="t-att">max-width</span><span class="t-op">:</span> <span class="t-num">500px</span><span class="t-op">;</span>
+    <span class="t-att">margin</span><span class="t-op">:</span> <span class="t-num">0</span> auto<span class="t-op">;</span>
+    <span class="t-att">background</span><span class="t-op">:</span> white<span class="t-op">;</span>
+    <span class="t-att">padding</span><span class="t-op">:</span> <span class="t-num">30px</span><span class="t-op">;</span>
+    <span class="t-att">border-radius</span><span class="t-op">:</span> <span class="t-num">10px</span><span class="t-op">;</span>
+    <span class="t-att">box-shadow</span><span class="t-op">:</span> <span class="t-num">0</span> <span class="t-num">2px</span> <span class="t-num">10px</span> rgba(<span class="t-num">0</span><span class="t-op">,</span><span class="t-num">0</span><span class="t-op">,</span><span class="t-num">0</span><span class="t-op">,</span><span class="t-num">0.1</span>)<span class="t-op">;</span>
+<span class="t-op">}</span>
+h1 <span class="t-op">{</span> <span class="t-att">text-align</span><span class="t-op">:</span> center<span class="t-op">;</span> <span class="t-att">color</span><span class="t-op">:</span> <span class="t-num">#333</span><span class="t-op">;</span> <span class="t-op">}</span>
+<span class="t-const">.form-group</span> <span class="t-op">{</span> <span class="t-att">margin-bottom</span><span class="t-op">:</span> <span class="t-num">20px</span><span class="t-op">;</span> <span class="t-op">}</span>
+label <span class="t-op">{</span> <span class="t-att">display</span><span class="t-op">:</span> block<span class="t-op">;</span> <span class="t-att">margin-bottom</span><span class="t-op">:</span> <span class="t-num">5px</span><span class="t-op">;</span> <span class="t-att">font-weight</span><span class="t-op">:</span> bold<span class="t-op">;</span> <span class="t-op">}</span>
+input[type=<span class="t-str">&quot;text&quot;</span>]<span class="t-op">,</span>
+input[type=<span class="t-str">&quot;email&quot;</span>]<span class="t-op">,</span>
+input[type=<span class="t-str">&quot;password&quot;</span>] <span class="t-op">{</span>
+    <span class="t-att">width</span><span class="t-op">:</span> <span class="t-num">100</span>%<span class="t-op">;</span>
+    <span class="t-att">padding</span><span class="t-op">:</span> <span class="t-num">12px</span><span class="t-op">;</span>
+    <span class="t-att">border</span><span class="t-op">:</span> <span class="t-num">1px</span> solid <span class="t-const">#ddd</span><span class="t-op">;</span>
+    <span class="t-att">border-radius</span><span class="t-op">:</span> <span class="t-num">5px</span><span class="t-op">;</span>
+    <span class="t-att">font-size</span><span class="t-op">:</span> <span class="t-num">16px</span><span class="t-op">;</span>
+<span class="t-op">}</span>
+<span class="t-att">input</span><span class="t-op">:</span>focus <span class="t-op">{</span> <span class="t-att">border-color</span><span class="t-op">:</span> <span class="t-num">#4CAF50</span><span class="t-op">;</span> <span class="t-att">outline</span><span class="t-op">:</span> none<span class="t-op">;</span> <span class="t-op">}</span>
+input<span class="t-const">.error</span> <span class="t-op">{</span> <span class="t-att">border-color</span><span class="t-op">:</span> <span class="t-const">#f44336</span><span class="t-op">;</span> <span class="t-op">}</span>
+<span class="t-const">.error-message</span> <span class="t-op">{</span> <span class="t-att">color</span><span class="t-op">:</span> <span class="t-const">#f44336</span><span class="t-op">;</span> <span class="t-att">font-size</span><span class="t-op">:</span> <span class="t-num">14px</span><span class="t-op">;</span> <span class="t-att">margin-top</span><span class="t-op">:</span> <span class="t-num">5px</span><span class="t-op">;</span> <span class="t-op">}</span>
+<span class="t-const">.success-message</span> <span class="t-op">{</span>
+    <span class="t-att">background</span><span class="t-op">:</span> <span class="t-num">#4CAF50</span><span class="t-op">;</span>
+    <span class="t-att">color</span><span class="t-op">:</span> white<span class="t-op">;</span>
+    <span class="t-att">padding</span><span class="t-op">:</span> <span class="t-num">15px</span><span class="t-op">;</span>
+    <span class="t-att">border-radius</span><span class="t-op">:</span> <span class="t-num">5px</span><span class="t-op">;</span>
+    <span class="t-att">margin-bottom</span><span class="t-op">:</span> <span class="t-num">20px</span><span class="t-op">;</span>
+<span class="t-op">}</span>
+button <span class="t-op">{</span>
+    <span class="t-att">width</span><span class="t-op">:</span> <span class="t-num">100</span>%<span class="t-op">;</span>
+    <span class="t-att">padding</span><span class="t-op">:</span> <span class="t-num">15px</span><span class="t-op">;</span>
+    <span class="t-att">background</span><span class="t-op">:</span> <span class="t-num">#4CAF50</span><span class="t-op">;</span>
+    <span class="t-att">color</span><span class="t-op">:</span> white<span class="t-op">;</span>
+    <span class="t-att">border</span><span class="t-op">:</span> none<span class="t-op">;</span>
+    <span class="t-att">border-radius</span><span class="t-op">:</span> <span class="t-num">5px</span><span class="t-op">;</span>
+    <span class="t-att">font-size</span><span class="t-op">:</span> <span class="t-num">16px</span><span class="t-op">;</span>
+    <span class="t-att">cursor</span><span class="t-op">:</span> pointer<span class="t-op">;</span>
+<span class="t-op">}</span>
+<span class="t-att">button</span><span class="t-op">:</span>hover <span class="t-op">{</span> <span class="t-att">background</span><span class="t-op">:</span> <span class="t-num">#45a049</span><span class="t-op">;</span> <span class="t-op">}</span>
+<span class="t-const">.checkbox-group</span> <span class="t-op">{</span> <span class="t-att">display</span><span class="t-op">:</span> flex<span class="t-op">;</span> <span class="t-att">align-items</span><span class="t-op">:</span> center<span class="t-op">;</span> <span class="t-att">gap</span><span class="t-op">:</span> <span class="t-num">10px</span><span class="t-op">;</span> <span class="t-op">}</span></code></pre></figure><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Expected result:</strong> a white card on a grey background, a green button, and red
+borders on the fields that failed.</span></p>
+<h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-contact-form">Exercise 1: Contact Form<a class="anchor" href="#exercise-1-contact-form" aria-label="Link to Exercise 1: Contact Form">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create contact form with validation</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Fields: Full name, Email, Phone number, Message</li>
+<li>Validate all fields</li>
+<li>Display success/error messages</li>
+</ul>
+<h2 id="exercise-2-calculator-form">Exercise 2: Calculator Form<a class="anchor" href="#exercise-2-calculator-form" aria-label="Link to Exercise 2: Calculator Form">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create simple calculator with form</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Enter 2 numbers</li>
+<li>Select operation (dropdown)</li>
+<li>Display result</li>
+</ul>
+<h2 id="exercise-3-login-form-challenge">Exercise 3: Login Form (Challenge)<a class="anchor" href="#exercise-3-login-form-challenge" aria-label="Link to Exercise 3: Login Form (Challenge)">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Objective:</strong> Create login form with hardcoded check</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Username: admin, Password: 123456</li>
+<li>Display login success/failure message</li>
+<li>Count failed login attempts</li>
+</ul>
+<h2 id="knowledge-to-achieve"><span class="h-icon" aria-hidden="true">✅</span>Knowledge to achieve<a class="anchor" href="#knowledge-to-achieve" aria-label="Link to ✅ Knowledge to achieve">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can create HTML Forms</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Distinguish GET vs POST</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Process forms with $_GET, $_POST</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Validate and sanitize data</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Create self-processing forms</span></li>
+</ul>
+<h2 id="session-03-worksheet"><span class="h-icon" aria-hidden="true">📋</span>Session 03 worksheet<a class="anchor" href="#session-03-worksheet" aria-label="Link to 📋 Session 03 worksheet">#</a></h2>
+<p><strong>Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+<h2 id="questions">Questions<a class="anchor" href="#questions" aria-label="Link to Questions">#</a></h2>
+<ol><li>When to use GET, when to use POST?</li>
+<li>What is <code>htmlspecialchars()</code> used for?</li>
+<li>How to keep entered values when form has errors?</li>
+</ol>
+<h2 id="exercises">Exercises<a class="anchor" href="#exercises" aria-label="Link to Exercises">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Contact Form</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Calculator Form</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Login Form (Bonus)</span></li>
+</ul>
+<h2 id="preparation-for-session-04"><span class="h-icon" aria-hidden="true">🔗</span>Preparation for session 04<a class="anchor" href="#preparation-for-session-04" aria-label="Link to 🔗 Preparation for session 04">#</a></h2>
+<p><strong>Next Session:</strong> Introduction to MySQL</p>
+<h3 id="will-learn">Will Learn:<a class="anchor" href="#will-learn" aria-label="Link to Will Learn:">#</a></h3>
+<ul><li>MySQL Installation</li>
+<li>phpMyAdmin</li>
+<li>Create Database, Table</li>
+<li>MySQL Data Types</li>
+</ul>
+<hr class="rule">
+<p><strong>Next Chapter: <a href="../ebook/04-introduction-to-mysql.html">Session 04 - Introduction to MySQL →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="02-programming-with-php.html"><span class="pager-label">Previous</span><span class="pager-title">Programming with PHP</span></a><a class="pager-link is-next" href="04-introduction-to-mysql.html"><span class="pager-label">Next</span><span class="pager-title">Introduction to MySQL</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

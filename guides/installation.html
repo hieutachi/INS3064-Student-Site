@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation Guide — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Set up XAMPP, PHP, MySQL, and VS Code.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/00_installation_guide.md">
+<meta name="source-sha256" content="58325c723630cd1994a0ec81d5f4e2438ca6e54d85559e863ef42a055a35b7b6">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Guides</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Setup · Guides</p><h1>Installation Guide</h1><p class="lead">Set up XAMPP, PHP, MySQL, and VS Code.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">30 sections</span></summary><ol><li class="depth-1"><a href="#system-requirements">📋 System requirements</a></li><li class="depth-1"><a href="#1-installing-xampp">1️⃣ Installing XAMPP</a></li><li class="depth-2"><a href="#what-is-xampp">🎯 What is XAMPP?</a></li><li class="depth-2"><a href="#step-1-download-xampp">📥 Step 1: Download XAMPP</a></li><li class="depth-2"><a href="#step-2-installation">📦 Step 2: Installation</a></li><li class="depth-3"><a href="#windows">Windows:</a></li><li class="depth-3"><a href="#macos">macOS:</a></li><li class="depth-2"><a href="#step-3-start-xampp">▶️ Step 3: Start XAMPP</a></li><li class="depth-1"><a href="#2-testing-php">2️⃣ Testing PHP</a></li><li class="depth-2"><a href="#php-only-runs-through-localhost">⚠️ PHP only runs through localhost</a></li><li class="depth-2"><a href="#create-test-file">📝 Create test file</a></li><li class="depth-1"><a href="#3-testing-mysql">3️⃣ Testing MySQL</a></li><li class="depth-2"><a href="#access-phpmyadmin">🔧 Access phpMyAdmin</a></li><li class="depth-2"><a href="#create-test-database">📊 Create test database</a></li><li class="depth-1"><a href="#4-installing-vs-code">4️⃣ Installing VS Code</a></li><li class="depth-2"><a href="#download-install">📥 Download &amp; Install</a></li><li class="depth-2"><a href="#install-required-extensions">🔌 Install Required Extensions</a></li><li class="depth-1"><a href="#5-working-directory-structure">5️⃣ Working directory structure</a></li><li class="depth-2"><a href="#create-project-folder">📁 Create project folder</a></li><li class="depth-2"><a href="#access-project">🌐 Access project</a></li><li class="depth-1"><a href="#6-first-hello-world">6️⃣ First hello world</a></li><li class="depth-2"><a href="#create-file">📝 Create file</a></li><li class="depth-1"><a href="#7-common-error-troubleshooting">7️⃣ Common error troubleshooting</a></li><li class="depth-2"><a href="#error-1-apache-won39t-start">❌ Error 1: Apache won&amp;#39;t start</a></li><li class="depth-2"><a href="#error-2-mysql-won39t-start">❌ Error 2: MySQL won&amp;#39;t start</a></li><li class="depth-2"><a href="#error-3-blank-page-php-not-displaying">❌ Error 3: Blank page / PHP not displaying</a></li><li class="depth-2"><a href="#error-3b-the-browser-shows-the-php-code-instead-of-running-it">❌ Error 3b: The browser shows the PHP code instead of running it</a></li><li class="depth-2"><a href="#error-4-cannot-connect-to-mysql">❌ Error 4: Cannot connect to MySQL</a></li><li class="depth-1"><a href="#8-installation-checklist">8️⃣ Installation checklist</a></li><li class="depth-1"><a href="#support">📞 Support</a></li></ol></details><article class="doc" data-source="English/00_installation_guide.md"><h2 id="system-requirements"><span class="h-icon" aria-hidden="true">📋</span>System requirements<a class="anchor" href="#system-requirements" aria-label="Link to 📋 System requirements">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Component</th><th>Minimum Requirements</th></tr></thead><tbody><tr><td><strong>OS</strong></td><td>Windows 10/11, macOS, Linux</td></tr><tr><td><strong>RAM</strong></td><td>4GB (8GB recommended)</td></tr><tr><td><strong>Disk</strong></td><td>5GB free space</td></tr><tr><td><strong>Browser</strong></td><td>Chrome, Firefox (latest)</td></tr></tbody></table></div>
+<h2 id="1-installing-xampp"><span class="h-icon" aria-hidden="true">1️⃣</span>Installing XAMPP<a class="anchor" href="#1-installing-xampp" aria-label="Link to 1️⃣ Installing XAMPP">#</a></h2>
+<h2 id="what-is-xampp"><span class="h-icon" aria-hidden="true">🎯</span>What is XAMPP?<a class="anchor" href="#what-is-xampp" aria-label="Link to 🎯 What is XAMPP?">#</a></h2>
+<p>XAMPP = <strong>X</strong> (Cross-platform) + <strong>A</strong> (Apache) + <strong>M</strong> (MySQL/MariaDB) + <strong>P</strong> (PHP) + <strong>P</strong> (Perl)</p>
+<p>This is an integrated software package that gives you a complete web development environment.</p>
+<h2 id="step-1-download-xampp"><span class="h-icon" aria-hidden="true">📥</span>Step 1: Download XAMPP<a class="anchor" href="#step-1-download-xampp" aria-label="Link to 📥 Step 1: Download XAMPP">#</a></h2>
+<ol><li>Visit: <a href="https://www.apachefriends.org/download.html" rel="noopener noreferrer">https://www.apachefriends.org/download.html</a></li>
+<li>Select PHP 8.0+ version for your operating system</li>
+<li>Download the installer file</li>
+</ol>
+<h2 id="step-2-installation"><span class="h-icon" aria-hidden="true">📦</span>Step 2: Installation<a class="anchor" href="#step-2-installation" aria-label="Link to 📦 Step 2: Installation">#</a></h2>
+<h3 id="windows">Windows:<a class="anchor" href="#windows" aria-label="Link to Windows:">#</a></h3>
+<figure class="code-block is-plain" data-language="output" data-lines="8"><figcaption><span class="code-language">Output</span><span class="code-meta"><span class="code-lines">8 lines</span></span></figcaption><pre tabindex="0"><code>1. Run file xampp-windows-x64-8.x.x-installer.exe
+2. Select components:
+   ✅ Apache
+   ✅ MySQL
+   ✅ PHP
+   ✅ phpMyAdmin
+3. Choose installation directory: C:\xampp (default)
+4. Click Install and wait for completion</code></pre></figure><h3 id="macos">macOS:<a class="anchor" href="#macos" aria-label="Link to macOS:">#</a></h3>
+<figure class="code-block is-plain" data-language="output" data-lines="3"><figcaption><span class="code-language">Output</span><span class="code-meta"><span class="code-lines">3 lines</span></span></figcaption><pre tabindex="0"><code>1. Open file xampp-osx-8.x.x-installer.dmg
+2. Drag XAMPP to Applications folder
+3. Open XAMPP from Applications</code></pre></figure><h2 id="step-3-start-xampp"><span class="h-icon" aria-hidden="true">▶️</span>Step 3: Start XAMPP<a class="anchor" href="#step-3-start-xampp" aria-label="Link to ▶️ Step 3: Start XAMPP">#</a></h2>
+<ol><li>Open <strong>XAMPP Control Panel</strong></li>
+<li>Click <strong>Start</strong> for <strong>Apache</strong></li>
+<li>Click <strong>Start</strong> for <strong>MySQL</strong></li>
+<li>Test: Open browser and visit <code>http://localhost</code></li>
+</ol>
+
+<aside class="callout is-good" aria-labelledby="good-expected-result"><p class="callout-title" id="good-expected-result">Expected Result</p><div class="callout-body"><ul><li>XAMPP Dashboard page displays</li>
+<li>Apache and MySQL show &quot;Running&quot; status (green)</li>
+</ul>
+</div></aside>
+<aside class="callout is-compare" aria-labelledby="compare-check-that-the-installation-is-complete-not-just-present"><p class="callout-title" id="compare-check-that-the-installation-is-complete-not-just-present">Check that the installation is complete, not just present</p><div class="callout-body"><p>A half-finished or interrupted install leaves the <code>C:\xampp</code> folder behind without
+the programs inside it. Confirm both engines are actually there before going on.
+In PowerShell:</p>
+<figure class="code-block is-code" data-language="shell" data-lines="2"><figcaption><span class="code-language">Terminal</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code>Test-Path C:\<span class="t-kw">xampp</span>\<span class="t-kw">php</span>\<span class="t-kw">php</span>.exe
+Test-Path C:\<span class="t-kw">xampp</span>\<span class="t-kw">mysql</span>\bin\mysqld.exe</code></pre></figure><p><strong>Expected result:</strong> <code>True</code> twice. A <code>False</code> means that part did not install —
+the Control Panel will show <code>Start</code> doing nothing, or MySQL turning green and
+immediately red again. Re-run the XAMPP installer and choose <strong>Repair</strong>, or
+uninstall and install again; installing a second copy alongside the first is what
+usually causes the port conflicts in Section 7.</p>
+</div></aside>
+<h2 id="2-testing-php"><span class="h-icon" aria-hidden="true">2️⃣</span>Testing PHP<a class="anchor" href="#2-testing-php" aria-label="Link to 2️⃣ Testing PHP">#</a></h2>
+<h2 id="php-only-runs-through-localhost"><span class="h-icon" aria-hidden="true">⚠️</span>PHP only runs through <code>localhost</code><a class="anchor" href="#php-only-runs-through-localhost" aria-label="Link to ⚠️ PHP only runs through localhost">#</a></h2>
+<p>Two rules that cause most &quot;my code does not work&quot; reports in the first weeks, plus
+one extension that quietly breaks them:</p>
+<ul><li>The file must live under <code>C:\xampp\htdocs</code> (or the macOS equivalent). PHP files
+anywhere else are invisible to Apache.</li>
+<li>Open it as <code>http://localhost/...</code>, never by double-clicking the file. A path like
+<code>file:///C:/xampp/htdocs/info.php</code> shows the source code, not the result.</li>
+<li><strong>VS Code&#39;s Live Server extension does not run PHP.</strong> It serves files on port
+5500 as plain text, so <code>&lt;?php ... ?&gt;</code> either disappears or shows up raw. Use it
+for HTML and CSS only; for PHP, always go through <code>localhost</code>.</li>
+</ul>
+<h2 id="create-test-file"><span class="h-icon" aria-hidden="true">📝</span>Create test file<a class="anchor" href="#create-test-file" aria-label="Link to 📝 Create test file">#</a></h2>
+<ol><li>Open folder: <code>C:\xampp\htdocs</code> (Windows) or <code>/Applications/XAMPP/htdocs</code> (macOS)</li>
+<li>Create new file: <code>info.php</code></li>
+<li>Enter content:</li>
+</ol>
+<figure class="code-block is-code" data-language="php" data-lines="6"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// File: info.php</span>
+<span class="t-com">// Display PHP information</span>
+
+<span class="t-fn">phpinfo</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure><ol start="4"><li>Open browser: <code>http://localhost/info.php</code></li>
+</ol>
+
+<aside class="callout is-good" aria-labelledby="good-expected-result-2"><p class="callout-title" id="good-expected-result-2">Expected Result</p><div class="callout-body"><ul><li>Page displays detailed PHP information</li>
+<li>PHP Version: 8.0+</li>
+</ul>
+</div></aside>
+<h2 id="3-testing-mysql"><span class="h-icon" aria-hidden="true">3️⃣</span>Testing MySQL<a class="anchor" href="#3-testing-mysql" aria-label="Link to 3️⃣ Testing MySQL">#</a></h2>
+<h2 id="access-phpmyadmin"><span class="h-icon" aria-hidden="true">🔧</span>Access phpMyAdmin<a class="anchor" href="#access-phpmyadmin" aria-label="Link to 🔧 Access phpMyAdmin">#</a></h2>
+<ol><li>Open browser: <code>http://localhost/phpmyadmin</code></li>
+<li>Login:<ul><li>Username: <code>root</code></li>
+<li>Password: (leave empty)</li>
+</ul>
+</li>
+</ol>
+
+<aside class="callout is-good" aria-labelledby="good-expected-result-3"><p class="callout-title" id="good-expected-result-3">Expected Result</p><div class="callout-body"><ul><li>phpMyAdmin interface displays</li>
+<li>Database list on the left</li>
+</ul>
+</div></aside>
+<h2 id="create-test-database"><span class="h-icon" aria-hidden="true">📊</span>Create test database<a class="anchor" href="#create-test-database" aria-label="Link to 📊 Create test database">#</a></h2>
+<ol><li>In phpMyAdmin, click <strong>New</strong></li>
+<li>Enter database name: <code>test_db</code></li>
+<li>Click <strong>Create</strong></li>
+</ol>
+<h2 id="4-installing-vs-code"><span class="h-icon" aria-hidden="true">4️⃣</span>Installing VS Code<a class="anchor" href="#4-installing-vs-code" aria-label="Link to 4️⃣ Installing VS Code">#</a></h2>
+<h2 id="download-install"><span class="h-icon" aria-hidden="true">📥</span>Download &amp; Install<a class="anchor" href="#download-install" aria-label="Link to 📥 Download &amp; Install">#</a></h2>
+<ol><li>Visit: <a href="https://code.visualstudio.com/" rel="noopener noreferrer">https://code.visualstudio.com/</a></li>
+<li>Download for your operating system</li>
+<li>Install following instructions</li>
+</ol>
+<h2 id="install-required-extensions"><span class="h-icon" aria-hidden="true">🔌</span>Install Required Extensions<a class="anchor" href="#install-required-extensions" aria-label="Link to 🔌 Install Required Extensions">#</a></h2>
+<p>Open VS Code → Extensions (Ctrl+Shift+X) → Search and install:</p>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Extension</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>PHP Intelephense</strong></td><td>Autocomplete, syntax</td></tr><tr><td><strong>PHP Debug</strong></td><td>Debug PHP</td></tr><tr><td><strong>MySQL</strong></td><td>Connect to MySQL</td></tr><tr><td><strong>Live Server</strong></td><td>Auto reload — <strong>HTML and CSS only, it cannot run PHP</strong></td></tr><tr><td><strong>Prettier</strong></td><td>Format code</td></tr></tbody></table></div>
+<h2 id="5-working-directory-structure"><span class="h-icon" aria-hidden="true">5️⃣</span>Working directory structure<a class="anchor" href="#5-working-directory-structure" aria-label="Link to 5️⃣ Working directory structure">#</a></h2>
+<h2 id="create-project-folder"><span class="h-icon" aria-hidden="true">📁</span>Create project folder<a class="anchor" href="#create-project-folder" aria-label="Link to 📁 Create project folder">#</a></h2>
+<figure class="code-block is-plain" data-language="diagram" data-lines="8"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">8 lines</span></span></figcaption><pre tabindex="0"><code>C:\xampp\htdocs\
+└── ins3064/                    ← Course folder
+    ├── session_01/                ← Session 1 exercises
+    │   ├── index.php
+    │   └── style.css
+    ├── session_02/                ← Session 2 exercises
+    ├── ...
+    └── final_project/          ← Final project</code></pre></figure><h2 id="access-project"><span class="h-icon" aria-hidden="true">🌐</span>Access project<a class="anchor" href="#access-project" aria-label="Link to 🌐 Access project">#</a></h2>
+<ul><li>URL: <code>http://localhost/ins3064/session_01/</code></li>
+</ul>
+<h2 id="6-first-hello-world"><span class="h-icon" aria-hidden="true">6️⃣</span>First hello world<a class="anchor" href="#6-first-hello-world" aria-label="Link to 6️⃣ First hello world">#</a></h2>
+<h2 id="create-file"><span class="h-icon" aria-hidden="true">📝</span>Create file<a class="anchor" href="#create-file" aria-label="Link to 📝 Create file">#</a></h2>
+<ol><li>Create folder: <code>C:\xampp\htdocs\ins3064\session_01\</code></li>
+<li>Create file: <code>index.php</code></li>
+</ol>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="54"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">54 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span> lang<span class="t-op">=</span><span class="t-str">&quot;en&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> charset<span class="t-op">=</span><span class="t-str">&quot;UTF-8&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> name<span class="t-op">=</span><span class="t-str">&quot;viewport&quot;</span> content<span class="t-op">=</span><span class="t-str">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Hello <span class="t-const">PHP</span><span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+        body {
+            font<span class="t-op">-</span>family<span class="t-op">:</span> Arial, sans<span class="t-op">-</span>serif;
+            display<span class="t-op">:</span> flex;
+            justify<span class="t-op">-</span>content<span class="t-op">:</span> center;
+            align<span class="t-op">-</span>items<span class="t-op">:</span> center;
+            height<span class="t-op">:</span> 100vh;
+            margin<span class="t-op">:</span> <span class="t-num">0</span>;
+            background<span class="t-op">:</span> linear<span class="t-op">-</span><span class="t-fn">gradient</span>(135deg, <span class="t-com">#667eea 0%, #764ba2 100%);</span>
+        }
+        <span class="t-op">.</span>container {
+            text<span class="t-op">-</span>align<span class="t-op">:</span> center;
+            background<span class="t-op">:</span> white;
+            padding<span class="t-op">:</span> 40px 60px;
+            border<span class="t-op">-</span>radius<span class="t-op">:</span> 10px;
+            box<span class="t-op">-</span>shadow<span class="t-op">:</span> <span class="t-num">0</span> 10px 30px <span class="t-fn">rgba</span>(<span class="t-num">0</span>,<span class="t-num">0</span>,<span class="t-num">0</span>,<span class="t-num">0.2</span>);
+        }
+        h1 {
+            color<span class="t-op">:</span> <span class="t-com">#333;</span>
+            margin<span class="t-op">-</span>bottom<span class="t-op">:</span> 10px;
+        }
+        p {
+            color<span class="t-op">:</span> <span class="t-com">#666;</span>
+        }
+        <span class="t-op">.</span>php<span class="t-op">-</span>info {
+            background<span class="t-op">:</span> <span class="t-com">#f5f5f5;</span>
+            padding<span class="t-op">:</span> 15px;
+            border<span class="t-op">-</span>radius<span class="t-op">:</span> 5px;
+            margin<span class="t-op">-</span>top<span class="t-op">:</span> 20px;
+        }
+    <span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;container&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>🎉 Hello <span class="t-const">PHP</span><span class="t-op">!&lt;/</span>h1<span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Welcome to <span class="t-const">INS3064</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;php-info&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span>
+            <span class="t-com">// Display PHP information</span>
+            <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;PHP Version:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-fn">phpversion</span>() <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+            <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;Server:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;SERVER_SOFTWARE&#39;</span>] <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+            <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;p&gt;&lt;strong&gt;Time:&lt;/strong&gt; &quot;</span> <span class="t-op">.</span> <span class="t-fn">date</span>(<span class="t-str">&quot;Y-m-d H:i:s&quot;</span>) <span class="t-op">.</span> <span class="t-str">&quot;&lt;/p&gt;&quot;</span>;
+            <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure><ol start="3"><li>Open browser: <code>http://localhost/ins3064/session_01/</code></li>
+</ol>
+
+<aside class="callout is-good" aria-labelledby="good-expected-result-4"><p class="callout-title" id="good-expected-result-4">Expected Result</p><div class="callout-body"><ul><li>Webpage displays &quot;Hello PHP!&quot;</li>
+<li>PHP version and time information</li>
+</ul>
+</div></aside>
+<h2 id="7-common-error-troubleshooting"><span class="h-icon" aria-hidden="true">7️⃣</span>Common error troubleshooting<a class="anchor" href="#7-common-error-troubleshooting" aria-label="Link to 7️⃣ Common error troubleshooting">#</a></h2>
+<h2 id="error-1-apache-won39t-start"><span class="h-icon" aria-hidden="true">❌</span>Error 1: Apache won&#39;t start<a class="anchor" href="#error-1-apache-won39t-start" aria-label="Link to ❌ Error 1: Apache won&amp;#39;t start">#</a></h2>
+<p><strong>Cause:</strong> Port 80 is occupied by another application (Skype, IIS)</p>
+<p><strong>Solution:</strong></p>
+<ol><li>Open XAMPP Control Panel</li>
+<li>Click <strong>Config</strong> → <strong>Apache (httpd.conf)</strong></li>
+<li>Find <code>Listen 80</code> and change to <code>Listen 8080</code></li>
+<li>Find <code>ServerName localhost:80</code> change to <code>ServerName localhost:8080</code></li>
+<li>Restart Apache</li>
+<li>Access: <code>http://localhost:8080</code></li>
+</ol>
+<h2 id="error-2-mysql-won39t-start"><span class="h-icon" aria-hidden="true">❌</span>Error 2: MySQL won&#39;t start<a class="anchor" href="#error-2-mysql-won39t-start" aria-label="Link to ❌ Error 2: MySQL won&amp;#39;t start">#</a></h2>
+<p><strong>Cause:</strong> Port 3306 is occupied or another MySQL service is running</p>
+<p><strong>Solution:</strong></p>
+<ol><li>Open Task Manager</li>
+<li>Find and End process <code>mysqld.exe</code></li>
+<li>Restart MySQL in XAMPP</li>
+</ol>
+<h2 id="error-3-blank-page-php-not-displaying"><span class="h-icon" aria-hidden="true">❌</span>Error 3: Blank page / PHP not displaying<a class="anchor" href="#error-3-blank-page-php-not-displaying" aria-label="Link to ❌ Error 3: Blank page / PHP not displaying">#</a></h2>
+<p><strong>Cause:</strong> File doesn&#39;t have <code>.php</code> extension or syntax error</p>
+<p><strong>Solution:</strong></p>
+<ol><li>Check file has <code>.php</code> extension</li>
+<li>Check <code>&lt;?php</code> and <code>?&gt;</code> syntax is correct</li>
+<li>Enable error display in <code>php.ini</code>:<figure class="code-block is-code" data-language="ini" data-lines="2"><figcaption><span class="code-language">Config</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-att">display_errors</span> <span class="t-op">=</span> <span class="t-lit">On</span>
+<span class="t-att">error_reporting</span> <span class="t-op">=</span> E_ALL</code></pre></figure></li>
+</ol>
+<h2 id="error-3b-the-browser-shows-the-php-code-instead-of-running-it"><span class="h-icon" aria-hidden="true">❌</span>Error 3b: The browser shows the PHP code instead of running it<a class="anchor" href="#error-3b-the-browser-shows-the-php-code-instead-of-running-it" aria-label="Link to ❌ Error 3b: The browser shows the PHP code instead of running it">#</a></h2>
+<p><strong>Cause:</strong> the page was not served by Apache. Either the file was opened directly
+(<code>file:///...</code>), or it was opened through VS Code&#39;s Live Server on port 5500,
+which serves files as-is and does not run PHP.</p>
+<p><strong>Solution:</strong></p>
+<ol><li>Look at the address bar. It must start with <code>http://localhost/</code>, not <code>file:///</code>
+and not <code>http://127.0.0.1:5500/</code>.</li>
+<li>Move the file into <code>C:\xampp\htdocs\...</code> and open the <code>localhost</code> address.</li>
+<li>Keep Live Server for HTML and CSS work only.</li>
+</ol>
+<h2 id="error-4-cannot-connect-to-mysql"><span class="h-icon" aria-hidden="true">❌</span>Error 4: Cannot connect to MySQL<a class="anchor" href="#error-4-cannot-connect-to-mysql" aria-label="Link to ❌ Error 4: Cannot connect to MySQL">#</a></h2>
+<p><strong>Cause:</strong> MySQL not started or wrong connection info</p>
+<p><strong>Solution:</strong></p>
+<ol><li>Check MySQL is running in XAMPP</li>
+<li>Check connection info:<ul><li>Host: <code>localhost</code></li>
+<li>User: <code>root</code></li>
+<li>Password: (empty)</li>
+</ul>
+</li>
+<li>Confirm PHP can actually talk to MySQL. Create <code>pdo-check.php</code> in <code>htdocs</code>:<figure class="code-block is-code" data-language="php" data-lines="8"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-fn">var_dump</span>(<span class="t-fn">extension_loaded</span>(<span class="t-str">&#39;pdo_mysql&#39;</span>));
+<span class="t-kw">try</span> {
+    <span class="t-kw">new</span> <span class="t-fn">PDO</span>(<span class="t-str">&#39;mysql:host=localhost;dbname=test_db;charset=utf8mb4&#39;</span>, <span class="t-str">&#39;root&#39;</span>, <span class="t-str">&#39;&#39;</span>);
+    <span class="t-kw">echo</span> <span class="t-str">&#39;PDO connection OK&#39;</span>;
+} <span class="t-kw">catch</span> (PDOException <span class="t-var">$e</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&#39;PDO failed: &#39;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>();
+}</code></pre></figure><strong>Expected result:</strong> <code>bool(true)</code> then <code>PDO connection OK</code>. <code>bool(false)</code> means
+the driver is switched off — remove the <code>;</code> in front of
+<code>extension=pdo_mysql</code> in <code>php.ini</code> and restart Apache. <code>Unknown database</code>
+means MySQL is fine but <code>test_db</code> has not been created yet.</li>
+</ol>
+<h2 id="8-installation-checklist"><span class="h-icon" aria-hidden="true">8️⃣</span>Installation checklist<a class="anchor" href="#8-installation-checklist" aria-label="Link to 8️⃣ Installation checklist">#</a></h2>
+<p>Check ✅ when completed:</p>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Install XAMPP</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span><code>php\php.exe</code> and <code>mysql\bin\mysqld.exe</code> both exist</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Apache starts successfully</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>MySQL starts successfully</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Access <code>http://localhost</code> OK</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Access phpMyAdmin OK</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Create PHP test file OK</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>A <code>.php</code> page opened via <code>localhost</code> shows output, not source code</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span><code>pdo_mysql</code> loaded and a PDO connection succeeds</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Install VS Code</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Install PHP Extensions</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Create project folder</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Hello World runs successfully</span></li>
+</ul>
+<h2 id="support"><span class="h-icon" aria-hidden="true">📞</span>Support<a class="anchor" href="#support" aria-label="Link to 📞 Support">#</a></h2>
+<p>If you encounter unresolved issues:</p>
+<ol><li>Google the specific error</li>
+<li>Ask on Stack Overflow</li>
+<li>Contact instructor</li>
+</ol>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/01-introduction-to-php.html">Session 01 - Introduction to PHP →</a></strong></p>
+</article></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

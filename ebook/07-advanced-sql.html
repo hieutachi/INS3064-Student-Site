@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 7: Advanced SQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Joins, subqueries, aggregation">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_2_mysql_database/session_07_advanced_sql.md">
+<meta name="source-sha256" content="83f0077f5d3acef46aac15197735a33e299153207d35cb5506de69a250ae33f0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 07 · Ebook</p><h1>Advanced SQL</h1><p class="lead">Joins, subqueries, aggregation</p><div class="head-meta"><span class="chip">Part 2 · MySQL and databases</span><span class="chip">JOIN</span><span class="chip">Subquery</span><span class="chip">GROUP BY</span></div><div class="head-actions"><a class="button-link primary" href="../slides/07-advanced-sql.html">Open the slide deck</a><a class="button-link" href="../sessions/session-07.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">22 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#before-you-start-the-shop-database">📋 Before you start: The shop database</a></li><li class="depth-2"><a href="#1-join-combining-tables">1. JOIN – combining tables</a></li><li class="depth-3"><a href="#11-inner-join">1.1 INNER JOIN</a></li><li class="depth-3"><a href="#12-left-join">1.2 LEFT JOIN</a></li><li class="depth-3"><a href="#13-right-join">1.3 RIGHT JOIN</a></li><li class="depth-3"><a href="#14-multiple-joins">1.4 Multiple JOINs</a></li><li class="depth-2"><a href="#2-subqueries">2. Subqueries</a></li><li class="depth-3"><a href="#21-subquery-in-where">2.1 Subquery in WHERE</a></li><li class="depth-3"><a href="#22-subquery-in-from">2.2 Subquery in from</a></li><li class="depth-2"><a href="#3-group-by-and-having">3. GROUP BY AND HAVING</a></li><li class="depth-3"><a href="#31-group-by">3.1 GROUP BY</a></li><li class="depth-3"><a href="#32-having-filter-after-group-by">3.2 HAVING (Filter after GROUP BY)</a></li><li class="depth-2"><a href="#4-views">4. Views</a></li><li class="depth-2"><a href="#5-indexes">5. Indexes</a></li><li class="depth-1"><a href="#real-world-examples">Real-world examples</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-join-queries">Exercise 1: JOIN Queries</a></li><li class="depth-2"><a href="#exercise-2-reporting-statistics">Exercise 2: Reporting &amp; Statistics</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li></ol></details><article class="doc" data-source="English/part_2_mysql_database/session_07_advanced_sql.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 4 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#before-you-start-the-shop-database">Set up the database first</a><span class="path-target">Before you start: The shop database</span></li><li><a href="#1-join-combining-tables">Read one theory section</a><span class="path-target">1. JOIN – combining tables</span></li><li><a href="#exercise-1-join-queries">Build the first exercise yourself</a><span class="path-target">Exercise 1: JOIN Queries</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>In this session, we will learn <strong>advanced SQL techniques</strong>: JOINs, Subqueries, GROUP BY, Views, and Indexes.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 7 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Use JOINs to combine data from multiple tables</li><li>Write subqueries</li><li>Use aggregate functions</li><li>Create stored procedures</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO4</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li>Use <strong>JOINs</strong>: INNER JOIN, LEFT JOIN, RIGHT JOIN</li>
+<li>Write <strong>subqueries</strong></li>
+<li>Use <strong>aggregate functions</strong>: COUNT, SUM, AVG, MAX, MIN</li>
+<li>Group and filter data with <strong>GROUP BY</strong> and <strong>HAVING</strong></li>
+<li>Create <strong>views</strong> and <strong>indexes</strong></li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="before-you-start-the-shop-database"><span class="h-icon" aria-hidden="true">📋</span>Before you start: The shop database<a class="anchor" href="#before-you-start-the-shop-database" aria-label="Link to 📋 Before you start: The shop database">#</a></h2>
+<p>Every query in this chapter uses the <code>shop_db</code> tables from Session 06: <code>users</code>,
+<code>categories</code>, <code>products</code>, <code>orders</code>, and <code>order_items</code>. Run this block first, in
+this order — the foreign keys mean a table cannot be created before the table it
+points at.</p>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="68"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">68 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Setup for Session 07. Safe to run more than once.</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> shop_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4 <span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+<span class="t-kw">USE</span> shop_db<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    role <span class="t-type">ENUM</span>(<span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;customer&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;customer&#39;</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    parent_id <span class="t-type">INT</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (parent_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> products (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    slug <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    stock <span class="t-type">INT</span> <span class="t-kw">DEFAULT</span> <span class="t-num">0</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> orders (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    user_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    total <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    status <span class="t-type">ENUM</span>(<span class="t-str">&#39;pending&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;processing&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;shipped&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;delivered&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;cancelled&#39;</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;pending&#39;</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (user_id) <span class="t-kw">REFERENCES</span> users(id)
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> order_items (
+    id <span class="t-type">INT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span> <span class="t-kw">AUTO_INCREMENT</span><span class="t-op">,</span>
+    order_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    product_id <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    quantity <span class="t-type">INT</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (order_id) <span class="t-kw">REFERENCES</span> orders(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">CASCADE</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (product_id) <span class="t-kw">REFERENCES</span> products(id)
+)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> users (id<span class="t-op">,</span> email<span class="t-op">,</span> password) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-str">&#39;anna@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;hash1&#39;</span>)<span class="t-op">,</span> (<span class="t-num">2</span><span class="t-op">,</span> <span class="t-str">&#39;ben@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;hash2&#39;</span>)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> categories (id<span class="t-op">,</span> name<span class="t-op">,</span> slug) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-str">&#39;Laptops&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;laptops&#39;</span>)<span class="t-op">,</span> (<span class="t-num">2</span><span class="t-op">,</span> <span class="t-str">&#39;Phones&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;phones&#39;</span>)<span class="t-op">,</span> (<span class="t-num">3</span><span class="t-op">,</span> <span class="t-str">&#39;Empty category&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;empty&#39;</span>)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> products (id<span class="t-op">,</span> name<span class="t-op">,</span> slug<span class="t-op">,</span> price<span class="t-op">,</span> stock<span class="t-op">,</span> category_id) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-str">&#39;Notebook 14&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;notebook-14&#39;</span><span class="t-op">,</span> <span class="t-num">750.00</span><span class="t-op">,</span> <span class="t-num">5</span><span class="t-op">,</span> <span class="t-num">1</span>)<span class="t-op">,</span>
+(<span class="t-num">2</span><span class="t-op">,</span> <span class="t-str">&#39;Notebook 16&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;notebook-16&#39;</span><span class="t-op">,</span> <span class="t-num">1250.00</span><span class="t-op">,</span> <span class="t-num">2</span><span class="t-op">,</span> <span class="t-num">1</span>)<span class="t-op">,</span>
+(<span class="t-num">3</span><span class="t-op">,</span> <span class="t-str">&#39;Phone A&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;phone-a&#39;</span><span class="t-op">,</span> <span class="t-num">320.00</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">,</span> <span class="t-num">2</span>)<span class="t-op">,</span>
+(<span class="t-num">4</span><span class="t-op">,</span> <span class="t-str">&#39;Unsorted gadget&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;unsorted-gadget&#39;</span><span class="t-op">,</span> <span class="t-num">90.00</span><span class="t-op">,</span> <span class="t-num">7</span><span class="t-op">,</span> <span class="t-kw">NULL</span>)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> orders (id<span class="t-op">,</span> user_id<span class="t-op">,</span> total<span class="t-op">,</span> status) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">1070.00</span><span class="t-op">,</span> <span class="t-str">&#39;delivered&#39;</span>)<span class="t-op">,</span> (<span class="t-num">2</span><span class="t-op">,</span> <span class="t-num">2</span><span class="t-op">,</span> <span class="t-num">320.00</span><span class="t-op">,</span> <span class="t-str">&#39;pending&#39;</span>)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> order_items (id<span class="t-op">,</span> order_id<span class="t-op">,</span> product_id<span class="t-op">,</span> quantity<span class="t-op">,</span> price) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">750.00</span>)<span class="t-op">,</span> (<span class="t-num">2</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">3</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">320.00</span>)<span class="t-op">,</span> (<span class="t-num">3</span><span class="t-op">,</span> <span class="t-num">2</span><span class="t-op">,</span> <span class="t-num">3</span><span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">320.00</span>)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> <code>SHOW TABLES;</code> lists five tables. The sample rows are chosen
+so the JOINs below actually show a difference: product 4 has no category, and
+category 3 has no products.</p>
+<h2 id="1-join-combining-tables"><span class="h-num">1</span>JOIN – combining tables<a class="anchor" href="#1-join-combining-tables" aria-label="Link to 1. JOIN – combining tables">#</a></h2>
+<h3 id="11-inner-join"><span class="h-num">1.1</span>INNER JOIN<a class="anchor" href="#11-inner-join" aria-label="Link to 1.1 INNER JOIN">#</a></h3>
+<p>Returns only records that exist in <strong>both</strong> tables.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get products with category name</span>
+<span class="t-kw">SELECT</span> 
+    p.id<span class="t-op">,</span>
+    p.name <span class="t-kw">AS</span> product_name<span class="t-op">,</span>
+    p.price<span class="t-op">,</span>
+    c.name <span class="t-kw">AS</span> category_name
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">INNER</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span></code></pre></figure><h3 id="12-left-join"><span class="h-num">1.2</span>LEFT JOIN<a class="anchor" href="#12-left-join" aria-label="Link to 1.2 LEFT JOIN">#</a></h3>
+<p>Returns <strong>all records from the left table</strong>, even if there is no match in the right table.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="6"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get all products, including those without category</span>
+<span class="t-kw">SELECT</span> 
+    p.name <span class="t-kw">AS</span> product_name<span class="t-op">,</span>
+    c.name <span class="t-kw">AS</span> category_name
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">LEFT</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span></code></pre></figure><h3 id="13-right-join"><span class="h-num">1.3</span>RIGHT JOIN<a class="anchor" href="#13-right-join" aria-label="Link to 1.3 RIGHT JOIN">#</a></h3>
+<p>Returns <strong>all records from the right table</strong>, even if there is no match in the left table.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="6"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get all categories, including those without products</span>
+<span class="t-kw">SELECT</span> 
+    c.name <span class="t-kw">AS</span> category_name<span class="t-op">,</span>
+    p.name <span class="t-kw">AS</span> product_name
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">RIGHT</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span></code></pre></figure><h3 id="14-multiple-joins"><span class="h-num">1.4</span>Multiple JOINs<a class="anchor" href="#14-multiple-joins" aria-label="Link to 1.4 Multiple JOINs">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Orders with customer and product details</span>
+<span class="t-kw">SELECT</span> 
+    o.id <span class="t-kw">AS</span> order_id<span class="t-op">,</span>
+    u.email <span class="t-kw">AS</span> customer_email<span class="t-op">,</span>
+    p.name <span class="t-kw">AS</span> product_name<span class="t-op">,</span>
+    oi.quantity<span class="t-op">,</span>
+    oi.price
+<span class="t-kw">FROM</span> orders o
+<span class="t-kw">INNER</span> <span class="t-kw">JOIN</span> users u <span class="t-kw">ON</span> o.user_id <span class="t-op">=</span> u.id
+<span class="t-kw">INNER</span> <span class="t-kw">JOIN</span> order_items oi <span class="t-kw">ON</span> o.id <span class="t-op">=</span> oi.order_id
+<span class="t-kw">INNER</span> <span class="t-kw">JOIN</span> products p <span class="t-kw">ON</span> oi.product_id <span class="t-op">=</span> p.id
+<span class="t-kw">WHERE</span> o.status <span class="t-op">=</span> <span class="t-str">&#39;delivered&#39;</span><span class="t-op">;</span></code></pre></figure><h2 id="2-subqueries"><span class="h-num">2</span>Subqueries<a class="anchor" href="#2-subqueries" aria-label="Link to 2. Subqueries">#</a></h2>
+<h3 id="21-subquery-in-where"><span class="h-num">2.1</span>Subquery in WHERE<a class="anchor" href="#21-subquery-in-where" aria-label="Link to 2.1 Subquery in WHERE">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="7"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Products with price higher than average</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> products
+<span class="t-kw">WHERE</span> price <span class="t-op">&gt;</span> (<span class="t-kw">SELECT</span> <span class="t-fn">AVG</span>(price) <span class="t-kw">FROM</span> products)<span class="t-op">;</span>
+
+<span class="t-com">-- Customers who have placed orders</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> users
+<span class="t-kw">WHERE</span> id <span class="t-kw">IN</span> (<span class="t-kw">SELECT</span> <span class="t-kw">DISTINCT</span> user_id <span class="t-kw">FROM</span> orders)<span class="t-op">;</span></code></pre></figure><h3 id="22-subquery-in-from"><span class="h-num">2.2</span>Subquery in from<a class="anchor" href="#22-subquery-in-from" aria-label="Link to 2.2 Subquery in from">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="15"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Top categories by revenue</span>
+<span class="t-kw">SELECT</span> 
+    category_name<span class="t-op">,</span>
+    total_revenue
+<span class="t-kw">FROM</span> (
+    <span class="t-kw">SELECT</span> 
+        c.name <span class="t-kw">AS</span> category_name<span class="t-op">,</span>
+        <span class="t-fn">SUM</span>(oi.price <span class="t-op">*</span> oi.quantity) <span class="t-kw">AS</span> total_revenue
+    <span class="t-kw">FROM</span> categories c
+    <span class="t-kw">JOIN</span> products p <span class="t-kw">ON</span> c.id <span class="t-op">=</span> p.category_id
+    <span class="t-kw">JOIN</span> order_items oi <span class="t-kw">ON</span> p.id <span class="t-op">=</span> oi.product_id
+    <span class="t-kw">GROUP</span> <span class="t-kw">BY</span> c.id
+) <span class="t-kw">AS</span> category_revenue
+<span class="t-kw">ORDER</span> <span class="t-kw">BY</span> total_revenue <span class="t-kw">DESC</span>
+<span class="t-kw">LIMIT</span> <span class="t-num">5</span><span class="t-op">;</span></code></pre></figure><h2 id="3-group-by-and-having"><span class="h-num">3</span>GROUP BY AND HAVING<a class="anchor" href="#3-group-by-and-having" aria-label="Link to 3. GROUP BY AND HAVING">#</a></h2>
+<h3 id="31-group-by"><span class="h-num">3.1</span>GROUP BY<a class="anchor" href="#31-group-by" aria-label="Link to 3.1 GROUP BY">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Count products per category</span>
+<span class="t-kw">SELECT</span> 
+    category_id<span class="t-op">,</span>
+    <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">AS</span> product_count<span class="t-op">,</span>
+    <span class="t-fn">AVG</span>(price) <span class="t-kw">AS</span> avg_price<span class="t-op">,</span>
+    <span class="t-fn">SUM</span>(stock) <span class="t-kw">AS</span> total_stock
+<span class="t-kw">FROM</span> products
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> category_id<span class="t-op">;</span></code></pre></figure><h3 id="32-having-filter-after-group-by"><span class="h-num">3.2</span>HAVING (Filter after GROUP BY)<a class="anchor" href="#32-having-filter-after-group-by" aria-label="Link to 3.2 HAVING (Filter after GROUP BY)">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Categories with more than 5 products</span>
+<span class="t-kw">SELECT</span> 
+    c.name<span class="t-op">,</span>
+    <span class="t-fn">COUNT</span>(p.id) <span class="t-kw">AS</span> product_count
+<span class="t-kw">FROM</span> categories c
+<span class="t-kw">LEFT</span> <span class="t-kw">JOIN</span> products p <span class="t-kw">ON</span> c.id <span class="t-op">=</span> p.category_id
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> c.id
+<span class="t-kw">HAVING</span> product_count <span class="t-op">&gt;</span> <span class="t-num">5</span><span class="t-op">;</span></code></pre></figure><h2 id="4-views"><span class="h-num">4</span>Views<a class="anchor" href="#4-views" aria-label="Link to 4. Views">#</a></h2>
+<figure class="code-block is-code" data-language="sql" data-lines="16"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">16 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create a View</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">VIEW</span> product_summary <span class="t-kw">AS</span>
+<span class="t-kw">SELECT</span> 
+    p.id<span class="t-op">,</span>
+    p.name<span class="t-op">,</span>
+    p.price<span class="t-op">,</span>
+    c.name <span class="t-kw">AS</span> category_name<span class="t-op">,</span>
+    p.stock
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">LEFT</span> <span class="t-kw">JOIN</span> categories c <span class="t-kw">ON</span> p.category_id <span class="t-op">=</span> c.id<span class="t-op">;</span>
+
+<span class="t-com">-- Use the View</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> product_summary <span class="t-kw">WHERE</span> price <span class="t-op">&gt;</span> <span class="t-num">100</span><span class="t-op">;</span>
+
+<span class="t-com">-- Drop the View</span>
+<span class="t-kw">DROP</span> <span class="t-kw">VIEW</span> product_summary<span class="t-op">;</span></code></pre></figure><h2 id="5-indexes"><span class="h-num">5</span>Indexes<a class="anchor" href="#5-indexes" aria-label="Link to 5. Indexes">#</a></h2>
+<p>Indexes help <strong>speed up search and filtering</strong>, but use more storage and slow down INSERT/UPDATE/DELETE.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create Indexes</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">INDEX</span> idx_products_name <span class="t-kw">ON</span> products(name)<span class="t-op">;</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">INDEX</span> idx_products_category <span class="t-kw">ON</span> products(category_id)<span class="t-op">;</span>
+
+<span class="t-com">-- Multi-column Index</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">INDEX</span> idx_orders_user_status <span class="t-kw">ON</span> orders(user_id<span class="t-op">,</span> status)<span class="t-op">;</span>
+
+<span class="t-com">-- Show Indexes</span>
+<span class="t-kw">SHOW</span> <span class="t-kw">INDEX</span> <span class="t-kw">FROM</span> products<span class="t-op">;</span>
+
+<span class="t-com">-- Drop Index</span>
+<span class="t-kw">DROP</span> <span class="t-kw">INDEX</span> idx_products_name <span class="t-kw">ON</span> products<span class="t-op">;</span></code></pre></figure><h2 class="part-divider" id="real-world-examples"><span>Real-world examples</span></h2>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="25"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">25 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Revenue report by month</span>
+<span class="t-kw">SELECT</span> 
+    <span class="t-fn">DATE_FORMAT</span>(o.created_at<span class="t-op">,</span> <span class="t-str">&#39;%Y-%m&#39;</span>) <span class="t-kw">AS</span> month<span class="t-op">,</span>
+    <span class="t-fn">COUNT</span>(<span class="t-kw">DISTINCT</span> o.id) <span class="t-kw">AS</span> total_orders<span class="t-op">,</span>
+    <span class="t-fn">COUNT</span>(<span class="t-kw">DISTINCT</span> o.user_id) <span class="t-kw">AS</span> total_customers<span class="t-op">,</span>
+    <span class="t-fn">SUM</span>(oi.quantity) <span class="t-kw">AS</span> items_sold<span class="t-op">,</span>
+    <span class="t-fn">SUM</span>(oi.price <span class="t-op">*</span> oi.quantity) <span class="t-kw">AS</span> revenue
+<span class="t-kw">FROM</span> orders o
+<span class="t-kw">JOIN</span> order_items oi <span class="t-kw">ON</span> o.id <span class="t-op">=</span> oi.order_id
+<span class="t-kw">WHERE</span> o.status <span class="t-op">=</span> <span class="t-str">&#39;delivered&#39;</span>
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> <span class="t-fn">DATE_FORMAT</span>(o.created_at<span class="t-op">,</span> <span class="t-str">&#39;%Y-%m&#39;</span>)
+<span class="t-kw">ORDER</span> <span class="t-kw">BY</span> month <span class="t-kw">DESC</span><span class="t-op">;</span>
+
+<span class="t-com">-- Top 10 best-selling products</span>
+<span class="t-kw">SELECT</span> 
+    p.name<span class="t-op">,</span>
+    <span class="t-fn">SUM</span>(oi.quantity) <span class="t-kw">AS</span> total_sold<span class="t-op">,</span>
+    <span class="t-fn">SUM</span>(oi.price <span class="t-op">*</span> oi.quantity) <span class="t-kw">AS</span> revenue
+<span class="t-kw">FROM</span> products p
+<span class="t-kw">JOIN</span> order_items oi <span class="t-kw">ON</span> p.id <span class="t-op">=</span> oi.product_id
+<span class="t-kw">JOIN</span> orders o <span class="t-kw">ON</span> oi.order_id <span class="t-op">=</span> o.id
+<span class="t-kw">WHERE</span> o.status <span class="t-op">=</span> <span class="t-str">&#39;delivered&#39;</span>
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> p.id
+<span class="t-kw">ORDER</span> <span class="t-kw">BY</span> total_sold <span class="t-kw">DESC</span>
+<span class="t-kw">LIMIT</span> <span class="t-num">10</span><span class="t-op">;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-join-queries">Exercise 1: JOIN Queries<a class="anchor" href="#exercise-1-join-queries" aria-label="Link to Exercise 1: JOIN Queries">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Get the list of orders with customer information</li>
+<li>Get products with category name</li>
+<li>Get categories that have no products</li>
+</ol>
+<h2 id="exercise-2-reporting-statistics">Exercise 2: Reporting &amp; Statistics<a class="anchor" href="#exercise-2-reporting-statistics" aria-label="Link to Exercise 2: Reporting &amp; Statistics">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Revenue by category</li>
+<li>Top 5 customers by total spending</li>
+<li>Products that have never been sold</li>
+</ol>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use different types of JOIN</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write subqueries</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use GROUP BY and HAVING</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can create and use Views and Indexes</span></li>
+</ul>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/08-review-and-midterm.html">Session 08 - Review &amp; Midterm →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="06-database-design.html"><span class="pager-label">Previous</span><span class="pager-title">Database Design</span></a><a class="pager-link is-next" href="08-review-and-midterm.html"><span class="pager-label">Next</span><span class="pager-title">Review and Midterm</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

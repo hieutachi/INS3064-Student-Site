@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Web Application Development — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Web Application Development">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_3_integration_advanced/session_12_web_app_development.md">
+<meta name="source-sha256" content="9527b9aaa25150c2996b74332aa6c3a7de6a04a326c096ed4523dcd0bd660c78">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 12 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Web Application Development</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Project</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1. Project structure</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">2. Database</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">3.1 Config</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">3.2 Database Class</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">3.3 Header</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">3.4 Footer</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">3.5 Products List</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">3.6 Create Product</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">Exercise: Complete the Mini Project</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">Key takeaways</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Web Application Development</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Project</option><option value="6">7. 1. Project structure</option><option value="7">8. 2. Database</option><option value="8">9. 3.1 Config</option><option value="9">10. 3.2 Database Class</option><option value="10">11. 3.3 Header</option><option value="11">12. 3.4 Footer</option><option value="12">13. 3.5 Products List</option><option value="13">14. 3.6 Create Product</option><option value="14">15. Section: Practice</option><option value="15">16. Exercise: Complete the Mini Project</option><option value="16">17. Key takeaways</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 17</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Web Application Development" aria-label="Slide 1 of 17"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Web Application Development</h2><p class="title-lead">Application structure and CRUD</p><p class="title-meta"><span>Session 12 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>1 / 17</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 17"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>Project structure</span></li><li><span>Database</span></li><li><span>Main code</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>2 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>In this session, we will build a <strong>Mini Project</strong> – a complete Product Management web application that integrates everything we have learned.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>3 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 12 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Build a complete web application</li><li>Integrate PHP, MySQL, and HTML</li><li>Implement CRUD functionality</li><li>Create a mini project</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO2, LO5</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>4 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will be able to:</p>
+<ul><li>Build a <strong>complete web application</strong></li>
+<li><strong>Integrate</strong> PHP, MySQL, and HTML</li>
+<li>Implement <strong>CRUD functionality</strong></li>
+<li>Create a <strong>mini project</strong> with full features</li>
+<li>Apply all concepts learned in previous sessions</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>5 / 17</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Project" aria-label="Slide 6 of 17"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 12</p><h2>Project</h2></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>6 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. Project structure" aria-label="Slide 7 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span></p><h2 class="slide-title"><span class="h-num">1</span>Project structure</h2><div class="slide-body"><figure class="code-block is-plain is-compact" data-language="text" data-lines="17"><figcaption><span class="code-language">Notes</span><span class="code-meta"><span class="code-lines">17 lines</span></span></figcaption><pre tabindex="0"><code>product_management/
+├── config/
+│   └── database.php
+├── classes/
+│   └── Database.php
+├── includes/
+│   ├── header.php
+│   └── footer.php
+├── products/
+│   ├── index.php
+│   ├── create.php
+│   ├── edit.php
+│   └── delete.php
+├── assets/
+│   └── css/
+│       └── style.css
+└── index.php</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>7 / 17</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-8" tabindex="-1" data-slide data-slide-title="2. Database" aria-label="Slide 8 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span></p><h2 class="slide-title"><span class="h-num">2</span>Database</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="sql" data-lines="27"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> product_management<span class="t-op">;</span>
+<span class="t-kw">USE</span> product_management<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> products (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span><span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    stock <span class="t-type">INT</span> <span class="t-kw">DEFAULT</span> <span class="t-num">0</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    image <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id)
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Sample data</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> categories (name) <span class="t-kw">VALUES</span> (<span class="t-str">&#39;Electronics&#39;</span>)<span class="t-op">,</span> (<span class="t-str">&#39;Clothing&#39;</span>)<span class="t-op">,</span> (<span class="t-str">&#39;Books&#39;</span>)<span class="t-op">;</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> products (name<span class="t-op">,</span> price<span class="t-op">,</span> stock<span class="t-op">,</span> category_id) <span class="t-kw">VALUES</span>
+(<span class="t-str">&#39;Laptop&#39;</span><span class="t-op">,</span> <span class="t-num">999.99</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">,</span> <span class="t-num">1</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;T-Shirt&#39;</span><span class="t-op">,</span> <span class="t-num">19.99</span><span class="t-op">,</span> <span class="t-num">50</span><span class="t-op">,</span> <span class="t-num">2</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;PHP Book&#39;</span><span class="t-op">,</span> <span class="t-num">39.99</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">3</span>)<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>8 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 9 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.1 Config</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="9"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// config/database.php</span>
+<span class="t-kw">return</span> [
+    <span class="t-str">&#39;host&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;localhost&#39;</span>,
+    <span class="t-str">&#39;dbname&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;product_management&#39;</span>,
+    <span class="t-str">&#39;username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;root&#39;</span>,
+    <span class="t-str">&#39;password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>,
+    <span class="t-str">&#39;charset&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;utf8mb4&#39;</span>,
+];</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>9 / 17</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-10" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 10 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.2 Database Class</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="41"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">41 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// classes/Database.php</span>
+<span class="t-kw">class</span> Database {
+    <span class="t-kw">private</span> <span class="t-kw">static</span> <span class="t-op">?</span>Database <span class="t-var">$instance</span> <span class="t-op">=</span> <span class="t-lit">null</span>;
+    <span class="t-kw">private</span> <span class="t-const">PDO</span> <span class="t-var">$pdo</span>;
+    
+    <span class="t-kw">private</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>() {
+        <span class="t-var">$config</span> <span class="t-op">=</span> <span class="t-kw">require</span> __DIR__ <span class="t-op">.</span> <span class="t-str">&#39;/../config/database.php&#39;</span>;
+        <span class="t-var">$dsn</span> <span class="t-op">=</span> <span class="t-str">&quot;mysql:host={$config[&#39;host&#39;]};dbname={$config[&#39;dbname&#39;]};charset={$config[&#39;charset&#39;]}&quot;</span>;
+        
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(<span class="t-var">$dsn</span>, <span class="t-var">$config</span>[<span class="t-str">&#39;username&#39;</span>], <span class="t-var">$config</span>[<span class="t-str">&#39;password&#39;</span>], [
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_ERRMODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ERRMODE_EXCEPTION</span>,
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_DEFAULT_FETCH_MODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">FETCH_ASSOC</span>,
+        ]);
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">static</span> <span class="t-kw">function</span> <span class="t-fn">getInstance</span>()<span class="t-op">:</span> Database {
+        <span class="t-kw">if</span> (self<span class="t-op">::</span><span class="t-var">$instance</span> <span class="t-op">===</span> <span class="t-lit">null</span>) {
+            self<span class="t-op">::</span><span class="t-var">$instance</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">self</span>();
+        }
+        <span class="t-kw">return</span> self<span class="t-op">::</span><span class="t-var">$instance</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">query</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> PDOStatement {
+        <span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo<span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+        <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>(<span class="t-var">$params</span>);
+        <span class="t-kw">return</span> <span class="t-var">$stmt</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">fetchAll</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>)<span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">fetch</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> <span class="t-kw">array</span><span class="t-op">|</span><span class="t-lit">false</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>)<span class="t-op">-&gt;</span><span class="t-fn">fetch</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">lastInsertId</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo<span class="t-op">-&gt;</span><span class="t-fn">lastInsertId</span>();
+    }
+}</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>10 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 11 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.3 Header</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="26"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">26 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// includes/header.php</span>
+<span class="t-meta">?&gt;</span>
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span> lang<span class="t-op">=</span><span class="t-str">&quot;en&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> charset<span class="t-op">=</span><span class="t-str">&quot;UTF-8&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;meta</span> name<span class="t-op">=</span><span class="t-str">&quot;viewport&quot;</span> content<span class="t-op">=</span><span class="t-str">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$pageTitle</span> <span class="t-op">??</span> <span class="t-str">&#39;Product Management&#39;</span> <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;link</span> href<span class="t-op">=</span><span class="t-str">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot;</span> rel<span class="t-op">=</span><span class="t-str">&quot;stylesheet&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+        <span class="t-op">.</span>navbar { margin<span class="t-op">-</span>bottom<span class="t-op">:</span> 20px; }
+        <span class="t-op">.</span>card { margin<span class="t-op">-</span>bottom<span class="t-op">:</span> 20px; }
+    <span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;nav</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;navbar navbar-expand-lg navbar-dark bg-primary&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;container&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;a</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;navbar-brand&quot;</span> href<span class="t-op">=</span><span class="t-str">&quot;/product_management/&quot;</span><span class="t-tag">&gt;</span>🛒 Product Management<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;navbar-nav&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;a</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;nav-link&quot;</span> href<span class="t-op">=</span><span class="t-str">&quot;/product_management/products/&quot;</span><span class="t-tag">&gt;</span>Products<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;a</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;nav-link&quot;</span> href<span class="t-op">=</span><span class="t-str">&quot;/product_management/products/create.php&quot;</span><span class="t-tag">&gt;</span>Add Product<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/nav</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;container&quot;</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>11 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 12 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.4 Footer</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="10"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// includes/footer.php</span>
+<span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;footer</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;text-center mt-5 py-3 bg-light&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span><span class="t-op">&amp;</span>copy; <span class="t-meta">&lt;?=</span> <span class="t-fn">date</span>(<span class="t-str">&#39;Y&#39;</span>) <span class="t-meta">?&gt;</span> Product Management <span class="t-op">-</span> <span class="t-const">INS3064</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/footer</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;script</span> src<span class="t-op">=</span><span class="t-str">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js&quot;</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>12 / 17</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-13" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 13 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.5 Products List</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="109"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">109 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// products/index.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../classes/Database.php&#39;</span>;
+
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+
+<span class="t-com">// Search</span>
+<span class="t-var">$search</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;search&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+<span class="t-var">$category</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;category&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT p.*, c.name as category_name 
+        FROM products p 
+        LEFT JOIN categories c ON p.category_id = c.id 
+        WHERE 1=1&quot;</span>;
+<span class="t-var">$params</span> <span class="t-op">=</span> [];
+
+<span class="t-kw">if</span> (<span class="t-var">$search</span>) {
+    <span class="t-var">$sql</span> <span class="t-op">.=</span> <span class="t-str">&quot; AND p.name LIKE ?&quot;</span>;
+    <span class="t-var">$params</span>[] <span class="t-op">=</span> <span class="t-str">&quot;%$search%&quot;</span>;
+}
+
+<span class="t-kw">if</span> (<span class="t-var">$category</span>) {
+    <span class="t-var">$sql</span> <span class="t-op">.=</span> <span class="t-str">&quot; AND p.category_id = ?&quot;</span>;
+    <span class="t-var">$params</span>[] <span class="t-op">=</span> <span class="t-var">$category</span>;
+}
+
+<span class="t-var">$sql</span> <span class="t-op">.=</span> <span class="t-str">&quot; ORDER BY p.created_at DESC&quot;</span>;
+<span class="t-var">$products</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>);
+<span class="t-var">$categories</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM categories&quot;</span>);
+
+<span class="t-var">$pageTitle</span> <span class="t-op">=</span> <span class="t-str">&quot;Products&quot;</span>;
+<span class="t-kw">include</span> <span class="t-str">&#39;../includes/header.php&#39;</span>;
+<span class="t-meta">?&gt;</span>
+
+<span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>📦 Products<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+
+<span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_GET</span>[<span class="t-str">&#39;success&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;alert alert-success&quot;</span><span class="t-tag">&gt;</span>Operation successful<span class="t-op">!&lt;/</span>div<span class="t-tag">&gt;</span>
+<span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!--</span> Search Form <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-body&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;GET&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;row g-3&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-4&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;search&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control&quot;</span> 
+                       placeholder<span class="t-op">=</span><span class="t-str">&quot;Search...&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($search) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-3&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;select</span> name<span class="t-op">=</span><span class="t-str">&quot;category&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-select&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;option</span> value<span class="t-op">=</span><span class="t-str">&quot;&quot;</span><span class="t-tag">&gt;</span>All Categories<span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+                    <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$categories</span> <span class="t-kw">as</span> <span class="t-var">$cat</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                        <span class="t-tag">&lt;option</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= (int)$cat[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-meta">&lt;?=</span> <span class="t-var">$category</span> <span class="t-op">==</span> <span class="t-var">$cat</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-op">?</span> <span class="t-str">&#39;selected&#39;</span> <span class="t-op">:</span> <span class="t-str">&#39;&#39;</span> <span class="t-meta">?&gt;</span><span class="t-tag">&gt;</span>
+                            <span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$cat</span>[<span class="t-str">&#39;name&#39;</span>], <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-meta">?&gt;</span>
+                        <span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+                    <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;/select</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-2&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-primary&quot;</span><span class="t-tag">&gt;</span>Search<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;index.php&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-secondary&quot;</span><span class="t-tag">&gt;</span>Reset<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+<span class="t-op">&lt;!--</span> Products Table <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-header d-flex justify-content-between&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;span</span><span class="t-tag">&gt;</span><span class="t-fn">Products</span> (<span class="t-meta">&lt;?=</span> <span class="t-fn">count</span>(<span class="t-var">$products</span>) <span class="t-meta">?&gt;</span>)<span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;create.php&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-success btn-sm&quot;</span><span class="t-tag">&gt;</span><span class="t-op">+</span> Add Product<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-body&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;table</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;table table-striped&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;thead</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>ID<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Name<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Category<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Price<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Stock<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Actions<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/thead</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;tbody</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$products</span> <span class="t-kw">as</span> <span class="t-var">$product</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$product</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$product</span>[<span class="t-str">&#39;name&#39;</span>]) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$product</span>[<span class="t-str">&#39;category_name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;N/A&#39;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span>$<span class="t-meta">&lt;?=</span> <span class="t-fn">number_format</span>(<span class="t-var">$product</span>[<span class="t-str">&#39;price&#39;</span>], <span class="t-num">2</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;span</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;badge &lt;?= $product[&#39;stock&#39;] &gt; 0 ? &#39;bg-success&#39; : &#39;bg-danger&#39; ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                            <span class="t-meta">&lt;?=</span> <span class="t-var">$product</span>[<span class="t-str">&#39;stock&#39;</span>] <span class="t-meta">?&gt;</span>
+                        <span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;edit.php?id=&lt;?= $product[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-sm btn-warning&quot;</span><span class="t-tag">&gt;</span>Edit<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;delete.php?id=&lt;?= $product[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-sm btn-danger&quot;</span>
+                           onclick<span class="t-op">=</span><span class="t-str">&quot;return confirm(&#39;Delete this product?&#39;)&quot;</span><span class="t-tag">&gt;</span>Delete<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/tbody</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/table</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+<span class="t-meta">&lt;?php</span> <span class="t-kw">include</span> <span class="t-str">&#39;../includes/footer.php&#39;</span>; <span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>13 / 17</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-14" tabindex="-1" data-slide data-slide-title="3. Main code" aria-label="Slide 14 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Project</span><span class="slide-sub">3.6 Create Product</span></p><h2 class="slide-title"><span class="h-num">3</span>Main code</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="96"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">96 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// products/create.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../classes/Database.php&#39;</span>;
+
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+<span class="t-var">$categories</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM categories&quot;</span>);
+
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+<span class="t-var">$data</span> <span class="t-op">=</span> [<span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>, <span class="t-str">&#39;description&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>, <span class="t-str">&#39;price&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>, <span class="t-str">&#39;stock&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>, <span class="t-str">&#39;category_id&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>];
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$data</span> <span class="t-op">=</span> [
+        <span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>),
+        <span class="t-str">&#39;description&#39;</span> <span class="t-op">=&gt;</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;description&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>),
+        <span class="t-str">&#39;price&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>,
+        <span class="t-str">&#39;stock&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;stock&#39;</span>] <span class="t-op">??</span> <span class="t-num">0</span>,
+        <span class="t-str">&#39;category_id&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;category_id&#39;</span>] <span class="t-op">??</span> <span class="t-lit">null</span>,
+    ];
+    
+    <span class="t-com">// Validation</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;name&#39;</span>])) <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Name is required&quot;</span>;
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">is_numeric</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;price&#39;</span>]) <span class="t-op">||</span> <span class="t-var">$data</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-op">&lt;=</span> <span class="t-num">0</span>) <span class="t-var">$errors</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Valid price required&quot;</span>;
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;INSERT INTO products (name, description, price, stock, category_id) VALUES (?, ?, ?, ?, ?)&quot;</span>;
+        <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, [
+            <span class="t-var">$data</span>[<span class="t-str">&#39;name&#39;</span>],
+            <span class="t-var">$data</span>[<span class="t-str">&#39;description&#39;</span>],
+            <span class="t-var">$data</span>[<span class="t-str">&#39;price&#39;</span>],
+            <span class="t-var">$data</span>[<span class="t-str">&#39;stock&#39;</span>],
+            <span class="t-var">$data</span>[<span class="t-str">&#39;category_id&#39;</span>] <span class="t-op">?:</span> <span class="t-lit">null</span>,
+        ]);
+        
+        <span class="t-fn">header</span>(<span class="t-str">&#39;Location: index.php?success=1&#39;</span>);
+        exit;
+    }
+}
+
+<span class="t-var">$pageTitle</span> <span class="t-op">=</span> <span class="t-str">&quot;Add Product&quot;</span>;
+<span class="t-kw">include</span> <span class="t-str">&#39;../includes/header.php&#39;</span>;
+<span class="t-meta">?&gt;</span>
+
+<span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>➕ Add Product<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+
+<span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card&quot;</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;card-body&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mb-3&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-label&quot;</span><span class="t-tag">&gt;</span>Name <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;name&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control &lt;?= isset($errors[&#39;name&#39;]) ? &#39;is-invalid&#39; : &#39;&#39; ?&gt;&quot;</span>
+                       value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($data[&#39;name&#39;]) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;invalid-feedback&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;mb-3&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-label&quot;</span><span class="t-tag">&gt;</span>Description<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;textarea</span> name<span class="t-op">=</span><span class="t-str">&quot;description&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control&quot;</span> rows<span class="t-op">=</span><span class="t-str">&quot;3&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;description&#39;</span>]) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/textarea</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;row&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-4 mb-3&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-label&quot;</span><span class="t-tag">&gt;</span>Price <span class="t-op">*&lt;/</span>label<span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;number&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;price&quot;</span> step<span class="t-op">=</span><span class="t-str">&quot;0.01&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control &lt;?= isset($errors[&#39;price&#39;]) ? &#39;is-invalid&#39; : &#39;&#39; ?&gt;&quot;</span>
+                           value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($data[&#39;price&#39;]) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;price&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                        <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;invalid-feedback&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                    <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                
+                <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-4 mb-3&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-label&quot;</span><span class="t-tag">&gt;</span>Stock<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;number&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;stock&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-control&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($data[&#39;stock&#39;]) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+                
+                <span class="t-tag">&lt;div</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;col-md-4 mb-3&quot;</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;label</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-label&quot;</span><span class="t-tag">&gt;</span>Category<span class="t-tag">&lt;/label</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;select</span> name<span class="t-op">=</span><span class="t-str">&quot;category_id&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;form-select&quot;</span><span class="t-tag">&gt;</span>
+                        <span class="t-tag">&lt;option</span> value<span class="t-op">=</span><span class="t-str">&quot;&quot;</span><span class="t-tag">&gt;</span><span class="t-op">--</span> Select <span class="t-op">--&lt;/</span>option<span class="t-tag">&gt;</span>
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$categories</span> <span class="t-kw">as</span> <span class="t-var">$cat</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                            <span class="t-tag">&lt;option</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= (int)$cat[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-meta">&lt;?=</span> <span class="t-var">$data</span>[<span class="t-str">&#39;category_id&#39;</span>] <span class="t-op">==</span> <span class="t-var">$cat</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-op">?</span> <span class="t-str">&#39;selected&#39;</span> <span class="t-op">:</span> <span class="t-str">&#39;&#39;</span> <span class="t-meta">?&gt;</span><span class="t-tag">&gt;</span>
+                                <span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$cat</span>[<span class="t-str">&#39;name&#39;</span>], <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-meta">?&gt;</span>
+                            <span class="t-tag">&lt;/option</span><span class="t-tag">&gt;</span>
+                        <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+                    <span class="t-tag">&lt;/select</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+            
+            <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-primary&quot;</span><span class="t-tag">&gt;</span>Save<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;index.php&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-secondary&quot;</span><span class="t-tag">&gt;</span>Cancel<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+<span class="t-meta">&lt;?php</span> <span class="t-kw">include</span> <span class="t-str">&#39;../includes/footer.php&#39;</span>; <span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>14 / 17</span></p></section>
+<section class="deck-slide is-part" id="slide-15" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 15 of 17"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 12</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>15 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-16" tabindex="-1" data-slide data-slide-title="Exercise: Complete the Mini Project" aria-label="Slide 16 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise: Complete the Mini Project</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Implement <code>edit</code> and <code>delete</code> features</li>
+<li>Add pagination for products list</li>
+<li>Add product image upload</li>
+<li>Add a simple dashboard with statistics (total products, total stock, etc.)</li>
+</ol>
+</div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>16 / 17</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="Key takeaways" aria-label="Slide 17 of 17"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Key takeaways</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Build a complete CRUD web application</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Integrate PHP + MySQL + HTML/CSS</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Organize code into a real project structure</span></li>
+</ul>
+<p><strong>Next: <a href="../ebook/13-cookies-and-sessions.html">Session 13 - Cookies &amp; Sessions →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 12</span><span>17 / 17</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

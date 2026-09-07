@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: PHP with MySQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="PHP with MySQL">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_3_integration_advanced/session_10_php_mysql.md">
+<meta name="source-sha256" content="ef856892d8335bcf53a0e774e2a1d87b078ebf9d26fbb7739eea997532726a3f">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 10 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">PHP with MySQL</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">Before you start: The test database (1/3)</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">Before you start: The test database (2/3)</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">Before you start: The test database (3/3)</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">1.1 Using PDO (Recommended)</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">1.2 Config File</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">2.1 CREATE (Insert)</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">2.2 Read (Select)</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">2.3 UPDATE</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">2.4 DELETE</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">3. Database class</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">4.1 Users List</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">4.2 Create User</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">Exercise 1: Product CRUD</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">Exercise 2: Pagination</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">Key takeaways</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. PHP with MySQL</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. Before you start: The test database (1/3)</option><option value="7">8. Before you start: The test database (2/3)</option><option value="8">9. Before you start: The test database (3/3)</option><option value="9">10. 1.1 Using PDO (Recommended)</option><option value="10">11. 1.2 Config File</option><option value="11">12. 2.1 CREATE (Insert)</option><option value="12">13. 2.2 Read (Select)</option><option value="13">14. 2.3 UPDATE</option><option value="14">15. 2.4 DELETE</option><option value="15">16. 3. Database class</option><option value="16">17. 4.1 Users List</option><option value="17">18. 4.2 Create User</option><option value="18">19. Section: Practice</option><option value="19">20. Exercise 1: Product CRUD</option><option value="20">21. Exercise 2: Pagination</option><option value="21">22. Key takeaways</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 22</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="PHP with MySQL" aria-label="Slide 1 of 22"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>PHP with MySQL</h2><p class="title-lead">PDO and database integration</p><p class="title-meta"><span>Session 10 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>1 / 22</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 22"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>Database connection</span></li><li><span>CRUD operations</span></li><li><span>Database class</span></li><li><span>Complete CRUD example (users)</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>2 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>In this session, we will learn how to connect PHP with MySQL using <strong>PDO</strong>, and how to build real CRUD features backed by a database.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>3 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 10 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Connect PHP to MySQL</li><li>Use PDO for database operations</li><li>Perform CRUD operations</li><li>Use prepared statements</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO5</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>4 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will be able to:</p>
+<ul><li><strong>Connect PHP to MySQL</strong> database</li>
+<li>Use <strong>PDO</strong> (PHP Data Objects) for database operations</li>
+<li>Perform <strong>CRUD operations</strong>: Create, Read, Update, Delete</li>
+<li>Use <strong>prepared statements</strong> for security</li>
+<li>Build a reusable <strong>Database class</strong></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>5 / 22</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 22"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 10</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>6 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="Before you start: The test database" aria-label="Slide 7 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title">Before you start: The test database<span class="slide-cont">1 of 3</span></h2><div class="slide-body"><p>Every example in this chapter connects to <code>test_db</code> and reads or writes a <code>users</code>
+table. Run this block in phpMyAdmin first, or every PHP file below will stop at
+<code>Base table or view not found</code>.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>7 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="Before you start: The test database" aria-label="Slide 8 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title">Before you start: The test database<span class="slide-cont">2 of 3</span></h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Setup for Session 10. Safe to run more than once.</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> test_db
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4 <span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+<span class="t-kw">USE</span> test_db<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    role <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>
+    status <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">DEFAULT</span> <span class="t-str">&#39;active&#39;</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> users (id<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> password<span class="t-op">,</span> role<span class="t-op">,</span> status) <span class="t-kw">VALUES</span>
+(<span class="t-num">1</span><span class="t-op">,</span> <span class="t-str">&#39;Anna Tran&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;anna@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;not-a-real-hash&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;admin&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;active&#39;</span>)<span class="t-op">,</span>
+(<span class="t-num">2</span><span class="t-op">,</span> <span class="t-str">&#39;Ben Le&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;ben@example.com&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;not-a-real-hash&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;active&#39;</span>)<span class="t-op">,</span>
+(<span class="t-num">3</span><span class="t-op">,</span> <span class="t-str">&#39;Chi Pham&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;chi@example.com&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;not-a-real-hash&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;user&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;inactive&#39;</span>)<span class="t-op">;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>8 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="Before you start: The test database" aria-label="Slide 9 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title">Before you start: The test database<span class="slide-cont">3 of 3</span></h2><div class="slide-body"><p><strong>Expected result:</strong> three rows in <code>test_db.users</code>. Passwords here are
+placeholders — Section 2.1 shows how real ones are hashed with
+<code>password_hash()</code>.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>9 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="1. Database connection" aria-label="Slide 10 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 Using PDO (Recommended)</span></p><h2 class="slide-title"><span class="h-num">1</span>Database connection</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$host</span> <span class="t-op">=</span> <span class="t-str">&#39;localhost&#39;</span>;
+<span class="t-var">$dbname</span> <span class="t-op">=</span> <span class="t-str">&#39;test_db&#39;</span>;
+<span class="t-var">$username</span> <span class="t-op">=</span> <span class="t-str">&#39;root&#39;</span>;
+<span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-kw">try</span> {
+    <span class="t-var">$pdo</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(
+        <span class="t-str">&quot;mysql:host=$host;dbname=$dbname;charset=utf8mb4&quot;</span>,
+        <span class="t-var">$username</span>,
+        <span class="t-var">$password</span>,
+        [
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_ERRMODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ERRMODE_EXCEPTION</span>,
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_DEFAULT_FETCH_MODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">FETCH_ASSOC</span>,
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_EMULATE_PREPARES</span> <span class="t-op">=&gt;</span> <span class="t-lit">false</span>,
+        ]
+    );
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Connection successful!&quot;</span>;
+} <span class="t-kw">catch</span> (PDOException <span class="t-var">$e</span>) {
+    <span class="t-fn">error_log</span>(<span class="t-str">&quot;DB connection failed: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>());
+    <span class="t-fn">die</span>(<span class="t-str">&quot;Database connection failed. Please try again later.&quot;</span>);
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>10 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="1. Database connection" aria-label="Slide 11 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Config File</span></p><h2 class="slide-title"><span class="h-num">1</span>Database connection</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="15"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">15 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// config/database.php</span>
+<span class="t-kw">return</span> [
+    <span class="t-str">&#39;host&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;localhost&#39;</span>,
+    <span class="t-str">&#39;dbname&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;test_db&#39;</span>,
+    <span class="t-str">&#39;username&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;root&#39;</span>,
+    <span class="t-str">&#39;password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>,
+    <span class="t-str">&#39;charset&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;utf8mb4&#39;</span>
+];
+
+<span class="t-com">// Usage</span>
+<span class="t-var">$config</span> <span class="t-op">=</span> <span class="t-kw">require</span> <span class="t-str">&#39;config/database.php&#39;</span>;
+<span class="t-var">$dsn</span> <span class="t-op">=</span> <span class="t-str">&quot;mysql:host={$config[&#39;host&#39;]};dbname={$config[&#39;dbname&#39;]};charset={$config[&#39;charset&#39;]}&quot;</span>;
+<span class="t-var">$pdo</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(<span class="t-var">$dsn</span>, <span class="t-var">$config</span>[<span class="t-str">&#39;username&#39;</span>], <span class="t-var">$config</span>[<span class="t-str">&#39;password&#39;</span>]);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>11 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="2. CRUD operations" aria-label="Slide 12 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 CREATE (Insert)</span></p><h2 class="slide-title"><span class="h-num">2</span>CRUD operations</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="17"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Insert a single record</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;INSERT INTO users (name, email, password) VALUES (?, ?, ?)&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-var">$name</span>, <span class="t-var">$email</span>, <span class="t-fn">password_hash</span>(<span class="t-var">$password</span>, <span class="t-const">PASSWORD_DEFAULT</span>)]);
+
+<span class="t-com">// Get last inserted ID</span>
+<span class="t-var">$lastId</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">lastInsertId</span>();
+
+<span class="t-com">// Named parameters</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;INSERT INTO users (name, email) VALUES (:name, :email)&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([
+    <span class="t-str">&#39;:name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$name</span>,
+    <span class="t-str">&#39;:email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$email</span>,
+]);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>12 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-13" tabindex="-1" data-slide data-slide-title="2. CRUD operations" aria-label="Slide 13 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.2 Read (Select)</span></p><h2 class="slide-title"><span class="h-num">2</span>CRUD operations</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="22"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Get all</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$users</span> <span class="t-op">=</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>();
+
+<span class="t-com">// Get one record</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users WHERE id = ?&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-var">$id</span>]);
+<span class="t-var">$user</span> <span class="t-op">=</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>();
+
+<span class="t-com">// Get with conditions</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT * FROM users WHERE status = ? AND role = ?&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-str">&#39;active&#39;</span>, <span class="t-str">&#39;admin&#39;</span>]);
+<span class="t-var">$admins</span> <span class="t-op">=</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>();
+
+<span class="t-com">// Count records</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;SELECT COUNT(*) FROM users&quot;</span>;
+<span class="t-var">$count</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>)<span class="t-op">-&gt;</span><span class="t-fn">fetchColumn</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>13 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-14" tabindex="-1" data-slide data-slide-title="2. CRUD operations" aria-label="Slide 14 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 UPDATE</span></p><h2 class="slide-title"><span class="h-num">2</span>CRUD operations</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="11"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;UPDATE users SET name = ?, email = ? WHERE id = ?&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-var">$name</span>, <span class="t-var">$email</span>, <span class="t-var">$id</span>]);
+
+<span class="t-com">// Check affected rows</span>
+<span class="t-var">$rowCount</span> <span class="t-op">=</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">rowCount</span>();
+<span class="t-kw">if</span> (<span class="t-var">$rowCount</span> <span class="t-tag">&gt;</span> <span class="t-num">0</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Update successful!&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>14 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-15" tabindex="-1" data-slide data-slide-title="2. CRUD operations" aria-label="Slide 15 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.4 DELETE</span></p><h2 class="slide-title"><span class="h-num">2</span>CRUD operations</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="9"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;DELETE FROM users WHERE id = ?&quot;</span>;
+<span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-var">$id</span>]);
+
+<span class="t-kw">if</span> (<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">rowCount</span>() <span class="t-tag">&gt;</span> <span class="t-num">0</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Delete successful!&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>15 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-16" tabindex="-1" data-slide data-slide-title="3. Database class" aria-label="Slide 16 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">3</span>Database class</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="93"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">93 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// classes/Database.php</span>
+<span class="t-kw">class</span> Database {
+    <span class="t-kw">private</span> <span class="t-kw">static</span> <span class="t-op">?</span>Database <span class="t-var">$instance</span> <span class="t-op">=</span> <span class="t-lit">null</span>;
+    <span class="t-kw">private</span> <span class="t-const">PDO</span> <span class="t-var">$pdo</span>;
+    
+    <span class="t-kw">private</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>() {
+        <span class="t-var">$config</span> <span class="t-op">=</span> <span class="t-kw">require</span> <span class="t-str">&#39;config/database.php&#39;</span>;
+        <span class="t-var">$dsn</span> <span class="t-op">=</span> <span class="t-str">&quot;mysql:host={$config[&#39;host&#39;]};dbname={$config[&#39;dbname&#39;]};charset={$config[&#39;charset&#39;]}&quot;</span>;
+        
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(<span class="t-var">$dsn</span>, <span class="t-var">$config</span>[<span class="t-str">&#39;username&#39;</span>], <span class="t-var">$config</span>[<span class="t-str">&#39;password&#39;</span>], [
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_ERRMODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ERRMODE_EXCEPTION</span>,
+            <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_DEFAULT_FETCH_MODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">FETCH_ASSOC</span>,
+        ]);
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">static</span> <span class="t-kw">function</span> <span class="t-fn">getInstance</span>()<span class="t-op">:</span> Database {
+        <span class="t-kw">if</span> (self<span class="t-op">::</span><span class="t-var">$instance</span> <span class="t-op">===</span> <span class="t-lit">null</span>) {
+            self<span class="t-op">::</span><span class="t-var">$instance</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">self</span>();
+        }
+        <span class="t-kw">return</span> self<span class="t-op">::</span><span class="t-var">$instance</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">getConnection</span>()<span class="t-op">:</span> <span class="t-const">PDO</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">query</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> PDOStatement {
+        <span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo<span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+        <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>(<span class="t-var">$params</span>);
+        <span class="t-kw">return</span> <span class="t-var">$stmt</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">fetchAll</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>)<span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">fetch</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> <span class="t-kw">array</span><span class="t-op">|</span><span class="t-lit">false</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>)<span class="t-op">-&gt;</span><span class="t-fn">fetch</span>();
+    }
+    
+    <span class="t-kw">private</span> <span class="t-kw">function</span> <span class="t-fn">quoteIdentifier</span>(<span class="t-type">string</span> <span class="t-var">$name</span>)<span class="t-op">:</span> string {
+        <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">preg_match</span>(<span class="t-str">&#39;/^[a-zA-Z_][a-zA-Z0-9_]*$/&#39;</span>, <span class="t-var">$name</span>)) {
+            <span class="t-kw">throw</span> <span class="t-kw">new</span> <span class="t-fn">InvalidArgumentException</span>(<span class="t-str">&quot;Invalid identifier: $name&quot;</span>);
+        }
+        <span class="t-kw">return</span> <span class="t-str">&quot;`$name`&quot;</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">insert</span>(<span class="t-type">string</span> <span class="t-var">$table</span>, <span class="t-kw">array</span> <span class="t-var">$data</span>)<span class="t-op">:</span> string {
+        <span class="t-var">$columns</span> <span class="t-op">=</span> <span class="t-fn">implode</span>(<span class="t-str">&#39;, &#39;</span>, <span class="t-fn">array_map</span>([<span class="t-var">$this</span>, <span class="t-str">&#39;quoteIdentifier&#39;</span>], <span class="t-fn">array_keys</span>(<span class="t-var">$data</span>)));
+        <span class="t-var">$placeholders</span> <span class="t-op">=</span> <span class="t-fn">implode</span>(<span class="t-str">&#39;, &#39;</span>, <span class="t-fn">array_fill</span>(<span class="t-num">0</span>, <span class="t-fn">count</span>(<span class="t-var">$data</span>), <span class="t-str">&#39;?&#39;</span>));
+        
+        <span class="t-var">$table</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">quoteIdentifier</span>(<span class="t-var">$table</span>);
+        <span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;INSERT INTO $table ($columns) VALUES ($placeholders)&quot;</span>;
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-fn">array_values</span>(<span class="t-var">$data</span>));
+        
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo<span class="t-op">-&gt;</span><span class="t-fn">lastInsertId</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">update</span>(<span class="t-type">string</span> <span class="t-var">$table</span>, <span class="t-kw">array</span> <span class="t-var">$data</span>, <span class="t-type">string</span> <span class="t-var">$where</span>, <span class="t-kw">array</span> <span class="t-var">$whereParams</span> <span class="t-op">=</span> [])<span class="t-op">:</span> int {
+        <span class="t-var">$set</span> <span class="t-op">=</span> <span class="t-fn">implode</span>(<span class="t-str">&#39; = ?, &#39;</span>, <span class="t-fn">array_map</span>([<span class="t-var">$this</span>, <span class="t-str">&#39;quoteIdentifier&#39;</span>], <span class="t-fn">array_keys</span>(<span class="t-var">$data</span>))) <span class="t-op">.</span> <span class="t-str">&#39; = ?&#39;</span>;
+        <span class="t-var">$table</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">quoteIdentifier</span>(<span class="t-var">$table</span>);
+        <span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;UPDATE $table SET $set WHERE $where&quot;</span>;
+        
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-fn">array_merge</span>(<span class="t-fn">array_values</span>(<span class="t-var">$data</span>), <span class="t-var">$whereParams</span>))<span class="t-op">-&gt;</span><span class="t-fn">rowCount</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">delete</span>(<span class="t-type">string</span> <span class="t-var">$table</span>, <span class="t-type">string</span> <span class="t-var">$where</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> int {
+        <span class="t-var">$table</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">quoteIdentifier</span>(<span class="t-var">$table</span>);
+        <span class="t-var">$sql</span> <span class="t-op">=</span> <span class="t-str">&quot;DELETE FROM $table WHERE $where&quot;</span>;
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-var">$sql</span>, <span class="t-var">$params</span>)<span class="t-op">-&gt;</span><span class="t-fn">rowCount</span>();
+    }
+}
+
+<span class="t-com">// Usage example</span>
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+
+<span class="t-com">// Insert</span>
+<span class="t-var">$id</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">insert</span>(<span class="t-str">&#39;users&#39;</span>, [
+    <span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;John&#39;</span>,
+    <span class="t-str">&#39;email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;john@example.com&#39;</span>,
+]);
+
+<span class="t-com">// Select</span>
+<span class="t-var">$users</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM users WHERE status = ?&quot;</span>, [<span class="t-str">&#39;active&#39;</span>]);
+<span class="t-var">$user</span>  <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(<span class="t-str">&quot;SELECT * FROM users WHERE id = ?&quot;</span>, [<span class="t-num">1</span>]);
+
+<span class="t-com">// Update</span>
+<span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">update</span>(<span class="t-str">&#39;users&#39;</span>, [<span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Jane&#39;</span>], <span class="t-str">&#39;id = ?&#39;</span>, [<span class="t-num">1</span>]);
+
+<span class="t-com">// Delete</span>
+<span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">delete</span>(<span class="t-str">&#39;users&#39;</span>, <span class="t-str">&#39;id = ?&#39;</span>, [<span class="t-num">1</span>]);
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>16 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-17" tabindex="-1" data-slide data-slide-title="4. Complete CRUD example (users)" aria-label="Slide 17 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.1 Users List</span></p><h2 class="slide-title"><span class="h-num">4</span>Complete CRUD example (users)</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="51"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">51 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// users/index.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;classes/Database.php&#39;</span>;
+
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+<span class="t-var">$users</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM users ORDER BY created_at DESC&quot;</span>);
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>User Management<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;style</span><span class="t-tag">&gt;</span>
+        table { width<span class="t-op">:</span> <span class="t-num">100</span><span class="t-op">%</span>; border<span class="t-op">-</span>collapse<span class="t-op">:</span> collapse; }
+        th, td { padding<span class="t-op">:</span> 10px; border<span class="t-op">:</span> 1px solid <span class="t-com">#ddd; }</span>
+        th { background<span class="t-op">:</span> <span class="t-com">#4CAF50; color: white; }</span>
+        <span class="t-op">.</span>btn { padding<span class="t-op">:</span> 5px 10px; text<span class="t-op">-</span>decoration<span class="t-op">:</span> none; border<span class="t-op">-</span>radius<span class="t-op">:</span> 3px; }
+        <span class="t-op">.</span>btn<span class="t-op">-</span>edit { background<span class="t-op">:</span> <span class="t-com">#2196F3; color: white; }</span>
+        <span class="t-op">.</span>btn<span class="t-op">-</span>delete { background<span class="t-op">:</span> <span class="t-com">#f44336; color: white; }</span>
+        <span class="t-op">.</span>btn<span class="t-op">-</span>add { background<span class="t-op">:</span> <span class="t-com">#4CAF50; color: white; margin-bottom: 20px; display: inline-block; }</span>
+    <span class="t-tag">&lt;/style</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>User Management<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;create.php&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-add&quot;</span><span class="t-tag">&gt;</span><span class="t-op">+</span> Add User<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;table</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>ID<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Name<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Email<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Created<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;th</span><span class="t-tag">&gt;</span>Actions<span class="t-tag">&lt;/th</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">foreach</span> (<span class="t-var">$users</span> <span class="t-kw">as</span> <span class="t-var">$user</span>)<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;tr</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> (<span class="t-type">int</span>)<span class="t-var">$user</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$user</span>[<span class="t-str">&#39;name&#39;</span>], <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$user</span>[<span class="t-str">&#39;email&#39;</span>], <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-fn">htmlspecialchars</span>(<span class="t-var">$user</span>[<span class="t-str">&#39;created_at&#39;</span>], <span class="t-const">ENT_QUOTES</span>, <span class="t-str">&#39;UTF-8&#39;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;td</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;edit.php?id=&lt;?= (int)$user[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-edit&quot;</span><span class="t-tag">&gt;</span>Edit<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;delete.php?id=&lt;?= (int)$user[&#39;id&#39;] ?&gt;&quot;</span> <span class="t-kw">class</span><span class="t-op">=</span><span class="t-str">&quot;btn btn-delete&quot;</span> 
+                   onclick<span class="t-op">=</span><span class="t-str">&quot;return confirm(&#39;Are you sure?&#39;)&quot;</span><span class="t-tag">&gt;</span>Delete<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;/td</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;/tr</span><span class="t-tag">&gt;</span>
+        <span class="t-meta">&lt;?php</span> <span class="t-kw">endforeach</span>; <span class="t-meta">?&gt;</span>
+    <span class="t-tag">&lt;/table</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>17 / 22</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-18" tabindex="-1" data-slide data-slide-title="4. Complete CRUD example (users)" aria-label="Slide 18 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Create User</span></p><h2 class="slide-title"><span class="h-num">4</span>Complete CRUD example (users)</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="75"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">75 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// users/create.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;classes/Database.php&#39;</span>;
+
+<span class="t-var">$errors</span> <span class="t-op">=</span> [];
+<span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+
+<span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+    <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$email</span> <span class="t-op">=</span> <span class="t-fn">trim</span>(<span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>);
+    <span class="t-var">$password</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+    
+    <span class="t-com">// Validation</span>
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$name</span>)) <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Name is required&quot;</span>;
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$email</span>)) <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Email is required&quot;</span>;
+    <span class="t-kw">elseif</span> (<span class="t-op">!</span><span class="t-fn">filter_var</span>(<span class="t-var">$email</span>, <span class="t-const">FILTER_VALIDATE_EMAIL</span>)) <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Invalid email&quot;</span>;
+    <span class="t-kw">if</span> (<span class="t-fn">strlen</span>(<span class="t-var">$password</span>) <span class="t-op">&lt;</span> <span class="t-num">6</span>) <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Password min 6 characters&quot;</span>;
+    
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+        
+        <span class="t-com">// Check if email exists</span>
+        <span class="t-var">$existing</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(<span class="t-str">&quot;SELECT id FROM users WHERE email = ?&quot;</span>, [<span class="t-var">$email</span>]);
+        <span class="t-kw">if</span> (<span class="t-var">$existing</span>) {
+            <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Email already exists&quot;</span>;
+        } <span class="t-kw">else</span> {
+            <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">insert</span>(<span class="t-str">&#39;users&#39;</span>, [
+                <span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$name</span>,
+                <span class="t-str">&#39;email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$email</span>,
+                <span class="t-str">&#39;password&#39;</span> <span class="t-op">=&gt;</span> <span class="t-fn">password_hash</span>(<span class="t-var">$password</span>, <span class="t-const">PASSWORD_DEFAULT</span>),
+            ]);
+            
+            <span class="t-fn">header</span>(<span class="t-str">&#39;Location: index.php?success=1&#39;</span>);
+            exit;
+        }
+    }
+}
+<span class="t-meta">?&gt;</span>
+
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;head</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;title</span><span class="t-tag">&gt;</span>Add User<span class="t-tag">&lt;/title</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/head</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;body</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;h1</span><span class="t-tag">&gt;</span>Add New User<span class="t-tag">&lt;/h1</span><span class="t-tag">&gt;</span>
+    
+    <span class="t-tag">&lt;form</span> method<span class="t-op">=</span><span class="t-str">&quot;POST&quot;</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Name<span class="t-op">:&lt;/</span>label<span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;text&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;name&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($name) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;span</span> style<span class="t-op">=</span><span class="t-str">&quot;color:red&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-tag">&lt;div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Email<span class="t-op">:&lt;/</span>label<span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;email&quot;</span> value<span class="t-op">=</span><span class="t-str">&quot;&lt;?= htmlspecialchars($email) ?&gt;&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;span</span> style<span class="t-op">=</span><span class="t-str">&quot;color:red&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-tag">&lt;div</span><span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;label</span><span class="t-tag">&gt;</span>Password<span class="t-op">:&lt;/</span>label<span class="t-tag">&gt;</span>
+            <span class="t-tag">&lt;input</span> type<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span> name<span class="t-op">=</span><span class="t-str">&quot;password&quot;</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>]))<span class="t-op">:</span> <span class="t-meta">?&gt;</span>
+                <span class="t-tag">&lt;span</span> style<span class="t-op">=</span><span class="t-str">&quot;color:red&quot;</span><span class="t-tag">&gt;</span><span class="t-meta">&lt;?=</span> <span class="t-var">$errors</span>[<span class="t-str">&#39;password&#39;</span>] <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/span</span><span class="t-tag">&gt;</span>
+            <span class="t-meta">&lt;?php</span> <span class="t-kw">endif</span>; <span class="t-meta">?&gt;</span>
+        <span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+        
+        <span class="t-tag">&lt;button</span> type<span class="t-op">=</span><span class="t-str">&quot;submit&quot;</span><span class="t-tag">&gt;</span>Save<span class="t-tag">&lt;/button</span><span class="t-tag">&gt;</span>
+        <span class="t-tag">&lt;a</span> href<span class="t-op">=</span><span class="t-str">&quot;index.php&quot;</span><span class="t-tag">&gt;</span>Cancel<span class="t-tag">&lt;/a</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/form</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/body</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>18 / 22</span></p></section>
+<section class="deck-slide is-part" id="slide-19" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 19 of 22"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 10</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>19 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-20" tabindex="-1" data-slide data-slide-title="Exercise 1: Product CRUD" aria-label="Slide 20 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: Product CRUD</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create a <code>products</code> table</li>
+<li>Build list page with search</li>
+<li>Add, edit, delete products</li>
+<li>Show success message after each action</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>20 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-21" tabindex="-1" data-slide data-slide-title="Exercise 2: Pagination" aria-label="Slide 21 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: Pagination</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Show 10 records per page</li>
+<li>Add pagination controls (Previous, Next, page numbers)</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>21 / 22</span></p></section>
+<section class="deck-slide is-content" id="slide-22" tabindex="-1" data-slide data-slide-title="Key takeaways" aria-label="Slide 22 of 22"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Key takeaways</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Connect PHP to MySQL using PDO</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Use prepared statements safely</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Implement full CRUD operations</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Build a reusable database layer</span></li>
+</ul>
+<p><strong>Next: <a href="../ebook/11-programming-techniques.html">Session 11 - Programming Techniques →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 10</span><span>22 / 22</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: jQuery and AJAX — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="jQuery and AJAX">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_4_security_jquery/session_15_jquery_intro.md">
+<meta name="source-sha256" content="6f10b898b737159ec2aed20e8df4006dc8ab22cc4b4554497360f26c88b6f003">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 15 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">jQuery and AJAX</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1. What is jQuery?</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.2 Document Ready</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">2. Selectors</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">3.1 Get/Set Content</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">3.2 Attributes</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">3.3 CSS</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">3.4 Add/Remove Elements</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">4.1 Common Events</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">4.2 Event Delegation</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">5. Effects</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">6.1 $.ajax()</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">6.2 $.get() and $.post()</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">6.3 $.getJSON()</span></button></li><li><button type="button" data-deck-jump="19"><span class="rail-index">20</span><span class="rail-title">6.4 AJAX with Form</span></button></li><li><button type="button" data-deck-jump="20"><span class="rail-index">21</span><span class="rail-title">7.1 Live Search</span></button></li><li><button type="button" data-deck-jump="21"><span class="rail-index">22</span><span class="rail-title">7.2 AJAX CRUD</span></button></li><li><button type="button" data-deck-jump="22"><span class="rail-index">23</span><span class="rail-title">7.3 PHP API Endpoint</span></button></li><li><button type="button" data-deck-jump="23"><span class="rail-index">24</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="24"><span class="rail-index">25</span><span class="rail-title">Exercise 1: Interactive UI</span></button></li><li><button type="button" data-deck-jump="25"><span class="rail-index">26</span><span class="rail-title">Exercise 2: AJAX CRUD</span></button></li><li><button type="button" data-deck-jump="26"><span class="rail-index">27</span><span class="rail-title">Key takeaways</span></button></li><li><button type="button" data-deck-jump="27"><span class="rail-index">28</span><span class="rail-title">Course wrap-up</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. jQuery and AJAX</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1. What is jQuery?</option><option value="7">8. 1.2 Document Ready</option><option value="8">9. 2. Selectors</option><option value="9">10. 3.1 Get/Set Content</option><option value="10">11. 3.2 Attributes</option><option value="11">12. 3.3 CSS</option><option value="12">13. 3.4 Add/Remove Elements</option><option value="13">14. 4.1 Common Events</option><option value="14">15. 4.2 Event Delegation</option><option value="15">16. 5. Effects</option><option value="16">17. 6.1 $.ajax()</option><option value="17">18. 6.2 $.get() and $.post()</option><option value="18">19. 6.3 $.getJSON()</option><option value="19">20. 6.4 AJAX with Form</option><option value="20">21. 7.1 Live Search</option><option value="21">22. 7.2 AJAX CRUD</option><option value="22">23. 7.3 PHP API Endpoint</option><option value="23">24. Section: Practice</option><option value="24">25. Exercise 1: Interactive UI</option><option value="25">26. Exercise 2: AJAX CRUD</option><option value="26">27. Key takeaways</option><option value="27">28. Course wrap-up</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 28</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="jQuery and AJAX" aria-label="Slide 1 of 28"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>jQuery and AJAX</h2><p class="title-lead">DOM, events, AJAX</p><p class="title-meta"><span>Session 15 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>1 / 28</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 28"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>What is jQuery?</span></li><li><span>Selectors</span></li><li><span>DOM manipulation</span></li><li><span>Events</span></li><li><span>Effects</span></li><li><span>AJAX</span></li><li><span>Real-world examples</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>2 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>In this final session, we will learn <strong>jQuery</strong> – a JavaScript library that makes DOM manipulation, event handling, and AJAX much easier.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>3 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 15 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand jQuery basics</li><li>Manipulate DOM elements</li><li>Handle events</li><li>Make AJAX requests</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO8</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>4 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>jQuery basics</strong></li>
+<li><strong>Manipulate DOM elements</strong> with jQuery</li>
+<li><strong>Handle events</strong> (click, submit, etc.)</li>
+<li>Make <strong>AJAX requests</strong> to PHP backend</li>
+<li>Enhance web page interactivity</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>5 / 28</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 28"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 15</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>6 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-7" tabindex="-1" data-slide data-slide-title="1. What is jQuery?" aria-label="Slide 7 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">1</span>What is jQuery?</h2><div class="slide-body"><p><strong>jQuery</strong> = A JavaScript library that simplifies DOM manipulation, event handling, and AJAX.</p>
+<h3 class="slide-h"><span class="h-num">1.1</span>Installation</h3>
+<figure class="code-block is-code is-compact" data-language="html" data-lines="5"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">&lt;!-- CDN --&gt;</span>
+<span class="t-tag">&lt;script</span> <span class="t-att">src</span>=<span class="t-str">&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;</span><span class="t-tag">&gt;</span><span class="t-embed"></span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Local --&gt;</span>
+<span class="t-tag">&lt;script</span> <span class="t-att">src</span>=<span class="t-str">&quot;js/jquery.min.js&quot;</span><span class="t-tag">&gt;</span><span class="t-embed"></span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>7 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-8" tabindex="-1" data-slide data-slide-title="1. What is jQuery?" aria-label="Slide 8 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Document Ready</span></p><h2 class="slide-title"><span class="h-num">1</span>What is jQuery?</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="9"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Full syntax</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">ready</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// Code runs after DOM is loaded</span>
+});
+
+<span class="t-com">// Shorthand</span>
+<span class="t-fn">$</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// Code here</span>
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>8 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-9" tabindex="-1" data-slide data-slide-title="2. Selectors" aria-label="Slide 9 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">2</span>Selectors</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="javascript" data-lines="30"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">30 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// ID selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#myId&#39;</span>);
+
+<span class="t-com">// Class selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;.myClass&#39;</span>);
+
+<span class="t-com">// Element selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;div&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;p&#39;</span>);
+
+<span class="t-com">// Attribute selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input[type=&quot;text&quot;]&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;a[href^=&quot;https&quot;]&#39;</span>);
+
+<span class="t-com">// Multiple selectors</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;h1, h2, h3&#39;</span>);
+
+<span class="t-com">// Descendant selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;div p&#39;</span>);
+
+<span class="t-com">// Child selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;ul &gt; li&#39;</span>);
+
+<span class="t-com">// First, Last</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;li:first&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;li:last&#39;</span>);
+
+<span class="t-com">// Even, Odd</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;tr:even&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;tr:odd&#39;</span>);</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>9 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-10" tabindex="-1" data-slide data-slide-title="3. DOM manipulation" aria-label="Slide 10 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.1 Get/Set Content</span></p><h2 class="slide-title"><span class="h-num">3</span>DOM manipulation</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="17"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get text</span>
+<span class="t-kw">var</span> text <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">text</span>();
+
+<span class="t-com">// Set text</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;New text&#39;</span>);
+
+<span class="t-com">// Get HTML</span>
+<span class="t-kw">var</span> html <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>();
+
+<span class="t-com">// Set HTML</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>(<span class="t-str">&#39;&lt;strong&gt;Bold text&lt;/strong&gt;&#39;</span>);
+
+<span class="t-com">// Get value (input)</span>
+<span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#input&#39;</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+
+<span class="t-com">// Set value</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#input&#39;</span>)<span class="t-op">.</span><span class="t-fn">val</span>(<span class="t-str">&#39;New value&#39;</span>);</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>10 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="3. DOM manipulation" aria-label="Slide 11 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.2 Attributes</span></p><h2 class="slide-title"><span class="h-num">3</span>DOM manipulation</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="18"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get attribute</span>
+<span class="t-kw">var</span> href <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;href&#39;</span>);
+
+<span class="t-com">// Set attribute</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;href&#39;</span>, <span class="t-str">&#39;https://google.com&#39;</span>);
+
+<span class="t-com">// Remove attribute</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">removeAttr</span>(<span class="t-str">&#39;target&#39;</span>);
+
+<span class="t-com">// Add/Remove/Toggle class</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">addClass</span>(<span class="t-str">&#39;active&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">removeClass</span>(<span class="t-str">&#39;active&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">toggleClass</span>(<span class="t-str">&#39;active&#39;</span>);
+
+<span class="t-com">// Check class</span>
+<span class="t-kw">if</span> (<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hasClass</span>(<span class="t-str">&#39;active&#39;</span>)) {
+    <span class="t-com">// ...</span>
+}</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>11 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="3. DOM manipulation" aria-label="Slide 12 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.3 CSS</span></p><h2 class="slide-title"><span class="h-num">3</span>DOM manipulation</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="12"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get CSS property</span>
+<span class="t-kw">var</span> color <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;color&#39;</span>);
+
+<span class="t-com">// Set CSS property</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;color&#39;</span>, <span class="t-str">&#39;red&#39;</span>);
+
+<span class="t-com">// Set multiple CSS properties</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>({
+    <span class="t-str">&#39;color&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;red&#39;</span>,
+    <span class="t-str">&#39;font-size&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;20px&#39;</span>,
+    <span class="t-str">&#39;background&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;#f0f0f0&#39;</span>
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>12 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-13" tabindex="-1" data-slide data-slide-title="3. DOM manipulation" aria-label="Slide 13 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">3.4 Add/Remove Elements</span></p><h2 class="slide-title"><span class="h-num">3</span>DOM manipulation</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="17"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Append (add to end)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#list&#39;</span>)<span class="t-op">.</span><span class="t-fn">append</span>(<span class="t-str">&#39;&lt;li&gt;New item&lt;/li&gt;&#39;</span>);
+
+<span class="t-com">// Prepend (add to beginning)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#list&#39;</span>)<span class="t-op">.</span><span class="t-fn">prepend</span>(<span class="t-str">&#39;&lt;li&gt;First item&lt;/li&gt;&#39;</span>);
+
+<span class="t-com">// After (add after element)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">after</span>(<span class="t-str">&#39;&lt;p&gt;After text&lt;/p&gt;&#39;</span>);
+
+<span class="t-com">// Before (add before element)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">before</span>(<span class="t-str">&#39;&lt;p&gt;Before text&lt;/p&gt;&#39;</span>);
+
+<span class="t-com">// Remove</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">remove</span>();
+
+<span class="t-com">// Empty (remove content)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">empty</span>();</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>13 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-14" tabindex="-1" data-slide data-slide-title="4. Events" aria-label="Slide 14 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.1 Common Events</span></p><h2 class="slide-title"><span class="h-num">4</span>Events</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="javascript" data-lines="51"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">51 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Click</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#button&#39;</span>)<span class="t-op">.</span><span class="t-fn">click</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">alert</span>(<span class="t-str">&#39;Clicked!&#39;</span>);
+});
+
+<span class="t-com">// Double click</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">dblclick</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// ...</span>
+});
+
+<span class="t-com">// Mouse events</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">mouseenter</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;background&#39;</span>, <span class="t-str">&#39;yellow&#39;</span>);
+});
+
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">mouseleave</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;background&#39;</span>, <span class="t-str">&#39;white&#39;</span>);
+});
+
+<span class="t-com">// Hover (mouseenter + mouseleave)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hover</span>(
+    <span class="t-kw">function</span>() { <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">addClass</span>(<span class="t-str">&#39;hover&#39;</span>); },
+    <span class="t-kw">function</span>() { <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">removeClass</span>(<span class="t-str">&#39;hover&#39;</span>); }
+);
+
+<span class="t-com">// Focus/Blur</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">focus</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;border-color&#39;</span>, <span class="t-str">&#39;blue&#39;</span>);
+});
+
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">blur</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;border-color&#39;</span>, <span class="t-str">&#39;gray&#39;</span>);
+});
+
+<span class="t-com">// Change (select, checkbox, radio)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;select&#39;</span>)<span class="t-op">.</span><span class="t-fn">change</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(<span class="t-str">&#39;Selected: &#39;</span> <span class="t-op">+</span> value);
+});
+
+<span class="t-com">// Submit</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;form&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    <span class="t-com">// Handle form...</span>
+});
+
+<span class="t-com">// Keyup</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">keyup</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(<span class="t-str">&#39;Typing: &#39;</span> <span class="t-op">+</span> value);
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>14 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-15" tabindex="-1" data-slide data-slide-title="4. Events" aria-label="Slide 15 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">4.2 Event Delegation</span></p><h2 class="slide-title"><span class="h-num">4</span>Events</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="4"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// For elements added dynamically</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">on</span>(<span class="t-str">&#39;click&#39;</span>, <span class="t-str">&#39;.dynamic-button&#39;</span>, <span class="t-kw">function</span>() {
+    <span class="t-fn">alert</span>(<span class="t-str">&#39;Dynamic button clicked!&#39;</span>);
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>15 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-16" tabindex="-1" data-slide data-slide-title="5. Effects" aria-label="Slide 16 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">5</span>Effects</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="javascript" data-lines="29"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">29 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Hide/Show</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hide</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">show</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">toggle</span>();
+
+<span class="t-com">// Fade</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeIn</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeOut</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeToggle</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeTo</span>(<span class="t-str">&#39;slow&#39;</span>, <span class="t-num">0.5</span>);
+
+<span class="t-com">// Slide</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideDown</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideUp</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideToggle</span>();
+
+<span class="t-com">// Animate</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">animate</span>({
+    <span class="t-str">&#39;width&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;300px&#39;</span>,
+    <span class="t-str">&#39;height&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;200px&#39;</span>,
+    <span class="t-str">&#39;opacity&#39;</span><span class="t-op">:</span> <span class="t-num">0.5</span>
+}, <span class="t-num">1000</span>);
+
+<span class="t-com">// Chain animations</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)
+    <span class="t-op">.</span><span class="t-fn">fadeOut</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">fadeIn</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">slideUp</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">slideDown</span>(<span class="t-num">500</span>);</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>16 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="6. AJAX" aria-label="Slide 17 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.1 $.ajax()</span></p><h2 class="slide-title"><span class="h-num">6</span>AJAX</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="11"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$.ajax</span>({
+    url<span class="t-op">:</span> <span class="t-str">&#39;api/users.php&#39;</span>,
+    method<span class="t-op">:</span> <span class="t-str">&#39;GET&#39;</span>,
+    dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+    success<span class="t-op">:</span> <span class="t-kw">function</span>(data) {
+        <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+    },
+    error<span class="t-op">:</span> <span class="t-kw">function</span>(xhr, status, error) {
+        <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">error</span>(<span class="t-str">&#39;Error:&#39;</span>, error);
+    }
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>17 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="6. AJAX" aria-label="Slide 18 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.2 $.get() and $.post()</span></p><h2 class="slide-title"><span class="h-num">6</span>AJAX</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="9"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// GET request</span>
+<span class="t-fn">$.get</span>(<span class="t-str">&#39;api/users.php&#39;</span>, { id<span class="t-op">:</span> <span class="t-num">1</span> }, <span class="t-kw">function</span>(data) {
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+});
+
+<span class="t-com">// POST request</span>
+<span class="t-fn">$.post</span>(<span class="t-str">&#39;api/users.php&#39;</span>, { name<span class="t-op">:</span> <span class="t-str">&#39;John&#39;</span>, email<span class="t-op">:</span> <span class="t-str">&#39;john@example.com&#39;</span> }, <span class="t-kw">function</span>(data) {
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>18 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-19" tabindex="-1" data-slide data-slide-title="6. AJAX" aria-label="Slide 19 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.3 $.getJSON()</span></p><h2 class="slide-title"><span class="h-num">6</span>AJAX</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="javascript" data-lines="5"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$.getJSON</span>(<span class="t-str">&#39;api/products.php&#39;</span>, <span class="t-kw">function</span>(data) {
+    <span class="t-fn">$.each</span>(data, <span class="t-kw">function</span>(index, product) {
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#products&#39;</span>)<span class="t-op">.</span><span class="t-fn">append</span>(<span class="t-str">&#39;&lt;li&gt;&#39;</span> <span class="t-op">+</span> product<span class="t-op">.</span>name <span class="t-op">+</span> <span class="t-str">&#39;&lt;/li&gt;&#39;</span>);
+    });
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>19 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-20" tabindex="-1" data-slide data-slide-title="6. AJAX" aria-label="Slide 20 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">6.4 AJAX with Form</span></p><h2 class="slide-title"><span class="h-num">6</span>AJAX</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="javascript" data-lines="27"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$</span>(<span class="t-str">&#39;#myForm&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    
+    <span class="t-fn">$.ajax</span>({
+        url<span class="t-op">:</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;action&#39;</span>),
+        method<span class="t-op">:</span> <span class="t-str">&#39;POST&#39;</span>,
+        data<span class="t-op">:</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">serialize</span>(),
+        dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+        beforeSend<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">$</span>(<span class="t-str">&#39;#submit-btn&#39;</span>)<span class="t-op">.</span><span class="t-fn">prop</span>(<span class="t-str">&#39;disabled&#39;</span>, <span class="t-lit">true</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;Loading...&#39;</span>);
+        },
+        success<span class="t-op">:</span> <span class="t-kw">function</span>(response) {
+            <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+                <span class="t-fn">alert</span>(<span class="t-str">&#39;Success!&#39;</span>);
+                <span class="t-fn">$</span>(<span class="t-str">&#39;#myForm&#39;</span>)[<span class="t-num">0</span>]<span class="t-op">.</span><span class="t-fn">reset</span>();
+            } <span class="t-kw">else</span> {
+                <span class="t-fn">alert</span>(<span class="t-str">&#39;Error: &#39;</span> <span class="t-op">+</span> response<span class="t-op">.</span>message);
+            }
+        },
+        error<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">alert</span>(<span class="t-str">&#39;Request failed&#39;</span>);
+        },
+        complete<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">$</span>(<span class="t-str">&#39;#submit-btn&#39;</span>)<span class="t-op">.</span><span class="t-fn">prop</span>(<span class="t-str">&#39;disabled&#39;</span>, <span class="t-lit">false</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;Submit&#39;</span>);
+        }
+    });
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>20 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-21" tabindex="-1" data-slide data-slide-title="7. Real-world examples" aria-label="Slide 21 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">7.1 Live Search</span></p><h2 class="slide-title"><span class="h-num">7</span>Real-world examples</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="html" data-lines="21"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">21 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;text&quot;</span> <span class="t-att">id</span>=<span class="t-str">&quot;search&quot;</span> <span class="t-att">placeholder</span>=<span class="t-str">&quot;Search products...&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;div</span> <span class="t-att">id</span>=<span class="t-str">&quot;results&quot;</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+<span class="t-tag">&lt;script</span><span class="t-tag">&gt;</span><span class="t-embed">
+<span class="t-fn">$</span>(<span class="t-str">&#39;#search&#39;</span>)<span class="t-op">.</span><span class="t-fn">keyup</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> query <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    
+    <span class="t-kw">if</span> (query<span class="t-op">.</span>length <span class="t-op">&lt;</span> <span class="t-num">2</span>) {
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#results&#39;</span>)<span class="t-op">.</span><span class="t-fn">empty</span>();
+        <span class="t-kw">return</span>;
+    }
+    
+    <span class="t-fn">$.get</span>(<span class="t-str">&#39;api/search.php&#39;</span>, { q<span class="t-op">:</span> query }, <span class="t-kw">function</span>(data) {
+        <span class="t-kw">var</span> html <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+        <span class="t-fn">$.each</span>(data, <span class="t-kw">function</span>(i, item) {
+            html <span class="t-op">+=</span> <span class="t-str">&#39;&lt;div class=&quot;result-item&quot;&gt;&#39;</span> <span class="t-op">+</span> item<span class="t-op">.</span>name <span class="t-op">+</span> <span class="t-str">&#39;&lt;/div&gt;&#39;</span>;
+        });
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#results&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>(html);
+    }, <span class="t-str">&#39;json&#39;</span>);
+});
+</span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>21 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-22" tabindex="-1" data-slide data-slide-title="7. Real-world examples" aria-label="Slide 22 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">7.2 AJAX CRUD</span></p><h2 class="slide-title"><span class="h-num">7</span>Real-world examples</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="javascript" data-lines="28"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Create</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#createForm&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    <span class="t-fn">$.post</span>(<span class="t-str">&#39;api/products.php&#39;</span>, <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">serialize</span>(), <span class="t-kw">function</span>(response) {
+        <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+            location<span class="t-op">.</span><span class="t-fn">reload</span>();
+        }
+    }, <span class="t-str">&#39;json&#39;</span>);
+});
+
+<span class="t-com">// Delete</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">on</span>(<span class="t-str">&#39;click&#39;</span>, <span class="t-str">&#39;.delete-btn&#39;</span>, <span class="t-kw">function</span>() {
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">confirm</span>(<span class="t-str">&#39;Delete this item?&#39;</span>)) <span class="t-kw">return</span>;
+    
+    <span class="t-kw">var</span> id <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">data</span>(<span class="t-str">&#39;id&#39;</span>);
+    <span class="t-fn">$.ajax</span>({
+        url<span class="t-op">:</span> <span class="t-str">&#39;api/products.php?id=&#39;</span> <span class="t-op">+</span> id,
+        method<span class="t-op">:</span> <span class="t-str">&#39;DELETE&#39;</span>,
+        dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+        success<span class="t-op">:</span> <span class="t-kw">function</span>(response) {
+            <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+                <span class="t-fn">$</span>(<span class="t-str">&#39;#product-&#39;</span> <span class="t-op">+</span> id)<span class="t-op">.</span><span class="t-fn">fadeOut</span>(<span class="t-kw">function</span>() {
+                    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">remove</span>();
+                });
+            }
+        }
+    });
+});</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>22 / 28</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-23" tabindex="-1" data-slide data-slide-title="7. Real-world examples" aria-label="Slide 23 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">7.3 PHP API Endpoint</span></p><h2 class="slide-title"><span class="h-num">7</span>Real-world examples</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="35"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">35 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// api/products.php</span>
+<span class="t-fn">header</span>(<span class="t-str">&#39;Content-Type: application/json&#39;</span>);
+
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../classes/Database.php&#39;</span>;
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+
+<span class="t-var">$method</span> <span class="t-op">=</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>];
+
+<span class="t-kw">switch</span> (<span class="t-var">$method</span>) {
+    <span class="t-kw">case</span> <span class="t-str">&#39;GET&#39;</span><span class="t-op">:</span>
+        <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>])) {
+            <span class="t-var">$product</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(<span class="t-str">&quot;SELECT * FROM products WHERE id = ?&quot;</span>, [<span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>]]);
+            <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>(<span class="t-var">$product</span>);
+        } <span class="t-kw">else</span> {
+            <span class="t-var">$products</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM products&quot;</span>);
+            <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>(<span class="t-var">$products</span>);
+        }
+        <span class="t-kw">break</span>;
+        
+    <span class="t-kw">case</span> <span class="t-str">&#39;POST&#39;</span><span class="t-op">:</span>
+        <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+        <span class="t-var">$price</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-op">??</span> <span class="t-num">0</span>;
+        
+        <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-str">&quot;INSERT INTO products (name, price) VALUES (?, ?)&quot;</span>, [<span class="t-var">$name</span>, <span class="t-var">$price</span>]);
+        <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>([<span class="t-str">&#39;success&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>, <span class="t-str">&#39;id&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">lastInsertId</span>()]);
+        <span class="t-kw">break</span>;
+        
+    <span class="t-kw">case</span> <span class="t-str">&#39;DELETE&#39;</span><span class="t-op">:</span>
+        <span class="t-var">$id</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-op">??</span> <span class="t-num">0</span>;
+        <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-str">&quot;DELETE FROM products WHERE id = ?&quot;</span>, [<span class="t-var">$id</span>]);
+        <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>([<span class="t-str">&#39;success&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>]);
+        <span class="t-kw">break</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>23 / 28</span></p></section>
+<section class="deck-slide is-part" id="slide-24" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 24 of 28"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 15</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>24 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-25" tabindex="-1" data-slide data-slide-title="Exercise 1: Interactive UI" aria-label="Slide 25 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: Interactive UI</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Accordion menu</li>
+<li>Tab navigation</li>
+<li>Modal popup using jQuery</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>25 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-26" tabindex="-1" data-slide data-slide-title="Exercise 2: AJAX CRUD" aria-label="Slide 26 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: AJAX CRUD</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Load products with AJAX</li>
+<li>Add product without reloading page</li>
+<li>Delete product with confirmation</li>
+<li>Implement live search</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>26 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-27" tabindex="-1" data-slide data-slide-title="Key takeaways" aria-label="Slide 27 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Key takeaways</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Use jQuery selectors effectively</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Manipulate DOM elements</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Handle user events</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Perform AJAX requests with jQuery</span></li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>27 / 28</span></p></section>
+<section class="deck-slide is-content" id="slide-28" tabindex="-1" data-slide data-slide-title="Course wrap-up" aria-label="Slide 28 of 28"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Course wrap-up</h2><div class="slide-body"><p>Congratulations on completing the course <strong>INS3064 – Multimedia Design &amp; Web Development</strong>!</p>
+<p>You have learned:</p>
+<ul><li>✅ PHP from basic to advanced  </li>
+<li>✅ MySQL and SQL  </li>
+<li>✅ Connecting PHP with MySQL  </li>
+<li>✅ Building CRUD applications  </li>
+<li>✅ Authentication systems with sessions  </li>
+<li>✅ Securing web applications  </li>
+<li>✅ jQuery and AJAX for interactivity</li>
+</ul>
+<p>Next steps:</p>
+<ul><li>Learn a PHP framework (Laravel, CodeIgniter)</li>
+<li>Learn modern JavaScript (React, Vue)</li>
+<li>Explore APIs (RESTful, GraphQL)</li>
+<li>Practice DevOps basics (Docker, CI/CD)</li>
+</ul>
+<p><strong>Good luck on your journey to become a Web Developer! 🚀</strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 15</span><span>28 / 28</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

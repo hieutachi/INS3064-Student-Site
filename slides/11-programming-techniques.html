@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides: Programming Techniques — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Programming Techniques">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_3_integration_advanced/session_11_programming_techniques.md">
+<meta name="source-sha256" content="e69c8813be3ee4564ede628ce24ee715fa2dbaa4844375cfb9183d2b9a9bd131">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="deck-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Slides</span></nav>
+<main id="main"><h1 class="visually-hidden">Session 11 slides</h1><div class="deck-shell">
+<aside class="deck-rail" aria-label="Slide list"><p class="rail-head">Slides</p><ol><li><button type="button" data-deck-jump="0"><span class="rail-index">01</span><span class="rail-title">Programming Techniques</span></button></li><li><button type="button" data-deck-jump="1"><span class="rail-index">02</span><span class="rail-title">What this session covers</span></button></li><li><button type="button" data-deck-jump="2"><span class="rail-index">03</span><span class="rail-title">Session overview</span></button></li><li><button type="button" data-deck-jump="3"><span class="rail-index">04</span><span class="rail-title">Session information</span></button></li><li><button type="button" data-deck-jump="4"><span class="rail-index">05</span><span class="rail-title">Learning objectives</span></button></li><li><button type="button" data-deck-jump="5"><span class="rail-index">06</span><span class="rail-title">Section: Theory</span></button></li><li><button type="button" data-deck-jump="6"><span class="rail-index">07</span><span class="rail-title">1.1 Class and Object</span></button></li><li><button type="button" data-deck-jump="7"><span class="rail-index">08</span><span class="rail-title">1.2 Inheritance</span></button></li><li><button type="button" data-deck-jump="8"><span class="rail-index">09</span><span class="rail-title">1.3 Interface</span></button></li><li><button type="button" data-deck-jump="9"><span class="rail-index">10</span><span class="rail-title">1.4 Abstract Class</span></button></li><li><button type="button" data-deck-jump="10"><span class="rail-index">11</span><span class="rail-title">2.1 MVC Structure</span></button></li><li><button type="button" data-deck-jump="11"><span class="rail-index">12</span><span class="rail-title">2.2 Base Controller</span></button></li><li><button type="button" data-deck-jump="12"><span class="rail-index">13</span><span class="rail-title">2.3 User Controller</span></button></li><li><button type="button" data-deck-jump="13"><span class="rail-index">14</span><span class="rail-title">2.4 Simple Router</span></button></li><li><button type="button" data-deck-jump="14"><span class="rail-index">15</span><span class="rail-title">3. Autoloading</span></button></li><li><button type="button" data-deck-jump="15"><span class="rail-index">16</span><span class="rail-title">Section: Practice</span></button></li><li><button type="button" data-deck-jump="16"><span class="rail-index">17</span><span class="rail-title">Exercise 1: Create Model Class</span></button></li><li><button type="button" data-deck-jump="17"><span class="rail-index">18</span><span class="rail-title">Exercise 2: MVC Mini Project</span></button></li><li><button type="button" data-deck-jump="18"><span class="rail-index">19</span><span class="rail-title">Key takeaways</span></button></li></ol></aside>
+<div class="deck-main">
+<nav class="deck-toolbar" aria-label="Slide controls">
+<button class="deck-arrow" type="button" data-deck-prev aria-label="Previous slide">‹</button>
+<label class="deck-select"><span class="visually-hidden">Choose a slide</span><select data-deck-select><option value="0">1. Programming Techniques</option><option value="1">2. What this session covers</option><option value="2">3. Session overview</option><option value="3">4. Session information</option><option value="4">5. Learning objectives</option><option value="5">6. Section: Theory</option><option value="6">7. 1.1 Class and Object</option><option value="7">8. 1.2 Inheritance</option><option value="8">9. 1.3 Interface</option><option value="9">10. 1.4 Abstract Class</option><option value="10">11. 2.1 MVC Structure</option><option value="11">12. 2.2 Base Controller</option><option value="12">13. 2.3 User Controller</option><option value="13">14. 2.4 Simple Router</option><option value="14">15. 3. Autoloading</option><option value="15">16. Section: Practice</option><option value="16">17. Exercise 1: Create Model Class</option><option value="17">18. Exercise 2: MVC Mini Project</option><option value="18">19. Key takeaways</option></select></label>
+<span class="deck-counter" data-deck-counter>1 / 19</span>
+<button class="deck-arrow" type="button" data-deck-next aria-label="Next slide">›</button>
+<button class="deck-mode" type="button" data-deck-mode aria-pressed="false">Overview</button>
+</nav>
+<div class="deck-progress" aria-hidden="true"><span data-deck-progress></span></div>
+<div class="deck" data-deck><section class="deck-slide is-title" id="slide-1" tabindex="-1" data-slide data-slide-title="Programming Techniques" aria-label="Slide 1 of 19"><div class="slide-inner"><div class="slide-body"><p class="title-course">INS3064 · Multimedia Design and Web Development</p><h2>Programming Techniques</h2><p class="title-lead">OOP and MVC</p><p class="title-meta"><span>Session 11 of 15</span><span>Use ← → to move</span></p></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>1 / 19</span></p></section>
+<section class="deck-slide is-agenda" id="slide-2" tabindex="-1" data-slide data-slide-title="What this session covers" aria-label="Slide 2 of 19"><div class="slide-inner"><div class="slide-body"><h2>What this session covers</h2><ol class="agenda"><li><span>OOP IN PHP</span></li><li><span>MVC pattern</span></li><li><span>Autoloading</span></li></ol></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>2 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-3" tabindex="-1" data-slide data-slide-title="Session overview" aria-label="Slide 3 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session overview</h2><div class="slide-body"><p>In this session, we will learn advanced programming techniques in PHP: <strong>Object-Oriented Programming (OOP)</strong> and the <strong>MVC pattern</strong> to write cleaner, more maintainable code.</p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>3 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-4" tabindex="-1" data-slide data-slide-title="Session information" aria-label="Slide 4 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Session information</h2><div class="slide-body"><div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 11 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand OOP concepts in PHP</li><li>Create classes and objects</li><li>Understand MVC pattern</li><li>Organize code structure</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO5</p></div></div></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>4 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-5" tabindex="-1" data-slide data-slide-title="Learning objectives" aria-label="Slide 5 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Start here</span></p><h2 class="slide-title">Learning objectives</h2><div class="slide-body"><p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>OOP concepts</strong>: classes, objects, inheritance</li>
+<li>Create <strong>classes and objects</strong> in PHP</li>
+<li>Understand <strong>MVC pattern</strong> (Model-View-Controller)</li>
+<li><strong>Organize code</strong> structure effectively</li>
+<li>Apply best practices in PHP programming</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>5 / 19</span></p></section>
+<section class="deck-slide is-part" id="slide-6" tabindex="-1" data-slide data-slide-title="Theory" aria-label="Slide 6 of 19"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 11</p><h2>Theory</h2></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>6 / 19</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-7" tabindex="-1" data-slide data-slide-title="1. OOP IN PHP" aria-label="Slide 7 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.1 Class and Object</span></p><h2 class="slide-title"><span class="h-num">1</span>OOP IN PHP</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="38"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">38 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">class</span> User {
+    <span class="t-com">// Properties</span>
+    <span class="t-kw">private</span> <span class="t-type">int</span> <span class="t-var">$id</span>;
+    <span class="t-kw">private</span> <span class="t-type">string</span> <span class="t-var">$name</span>;
+    <span class="t-kw">private</span> <span class="t-type">string</span> <span class="t-var">$email</span>;
+    
+    <span class="t-com">// Constructor</span>
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>(<span class="t-type">string</span> <span class="t-var">$name</span>, <span class="t-type">string</span> <span class="t-var">$email</span>) {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>name <span class="t-op">=</span> <span class="t-var">$name</span>;
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>email <span class="t-op">=</span> <span class="t-var">$email</span>;
+    }
+    
+    <span class="t-com">// Getters</span>
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">getName</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>name;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">getEmail</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>email;
+    }
+    
+    <span class="t-com">// Setters</span>
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">setName</span>(<span class="t-type">string</span> <span class="t-var">$name</span>)<span class="t-op">:</span> void {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>name <span class="t-op">=</span> <span class="t-var">$name</span>;
+    }
+    
+    <span class="t-com">// Methods</span>
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">getInfo</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> <span class="t-str">&quot;Name: {$this-&gt;name}, Email: {$this-&gt;email}&quot;</span>;
+    }
+}
+
+<span class="t-com">// Usage</span>
+<span class="t-var">$user</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">User</span>(<span class="t-str">&quot;John&quot;</span>, <span class="t-str">&quot;john@example.com&quot;</span>);
+<span class="t-kw">echo</span> <span class="t-var">$user</span><span class="t-op">-&gt;</span><span class="t-fn">getName</span>();
+<span class="t-kw">echo</span> <span class="t-var">$user</span><span class="t-op">-&gt;</span><span class="t-fn">getInfo</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>7 / 19</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-8" tabindex="-1" data-slide data-slide-title="1. OOP IN PHP" aria-label="Slide 8 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.2 Inheritance</span></p><h2 class="slide-title"><span class="h-num">1</span>OOP IN PHP</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="29"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">29 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">class</span> Person {
+    <span class="t-kw">protected</span> <span class="t-type">string</span> <span class="t-var">$name</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>(<span class="t-type">string</span> <span class="t-var">$name</span>) {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>name <span class="t-op">=</span> <span class="t-var">$name</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">greet</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> <span class="t-str">&quot;Hello, I&#39;m {$this-&gt;name}&quot;</span>;
+    }
+}
+
+<span class="t-kw">class</span> Student <span class="t-kw">extends</span> Person {
+    <span class="t-kw">private</span> <span class="t-type">string</span> <span class="t-var">$studentId</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>(<span class="t-type">string</span> <span class="t-var">$name</span>, <span class="t-type">string</span> <span class="t-var">$studentId</span>) {
+        parent<span class="t-op">::</span><span class="t-fn">__construct</span>(<span class="t-var">$name</span>);
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>studentId <span class="t-op">=</span> <span class="t-var">$studentId</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">greet</span>()<span class="t-op">:</span> string {
+        <span class="t-kw">return</span> parent<span class="t-op">::</span><span class="t-fn">greet</span>() <span class="t-op">.</span> <span class="t-str">&quot;, Student ID: {$this-&gt;studentId}&quot;</span>;
+    }
+}
+
+<span class="t-var">$student</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">Student</span>(<span class="t-str">&quot;John&quot;</span>, <span class="t-str">&quot;SV001&quot;</span>);
+<span class="t-kw">echo</span> <span class="t-var">$student</span><span class="t-op">-&gt;</span><span class="t-fn">greet</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>8 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-9" tabindex="-1" data-slide data-slide-title="1. OOP IN PHP" aria-label="Slide 9 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.3 Interface</span></p><h2 class="slide-title"><span class="h-num">1</span>OOP IN PHP</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="23"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">23 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">interface</span> Authenticatable {
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">login</span>(<span class="t-type">string</span> <span class="t-var">$email</span>, <span class="t-type">string</span> <span class="t-var">$password</span>)<span class="t-op">:</span> bool;
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">logout</span>()<span class="t-op">:</span> void;
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">isAuthenticated</span>()<span class="t-op">:</span> bool;
+}
+
+<span class="t-kw">class</span> UserAuth <span class="t-kw">implements</span> Authenticatable {
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">login</span>(<span class="t-type">string</span> <span class="t-var">$email</span>, <span class="t-type">string</span> <span class="t-var">$password</span>)<span class="t-op">:</span> bool {
+        <span class="t-com">// Implementation</span>
+        <span class="t-kw">return</span> <span class="t-lit">true</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">logout</span>()<span class="t-op">:</span> void {
+        <span class="t-com">// Implementation</span>
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">isAuthenticated</span>()<span class="t-op">:</span> bool {
+        <span class="t-com">// Implementation</span>
+        <span class="t-kw">return</span> <span class="t-kw">isset</span>(<span class="t-var">$_SESSION</span>[<span class="t-str">&#39;user_id&#39;</span>]);
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>9 / 19</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-10" tabindex="-1" data-slide data-slide-title="1. OOP IN PHP" aria-label="Slide 10 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">1.4 Abstract Class</span></p><h2 class="slide-title"><span class="h-num">1</span>OOP IN PHP</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="31"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">31 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">abstract</span> <span class="t-kw">class</span> Model {
+    <span class="t-kw">protected</span> <span class="t-type">string</span> <span class="t-var">$table</span>;
+    <span class="t-kw">protected</span> Database <span class="t-var">$db</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>() {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>db <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+    }
+    
+    <span class="t-kw">abstract</span> <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">validate</span>(<span class="t-kw">array</span> <span class="t-var">$data</span>)<span class="t-op">:</span> <span class="t-kw">array</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">all</span>()<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>db<span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM {$this-&gt;table}&quot;</span>);
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">find</span>(<span class="t-type">int</span> <span class="t-var">$id</span>)<span class="t-op">:</span> <span class="t-kw">array</span><span class="t-op">|</span><span class="t-lit">false</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>db<span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(<span class="t-str">&quot;SELECT * FROM {$this-&gt;table} WHERE id = ?&quot;</span>, [<span class="t-var">$id</span>]);
+    }
+}
+
+<span class="t-kw">class</span> UserModel <span class="t-kw">extends</span> Model {
+    <span class="t-kw">protected</span> <span class="t-type">string</span> <span class="t-var">$table</span> <span class="t-op">=</span> <span class="t-str">&#39;users&#39;</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">validate</span>(<span class="t-kw">array</span> <span class="t-var">$data</span>)<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-var">$errors</span> <span class="t-op">=</span> [];
+        <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;name&#39;</span>])) <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Name is required&quot;</span>;
+        <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$data</span>[<span class="t-str">&#39;email&#39;</span>])) <span class="t-var">$errors</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Email is required&quot;</span>;
+        <span class="t-kw">return</span> <span class="t-var">$errors</span>;
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>10 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-11" tabindex="-1" data-slide data-slide-title="2. MVC pattern" aria-label="Slide 11 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.1 MVC Structure</span></p><h2 class="slide-title"><span class="h-num">2</span>MVC pattern</h2><div class="slide-body"><figure class="code-block is-plain is-compact" data-language="diagram" data-lines="21"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">21 lines</span></span></figcaption><pre tabindex="0"><code>project/
+├── app/
+│   ├── Controllers/
+│   │   ├── HomeController.php
+│   │   └── UserController.php
+│   ├── Models/
+│   │   └── User.php
+│   └── Views/
+│       ├── layouts/
+│       │   └── main.php
+│       └── users/
+│           ├── index.php
+│           └── create.php
+├── config/
+│   └── database.php
+├── public/
+│   └── index.php
+└── core/
+    ├── Controller.php
+    ├── Model.php
+    └── Router.php</code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>11 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-12" tabindex="-1" data-slide data-slide-title="2. MVC pattern" aria-label="Slide 12 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.2 Base Controller</span></p><h2 class="slide-title"><span class="h-num">2</span>MVC pattern</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="22"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// core/Controller.php</span>
+<span class="t-kw">class</span> Controller {
+    <span class="t-kw">protected</span> <span class="t-kw">function</span> <span class="t-fn">view</span>(<span class="t-type">string</span> <span class="t-var">$view</span>, <span class="t-kw">array</span> <span class="t-var">$data</span> <span class="t-op">=</span> [])<span class="t-op">:</span> void {
+        <span class="t-fn">extract</span>(<span class="t-var">$data</span>);
+        <span class="t-var">$content</span> <span class="t-op">=</span> <span class="t-str">&quot;app/Views/$view.php&quot;</span>;
+        <span class="t-kw">require</span> <span class="t-str">&quot;app/Views/layouts/main.php&quot;</span>;
+    }
+    
+    <span class="t-kw">protected</span> <span class="t-kw">function</span> <span class="t-fn">redirect</span>(<span class="t-type">string</span> <span class="t-var">$url</span>)<span class="t-op">:</span> void {
+        <span class="t-fn">header</span>(<span class="t-str">&quot;Location: $url&quot;</span>);
+        exit;
+    }
+    
+    <span class="t-kw">protected</span> <span class="t-kw">function</span> <span class="t-fn">json</span>(<span class="t-kw">array</span> <span class="t-var">$data</span>, <span class="t-type">int</span> <span class="t-var">$status</span> <span class="t-op">=</span> <span class="t-num">200</span>)<span class="t-op">:</span> void {
+        <span class="t-fn">http_response_code</span>(<span class="t-var">$status</span>);
+        <span class="t-fn">header</span>(<span class="t-str">&#39;Content-Type: application/json&#39;</span>);
+        <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>(<span class="t-var">$data</span>);
+        exit;
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>12 / 19</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-13" tabindex="-1" data-slide data-slide-title="2. MVC pattern" aria-label="Slide 13 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.3 User Controller</span></p><h2 class="slide-title"><span class="h-num">2</span>MVC pattern</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="43"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">43 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// app/Controllers/UserController.php</span>
+<span class="t-kw">class</span> UserController <span class="t-kw">extends</span> Controller {
+    <span class="t-kw">private</span> UserModel <span class="t-var">$userModel</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>() {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>userModel <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">UserModel</span>();
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">index</span>()<span class="t-op">:</span> void {
+        <span class="t-var">$users</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>userModel<span class="t-op">-&gt;</span><span class="t-fn">all</span>();
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">view</span>(<span class="t-str">&#39;users/index&#39;</span>, [<span class="t-str">&#39;users&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$users</span>]);
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">create</span>()<span class="t-op">:</span> void {
+        <span class="t-kw">if</span> (<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>] <span class="t-op">===</span> <span class="t-str">&#39;POST&#39;</span>) {
+            <span class="t-var">$data</span> <span class="t-op">=</span> [
+                <span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>,
+                <span class="t-str">&#39;email&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;email&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>,
+            ];
+            
+            <span class="t-var">$errors</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>userModel<span class="t-op">-&gt;</span><span class="t-fn">validate</span>(<span class="t-var">$data</span>);
+            
+            <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+                <span class="t-com">// $this-&gt;userModel-&gt;create($data); // Implement create</span>
+                <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">redirect</span>(<span class="t-str">&#39;/users&#39;</span>);
+            }
+            
+            <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">view</span>(<span class="t-str">&#39;users/create&#39;</span>, [<span class="t-str">&#39;errors&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$errors</span>, <span class="t-str">&#39;data&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$data</span>]);
+        } <span class="t-kw">else</span> {
+            <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">view</span>(<span class="t-str">&#39;users/create&#39;</span>);
+        }
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">show</span>(<span class="t-type">int</span> <span class="t-var">$id</span>)<span class="t-op">:</span> void {
+        <span class="t-var">$user</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>userModel<span class="t-op">-&gt;</span><span class="t-fn">find</span>(<span class="t-var">$id</span>);
+        <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-var">$user</span>) {
+            <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">redirect</span>(<span class="t-str">&#39;/users&#39;</span>);
+        }
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span><span class="t-fn">view</span>(<span class="t-str">&#39;users/show&#39;</span>, [<span class="t-str">&#39;user&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$user</span>]);
+    }
+}
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>13 / 19</span></p></section>
+<section class="deck-slide is-content has-listing" id="slide-14" tabindex="-1" data-slide data-slide-title="2. MVC pattern" aria-label="Slide 14 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span><span class="slide-sub">2.4 Simple Router</span></p><h2 class="slide-title"><span class="h-num">2</span>MVC pattern</h2><div class="slide-body"><figure class="code-block is-code is-compact is-tall" data-language="php" data-lines="47"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">47 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// core/Router.php</span>
+<span class="t-kw">class</span> Router {
+    <span class="t-kw">private</span> <span class="t-kw">array</span> <span class="t-var">$routes</span> <span class="t-op">=</span> [];
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">get</span>(<span class="t-type">string</span> <span class="t-var">$path</span>, <span class="t-var">$callback</span>)<span class="t-op">:</span> void {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>routes[<span class="t-str">&#39;GET&#39;</span>][<span class="t-var">$path</span>] <span class="t-op">=</span> <span class="t-var">$callback</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">post</span>(<span class="t-type">string</span> <span class="t-var">$path</span>, <span class="t-var">$callback</span>)<span class="t-op">:</span> void {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>routes[<span class="t-str">&#39;POST&#39;</span>][<span class="t-var">$path</span>] <span class="t-op">=</span> <span class="t-var">$callback</span>;
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">dispatch</span>()<span class="t-op">:</span> void {
+        <span class="t-var">$method</span> <span class="t-op">=</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>];
+        <span class="t-var">$path</span> <span class="t-op">=</span> <span class="t-fn">parse_url</span>(<span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_URI&#39;</span>], <span class="t-const">PHP_URL_PATH</span>);
+        
+        <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$this</span><span class="t-op">-&gt;</span>routes[<span class="t-var">$method</span>][<span class="t-var">$path</span>])) {
+            <span class="t-var">$callback</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>routes[<span class="t-var">$method</span>][<span class="t-var">$path</span>];
+            
+            <span class="t-kw">if</span> (<span class="t-fn">is_callable</span>(<span class="t-var">$callback</span>)) {
+                <span class="t-fn">call_user_func</span>(<span class="t-var">$callback</span>);
+            } <span class="t-kw">elseif</span> (<span class="t-fn">is_string</span>(<span class="t-var">$callback</span>)) {
+                [<span class="t-var">$controller</span>, <span class="t-var">$action</span>] <span class="t-op">=</span> <span class="t-fn">explode</span>(<span class="t-str">&#39;@&#39;</span>, <span class="t-var">$callback</span>);
+                <span class="t-var">$controller</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-var">$controller</span>();
+                <span class="t-var">$controller</span><span class="t-op">-&gt;</span><span class="t-var">$action</span>();
+            }
+        } <span class="t-kw">else</span> {
+            <span class="t-fn">http_response_code</span>(<span class="t-num">404</span>);
+            <span class="t-kw">echo</span> <span class="t-str">&quot;404 Not Found&quot;</span>;
+        }
+    }
+}
+
+<span class="t-com">// public/index.php</span>
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../core/Router.php&#39;</span>;
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../app/Controllers/UserController.php&#39;</span>;
+
+<span class="t-var">$router</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">Router</span>();
+
+<span class="t-var">$router</span><span class="t-op">-&gt;</span><span class="t-fn">get</span>(<span class="t-str">&#39;/&#39;</span>, <span class="t-str">&#39;HomeController@index&#39;</span>);
+<span class="t-var">$router</span><span class="t-op">-&gt;</span><span class="t-fn">get</span>(<span class="t-str">&#39;/users&#39;</span>, <span class="t-str">&#39;UserController@index&#39;</span>);
+<span class="t-var">$router</span><span class="t-op">-&gt;</span><span class="t-fn">get</span>(<span class="t-str">&#39;/users/create&#39;</span>, <span class="t-str">&#39;UserController@create&#39;</span>);
+<span class="t-var">$router</span><span class="t-op">-&gt;</span><span class="t-fn">post</span>(<span class="t-str">&#39;/users/create&#39;</span>, <span class="t-str">&#39;UserController@create&#39;</span>);
+
+<span class="t-var">$router</span><span class="t-op">-&gt;</span><span class="t-fn">dispatch</span>();
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>14 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-15" tabindex="-1" data-slide data-slide-title="3. Autoloading" aria-label="Slide 15 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Theory</span></p><h2 class="slide-title"><span class="h-num">3</span>Autoloading</h2><div class="slide-body"><figure class="code-block is-code is-compact" data-language="php" data-lines="18"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// autoload.php</span>
+<span class="t-fn">spl_autoload_register</span>(<span class="t-kw">function</span> (<span class="t-var">$class</span>) {
+    <span class="t-var">$paths</span> <span class="t-op">=</span> [
+        <span class="t-str">&#39;app/Controllers/&#39;</span>,
+        <span class="t-str">&#39;app/Models/&#39;</span>,
+        <span class="t-str">&#39;core/&#39;</span>,
+    ];
+    
+    <span class="t-kw">foreach</span> (<span class="t-var">$paths</span> <span class="t-kw">as</span> <span class="t-var">$path</span>) {
+        <span class="t-var">$file</span> <span class="t-op">=</span> <span class="t-var">$path</span> <span class="t-op">.</span> <span class="t-var">$class</span> <span class="t-op">.</span> <span class="t-str">&#39;.php&#39;</span>;
+        <span class="t-kw">if</span> (<span class="t-fn">file_exists</span>(<span class="t-var">$file</span>)) {
+            <span class="t-kw">require_once</span> <span class="t-var">$file</span>;
+            <span class="t-kw">return</span>;
+        }
+    }
+});
+<span class="t-meta">?&gt;</span></code></pre></figure></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>15 / 19</span></p></section>
+<section class="deck-slide is-part" id="slide-16" tabindex="-1" data-slide data-slide-title="Practice" aria-label="Slide 16 of 19"><div class="slide-inner"><div class="slide-body"><p class="part-lead">Session 11</p><h2>Practice</h2></div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>16 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-17" tabindex="-1" data-slide data-slide-title="Exercise 1: Create Model Class" aria-label="Slide 17 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 1: Create Model Class</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Base <code>Model</code> class with CRUD methods</li>
+<li><code>ProductModel</code> extends <code>Model</code></li>
+<li>Add simple validation methods</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>17 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-18" tabindex="-1" data-slide data-slide-title="Exercise 2: MVC Mini Project" aria-label="Slide 18 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Practice</span></p><h2 class="slide-title">Exercise 2: MVC Mini Project</h2><div class="slide-body"><p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Implement MVC structure</li>
+<li>CRUD for <code>products</code></li>
+<li>Simple router with at least 4 routes</li>
+</ul>
+</div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>18 / 19</span></p></section>
+<section class="deck-slide is-content" id="slide-19" tabindex="-1" data-slide data-slide-title="Key takeaways" aria-label="Slide 19 of 19"><div class="slide-inner"><p class="slide-eyebrow"><span class="slide-part">Review</span></p><h2 class="slide-title">Key takeaways</h2><div class="slide-body"><ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand OOP in PHP (class, object, inheritance, interfaces, abstract classes)</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Apply MVC pattern in a small project</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Organize code into controllers, models, and views</span></li>
+</ul>
+<p><strong>Next: <a href="../ebook/12-web-application-development.html">Session 12 - Web App Development →</a></strong></p>
+</div></div><p class="slide-foot"><span>INS3064 · Session 11</span><span>19 / 19</span></p></section></div>
+<p class="keyboard-help">Keyboard: ← → move, <kbd>O</kbd> overview, <kbd>Home</kbd>/<kbd>End</kbd> jump. Long slides scroll on their own.</p>
+</div></div></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

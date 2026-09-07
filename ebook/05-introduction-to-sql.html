@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5: Introduction to SQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="SQL and CRUD">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_2_mysql_database/session_05_intro_sql.md">
+<meta name="source-sha256" content="7b07c6fdb822800445bf0e8ff41533f0272b418d09cd4ff549eb67563fbc5d11">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 05 · Ebook</p><h1>Introduction to SQL</h1><p class="lead">SQL and CRUD</p><div class="head-meta"><span class="chip">Part 2 · MySQL and databases</span><span class="chip">SELECT</span><span class="chip">CRUD</span><span class="chip">Functions</span></div><div class="head-actions"><a class="button-link primary" href="../slides/05-introduction-to-sql.html">Open the slide deck</a><a class="button-link" href="../sessions/session-05.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">37 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#before-you-start-the-practice-database">📋 Before you start: The practice database</a></li><li class="depth-2"><a href="#1-what-is-sql">1. What is SQL?</a></li><li class="depth-3"><a href="#types-of-sql-commands">Types of SQL Commands</a></li><li class="depth-2"><a href="#2-select-querying-data">2. SELECT – querying data</a></li><li class="depth-3"><a href="#21-basic-syntax">2.1 Basic Syntax</a></li><li class="depth-3"><a href="#22-where-filtering-data">2.2 WHERE – Filtering Data</a></li><li class="depth-3"><a href="#23-and-or-not">2.3 AND, OR, NOT</a></li><li class="depth-3"><a href="#24-order-by-sorting">2.4 ORDER BY – Sorting</a></li><li class="depth-3"><a href="#25-limit-limiting-results">2.5 LIMIT – Limiting Results</a></li><li class="depth-3"><a href="#26-distinct-remove-duplicates">2.6 DISTINCT – Remove Duplicates</a></li><li class="depth-2"><a href="#3-insert-adding-data">3. INSERT – adding data</a></li><li class="depth-3"><a href="#31-insert-a-single-record">3.1 Insert a Single Record</a></li><li class="depth-3"><a href="#32-insert-multiple-records">3.2 Insert Multiple Records</a></li><li class="depth-2"><a href="#4-update-modifying-data">4. UPDATE – modifying data</a></li><li class="depth-3"><a href="#41-syntax">4.1 Syntax</a></li><li class="depth-2"><a href="#5-delete-deleting-data">5. DELETE – deleting data</a></li><li class="depth-3"><a href="#51-syntax">5.1 Syntax</a></li><li class="depth-2"><a href="#6-basic-sql-functions">6. Basic SQL functions</a></li><li class="depth-3"><a href="#61-aggregate-functions">6.1 Aggregate Functions</a></li><li class="depth-3"><a href="#62-string-functions">6.2 String Functions</a></li><li class="depth-3"><a href="#63-date-functions">6.3 Date Functions</a></li><li class="depth-3"><a href="#64-conditional-functions">6.4 Conditional Functions</a></li><li class="depth-1"><a href="#example">Example</a></li><li class="depth-2"><a href="#example-student-management">Example: Student Management</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-basic-crud">Exercise 1: Basic CRUD</a></li><li class="depth-2"><a href="#exercise-2-advanced-queries">Exercise 2: Advanced Queries</a></li><li class="depth-2"><a href="#exercise-3-reporting-challenge">Exercise 3: Reporting (Challenge)</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li><li class="depth-1"><a href="#session-05-worksheet">📋 Session 05 worksheet</a></li><li class="depth-2"><a href="#questions">Questions</a></li><li class="depth-2"><a href="#exercises">Exercises</a></li><li class="depth-1"><a href="#preparation-for-session-06">🔗 Preparation for session 06</a></li><li class="depth-3"><a href="#we-will-learn">We will learn:</a></li></ol></details><article class="doc" data-source="English/part_2_mysql_database/session_05_intro_sql.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 4 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#before-you-start-the-practice-database">Set up the database first</a><span class="path-target">Before you start: The practice database</span></li><li><a href="#1-what-is-sql">Read one theory section</a><span class="path-target">1. What is SQL?</span></li><li><a href="#exercise-1-basic-crud">Build the first exercise yourself</a><span class="path-target">Exercise 1: Basic CRUD</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>Today we will learn <strong>SQL</strong> – the language we use to &quot;talk&quot; to the Database.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 5 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand what SQL is</li><li>Perform CRUD operations</li><li>Use WHERE, ORDER BY, LIMIT</li><li>Use basic SQL functions</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO4</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li><strong>Write</strong> <code>SELECT</code> statements to query data</li>
+<li><strong>Perform</strong> <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+<li><strong>Filter</strong> data using <code>WHERE</code></li>
+<li><strong>Sort</strong> data using <code>ORDER BY</code></li>
+<li><strong>Limit</strong> results using <code>LIMIT</code></li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="before-you-start-the-practice-database"><span class="h-icon" aria-hidden="true">📋</span>Before you start: The practice database<a class="anchor" href="#before-you-start-the-practice-database" aria-label="Link to 📋 Before you start: The practice database">#</a></h2>
+<p>Every query in this chapter runs against one table: <code>students</code>. Run this block
+once in phpMyAdmin (tab <strong>SQL</strong>) or the MySQL console before you read on. It is
+the same table as Session 04, with sample rows added.</p>
+<figure class="code-block is-code" data-language="sql" data-lines="24"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">24 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Setup for Session 05. Safe to run more than once.</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> university
+<span class="t-kw">CHARACTER</span> <span class="t-kw">SET</span> utf8mb4 <span class="t-kw">COLLATE</span> utf8mb4_unicode_ci<span class="t-op">;</span>
+<span class="t-kw">USE</span> university<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    student_code <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    phone <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    class <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    age <span class="t-type">INT</span><span class="t-op">,</span>
+    gpa <span class="t-type">DECIMAL</span>(<span class="t-num">3</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> students (student_code<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> phone<span class="t-op">,</span> class<span class="t-op">,</span> age<span class="t-op">,</span> gpa) <span class="t-kw">VALUES</span>
+(<span class="t-str">&#39;ST001&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;John Nguyen&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;john@example.com&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;0901234567&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">3.5</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST002&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Anna Tran&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;anna@example.com&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;0901234568&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">21</span><span class="t-op">,</span> <span class="t-num">3.8</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST003&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Michael Le&#39;</span><span class="t-op">,</span>   <span class="t-str">&#39;michael@example.com&#39;</span><span class="t-op">,</span> <span class="t-kw">NULL</span><span class="t-op">,</span>         <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-num">19</span><span class="t-op">,</span> <span class="t-num">3.2</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST004&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Linh Pham&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;linh@example.com&#39;</span><span class="t-op">,</span>    <span class="t-str">&#39;0901234570&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-num">22</span><span class="t-op">,</span> <span class="t-num">2.8</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST005&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;David Hoang&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;david@example.com&#39;</span><span class="t-op">,</span>   <span class="t-str">&#39;0901234571&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT3&#39;</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">3.9</span>)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> <code>SELECT COUNT(*) FROM students;</code> returns <code>5</code>. If you get
+<code>Unknown database &#39;university&#39;</code> or <code>Table &#39;students&#39; doesn&#39;t exist</code>, this block
+did not run — go back and run it before trying anything below.</p>
+<h2 id="1-what-is-sql"><span class="h-num">1</span>What is SQL?<a class="anchor" href="#1-what-is-sql" aria-label="Link to 1. What is SQL?">#</a></h2>
+<p><strong>SQL</strong> = Structured Query Language</p>
+<p>SQL is the language used by almost all relational databases (MySQL, PostgreSQL, SQL Server, Oracle, ...).</p>
+
+<aside class="callout is-analogy" aria-labelledby="analogy-real-life-analogy"><p class="callout-title" id="analogy-real-life-analogy">Real-life analogy</p><div class="callout-body"><p>SQL is like the <strong>language you use to talk to a librarian</strong>:</p>
+<ul><li>&quot;Show me all the books&quot; → <code>SELECT * FROM books</code></li>
+<li>&quot;Find books of author X&quot; → <code>SELECT * FROM books WHERE author = &#39;X&#39;</code></li>
+<li>&quot;Add a new book&quot; → <code>INSERT INTO books ...</code></li>
+</ul>
+</div></aside>
+<h3 id="types-of-sql-commands">Types of SQL Commands<a class="anchor" href="#types-of-sql-commands" aria-label="Link to Types of SQL Commands">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Commands</th></tr></thead><tbody><tr><td><strong>DDL</strong></td><td>Data Definition</td><td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code></td></tr><tr><td><strong>DML</strong></td><td>Data Manipulation</td><td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td></tr><tr><td><strong>DCL</strong></td><td>Data Control</td><td><code>GRANT</code>, <code>REVOKE</code></td></tr></tbody></table></div>
+<h2 id="2-select-querying-data"><span class="h-num">2</span>SELECT – querying data<a class="anchor" href="#2-select-querying-data" aria-label="Link to 2. SELECT – querying data">#</a></h2>
+<h3 id="21-basic-syntax"><span class="h-num">2.1</span>Basic Syntax<a class="anchor" href="#21-basic-syntax" aria-label="Link to 2.1 Basic Syntax">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get all columns</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- Get specific columns</span>
+<span class="t-kw">SELECT</span> name<span class="t-op">,</span> email <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- Use aliases for columns</span>
+<span class="t-kw">SELECT</span> name <span class="t-kw">AS</span> <span class="t-str">&#39;Full Name&#39;</span><span class="t-op">,</span> email <span class="t-kw">AS</span> <span class="t-str">&#39;Email&#39;</span> <span class="t-kw">FROM</span> students<span class="t-op">;</span></code></pre></figure><h3 id="22-where-filtering-data"><span class="h-num">2.2</span>WHERE – Filtering Data<a class="anchor" href="#22-where-filtering-data" aria-label="Link to 2.2 WHERE – Filtering Data">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="28"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Equal comparison</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">=</span> <span class="t-num">20</span><span class="t-op">;</span>
+
+<span class="t-com">-- Not equal</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">!=</span> <span class="t-num">20</span><span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&lt;&gt;</span> <span class="t-num">20</span><span class="t-op">;</span>
+
+<span class="t-com">-- Greater / Less than</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&gt;</span> <span class="t-num">18</span><span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&gt;=</span> <span class="t-num">18</span><span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&lt;</span> <span class="t-num">25</span><span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&lt;=</span> <span class="t-num">25</span><span class="t-op">;</span>
+
+<span class="t-com">-- BETWEEN - In a range</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-kw">BETWEEN</span> <span class="t-num">18</span> <span class="t-kw">AND</span> <span class="t-num">25</span><span class="t-op">;</span>
+
+<span class="t-com">-- IN - In a list</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-kw">IN</span> (<span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT3&#39;</span>)<span class="t-op">;</span>
+
+<span class="t-com">-- LIKE - Pattern matching</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> name <span class="t-kw">LIKE</span> <span class="t-str">&#39;Nguyen%&#39;</span><span class="t-op">;</span>   <span class="t-com">-- Starts with</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> name <span class="t-kw">LIKE</span> <span class="t-str">&#39;%Anh&#39;</span><span class="t-op">;</span>      <span class="t-com">-- Ends with</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> name <span class="t-kw">LIKE</span> <span class="t-str">&#39;%Van%&#39;</span><span class="t-op">;</span>     <span class="t-com">-- Contains</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> email <span class="t-kw">LIKE</span> <span class="t-str">&#39;%@gmail.com&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- IS NULL / IS NOT NULL</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> phone <span class="t-kw">IS</span> <span class="t-kw">NULL</span><span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> phone <span class="t-kw">IS</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">;</span></code></pre></figure><h3 id="23-and-or-not"><span class="h-num">2.3</span>AND, OR, NOT<a class="anchor" href="#23-and-or-not" aria-label="Link to 2.3 AND, OR, NOT">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="13"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- AND - Both conditions must be true</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> age <span class="t-op">&gt;=</span> <span class="t-num">18</span> <span class="t-kw">AND</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">3.0</span><span class="t-op">;</span>
+
+<span class="t-com">-- OR - At least one condition is true</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span> <span class="t-kw">OR</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- NOT - Negation</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> <span class="t-kw">NOT</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- Combine conditions</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students 
+<span class="t-kw">WHERE</span> (class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span> <span class="t-kw">OR</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT2&#39;</span>) 
+<span class="t-kw">AND</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">3.0</span><span class="t-op">;</span></code></pre></figure><h3 id="24-order-by-sorting"><span class="h-num">2.4</span>ORDER BY – Sorting<a class="anchor" href="#24-order-by-sorting" aria-label="Link to 2.4 ORDER BY – Sorting">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="9"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Sort ascending (default)</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> name<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> name <span class="t-kw">ASC</span><span class="t-op">;</span>
+
+<span class="t-com">-- Sort descending</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> gpa <span class="t-kw">DESC</span><span class="t-op">;</span>
+
+<span class="t-com">-- Sort by multiple columns</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> class <span class="t-kw">ASC</span><span class="t-op">,</span> gpa <span class="t-kw">DESC</span><span class="t-op">;</span></code></pre></figure><h3 id="25-limit-limiting-results"><span class="h-num">2.5</span>LIMIT – Limiting Results<a class="anchor" href="#25-limit-limiting-results" aria-label="Link to 2.5 LIMIT – Limiting Results">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="9"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get first 10 records</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">LIMIT</span> <span class="t-num">10</span><span class="t-op">;</span>
+
+<span class="t-com">-- Pagination: LIMIT offset, count</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">LIMIT</span> <span class="t-num">0</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">;</span>   <span class="t-com">-- Page 1 (records 1-10)</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">LIMIT</span> <span class="t-num">10</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">;</span>  <span class="t-com">-- Page 2 (records 11-20)</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">LIMIT</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">;</span>  <span class="t-com">-- Page 3 (records 21-30)</span>
+
+<span class="t-com">-- Formula: LIMIT (page-1)*pageSize, pageSize</span></code></pre></figure><h3 id="26-distinct-remove-duplicates"><span class="h-num">2.6</span>DISTINCT – Remove Duplicates<a class="anchor" href="#26-distinct-remove-duplicates" aria-label="Link to 2.6 DISTINCT – Remove Duplicates">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="5"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Get list of unique classes</span>
+<span class="t-kw">SELECT</span> <span class="t-kw">DISTINCT</span> class <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- Count number of classes</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">COUNT</span>(<span class="t-kw">DISTINCT</span> class) <span class="t-kw">FROM</span> students<span class="t-op">;</span></code></pre></figure><h2 id="3-insert-adding-data"><span class="h-num">3</span>INSERT – adding data<a class="anchor" href="#3-insert-adding-data" aria-label="Link to 3. INSERT – adding data">#</a></h2>
+<h3 id="31-insert-a-single-record"><span class="h-num">3.1</span>Insert a Single Record<a class="anchor" href="#31-insert-a-single-record" aria-label="Link to 3.1 Insert a Single Record">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="7"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Insert with all columns</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> students (student_code<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> age<span class="t-op">,</span> class<span class="t-op">,</span> gpa)
+<span class="t-kw">VALUES</span> (<span class="t-str">&#39;ST010&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;John Nguyen&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;john.new@example.com&#39;</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">3.5</span>)<span class="t-op">;</span>
+
+<span class="t-com">-- Insert with NULL values</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> students (student_code<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> age<span class="t-op">,</span> class<span class="t-op">,</span> gpa)
+<span class="t-kw">VALUES</span> (<span class="t-str">&#39;ST011&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Anna Tran&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;anna.new@example.com&#39;</span><span class="t-op">,</span> <span class="t-kw">NULL</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-kw">NULL</span>)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> <code>Query OK, 1 row affected</code> twice. Leave out <code>student_code</code>
+and MySQL answers <code>Field &#39;student_code&#39; doesn&#39;t have a default value</code>, because
+the column is <code>NOT NULL</code> with no default. Both <code>student_code</code> and <code>email</code> are
+<code>UNIQUE</code>, so re-running this block reports a duplicate-entry error — that is
+correct behaviour, not a broken example.</p>
+<h3 id="32-insert-multiple-records"><span class="h-num">3.2</span>Insert Multiple Records<a class="anchor" href="#32-insert-multiple-records" aria-label="Link to 3.2 Insert Multiple Records">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="5"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">INSERT</span> <span class="t-kw">INTO</span> students (student_code<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> age<span class="t-op">,</span> class<span class="t-op">,</span> gpa)
+<span class="t-kw">VALUES</span> 
+    (<span class="t-str">&#39;ST020&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Hoa Vu&#39;</span><span class="t-op">,</span>   <span class="t-str">&#39;hoa@example.com&#39;</span><span class="t-op">,</span>   <span class="t-num">20</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">3.5</span>)<span class="t-op">,</span>
+    (<span class="t-str">&#39;ST021&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Nam Do&#39;</span><span class="t-op">,</span>   <span class="t-str">&#39;nam@example.com&#39;</span><span class="t-op">,</span>   <span class="t-num">21</span><span class="t-op">,</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-num">3.8</span>)<span class="t-op">,</span>
+    (<span class="t-str">&#39;ST022&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Mai Bui&#39;</span><span class="t-op">,</span>  <span class="t-str">&#39;mai@example.com&#39;</span><span class="t-op">,</span>   <span class="t-num">19</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">3.2</span>)<span class="t-op">;</span></code></pre></figure><p><strong>Expected result:</strong> <code>Query OK, 3 rows affected</code>. One statement, three rows — much
+faster than three separate <code>INSERT</code>s.</p>
+<h2 id="4-update-modifying-data"><span class="h-num">4</span>UPDATE – modifying data<a class="anchor" href="#4-update-modifying-data" aria-label="Link to 4. UPDATE – modifying data">#</a></h2>
+<h3 id="41-syntax"><span class="h-num">4.1</span>Syntax<a class="anchor" href="#41-syntax" aria-label="Link to 4.1 Syntax">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="12"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Update one column</span>
+<span class="t-kw">UPDATE</span> students <span class="t-kw">SET</span> gpa <span class="t-op">=</span> <span class="t-num">3.6</span> <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span>
+
+<span class="t-com">-- Update multiple columns</span>
+<span class="t-kw">UPDATE</span> students 
+<span class="t-kw">SET</span> gpa <span class="t-op">=</span> <span class="t-num">3.6</span><span class="t-op">,</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT2&#39;</span> 
+<span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span>
+
+<span class="t-com">-- Update with complex condition</span>
+<span class="t-kw">UPDATE</span> students 
+<span class="t-kw">SET</span> is_active <span class="t-op">=</span> <span class="t-lit">FALSE</span> 
+<span class="t-kw">WHERE</span> gpa <span class="t-op">&lt;</span> <span class="t-num">2.0</span> <span class="t-kw">AND</span> age <span class="t-op">&gt;</span> <span class="t-num">25</span><span class="t-op">;</span></code></pre></figure>
+<aside class="callout is-warn" aria-labelledby="warn-warning"><p class="callout-title" id="warn-warning">WARNING</p><div class="callout-body"><p>Read this pair; do not run the first line. <code>UPDATE</code> without <code>WHERE</code> rewrites
+every row in the table, and there is no undo.</p>
+<figure class="code-block is-code is-read-only" data-language="sql" data-lines="5"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- ❌ DANGEROUS: Update ALL records!</span>
+<span class="t-kw">UPDATE</span> students <span class="t-kw">SET</span> gpa <span class="t-op">=</span> <span class="t-num">0</span><span class="t-op">;</span>
+
+<span class="t-com">-- ✅ SAFE: Always use WHERE</span>
+<span class="t-kw">UPDATE</span> students <span class="t-kw">SET</span> gpa <span class="t-op">=</span> <span class="t-num">0</span> <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span></code></pre></figure></div></aside>
+<h2 id="5-delete-deleting-data"><span class="h-num">5</span>DELETE – deleting data<a class="anchor" href="#5-delete-deleting-data" aria-label="Link to 5. DELETE – deleting data">#</a></h2>
+<h3 id="51-syntax"><span class="h-num">5.1</span>Syntax<a class="anchor" href="#51-syntax" aria-label="Link to 5.1 Syntax">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="5"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Delete one record</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span>
+
+<span class="t-com">-- Delete multiple records</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span> <span class="t-kw">AND</span> gpa <span class="t-op">&lt;</span> <span class="t-num">2.0</span><span class="t-op">;</span></code></pre></figure>
+<aside class="callout is-warn" aria-labelledby="warn-warning-2"><p class="callout-title" id="warn-warning-2">WARNING</p><div class="callout-body"><p>Do not run the first or the last line here. Both empty the table you set up at
+the start of the chapter, and the rest of this session needs those five rows.
+If you do lose them, re-run the setup block from the top of the chapter.</p>
+<figure class="code-block is-code is-read-only" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-flag">Destructive — read only</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- ❌ DANGEROUS: Delete ALL records!</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- ✅ SAFE: Always use WHERE</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> id <span class="t-op">=</span> <span class="t-num">1</span><span class="t-op">;</span>
+
+<span class="t-com">-- ❌ DANGEROUS: deletes all rows and resets AUTO_INCREMENT</span>
+<span class="t-kw">TRUNCATE</span> <span class="t-kw">TABLE</span> students<span class="t-op">;</span></code></pre></figure></div></aside>
+<h2 id="6-basic-sql-functions"><span class="h-num">6</span>Basic SQL functions<a class="anchor" href="#6-basic-sql-functions" aria-label="Link to 6. Basic SQL functions">#</a></h2>
+<h3 id="61-aggregate-functions"><span class="h-num">6.1</span>Aggregate Functions<a class="anchor" href="#61-aggregate-functions" aria-label="Link to 6.1 Aggregate Functions">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="22"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">22 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- COUNT - Count records</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- SUM - Sum</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">SUM</span>(gpa) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- AVG - Average</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">AVG</span>(gpa) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">AVG</span>(gpa) <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- MAX / MIN</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">MAX</span>(gpa) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">MIN</span>(gpa) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- Combine statistics</span>
+<span class="t-kw">SELECT</span> 
+    <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">AS</span> total_students<span class="t-op">,</span>
+    <span class="t-fn">AVG</span>(gpa) <span class="t-kw">AS</span> average_gpa<span class="t-op">,</span>
+    <span class="t-fn">MAX</span>(gpa) <span class="t-kw">AS</span> highest_gpa<span class="t-op">,</span>
+    <span class="t-fn">MIN</span>(gpa) <span class="t-kw">AS</span> lowest_gpa
+<span class="t-kw">FROM</span> students<span class="t-op">;</span></code></pre></figure><h3 id="62-string-functions"><span class="h-num">6.2</span>String Functions<a class="anchor" href="#62-string-functions" aria-label="Link to 6.2 String Functions">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="18"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- CONCAT - Concatenate strings</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">CONCAT</span>(class<span class="t-op">,</span> <span class="t-str">&#39; - &#39;</span><span class="t-op">,</span> name) <span class="t-kw">AS</span> label <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- UPPER / LOWER</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">UPPER</span>(name) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">LOWER</span>(email) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- LENGTH</span>
+<span class="t-kw">SELECT</span> name<span class="t-op">,</span> <span class="t-fn">LENGTH</span>(name) <span class="t-kw">AS</span> name_length <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- SUBSTRING</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">SUBSTRING</span>(name<span class="t-op">,</span> <span class="t-num">1</span><span class="t-op">,</span> <span class="t-num">5</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- TRIM</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">TRIM</span>(name) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- REPLACE</span>
+<span class="t-kw">SELECT</span> <span class="t-kw">REPLACE</span>(email<span class="t-op">,</span> <span class="t-str">&#39;@gmail.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;@yahoo.com&#39;</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span></code></pre></figure><h3 id="63-date-functions"><span class="h-num">6.3</span>Date Functions<a class="anchor" href="#63-date-functions" aria-label="Link to 6.3 Date Functions">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- NOW() - Current date &amp; time</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">NOW</span>()<span class="t-op">;</span>
+
+<span class="t-com">-- CURDATE() - Current date</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">CURDATE</span>()<span class="t-op">;</span>
+
+<span class="t-com">-- DATE_FORMAT</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">DATE_FORMAT</span>(created_at<span class="t-op">,</span> <span class="t-str">&#39;%d/%m/%Y&#39;</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">DATE_FORMAT</span>(created_at<span class="t-op">,</span> <span class="t-str">&#39;%H:%i:%s&#39;</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- DATE_ADD / DATE_SUB</span>
+<span class="t-kw">SELECT</span> DATE_ADD(<span class="t-fn">NOW</span>()<span class="t-op">,</span> INTERVAL <span class="t-num">7</span> DAY)<span class="t-op">;</span>
+<span class="t-kw">SELECT</span> DATE_SUB(<span class="t-fn">NOW</span>()<span class="t-op">,</span> INTERVAL <span class="t-num">1</span> MONTH)<span class="t-op">;</span>
+
+<span class="t-com">-- DATEDIFF - Number of days between 2 dates</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">DATEDIFF</span>(<span class="t-fn">NOW</span>()<span class="t-op">,</span> created_at) <span class="t-kw">AS</span> days_ago <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- YEAR, MONTH, DAY</span>
+<span class="t-kw">SELECT</span> <span class="t-type">YEAR</span>(created_at)<span class="t-op">,</span> <span class="t-fn">MONTH</span>(created_at)<span class="t-op">,</span> <span class="t-fn">DAY</span>(created_at) <span class="t-kw">FROM</span> students<span class="t-op">;</span></code></pre></figure><h3 id="64-conditional-functions"><span class="h-num">6.4</span>Conditional Functions<a class="anchor" href="#64-conditional-functions" aria-label="Link to 6.4 Conditional Functions">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="19"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- IF</span>
+<span class="t-kw">SELECT</span> name<span class="t-op">,</span> <span class="t-kw">IF</span>(gpa <span class="t-op">&gt;=</span> <span class="t-num">3.0</span><span class="t-op">,</span> <span class="t-str">&#39;Good&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Average&#39;</span>) <span class="t-kw">AS</span> level <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- CASE WHEN</span>
+<span class="t-kw">SELECT</span> name<span class="t-op">,</span> gpa<span class="t-op">,</span>
+    <span class="t-kw">CASE</span> 
+        <span class="t-kw">WHEN</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">3.6</span> <span class="t-kw">THEN</span> <span class="t-str">&#39;Excellent&#39;</span>
+        <span class="t-kw">WHEN</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">3.2</span> <span class="t-kw">THEN</span> <span class="t-str">&#39;Very Good&#39;</span>
+        <span class="t-kw">WHEN</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">2.5</span> <span class="t-kw">THEN</span> <span class="t-str">&#39;Fair&#39;</span>
+        <span class="t-kw">WHEN</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">2.0</span> <span class="t-kw">THEN</span> <span class="t-str">&#39;Average&#39;</span>
+        <span class="t-kw">ELSE</span> <span class="t-str">&#39;Weak&#39;</span>
+    <span class="t-kw">END</span> <span class="t-kw">AS</span> level
+<span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- COALESCE - First non-NULL value</span>
+<span class="t-kw">SELECT</span> <span class="t-fn">COALESCE</span>(phone<span class="t-op">,</span> email<span class="t-op">,</span> <span class="t-str">&#39;N/A&#39;</span>) <span class="t-kw">AS</span> contact <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- NULLIF</span>
+<span class="t-kw">SELECT</span> NULLIF(gpa<span class="t-op">,</span> <span class="t-num">0</span>) <span class="t-kw">FROM</span> students<span class="t-op">;</span>  <span class="t-com">-- Returns NULL if gpa = 0</span></code></pre></figure><h2 class="part-divider" id="example"><span>Example</span></h2>
+<h2 id="example-student-management">Example: Student Management<a class="anchor" href="#example-student-management" aria-label="Link to Example: Student Management">#</a></h2>
+<p>This is the whole chapter in one script. The table and the sample rows are the
+same ones you created at the start, so if the database is already set up you can
+skip straight to query 1.</p>
+<figure class="code-block is-code is-tall" data-language="sql" data-lines="60"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">60 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">-- Create database and table</span>
+<span class="t-kw">CREATE</span> <span class="t-kw">DATABASE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> university<span class="t-op">;</span>
+<span class="t-kw">USE</span> university<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> <span class="t-kw">IF</span> <span class="t-kw">NOT</span> <span class="t-kw">EXISTS</span> students (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    student_code <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>) <span class="t-kw">UNIQUE</span> <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+    phone <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    class <span class="t-type">VARCHAR</span>(<span class="t-num">20</span>)<span class="t-op">,</span>
+    age <span class="t-type">INT</span><span class="t-op">,</span>
+    gpa <span class="t-type">DECIMAL</span>(<span class="t-num">3</span><span class="t-op">,</span><span class="t-num">2</span>)<span class="t-op">,</span>
+    is_active <span class="t-type">BOOLEAN</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">TRUE</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-com">-- Insert sample data</span>
+<span class="t-kw">INSERT</span> <span class="t-kw">IGNORE</span> <span class="t-kw">INTO</span> students (student_code<span class="t-op">,</span> name<span class="t-op">,</span> email<span class="t-op">,</span> phone<span class="t-op">,</span> class<span class="t-op">,</span> age<span class="t-op">,</span> gpa) <span class="t-kw">VALUES</span>
+(<span class="t-str">&#39;ST001&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;John Nguyen&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;john@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;0901234567&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">3.5</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST002&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Anna Tran&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;anna@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;0901234568&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">,</span> <span class="t-num">21</span><span class="t-op">,</span> <span class="t-num">3.8</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST003&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Michael Le&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;michael@example.com&#39;</span><span class="t-op">,</span> <span class="t-kw">NULL</span><span class="t-op">,</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-num">19</span><span class="t-op">,</span> <span class="t-num">3.2</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST004&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;Linh Pham&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;linh@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;0901234570&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT2&#39;</span><span class="t-op">,</span> <span class="t-num">22</span><span class="t-op">,</span> <span class="t-num">2.8</span>)<span class="t-op">,</span>
+(<span class="t-str">&#39;ST005&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;David Hoang&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;david@example.com&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;0901234571&#39;</span><span class="t-op">,</span> <span class="t-str">&#39;ICT3&#39;</span><span class="t-op">,</span> <span class="t-num">20</span><span class="t-op">,</span> <span class="t-num">3.9</span>)<span class="t-op">;</span>
+
+<span class="t-com">-- 1. Get all students</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students<span class="t-op">;</span>
+
+<span class="t-com">-- 2. Get students in class ICT1</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> class <span class="t-op">=</span> <span class="t-str">&#39;ICT1&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- 3. Get students with GPA &gt;= 3.5</span>
+<span class="t-kw">SELECT</span> name<span class="t-op">,</span> gpa <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> gpa <span class="t-op">&gt;=</span> <span class="t-num">3.5</span><span class="t-op">;</span>
+
+<span class="t-com">-- 4. Sort by GPA descending</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> gpa <span class="t-kw">DESC</span><span class="t-op">;</span>
+
+<span class="t-com">-- 5. Top 3 students with highest GPA</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">ORDER</span> <span class="t-kw">BY</span> gpa <span class="t-kw">DESC</span> <span class="t-kw">LIMIT</span> <span class="t-num">3</span><span class="t-op">;</span>
+
+<span class="t-com">-- 6. Statistics by class</span>
+<span class="t-kw">SELECT</span> 
+    class<span class="t-op">,</span>
+    <span class="t-fn">COUNT</span>(<span class="t-op">*</span>) <span class="t-kw">AS</span> total<span class="t-op">,</span>
+    <span class="t-fn">AVG</span>(gpa) <span class="t-kw">AS</span> avg_gpa<span class="t-op">,</span>
+    <span class="t-fn">MAX</span>(gpa) <span class="t-kw">AS</span> max_gpa
+<span class="t-kw">FROM</span> students 
+<span class="t-kw">GROUP</span> <span class="t-kw">BY</span> class<span class="t-op">;</span>
+
+<span class="t-com">-- 7. Students without phone number</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> phone <span class="t-kw">IS</span> <span class="t-kw">NULL</span><span class="t-op">;</span>
+
+<span class="t-com">-- 8. Search by name</span>
+<span class="t-kw">SELECT</span> <span class="t-op">*</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> name <span class="t-kw">LIKE</span> <span class="t-str">&#39;%Van%&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- 9. Update GPA</span>
+<span class="t-kw">UPDATE</span> students <span class="t-kw">SET</span> gpa <span class="t-op">=</span> <span class="t-num">3.6</span> <span class="t-kw">WHERE</span> student_code <span class="t-op">=</span> <span class="t-str">&#39;ST001&#39;</span><span class="t-op">;</span>
+
+<span class="t-com">-- 10. Delete student</span>
+<span class="t-kw">DELETE</span> <span class="t-kw">FROM</span> students <span class="t-kw">WHERE</span> student_code <span class="t-op">=</span> <span class="t-str">&#39;ST005&#39;</span><span class="t-op">;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-basic-crud">Exercise 1: Basic CRUD<a class="anchor" href="#exercise-1-basic-crud" aria-label="Link to Exercise 1: Basic CRUD">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Goal:</strong> Practice basic CRUD operations</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Create table <code>products</code> (id, name, price, stock, category)</li>
+<li>Insert 10 products</li>
+<li>Select products with price &gt; 100</li>
+<li>Update product price</li>
+<li>Delete out-of-stock products</li>
+</ol>
+<h2 id="exercise-2-advanced-queries">Exercise 2: Advanced Queries<a class="anchor" href="#exercise-2-advanced-queries" aria-label="Link to Exercise 2: Advanced Queries">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Goal:</strong> Practice <code>WHERE</code>, <code>ORDER BY</code>, <code>LIMIT</code></span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ol><li>Get the 5 most expensive products</li>
+<li>Search products by name</li>
+<li>Count products by category</li>
+<li>Implement pagination with 10 products per page</li>
+</ol>
+<h2 id="exercise-3-reporting-challenge">Exercise 3: Reporting (Challenge)<a class="anchor" href="#exercise-3-reporting-challenge" aria-label="Link to Exercise 3: Reporting (Challenge)">#</a></h2>
+<p class="note-line is-goal"><span class="note-icon" aria-hidden="true">🎯</span><span class="note-copy"><strong>Goal:</strong> Create a simple report</span></p>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Total number of products</li>
+<li>Total inventory value (<code>price * stock</code>)</li>
+<li>Products that are almost out of stock (<code>stock &lt; 10</code>)</li>
+<li>Rank products by price</li>
+</ul>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can write <code>SELECT</code> with <code>WHERE</code></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can perform <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use <code>ORDER BY</code>, <code>LIMIT</code></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use basic SQL functions</span></li>
+</ul>
+<h2 id="session-05-worksheet"><span class="h-icon" aria-hidden="true">📋</span>Session 05 worksheet<a class="anchor" href="#session-05-worksheet" aria-label="Link to 📋 Session 05 worksheet">#</a></h2>
+<p><strong>Full Name:</strong> <span class="blank"></span>    <strong>Student ID:</strong> <span class="blank"></span></p>
+<h2 id="questions">Questions<a class="anchor" href="#questions" aria-label="Link to Questions">#</a></h2>
+<ol><li>What is the difference between <code>DELETE</code> and <code>TRUNCATE</code>?</li>
+<li>What does <code>LIKE &#39;%abc%&#39;</code> search for?</li>
+<li>How do you implement pagination with <code>LIMIT</code>?</li>
+</ol>
+<h2 id="exercises">Exercises<a class="anchor" href="#exercises" aria-label="Link to Exercises">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Basic CRUD</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Advanced Queries</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Reporting (Bonus)</span></li>
+</ul>
+<h2 id="preparation-for-session-06"><span class="h-icon" aria-hidden="true">🔗</span>Preparation for session 06<a class="anchor" href="#preparation-for-session-06" aria-label="Link to 🔗 Preparation for session 06">#</a></h2>
+<p><strong>Next Session:</strong> Database Design</p>
+<h3 id="we-will-learn">We will learn:<a class="anchor" href="#we-will-learn" aria-label="Link to We will learn:">#</a></h3>
+<ul><li>Normalization</li>
+<li>Relationships (1-1, 1-N, N-N)</li>
+<li>Foreign Keys</li>
+</ul>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/06-database-design.html">Session 06 - Database Design →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="04-introduction-to-mysql.html"><span class="pager-label">Previous</span><span class="pager-title">Introduction to MySQL</span></a><a class="pager-link is-next" href="06-database-design.html"><span class="pager-label">Next</span><span class="pager-title">Database Design</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

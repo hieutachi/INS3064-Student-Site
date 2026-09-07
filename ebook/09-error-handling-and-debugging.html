@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 9: Error Handling and Debugging — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Exceptions, logs, debugging">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_3_integration_advanced/session_09_error_handling.md">
+<meta name="source-sha256" content="0301767c411dbfd49b4a5f97cf5c8375f9ca6c141efb53bfd8c5f0cd3c26383b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 09 · Ebook</p><h1>Error Handling and Debugging</h1><p class="lead">Exceptions, logs, debugging</p><div class="head-meta"><span class="chip">Part 3 · Integration and advanced</span><span class="chip">try/catch</span><span class="chip">Logs</span><span class="chip">Debugging</span></div><div class="head-actions"><a class="button-link primary" href="../slides/09-error-handling-and-debugging.html">Open the slide deck</a><a class="button-link" href="../sessions/session-09.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">19 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-types-of-errors">1. Types of errors</a></li><li class="depth-3"><a href="#11-error-types-in-php">1.1 Error Types in PHP</a></li><li class="depth-3"><a href="#12-error-reporting">1.2 Error Reporting</a></li><li class="depth-2"><a href="#2-try-catch">2. Try-catch</a></li><li class="depth-3"><a href="#21-basic-syntax">2.1 Basic Syntax</a></li><li class="depth-3"><a href="#22-throwing-exceptions">2.2 Throwing Exceptions</a></li><li class="depth-3"><a href="#23-custom-exception">2.3 Custom Exception</a></li><li class="depth-2"><a href="#3-custom-error-exception-handlers">3. Custom error &amp; exception handlers</a></li><li class="depth-2"><a href="#4-debugging-techniques">4. Debugging techniques</a></li><li class="depth-3"><a href="#41-useful-debug-functions">4.1 Useful Debug Functions</a></li><li class="depth-3"><a href="#42-xdebug-optional">4.2 Xdebug (optional)</a></li><li class="depth-2"><a href="#5-real-world-example-database-class-with-error-handling">5. Real-world example: Database class with error handling</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-form-with-error-handling">Exercise 1: Form with Error Handling</a></li><li class="depth-2"><a href="#exercise-2-custom-exceptions">Exercise 2: Custom Exceptions</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li></ol></details><article class="doc" data-source="English/part_3_integration_advanced/session_09_error_handling.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 3 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-types-of-errors">Read one theory section</a><span class="path-target">1. Types of errors</span></li><li><a href="#exercise-1-form-with-error-handling">Build the first exercise yourself</a><span class="path-target">Exercise 1: Form with Error Handling</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>In this session, we will learn how to handle errors professionally in PHP: error types, <code>try-catch</code>, custom exceptions, and debugging techniques.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 9 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Handle errors and exceptions</li><li>Use try-catch blocks</li><li>Debug PHP code</li><li>Create custom error handlers</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO6</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li>Handle <strong>errors and exceptions</strong> in PHP</li>
+<li>Use <strong>try-catch</strong> blocks</li>
+<li>Create <strong>custom exceptions</strong></li>
+<li>Create <strong>custom error/exception handlers</strong></li>
+<li><strong>Debug</strong> PHP code effectively and log errors</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-types-of-errors"><span class="h-num">1</span>Types of errors<a class="anchor" href="#1-types-of-errors" aria-label="Link to 1. Types of errors">#</a></h2>
+<h3 id="11-error-types-in-php"><span class="h-num">1.1</span>Error Types in PHP<a class="anchor" href="#11-error-types-in-php" aria-label="Link to 1.1 Error Types in PHP">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><strong>Parse Error</strong></td><td>Syntax error</td><td>Missing <code>;</code>, <code>}</code></td></tr><tr><td><strong>Fatal Error</strong></td><td>Serious error, script stops</td><td>Calling a non-existing function</td></tr><tr><td><strong>Warning</strong></td><td>Warning, script continues</td><td>Including a missing file</td></tr><tr><td><strong>Notice</strong></td><td>Notice, script continues</td><td>Using undefined variable</td></tr></tbody></table></div>
+<h3 id="12-error-reporting"><span class="h-num">1.2</span>Error Reporting<a class="anchor" href="#12-error-reporting" aria-label="Link to 1.2 Error Reporting">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="13"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Show all errors (development)</span>
+<span class="t-fn">error_reporting</span>(<span class="t-const">E_ALL</span>);
+<span class="t-fn">ini_set</span>(<span class="t-str">&#39;display_errors&#39;</span>, <span class="t-num">1</span>);
+
+<span class="t-com">// Hide errors (production)</span>
+<span class="t-fn">error_reporting</span>(<span class="t-num">0</span>);
+<span class="t-fn">ini_set</span>(<span class="t-str">&#39;display_errors&#39;</span>, <span class="t-num">0</span>);
+
+<span class="t-com">// Log errors to a file</span>
+<span class="t-fn">ini_set</span>(<span class="t-str">&#39;log_errors&#39;</span>, <span class="t-num">1</span>);
+<span class="t-fn">ini_set</span>(<span class="t-str">&#39;error_log&#39;</span>, __DIR__ <span class="t-op">.</span> <span class="t-str">&#39;/error.log&#39;</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 id="2-try-catch"><span class="h-num">2</span>Try-catch<a class="anchor" href="#2-try-catch" aria-label="Link to 2. Try-catch">#</a></h2>
+<h3 id="21-basic-syntax"><span class="h-num">2.1</span>Basic Syntax<a class="anchor" href="#21-basic-syntax" aria-label="Link to 2.1 Basic Syntax">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="12"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">try</span> {
+    <span class="t-com">// Code that may throw an error/exception</span>
+    <span class="t-var">$result</span> <span class="t-op">=</span> <span class="t-num">10</span> <span class="t-op">/</span> <span class="t-num">0</span>;
+} <span class="t-kw">catch</span> (Exception <span class="t-var">$e</span>) {
+    <span class="t-com">// Handle error</span>
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Error: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>();
+} <span class="t-kw">finally</span> {
+    <span class="t-com">// Always executed</span>
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Done&quot;</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="22-throwing-exceptions"><span class="h-num">2.2</span>Throwing Exceptions<a class="anchor" href="#22-throwing-exceptions" aria-label="Link to 2.2 Throwing Exceptions">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="14"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">14 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">function</span> <span class="t-fn">divide</span>(<span class="t-var">$a</span>, <span class="t-var">$b</span>) {
+    <span class="t-kw">if</span> (<span class="t-var">$b</span> <span class="t-op">==</span> <span class="t-num">0</span>) {
+        <span class="t-kw">throw</span> <span class="t-kw">new</span> <span class="t-fn">Exception</span>(<span class="t-str">&quot;Cannot divide by zero&quot;</span>);
+    }
+    <span class="t-kw">return</span> <span class="t-var">$a</span> <span class="t-op">/</span> <span class="t-var">$b</span>;
+}
+
+<span class="t-kw">try</span> {
+    <span class="t-kw">echo</span> <span class="t-fn">divide</span>(<span class="t-num">10</span>, <span class="t-num">0</span>);
+} <span class="t-kw">catch</span> (Exception <span class="t-var">$e</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Error: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>();
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="23-custom-exception"><span class="h-num">2.3</span>Custom Exception<a class="anchor" href="#23-custom-exception" aria-label="Link to 2.3 Custom Exception">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="27"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">class</span> ValidationException <span class="t-kw">extends</span> Exception {
+    <span class="t-kw">private</span> <span class="t-kw">array</span> <span class="t-var">$errors</span> <span class="t-op">=</span> [];
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>(<span class="t-kw">array</span> <span class="t-var">$errors</span>) {
+        <span class="t-var">$this</span><span class="t-op">-&gt;</span>errors <span class="t-op">=</span> <span class="t-var">$errors</span>;
+        parent<span class="t-op">::</span><span class="t-fn">__construct</span>(<span class="t-str">&quot;Validation failed&quot;</span>);
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">getErrors</span>()<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-kw">return</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>errors;
+    }
+}
+
+<span class="t-com">// Usage</span>
+<span class="t-kw">try</span> {
+    <span class="t-var">$errors</span> <span class="t-op">=</span> [];
+    <span class="t-kw">if</span> (<span class="t-kw">empty</span>(<span class="t-var">$name</span>)) {
+        <span class="t-var">$errors</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">=</span> <span class="t-str">&quot;Name is required&quot;</span>;
+    }
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-kw">empty</span>(<span class="t-var">$errors</span>)) {
+        <span class="t-kw">throw</span> <span class="t-kw">new</span> <span class="t-fn">ValidationException</span>(<span class="t-var">$errors</span>);
+    }
+} <span class="t-kw">catch</span> (ValidationException <span class="t-var">$e</span>) {
+    <span class="t-var">$errors</span> <span class="t-op">=</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getErrors</span>();
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 id="3-custom-error-exception-handlers"><span class="h-num">3</span>Custom error &amp; exception handlers<a class="anchor" href="#3-custom-error-exception-handlers" aria-label="Link to 3. Custom error &amp; exception handlers">#</a></h2>
+<figure class="code-block is-code" data-language="php" data-lines="24"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">24 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Custom error handler</span>
+<span class="t-kw">function</span> <span class="t-fn">customErrorHandler</span>(<span class="t-var">$errno</span>, <span class="t-var">$errstr</span>, <span class="t-var">$errfile</span>, <span class="t-var">$errline</span>) {
+    <span class="t-var">$log</span> <span class="t-op">=</span> <span class="t-fn">date</span>(<span class="t-str">&#39;Y-m-d H:i:s&#39;</span>) <span class="t-op">.</span> <span class="t-str">&quot; - Error [$errno]: $errstr in $errfile on line $errline\n&quot;</span>;
+    <span class="t-fn">error_log</span>(<span class="t-var">$log</span>, <span class="t-num">3</span>, __DIR__ <span class="t-op">.</span> <span class="t-str">&#39;/errors.log&#39;</span>);
+    
+    <span class="t-kw">if</span> (<span class="t-var">$errno</span> <span class="t-op">===</span> <span class="t-const">E_USER_ERROR</span>) {
+        <span class="t-kw">echo</span> <span class="t-str">&quot;An error has occurred. Please try again later.&quot;</span>;
+        <span class="t-fn">exit</span>(<span class="t-num">1</span>);
+    }
+    
+    <span class="t-kw">return</span> <span class="t-lit">true</span>; <span class="t-com">// We handled the error</span>
+}
+
+<span class="t-fn">set_error_handler</span>(<span class="t-str">&quot;customErrorHandler&quot;</span>);
+
+<span class="t-com">// Custom exception handler</span>
+<span class="t-kw">function</span> <span class="t-fn">customExceptionHandler</span>(<span class="t-var">$exception</span>) {
+    <span class="t-fn">error_log</span>(<span class="t-var">$exception</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>());
+    <span class="t-kw">echo</span> <span class="t-str">&quot;An unexpected error occurred. Please contact the administrator.&quot;</span>;
+}
+
+<span class="t-fn">set_exception_handler</span>(<span class="t-str">&quot;customExceptionHandler&quot;</span>);
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 id="4-debugging-techniques"><span class="h-num">4</span>Debugging techniques<a class="anchor" href="#4-debugging-techniques" aria-label="Link to 4. Debugging techniques">#</a></h2>
+<h3 id="41-useful-debug-functions"><span class="h-num">4.1</span>Useful Debug Functions<a class="anchor" href="#41-useful-debug-functions" aria-label="Link to 4.1 Useful Debug Functions">#</a></h3>
+<figure class="code-block is-code" data-language="php" data-lines="19"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">19 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// Print variable</span>
+<span class="t-fn">var_dump</span>(<span class="t-var">$variable</span>);
+<span class="t-fn">print_r</span>(<span class="t-var">$array</span>);
+
+<span class="t-com">// Debug and stop</span>
+<span class="t-kw">function</span> <span class="t-fn">dd</span>(<span class="t-var">$var</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;pre&gt;&quot;</span>;
+    <span class="t-fn">var_dump</span>(<span class="t-var">$var</span>);
+    <span class="t-kw">echo</span> <span class="t-str">&quot;&lt;/pre&gt;&quot;</span>;
+    <span class="t-fn">die</span>();
+}
+
+<span class="t-com">// Backtrace</span>
+<span class="t-fn">debug_print_backtrace</span>();
+
+<span class="t-com">// Error log</span>
+<span class="t-fn">error_log</span>(<span class="t-str">&quot;Debug: &quot;</span> <span class="t-op">.</span> <span class="t-fn">print_r</span>(<span class="t-var">$data</span>, <span class="t-lit">true</span>));
+<span class="t-meta">?&gt;</span></code></pre></figure><h3 id="42-xdebug-optional"><span class="h-num">4.2</span>Xdebug (optional)<a class="anchor" href="#42-xdebug-optional" aria-label="Link to 4.2 Xdebug (optional)">#</a></h3>
+<figure class="code-block is-code" data-language="ini" data-lines="4"><figcaption><span class="code-language">Config</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">; php.ini</span>
+<span class="t-att">xdebug.mode</span><span class="t-op">=</span>debug
+<span class="t-att">xdebug.start_with_request</span><span class="t-op">=</span>yes
+<span class="t-att">xdebug.client_port</span><span class="t-op">=</span><span class="t-num">9003</span></code></pre></figure><p>With Xdebug and a modern IDE (VS Code, PHPStorm), you can set breakpoints, step through code, and inspect variables.</p>
+<h2 id="5-real-world-example-database-class-with-error-handling"><span class="h-num">5</span>Real-world example: Database class with error handling<a class="anchor" href="#5-real-world-example-database-class-with-error-handling" aria-label="Link to 5. Real-world example: Database class with error handling">#</a></h2>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="38"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">38 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-kw">class</span> Database {
+    <span class="t-kw">private</span> <span class="t-const">PDO</span> <span class="t-var">$pdo</span>;
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">__construct</span>() {
+        <span class="t-kw">try</span> {
+            <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(
+                <span class="t-str">&quot;mysql:host=localhost;dbname=test&quot;</span>,
+                <span class="t-str">&quot;root&quot;</span>,
+                <span class="t-str">&quot;&quot;</span>,
+                [<span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_ERRMODE</span> <span class="t-op">=&gt;</span> <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ERRMODE_EXCEPTION</span>]
+            );
+        } <span class="t-kw">catch</span> (PDOException <span class="t-var">$e</span>) {
+            <span class="t-fn">error_log</span>(<span class="t-str">&quot;Database connection failed: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>());
+            <span class="t-kw">throw</span> <span class="t-kw">new</span> <span class="t-fn">Exception</span>(<span class="t-str">&quot;Cannot connect to database&quot;</span>);
+        }
+    }
+    
+    <span class="t-kw">public</span> <span class="t-kw">function</span> <span class="t-fn">query</span>(<span class="t-type">string</span> <span class="t-var">$sql</span>, <span class="t-kw">array</span> <span class="t-var">$params</span> <span class="t-op">=</span> [])<span class="t-op">:</span> <span class="t-kw">array</span> {
+        <span class="t-kw">try</span> {
+            <span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$this</span><span class="t-op">-&gt;</span>pdo<span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-var">$sql</span>);
+            <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>(<span class="t-var">$params</span>);
+            <span class="t-kw">return</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">FETCH_ASSOC</span>);
+        } <span class="t-kw">catch</span> (PDOException <span class="t-var">$e</span>) {
+            <span class="t-fn">error_log</span>(<span class="t-str">&quot;Query failed: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>());
+            <span class="t-kw">throw</span> <span class="t-kw">new</span> <span class="t-fn">Exception</span>(<span class="t-str">&quot;Database query failed&quot;</span>);
+        }
+    }
+}
+
+<span class="t-com">// Usage</span>
+<span class="t-kw">try</span> {
+    <span class="t-var">$db</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">Database</span>();
+    <span class="t-var">$users</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-str">&quot;SELECT * FROM users WHERE id = ?&quot;</span>, [<span class="t-num">1</span>]);
+} <span class="t-kw">catch</span> (Exception <span class="t-var">$e</span>) {
+    <span class="t-kw">echo</span> <span class="t-str">&quot;Error: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>();
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-form-with-error-handling">Exercise 1: Form with Error Handling<a class="anchor" href="#exercise-1-form-with-error-handling" aria-label="Link to Exercise 1: Form with Error Handling">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create a registration form</li>
+<li>Validate input using <code>try-catch</code></li>
+<li>Show friendly validation messages</li>
+</ul>
+<h2 id="exercise-2-custom-exceptions">Exercise 2: Custom Exceptions<a class="anchor" href="#exercise-2-custom-exceptions" aria-label="Link to Exercise 2: Custom Exceptions">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Create <code>DatabaseException</code></li>
+<li>Create <code>ValidationException</code></li>
+<li>Use them inside controller/service code</li>
+</ul>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Understand different PHP error types</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can use <code>try-catch</code> correctly</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can create and use custom exceptions</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Can debug PHP applications effectively</span></li>
+</ul>
+<hr class="rule">
+<p><strong>Next: <a href="../ebook/10-php-with-mysql.html">Session 10 - PHP + MySQL →</a></strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="08-review-and-midterm.html"><span class="pager-label">Previous</span><span class="pager-title">Review and Midterm</span></a><a class="pager-link is-next" href="10-php-with-mysql.html"><span class="pager-label">Next</span><span class="pager-title">PHP with MySQL</span></a></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 15: jQuery and AJAX — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="DOM, events, AJAX">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="English/part_4_security_jquery/session_15_jquery_intro.md">
+<meta name="source-sha256" content="6f10b898b737159ec2aed20e8df4006dc8ab22cc4b4554497360f26c88b6f003">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../sessions/index.html">Sessions</a><a data-nav="ebook" href="../ebook/index.html">Ebook</a><a data-nav="slides" href="../slides/index.html">Slides</a><a data-nav="guides" href="../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>Ebook</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Chapter 15 · Ebook</p><h1>jQuery and AJAX</h1><p class="lead">DOM, events, AJAX</p><div class="head-meta"><span class="chip">Part 4 · Security and jQuery</span><span class="chip">jQuery</span><span class="chip">Events</span><span class="chip">AJAX</span></div><div class="head-actions"><a class="button-link primary" href="../slides/15-jquery-and-ajax.html">Open the slide deck</a><a class="button-link" href="../sessions/session-15.html">Session hub</a></div></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">30 sections</span></summary><ol><li class="depth-2"><a href="#session-information">📌 Session information</a></li><li class="depth-2"><a href="#learning-objectives">🎯 Learning objectives</a></li><li class="depth-1"><a href="#theory">Theory</a></li><li class="depth-2"><a href="#1-what-is-jquery">1. What is jQuery?</a></li><li class="depth-3"><a href="#11-installation">1.1 Installation</a></li><li class="depth-3"><a href="#12-document-ready">1.2 Document Ready</a></li><li class="depth-2"><a href="#2-selectors">2. Selectors</a></li><li class="depth-2"><a href="#3-dom-manipulation">3. DOM manipulation</a></li><li class="depth-3"><a href="#31-getset-content">3.1 Get/Set Content</a></li><li class="depth-3"><a href="#32-attributes">3.2 Attributes</a></li><li class="depth-3"><a href="#33-css">3.3 CSS</a></li><li class="depth-3"><a href="#34-addremove-elements">3.4 Add/Remove Elements</a></li><li class="depth-2"><a href="#4-events">4. Events</a></li><li class="depth-3"><a href="#41-common-events">4.1 Common Events</a></li><li class="depth-3"><a href="#42-event-delegation">4.2 Event Delegation</a></li><li class="depth-2"><a href="#5-effects">5. Effects</a></li><li class="depth-2"><a href="#6-ajax">6. AJAX</a></li><li class="depth-3"><a href="#61-ajax">6.1 $.ajax()</a></li><li class="depth-3"><a href="#62-get-and-post">6.2 $.get() and $.post()</a></li><li class="depth-3"><a href="#63-getjson">6.3 $.getJSON()</a></li><li class="depth-3"><a href="#64-ajax-with-form">6.4 AJAX with Form</a></li><li class="depth-2"><a href="#7-real-world-examples">7. Real-world examples</a></li><li class="depth-3"><a href="#71-live-search">7.1 Live Search</a></li><li class="depth-3"><a href="#72-ajax-crud">7.2 AJAX CRUD</a></li><li class="depth-3"><a href="#73-php-api-endpoint">7.3 PHP API Endpoint</a></li><li class="depth-1"><a href="#practice">Practice</a></li><li class="depth-2"><a href="#exercise-1-interactive-ui">Exercise 1: Interactive UI</a></li><li class="depth-2"><a href="#exercise-2-ajax-crud">Exercise 2: AJAX CRUD</a></li><li class="depth-1"><a href="#key-takeaways">✅ Key takeaways</a></li><li class="depth-2"><a href="#course-wrap-up">🎉 Course wrap-up</a></li></ol></details><article class="doc" data-source="English/part_4_security_jquery/session_15_jquery_intro.md"><aside class="callout is-goal minimum-path" aria-labelledby="minimum-path-h"><p class="callout-title" id="minimum-path-h">Minimum path</p><div class="callout-body"><p>Short on time, or stuck? These 3 steps are enough to keep up. Come back for the rest.</p><ol class="path-list"><li><a href="#1-what-is-jquery">Read one theory section</a><span class="path-target">1. What is jQuery?</span></li><li><a href="#exercise-1-interactive-ui">Build the first exercise yourself</a><span class="path-target">Exercise 1: Interactive UI</span></li><li><a href="#key-takeaways">Test yourself</a><span class="path-target">Key takeaways</span></li></ol></div></aside><p>In this final session, we will learn <strong>jQuery</strong> – a JavaScript library that makes DOM manipulation, event handling, and AJAX much easier.</p>
+<h2 id="session-information"><span class="h-icon" aria-hidden="true">📌</span>Session information<a class="anchor" href="#session-information" aria-label="Link to 📌 Session information">#</a></h2>
+
+<div class="brief" role="group" aria-label="Session at a glance"><div class="brief-item"><span class="brief-key">Duration</span><p class="brief-value">3 hours (Theory: 1.5 hours, Practice: 1.5 hours)</p></div><div class="brief-item"><span class="brief-key">Reference</span><p class="brief-value">Chapter 15 - PHP &amp; MySQL Web Development</p></div><div class="brief-item is-wide"><span class="brief-key">Objectives</span><ul><li>Understand jQuery basics</li><li>Manipulate DOM elements</li><li>Handle events</li><li>Make AJAX requests</li></ul></div><div class="brief-item"><span class="brief-key">Learning outcomes</span><p class="brief-value">LO8</p></div></div>
+<h2 id="learning-objectives"><span class="h-icon" aria-hidden="true">🎯</span>Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to 🎯 Learning objectives">#</a></h2>
+<p>After this session, you will be able to:</p>
+<ul><li>Understand <strong>jQuery basics</strong></li>
+<li><strong>Manipulate DOM elements</strong> with jQuery</li>
+<li><strong>Handle events</strong> (click, submit, etc.)</li>
+<li>Make <strong>AJAX requests</strong> to PHP backend</li>
+<li>Enhance web page interactivity</li>
+</ul>
+<h2 class="part-divider" id="theory"><span>Theory</span></h2>
+<h2 id="1-what-is-jquery"><span class="h-num">1</span>What is jQuery?<a class="anchor" href="#1-what-is-jquery" aria-label="Link to 1. What is jQuery?">#</a></h2>
+<p><strong>jQuery</strong> = A JavaScript library that simplifies DOM manipulation, event handling, and AJAX.</p>
+<h3 id="11-installation"><span class="h-num">1.1</span>Installation<a class="anchor" href="#11-installation" aria-label="Link to 1.1 Installation">#</a></h3>
+<figure class="code-block is-code" data-language="html" data-lines="5"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">&lt;!-- CDN --&gt;</span>
+<span class="t-tag">&lt;script</span> <span class="t-att">src</span>=<span class="t-str">&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;</span><span class="t-tag">&gt;</span><span class="t-embed"></span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span>
+
+<span class="t-com">&lt;!-- Local --&gt;</span>
+<span class="t-tag">&lt;script</span> <span class="t-att">src</span>=<span class="t-str">&quot;js/jquery.min.js&quot;</span><span class="t-tag">&gt;</span><span class="t-embed"></span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span></code></pre></figure><h3 id="12-document-ready"><span class="h-num">1.2</span>Document Ready<a class="anchor" href="#12-document-ready" aria-label="Link to 1.2 Document Ready">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="9"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Full syntax</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">ready</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// Code runs after DOM is loaded</span>
+});
+
+<span class="t-com">// Shorthand</span>
+<span class="t-fn">$</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// Code here</span>
+});</code></pre></figure><h2 id="2-selectors"><span class="h-num">2</span>Selectors<a class="anchor" href="#2-selectors" aria-label="Link to 2. Selectors">#</a></h2>
+<figure class="code-block is-code is-tall" data-language="javascript" data-lines="30"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">30 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// ID selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#myId&#39;</span>);
+
+<span class="t-com">// Class selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;.myClass&#39;</span>);
+
+<span class="t-com">// Element selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;div&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;p&#39;</span>);
+
+<span class="t-com">// Attribute selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input[type=&quot;text&quot;]&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;a[href^=&quot;https&quot;]&#39;</span>);
+
+<span class="t-com">// Multiple selectors</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;h1, h2, h3&#39;</span>);
+
+<span class="t-com">// Descendant selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;div p&#39;</span>);
+
+<span class="t-com">// Child selector</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;ul &gt; li&#39;</span>);
+
+<span class="t-com">// First, Last</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;li:first&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;li:last&#39;</span>);
+
+<span class="t-com">// Even, Odd</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;tr:even&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;tr:odd&#39;</span>);</code></pre></figure><h2 id="3-dom-manipulation"><span class="h-num">3</span>DOM manipulation<a class="anchor" href="#3-dom-manipulation" aria-label="Link to 3. DOM manipulation">#</a></h2>
+<h3 id="31-getset-content"><span class="h-num">3.1</span>Get/Set Content<a class="anchor" href="#31-getset-content" aria-label="Link to 3.1 Get/Set Content">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="17"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get text</span>
+<span class="t-kw">var</span> text <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">text</span>();
+
+<span class="t-com">// Set text</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;New text&#39;</span>);
+
+<span class="t-com">// Get HTML</span>
+<span class="t-kw">var</span> html <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>();
+
+<span class="t-com">// Set HTML</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>(<span class="t-str">&#39;&lt;strong&gt;Bold text&lt;/strong&gt;&#39;</span>);
+
+<span class="t-com">// Get value (input)</span>
+<span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#input&#39;</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+
+<span class="t-com">// Set value</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#input&#39;</span>)<span class="t-op">.</span><span class="t-fn">val</span>(<span class="t-str">&#39;New value&#39;</span>);</code></pre></figure><h3 id="32-attributes"><span class="h-num">3.2</span>Attributes<a class="anchor" href="#32-attributes" aria-label="Link to 3.2 Attributes">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="18"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get attribute</span>
+<span class="t-kw">var</span> href <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;href&#39;</span>);
+
+<span class="t-com">// Set attribute</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;href&#39;</span>, <span class="t-str">&#39;https://google.com&#39;</span>);
+
+<span class="t-com">// Remove attribute</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;a&#39;</span>)<span class="t-op">.</span><span class="t-fn">removeAttr</span>(<span class="t-str">&#39;target&#39;</span>);
+
+<span class="t-com">// Add/Remove/Toggle class</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">addClass</span>(<span class="t-str">&#39;active&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">removeClass</span>(<span class="t-str">&#39;active&#39;</span>);
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">toggleClass</span>(<span class="t-str">&#39;active&#39;</span>);
+
+<span class="t-com">// Check class</span>
+<span class="t-kw">if</span> (<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hasClass</span>(<span class="t-str">&#39;active&#39;</span>)) {
+    <span class="t-com">// ...</span>
+}</code></pre></figure><h3 id="33-css"><span class="h-num">3.3</span>CSS<a class="anchor" href="#33-css" aria-label="Link to 3.3 CSS">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="12"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">12 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Get CSS property</span>
+<span class="t-kw">var</span> color <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;color&#39;</span>);
+
+<span class="t-com">// Set CSS property</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;color&#39;</span>, <span class="t-str">&#39;red&#39;</span>);
+
+<span class="t-com">// Set multiple CSS properties</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">css</span>({
+    <span class="t-str">&#39;color&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;red&#39;</span>,
+    <span class="t-str">&#39;font-size&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;20px&#39;</span>,
+    <span class="t-str">&#39;background&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;#f0f0f0&#39;</span>
+});</code></pre></figure><h3 id="34-addremove-elements"><span class="h-num">3.4</span>Add/Remove Elements<a class="anchor" href="#34-addremove-elements" aria-label="Link to 3.4 Add/Remove Elements">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="17"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">17 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Append (add to end)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#list&#39;</span>)<span class="t-op">.</span><span class="t-fn">append</span>(<span class="t-str">&#39;&lt;li&gt;New item&lt;/li&gt;&#39;</span>);
+
+<span class="t-com">// Prepend (add to beginning)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#list&#39;</span>)<span class="t-op">.</span><span class="t-fn">prepend</span>(<span class="t-str">&#39;&lt;li&gt;First item&lt;/li&gt;&#39;</span>);
+
+<span class="t-com">// After (add after element)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">after</span>(<span class="t-str">&#39;&lt;p&gt;After text&lt;/p&gt;&#39;</span>);
+
+<span class="t-com">// Before (add before element)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">before</span>(<span class="t-str">&#39;&lt;p&gt;Before text&lt;/p&gt;&#39;</span>);
+
+<span class="t-com">// Remove</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">remove</span>();
+
+<span class="t-com">// Empty (remove content)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">empty</span>();</code></pre></figure><h2 id="4-events"><span class="h-num">4</span>Events<a class="anchor" href="#4-events" aria-label="Link to 4. Events">#</a></h2>
+<h3 id="41-common-events"><span class="h-num">4.1</span>Common Events<a class="anchor" href="#41-common-events" aria-label="Link to 4.1 Common Events">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="javascript" data-lines="51"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">51 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Click</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#button&#39;</span>)<span class="t-op">.</span><span class="t-fn">click</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">alert</span>(<span class="t-str">&#39;Clicked!&#39;</span>);
+});
+
+<span class="t-com">// Double click</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">dblclick</span>(<span class="t-kw">function</span>() {
+    <span class="t-com">// ...</span>
+});
+
+<span class="t-com">// Mouse events</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">mouseenter</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;background&#39;</span>, <span class="t-str">&#39;yellow&#39;</span>);
+});
+
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">mouseleave</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;background&#39;</span>, <span class="t-str">&#39;white&#39;</span>);
+});
+
+<span class="t-com">// Hover (mouseenter + mouseleave)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hover</span>(
+    <span class="t-kw">function</span>() { <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">addClass</span>(<span class="t-str">&#39;hover&#39;</span>); },
+    <span class="t-kw">function</span>() { <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">removeClass</span>(<span class="t-str">&#39;hover&#39;</span>); }
+);
+
+<span class="t-com">// Focus/Blur</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">focus</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;border-color&#39;</span>, <span class="t-str">&#39;blue&#39;</span>);
+});
+
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">blur</span>(<span class="t-kw">function</span>() {
+    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">css</span>(<span class="t-str">&#39;border-color&#39;</span>, <span class="t-str">&#39;gray&#39;</span>);
+});
+
+<span class="t-com">// Change (select, checkbox, radio)</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;select&#39;</span>)<span class="t-op">.</span><span class="t-fn">change</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(<span class="t-str">&#39;Selected: &#39;</span> <span class="t-op">+</span> value);
+});
+
+<span class="t-com">// Submit</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;form&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    <span class="t-com">// Handle form...</span>
+});
+
+<span class="t-com">// Keyup</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;input&#39;</span>)<span class="t-op">.</span><span class="t-fn">keyup</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> value <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(<span class="t-str">&#39;Typing: &#39;</span> <span class="t-op">+</span> value);
+});</code></pre></figure><h3 id="42-event-delegation"><span class="h-num">4.2</span>Event Delegation<a class="anchor" href="#42-event-delegation" aria-label="Link to 4.2 Event Delegation">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="4"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// For elements added dynamically</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">on</span>(<span class="t-str">&#39;click&#39;</span>, <span class="t-str">&#39;.dynamic-button&#39;</span>, <span class="t-kw">function</span>() {
+    <span class="t-fn">alert</span>(<span class="t-str">&#39;Dynamic button clicked!&#39;</span>);
+});</code></pre></figure><h2 id="5-effects"><span class="h-num">5</span>Effects<a class="anchor" href="#5-effects" aria-label="Link to 5. Effects">#</a></h2>
+<figure class="code-block is-code is-tall" data-language="javascript" data-lines="29"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">29 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Hide/Show</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">hide</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">show</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">toggle</span>();
+
+<span class="t-com">// Fade</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeIn</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeOut</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeToggle</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">fadeTo</span>(<span class="t-str">&#39;slow&#39;</span>, <span class="t-num">0.5</span>);
+
+<span class="t-com">// Slide</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideDown</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideUp</span>();
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">slideToggle</span>();
+
+<span class="t-com">// Animate</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)<span class="t-op">.</span><span class="t-fn">animate</span>({
+    <span class="t-str">&#39;width&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;300px&#39;</span>,
+    <span class="t-str">&#39;height&#39;</span><span class="t-op">:</span> <span class="t-str">&#39;200px&#39;</span>,
+    <span class="t-str">&#39;opacity&#39;</span><span class="t-op">:</span> <span class="t-num">0.5</span>
+}, <span class="t-num">1000</span>);
+
+<span class="t-com">// Chain animations</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#element&#39;</span>)
+    <span class="t-op">.</span><span class="t-fn">fadeOut</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">fadeIn</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">slideUp</span>(<span class="t-num">500</span>)
+    <span class="t-op">.</span><span class="t-fn">slideDown</span>(<span class="t-num">500</span>);</code></pre></figure><h2 id="6-ajax"><span class="h-num">6</span>AJAX<a class="anchor" href="#6-ajax" aria-label="Link to 6. AJAX">#</a></h2>
+<h3 id="61-ajax">6.1 <code>$.ajax()</code><a class="anchor" href="#61-ajax" aria-label="Link to 6.1 $.ajax()">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="11"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">11 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$.ajax</span>({
+    url<span class="t-op">:</span> <span class="t-str">&#39;api/users.php&#39;</span>,
+    method<span class="t-op">:</span> <span class="t-str">&#39;GET&#39;</span>,
+    dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+    success<span class="t-op">:</span> <span class="t-kw">function</span>(data) {
+        <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+    },
+    error<span class="t-op">:</span> <span class="t-kw">function</span>(xhr, status, error) {
+        <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">error</span>(<span class="t-str">&#39;Error:&#39;</span>, error);
+    }
+});</code></pre></figure><h3 id="62-get-and-post">6.2 <code>$.get()</code> and <code>$.post()</code><a class="anchor" href="#62-get-and-post" aria-label="Link to 6.2 $.get() and $.post()">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="9"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">9 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// GET request</span>
+<span class="t-fn">$.get</span>(<span class="t-str">&#39;api/users.php&#39;</span>, { id<span class="t-op">:</span> <span class="t-num">1</span> }, <span class="t-kw">function</span>(data) {
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+});
+
+<span class="t-com">// POST request</span>
+<span class="t-fn">$.post</span>(<span class="t-str">&#39;api/users.php&#39;</span>, { name<span class="t-op">:</span> <span class="t-str">&#39;John&#39;</span>, email<span class="t-op">:</span> <span class="t-str">&#39;john@example.com&#39;</span> }, <span class="t-kw">function</span>(data) {
+    <span class="t-const">console</span><span class="t-op">.</span><span class="t-fn">log</span>(data);
+});</code></pre></figure><h3 id="63-getjson">6.3 <code>$.getJSON()</code><a class="anchor" href="#63-getjson" aria-label="Link to 6.3 $.getJSON()">#</a></h3>
+<figure class="code-block is-code" data-language="javascript" data-lines="5"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$.getJSON</span>(<span class="t-str">&#39;api/products.php&#39;</span>, <span class="t-kw">function</span>(data) {
+    <span class="t-fn">$.each</span>(data, <span class="t-kw">function</span>(index, product) {
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#products&#39;</span>)<span class="t-op">.</span><span class="t-fn">append</span>(<span class="t-str">&#39;&lt;li&gt;&#39;</span> <span class="t-op">+</span> product<span class="t-op">.</span>name <span class="t-op">+</span> <span class="t-str">&#39;&lt;/li&gt;&#39;</span>);
+    });
+});</code></pre></figure><h3 id="64-ajax-with-form"><span class="h-num">6.4</span>AJAX with Form<a class="anchor" href="#64-ajax-with-form" aria-label="Link to 6.4 AJAX with Form">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="javascript" data-lines="27"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">27 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$</span>(<span class="t-str">&#39;#myForm&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    
+    <span class="t-fn">$.ajax</span>({
+        url<span class="t-op">:</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;action&#39;</span>),
+        method<span class="t-op">:</span> <span class="t-str">&#39;POST&#39;</span>,
+        data<span class="t-op">:</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">serialize</span>(),
+        dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+        beforeSend<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">$</span>(<span class="t-str">&#39;#submit-btn&#39;</span>)<span class="t-op">.</span><span class="t-fn">prop</span>(<span class="t-str">&#39;disabled&#39;</span>, <span class="t-lit">true</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;Loading...&#39;</span>);
+        },
+        success<span class="t-op">:</span> <span class="t-kw">function</span>(response) {
+            <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+                <span class="t-fn">alert</span>(<span class="t-str">&#39;Success!&#39;</span>);
+                <span class="t-fn">$</span>(<span class="t-str">&#39;#myForm&#39;</span>)[<span class="t-num">0</span>]<span class="t-op">.</span><span class="t-fn">reset</span>();
+            } <span class="t-kw">else</span> {
+                <span class="t-fn">alert</span>(<span class="t-str">&#39;Error: &#39;</span> <span class="t-op">+</span> response<span class="t-op">.</span>message);
+            }
+        },
+        error<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">alert</span>(<span class="t-str">&#39;Request failed&#39;</span>);
+        },
+        complete<span class="t-op">:</span> <span class="t-kw">function</span>() {
+            <span class="t-fn">$</span>(<span class="t-str">&#39;#submit-btn&#39;</span>)<span class="t-op">.</span><span class="t-fn">prop</span>(<span class="t-str">&#39;disabled&#39;</span>, <span class="t-lit">false</span>)<span class="t-op">.</span><span class="t-fn">text</span>(<span class="t-str">&#39;Submit&#39;</span>);
+        }
+    });
+});</code></pre></figure><h2 id="7-real-world-examples"><span class="h-num">7</span>Real-world examples<a class="anchor" href="#7-real-world-examples" aria-label="Link to 7. Real-world examples">#</a></h2>
+<h3 id="71-live-search"><span class="h-num">7.1</span>Live Search<a class="anchor" href="#71-live-search" aria-label="Link to 7.1 Live Search">#</a></h3>
+<figure class="code-block is-code" data-language="html" data-lines="21"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">21 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;text&quot;</span> <span class="t-att">id</span>=<span class="t-str">&quot;search&quot;</span> <span class="t-att">placeholder</span>=<span class="t-str">&quot;Search products...&quot;</span><span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;div</span> <span class="t-att">id</span>=<span class="t-str">&quot;results&quot;</span><span class="t-tag">&gt;</span><span class="t-tag">&lt;/div</span><span class="t-tag">&gt;</span>
+
+<span class="t-tag">&lt;script</span><span class="t-tag">&gt;</span><span class="t-embed">
+<span class="t-fn">$</span>(<span class="t-str">&#39;#search&#39;</span>)<span class="t-op">.</span><span class="t-fn">keyup</span>(<span class="t-kw">function</span>() {
+    <span class="t-kw">var</span> query <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">val</span>();
+    
+    <span class="t-kw">if</span> (query<span class="t-op">.</span>length <span class="t-op">&lt;</span> <span class="t-num">2</span>) {
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#results&#39;</span>)<span class="t-op">.</span><span class="t-fn">empty</span>();
+        <span class="t-kw">return</span>;
+    }
+    
+    <span class="t-fn">$.get</span>(<span class="t-str">&#39;api/search.php&#39;</span>, { q<span class="t-op">:</span> query }, <span class="t-kw">function</span>(data) {
+        <span class="t-kw">var</span> html <span class="t-op">=</span> <span class="t-str">&#39;&#39;</span>;
+        <span class="t-fn">$.each</span>(data, <span class="t-kw">function</span>(i, item) {
+            html <span class="t-op">+=</span> <span class="t-str">&#39;&lt;div class=&quot;result-item&quot;&gt;&#39;</span> <span class="t-op">+</span> item<span class="t-op">.</span>name <span class="t-op">+</span> <span class="t-str">&#39;&lt;/div&gt;&#39;</span>;
+        });
+        <span class="t-fn">$</span>(<span class="t-str">&#39;#results&#39;</span>)<span class="t-op">.</span><span class="t-fn">html</span>(html);
+    }, <span class="t-str">&#39;json&#39;</span>);
+});
+</span><span class="t-tag">&lt;/script</span><span class="t-tag">&gt;</span></code></pre></figure><h3 id="72-ajax-crud"><span class="h-num">7.2</span>AJAX CRUD<a class="anchor" href="#72-ajax-crud" aria-label="Link to 7.2 AJAX CRUD">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="javascript" data-lines="28"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">28 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// Create</span>
+<span class="t-fn">$</span>(<span class="t-str">&#39;#createForm&#39;</span>)<span class="t-op">.</span><span class="t-fn">submit</span>(<span class="t-kw">function</span>(e) {
+    e<span class="t-op">.</span><span class="t-fn">preventDefault</span>();
+    <span class="t-fn">$.post</span>(<span class="t-str">&#39;api/products.php&#39;</span>, <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">serialize</span>(), <span class="t-kw">function</span>(response) {
+        <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+            location<span class="t-op">.</span><span class="t-fn">reload</span>();
+        }
+    }, <span class="t-str">&#39;json&#39;</span>);
+});
+
+<span class="t-com">// Delete</span>
+<span class="t-fn">$</span>(<span class="t-const">document</span>)<span class="t-op">.</span><span class="t-fn">on</span>(<span class="t-str">&#39;click&#39;</span>, <span class="t-str">&#39;.delete-btn&#39;</span>, <span class="t-kw">function</span>() {
+    <span class="t-kw">if</span> (<span class="t-op">!</span><span class="t-fn">confirm</span>(<span class="t-str">&#39;Delete this item?&#39;</span>)) <span class="t-kw">return</span>;
+    
+    <span class="t-kw">var</span> id <span class="t-op">=</span> <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">data</span>(<span class="t-str">&#39;id&#39;</span>);
+    <span class="t-fn">$.ajax</span>({
+        url<span class="t-op">:</span> <span class="t-str">&#39;api/products.php?id=&#39;</span> <span class="t-op">+</span> id,
+        method<span class="t-op">:</span> <span class="t-str">&#39;DELETE&#39;</span>,
+        dataType<span class="t-op">:</span> <span class="t-str">&#39;json&#39;</span>,
+        success<span class="t-op">:</span> <span class="t-kw">function</span>(response) {
+            <span class="t-kw">if</span> (response<span class="t-op">.</span>success) {
+                <span class="t-fn">$</span>(<span class="t-str">&#39;#product-&#39;</span> <span class="t-op">+</span> id)<span class="t-op">.</span><span class="t-fn">fadeOut</span>(<span class="t-kw">function</span>() {
+                    <span class="t-fn">$</span>(<span class="t-kw">this</span>)<span class="t-op">.</span><span class="t-fn">remove</span>();
+                });
+            }
+        }
+    });
+});</code></pre></figure><h3 id="73-php-api-endpoint"><span class="h-num">7.3</span>PHP API Endpoint<a class="anchor" href="#73-php-api-endpoint" aria-label="Link to 7.3 PHP API Endpoint">#</a></h3>
+<figure class="code-block is-code is-tall" data-language="php" data-lines="35"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">35 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-com">// api/products.php</span>
+<span class="t-fn">header</span>(<span class="t-str">&#39;Content-Type: application/json&#39;</span>);
+
+<span class="t-kw">require_once</span> <span class="t-str">&#39;../classes/Database.php&#39;</span>;
+<span class="t-var">$db</span> <span class="t-op">=</span> Database<span class="t-op">::</span><span class="t-fn">getInstance</span>();
+
+<span class="t-var">$method</span> <span class="t-op">=</span> <span class="t-var">$_SERVER</span>[<span class="t-str">&#39;REQUEST_METHOD&#39;</span>];
+
+<span class="t-kw">switch</span> (<span class="t-var">$method</span>) {
+    <span class="t-kw">case</span> <span class="t-str">&#39;GET&#39;</span><span class="t-op">:</span>
+        <span class="t-kw">if</span> (<span class="t-kw">isset</span>(<span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>])) {
+            <span class="t-var">$product</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetch</span>(<span class="t-str">&quot;SELECT * FROM products WHERE id = ?&quot;</span>, [<span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>]]);
+            <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>(<span class="t-var">$product</span>);
+        } <span class="t-kw">else</span> {
+            <span class="t-var">$products</span> <span class="t-op">=</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>(<span class="t-str">&quot;SELECT * FROM products&quot;</span>);
+            <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>(<span class="t-var">$products</span>);
+        }
+        <span class="t-kw">break</span>;
+        
+    <span class="t-kw">case</span> <span class="t-str">&#39;POST&#39;</span><span class="t-op">:</span>
+        <span class="t-var">$name</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;name&#39;</span>] <span class="t-op">??</span> <span class="t-str">&#39;&#39;</span>;
+        <span class="t-var">$price</span> <span class="t-op">=</span> <span class="t-var">$_POST</span>[<span class="t-str">&#39;price&#39;</span>] <span class="t-op">??</span> <span class="t-num">0</span>;
+        
+        <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-str">&quot;INSERT INTO products (name, price) VALUES (?, ?)&quot;</span>, [<span class="t-var">$name</span>, <span class="t-var">$price</span>]);
+        <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>([<span class="t-str">&#39;success&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>, <span class="t-str">&#39;id&#39;</span> <span class="t-op">=&gt;</span> <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">lastInsertId</span>()]);
+        <span class="t-kw">break</span>;
+        
+    <span class="t-kw">case</span> <span class="t-str">&#39;DELETE&#39;</span><span class="t-op">:</span>
+        <span class="t-var">$id</span> <span class="t-op">=</span> <span class="t-var">$_GET</span>[<span class="t-str">&#39;id&#39;</span>] <span class="t-op">??</span> <span class="t-num">0</span>;
+        <span class="t-var">$db</span><span class="t-op">-&gt;</span><span class="t-fn">query</span>(<span class="t-str">&quot;DELETE FROM products WHERE id = ?&quot;</span>, [<span class="t-var">$id</span>]);
+        <span class="t-kw">echo</span> <span class="t-fn">json_encode</span>([<span class="t-str">&#39;success&#39;</span> <span class="t-op">=&gt;</span> <span class="t-lit">true</span>]);
+        <span class="t-kw">break</span>;
+}
+<span class="t-meta">?&gt;</span></code></pre></figure><h2 class="part-divider" id="practice"><span>Practice</span></h2>
+<h2 id="exercise-1-interactive-ui">Exercise 1: Interactive UI<a class="anchor" href="#exercise-1-interactive-ui" aria-label="Link to Exercise 1: Interactive UI">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Accordion menu</li>
+<li>Tab navigation</li>
+<li>Modal popup using jQuery</li>
+</ul>
+<h2 id="exercise-2-ajax-crud">Exercise 2: AJAX CRUD<a class="anchor" href="#exercise-2-ajax-crud" aria-label="Link to Exercise 2: AJAX CRUD">#</a></h2>
+<p class="note-line is-note"><span class="note-icon" aria-hidden="true">📝</span><span class="note-copy"><strong>Requirements:</strong></span></p>
+<ul><li>Load products with AJAX</li>
+<li>Add product without reloading page</li>
+<li>Delete product with confirmation</li>
+<li>Implement live search</li>
+</ul>
+<h2 id="key-takeaways"><span class="h-icon" aria-hidden="true">✅</span>Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to ✅ Key takeaways">#</a></h2>
+<ul class="task-list"><li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Use jQuery selectors effectively</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Manipulate DOM elements</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Handle user events</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-copy"><span class="visually-hidden">To do: </span>Perform AJAX requests with jQuery</span></li>
+</ul>
+<h2 id="course-wrap-up"><span class="h-icon" aria-hidden="true">🎉</span>Course wrap-up<a class="anchor" href="#course-wrap-up" aria-label="Link to 🎉 Course wrap-up">#</a></h2>
+<p>Congratulations on completing the course <strong>INS3064 – Multimedia Design &amp; Web Development</strong>!</p>
+<p>You have learned:</p>
+<ul><li>✅ PHP from basic to advanced  </li>
+<li>✅ MySQL and SQL  </li>
+<li>✅ Connecting PHP with MySQL  </li>
+<li>✅ Building CRUD applications  </li>
+<li>✅ Authentication systems with sessions  </li>
+<li>✅ Securing web applications  </li>
+<li>✅ jQuery and AJAX for interactivity</li>
+</ul>
+<p>Next steps:</p>
+<ul><li>Learn a PHP framework (Laravel, CodeIgniter)</li>
+<li>Learn modern JavaScript (React, Vue)</li>
+<li>Explore APIs (RESTful, GraphQL)</li>
+<li>Practice DevOps basics (Docker, CI/CD)</li>
+</ul>
+<p><strong>Good luck on your journey to become a Web Developer! 🚀</strong></p>
+</article></div><nav class="pager" aria-label="Adjacent chapters"><a class="pager-link is-prev" href="14-security-methods.html"><span class="pager-label">Previous</span><span class="pager-title">Security Methods</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../assets/site.js" defer></script>
+</body></html>
