@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 12: Web Application Development — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Product management system — categories, products, uploads, pagination.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-12/homework.md">
+<meta name="source-sha256" content="5abf3a2da8e1c7ca756d027861a17cea30cf4d241fc0fecf2f6f93a2eadf04e4">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 12</p><h1>Homework 12</h1><p class="lead">Product management system — categories, products, uploads, pagination.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">11 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-3"><a href="#database-schema">Database Schema</a></li><li class="depth-3"><a href="#folder-structure">Folder Structure</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-12/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>homework-12.zip</code> containing <code>product_app/</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>product_app/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/product_app/</code></li>
+<li>Compress the folder into <code>homework-12.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice narrates the demo (not just silent screen capture) · image upload and pagination are visible on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Build a complete <strong>Product Management System</strong> — a full-featured mini web application with categories and products. This assignment brings together everything learned so far: database design with foreign keys, full CRUD operations, file uploads, pagination, search/filter, form validation, and responsive styling. You will build a real application from scratch (or on top of your Homework 11 MVC structure).</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>Categories Management</strong></p>
+<ul><li>Full CRUD: list all categories, add new category, edit category, delete category.</li>
+<li>Each category has: <code>id</code>, <code>name</code>, <code>description</code>, <code>created_at</code>.</li>
+</ul>
+</li>
+<li><p><strong>Products Management</strong></p>
+<ul><li>Full CRUD: list all products, add new product, edit product, delete product.</li>
+<li>Each product has: <code>id</code>, <code>name</code>, <code>description</code>, <code>price</code>, <code>category_id</code> (foreign key), <code>image</code>, <code>created_at</code>, <code>updated_at</code>.</li>
+<li><strong>Category dropdown</strong> on the product form — select from existing categories.</li>
+<li>When a category is deleted, handle the foreign key constraint (either prevent deletion if products exist, or set <code>category_id</code> to NULL).</li>
+</ul>
+</li>
+<li><p><strong>Image Upload</strong></p>
+<ul><li>Allow uploading a product image (JPEG, PNG, GIF, max 2 MB).</li>
+<li>Validate file type using both MIME type and file extension.</li>
+<li>Store uploaded images in a dedicated <code>uploads/</code> directory.</li>
+<li>Display product images in the product list and detail views.</li>
+<li>When editing a product, optionally replace the existing image.</li>
+</ul>
+</li>
+<li><p><strong>Pagination</strong></p>
+<ul><li>Product list must be paginated (10 products per page).</li>
+<li>Display page navigation (Previous / page numbers / Next).</li>
+</ul>
+</li>
+<li><p><strong>Search and Filters</strong></p>
+<ul><li>Search products by name (partial match with <code>LIKE</code>).</li>
+<li>Filter products by category (dropdown).</li>
+<li>Combine search and filter together.</li>
+<li>Preserve search/filter values in the form after submission.</li>
+</ul>
+</li>
+<li><p><strong>User Feedback</strong></p>
+<ul><li>Display success messages after create/update/delete operations (e.g., &quot;Product created successfully&quot;).</li>
+<li>Display validation error messages when form input is invalid.</li>
+<li>Use the <strong>POST-Redirect-GET</strong> pattern to prevent form resubmission on refresh.</li>
+</ul>
+</li>
+<li><p><strong>Responsive Design</strong></p>
+<ul><li>Use CSS (or Bootstrap) to make the application look reasonable on both desktop and mobile screens.</li>
+<li>Product list should adapt layout for smaller viewports.</li>
+</ul>
+</li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Use the <strong>MVC structure</strong> from Homework 11 (or build one if you didn&#39;t complete it).</li>
+<li>All database queries must use <strong>prepared statements</strong>.</li>
+<li>All user output must be escaped with <code>htmlspecialchars()</code>.</li>
+<li>Use <code>password_hash</code> / <code>password_verify</code> if you include any user feature (optional for this homework; required in Homework 13).</li>
+<li>Store database configuration in a separate <code>config/</code> file.</li>
+</ul>
+<h3 id="database-schema">Database Schema<a class="anchor" href="#database-schema" aria-label="Link to Database Schema">#</a></h3>
+<figure class="code-block is-code" data-language="sql" data-lines="18"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">18 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> categories (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span>
+
+<span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> products (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name <span class="t-type">VARCHAR</span>(<span class="t-num">200</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    description <span class="t-type">TEXT</span><span class="t-op">,</span>
+    price <span class="t-type">DECIMAL</span>(<span class="t-num">10</span><span class="t-op">,</span> <span class="t-num">2</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    category_id <span class="t-type">INT</span><span class="t-op">,</span>
+    image <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>)<span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    updated_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span> <span class="t-kw">ON</span> <span class="t-kw">UPDATE</span> <span class="t-lit">CURRENT_TIMESTAMP</span><span class="t-op">,</span>
+    <span class="t-kw">FOREIGN</span> <span class="t-kw">KEY</span> (category_id) <span class="t-kw">REFERENCES</span> categories(id) <span class="t-kw">ON</span> <span class="t-kw">DELETE</span> <span class="t-kw">SET</span> <span class="t-kw">NULL</span>
+)<span class="t-op">;</span></code></pre></figure><h3 id="folder-structure">Folder Structure<a class="anchor" href="#folder-structure" aria-label="Link to Folder Structure">#</a></h3>
+<figure class="code-block is-plain is-tall" data-language="diagram" data-lines="30"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">30 lines</span></span></figcaption><pre tabindex="0"><code>product_app/
+├── public/
+│   ├── index.php
+│   ├── css/
+│   │   └── style.css
+│   └── uploads/
+│       └── .gitkeep
+├── app/
+│   ├── core/
+│   ├── controllers/
+│   │   ├── CategoryController.php
+│   │   └── ProductController.php
+│   ├── models/
+│   │   ├── CategoryModel.php
+│   │   └── ProductModel.php
+│   └── views/
+│       ├── layout.php
+│       ├── categories/
+│       │   ├── index.php
+│       │   ├── create.php
+│       │   └── edit.php
+│       └── products/
+│           ├── index.php
+│           ├── create.php
+│           └── edit.php
+├── config/
+│   └── database.php
+├── sql/
+│   └── schema.sql
+└── README.md</code></pre></figure><h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>public/index.php</code></td><td>Front controller with routing for categories and products</td></tr><tr><td><code>app/controllers/CategoryController.php</code></td><td>CRUD controller for categories</td></tr><tr><td><code>app/controllers/ProductController.php</code></td><td>CRUD controller for products (including image upload)</td></tr><tr><td><code>app/models/CategoryModel.php</code></td><td>Database operations for categories</td></tr><tr><td><code>app/models/ProductModel.php</code></td><td>Database operations for products (with pagination, search, filter)</td></tr><tr><td><code>app/views/categories/*.php</code></td><td>Category view templates</td></tr><tr><td><code>app/views/products/*.php</code></td><td>Product view templates (with category dropdown, image display, pagination)</td></tr><tr><td><code>app/views/layout.php</code></td><td>Shared responsive layout</td></tr><tr><td><code>public/css/style.css</code></td><td>Application styles (responsive)</td></tr><tr><td><code>config/database.php</code></td><td>Database configuration</td></tr><tr><td><code>sql/schema.sql</code></td><td>SQL file to create the database tables (with sample data)</td></tr><tr><td><code>README.md</code></td><td>Setup instructions</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>CRUD Completeness</td><td>30</td><td>Full Create, Read, Update, Delete for both categories and products; foreign key relationship works; category dropdown populated correctly</td></tr><tr><td>File Upload</td><td>20</td><td>Image upload with proper validation (type, size); images stored and displayed; edit allows image replacement</td></tr><tr><td>Search &amp; Filter</td><td>15</td><td>Search by name works; filter by category works; combined search + filter; form values preserved after search</td></tr><tr><td>Security</td><td>15</td><td>Prepared statements on all queries; <code>htmlspecialchars()</code> on all output; file upload validation prevents malicious files</td></tr><tr><td>Pagination</td><td>10</td><td>Products paginated with correct page count; navigation works; current page highlighted; search/filter preserved across pages</td></tr><tr><td>UI/UX</td><td>10</td><td>Responsive layout; clear success/error messages; POST-Redirect-GET pattern; clean and usable interface</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><strong>Start with the database schema</strong> — run <code>schema.sql</code> and insert a few sample categories before building the application.</li>
+<li><strong>Build categories first</strong> since they are simpler and products depend on them.</li>
+<li><strong>Image upload is the trickiest part</strong> — test it independently before integrating it into the product form. Use <code>$_FILES</code>, <code>move_uploaded_file()</code>, and validate carefully.</li>
+<li><strong>For pagination</strong>, use <code>SELECT COUNT(*)</code> to get total records, then calculate total pages: <code>ceil($total / $perPage)</code>. Use <code>LIMIT</code> and <code>OFFSET</code> in your query.</li>
+<li><strong>POST-Redirect-GET</strong>: after a successful POST (create/update/delete), use <code>header(&#39;Location: ...&#39;)</code> and <code>exit()</code> to redirect. Store the success message in <code>$_SESSION</code> and display it on the redirected page.</li>
+<li><strong>Bootstrap</strong> can save significant time on responsive design — use the CDN version (<code>&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot;&gt;</code>).</li>
+<li><strong>Test edge cases</strong>: delete a category that has products, search with no results, upload a file that is too large, submit a form with missing required fields.</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your Product Management System open in the browser.</li>
+<li>Adding one product with an image upload live, then seeing it (with the image) in the list.</li>
+<li>Pagination working — move to another page of the product list.</li>
+<li>One filter or search applied live, with the list updating.</li>
+<li>Deleting that product and explaining how the foreign key handling keeps the data consistent.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-12.html"><span class="pager-label">Session hub</span><span class="pager-title">Web Application Development</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

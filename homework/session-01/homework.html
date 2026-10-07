@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 1: Introduction to PHP — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Portfolio page — personal info rendered with PHP variables and a dynamic timestamp.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-01/homework.md">
+<meta name="source-sha256" content="7a56799515054f590070a952dbcb00bbb0b772df1f2714c47b41a582f056f2a5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 01</p><h1>Homework 1</h1><p class="lead">Portfolio page — personal info rendered with PHP variables and a dynamic timestamp.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#resources">Resources</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-01/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>portfolio.php</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your file as <code>portfolio.php</code></li>
+<li>Test it in browser via <code>http://localhost/INS3064/session01/portfolio.php</code></li>
+<li>Compress the file into a <code>.zip</code> named <code>homework01.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice narrates the demo (not just silent screen capture) · the demo runs from <code>http://localhost/...</code> without errors · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>In this assignment you will create a <strong>personal portfolio page</strong> using PHP embedded in HTML. This is your first hands-on exercise with PHP — you will practice embedding PHP code inside HTML, using variables, the <code>echo</code> construct, and the built-in <code>date()</code> function. The result should be a single, self-contained PHP page that introduces who you are to the world.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ul><li>Display your <strong>personal information</strong>: full name, student ID, a short bio (2–3 sentences), and a profile photo placeholder.</li>
+<li>Display your <strong>education history</strong> (at least 2 entries — e.g., high school, university).</li>
+<li>Display a list of <strong>technical skills</strong> (at least 4) with a simple self-assessed proficiency level (e.g., Beginner / Intermediate / Advanced).</li>
+<li>Display your <strong>hobbies / interests</strong> (at least 3).</li>
+<li>Include a <strong>&quot;Last updated&quot;</strong> timestamp at the bottom of the page generated dynamically using PHP&#39;s <code>date()</code> function (format: <code>d M Y, H:i</code>).</li>
+<li>Use <strong>PHP variables</strong> to store all personal data and <strong><code>echo</code></strong> (or <code>&lt;?= ?&gt;</code> shorthand) to output them into the HTML.</li>
+</ul>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Deliver a <strong>single file</strong> named <code>portfolio.php</code>.</li>
+<li>The page must be valid HTML5 with a proper <code>&lt;!DOCTYPE html&gt;</code> declaration.</li>
+<li>Include <strong>inline or embedded CSS</strong> (inside a <code>&lt;style&gt;</code> block) to style the page — at minimum: a readable font, colored headings, card-style sections, and a consistent color scheme.</li>
+<li>Use <strong>PHP string concatenation</strong> or <strong>variable interpolation</strong> in at least two places.</li>
+<li>The page must render correctly when served by a local PHP server (e.g., <code>php -S localhost:8000</code>).</li>
+<li>No external CSS frameworks (Bootstrap, Tailwind, etc.) — write your own CSS.</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>portfolio.php</code></td><td>Single PHP file containing HTML structure, embedded PHP for dynamic content, and embedded CSS styling.</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td><strong>Functionality</strong></td><td>40%</td><td>All required sections are present, PHP variables are used for data, <code>date()</code> outputs a dynamic timestamp, and the page renders without errors.</td></tr><tr><td><strong>Code Quality</strong></td><td>30%</td><td>Clean, well-indented code; meaningful variable names; proper PHP opening/closing tags; comments explaining major sections.</td></tr><tr><td><strong>Design &amp; Styling</strong></td><td>15%</td><td>Visually appealing layout with consistent colors, readable typography, and well-spaced card sections.</td></tr><tr><td><strong>Creativity</strong></td><td>15%</td><td>Personal touches such as custom color themes, icons (using emoji or Unicode), a creative layout, or additional sections beyond the minimum.</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li>Start by writing the HTML skeleton first, then add PHP variables one section at a time.</li>
+<li>Use <code>&lt;?php echo $variable; ?&gt;</code> or the shorthand <code>&lt;?= $variable ?&gt;</code> to output PHP values inside HTML.</li>
+<li>Test frequently: run <code>php -S localhost:8000</code> in your project folder and view the page in a browser.</li>
+<li>Keep all data in PHP variables at the top of the file — this makes the code easier to read and modify.</li>
+<li>Example of <code>date()</code> usage:<figure class="code-block is-code" data-language="php" data-lines="1"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">1 line</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;p</span><span class="t-tag">&gt;</span>Last updated<span class="t-op">:</span> <span class="t-meta">&lt;?=</span> <span class="t-fn">date</span>(<span class="t-str">&#39;d M Y, H:i&#39;</span>) <span class="t-meta">?&gt;</span><span class="t-tag">&lt;/p</span><span class="t-tag">&gt;</span></code></pre></figure></li>
+<li>Use semantic HTML elements (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>) for better structure.</li>
+</ul>
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to Resources">#</a></h2>
+<ul><li><a href="https://www.php.net/manual/en/function.echo.php" rel="noopener noreferrer">PHP Manual — echo</a></li>
+<li><a href="https://www.php.net/manual/en/function.date.php" rel="noopener noreferrer">PHP Manual — date()</a></li>
+<li><a href="https://www.w3schools.com/php/php_syntax.asp" rel="noopener noreferrer">W3Schools — PHP Syntax</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" rel="noopener noreferrer">MDN — HTML5 Semantic Elements</a></li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your <code>portfolio.php</code> running at <code>http://localhost/...</code> with no errors.</li>
+<li>Which PHP variables feed your name, student ID, bio, and skills into the page.</li>
+<li>Your education history (at least 2 entries) and skills (at least 4) rendering from those variables.</li>
+<li>The dynamic <code>date()</code> &quot;Last updated&quot; timestamp at the bottom of the page and the format you used.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-01.html"><span class="pager-label">Session hub</span><span class="pager-title">Introduction to PHP</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 14: Security Methods — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Security audit — CSRF, XSS, SQL injection fixes plus a security checklist.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-14/homework.md">
+<meta name="source-sha256" content="8b3a2dc63e54669f90139e5368c2a53b747fbd2b8f769332dfb10d7c14b63381">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 14</p><h1>Homework 14</h1><p class="lead">Security audit — CSRF, XSS, SQL injection fixes plus a security checklist.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">9 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#security-checklist-template-securitychecklistmd">Security Checklist Template (SECURITYCHECKLIST.md)</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-14/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>homework-14.zip</code> containing <code>product_app/</code> and <code>SECURITY_CHECKLIST.md</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>product_app/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/product_app/</code></li>
+<li>Compress the folder into <code>homework-14.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the fix (not just silent screen capture) · one attack attempt is shown being rejected live on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Perform a <strong>comprehensive security audit and hardening</strong> of your Product Management System. This assignment focuses on identifying and mitigating the most common web application vulnerabilities — CSRF, XSS, SQL injection, insecure file uploads, and brute-force attacks. You will also document every security measure in a checklist. Treat this as a real-world security review of your own codebase.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>CSRF Protection on ALL Forms</strong></p>
+<ul><li>Generate a unique CSRF token per session and embed it as a hidden field in <strong>every</strong> form (login, register, create/edit product, create/edit category, change password, profile update).</li>
+<li>Validate the token on every POST request before processing.</li>
+<li>If the token is missing or invalid, reject the request with a <code>403 Forbidden</code> response.</li>
+</ul>
+</li>
+<li><p><strong>Output Escaping</strong></p>
+<ul><li>Audit every view file: <strong>all</strong> user-generated or database-sourced output must be wrapped in <code>htmlspecialchars($value, ENT_QUOTES, &#39;UTF-8&#39;)</code>.</li>
+<li>Check for any place where raw output might occur (table cells, form values, page titles, error messages, image <code>alt</code> attributes, etc.).</li>
+</ul>
+</li>
+<li><p><strong>SQL Injection Prevention</strong></p>
+<ul><li>Verify that <strong>every</strong> database query uses <strong>prepared statements</strong> with bound parameters.</li>
+<li>Search for and eliminate any string concatenation or variable interpolation inside SQL queries.</li>
+<li>If using PDO, confirm <code>PDO::ATTR_EMULATE_PREPARES</code> is set to <code>false</code>.</li>
+</ul>
+</li>
+<li><p><strong>Security Headers</strong></p>
+<ul><li>Add the following HTTP headers to every response (in your bootstrap or layout):</li>
+</ul>
+<figure class="code-block is-code" data-language="php" data-lines="5"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">header</span>(<span class="t-str">&#39;X-Content-Type-Options: nosniff&#39;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&#39;X-Frame-Options: DENY&#39;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&#39;X-XSS-Protection: 1; mode=block&#39;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&#39;Referrer-Policy: strict-origin-when-cross-origin&#39;</span>);
+<span class="t-fn">header</span>(<span class="t-str">&#39;Content-Security-Policy: default-src \&#39;self\&#39;; style-src \&#39;self\&#39; \&#39;unsafe-inline\&#39; https://cdn.jsdelivr.net; script-src \&#39;self\&#39; https://cdn.jsdelivr.net&#39;</span>);</code></pre></figure></li>
+<li><p><strong>Rate Limiting on Login</strong></p>
+<ul><li>Implement rate limiting on the login endpoint: <strong>maximum 5 failed attempts per IP address within a 15-minute window</strong>.</li>
+<li>Store failed attempts in the database or in a file (<code>storage/ratelimit/</code>).</li>
+<li>After 5 failures, display a message like &quot;Too many login attempts. Please try again in X minutes.&quot; and block the login.</li>
+<li>Reset the counter after a successful login.</li>
+</ul>
+</li>
+<li><p><strong>Secure File Upload Validation</strong></p>
+<ul><li>Validate uploaded files using <strong>multiple methods</strong>:<ul><li>Check file extension against an allowlist (<code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code>).</li>
+<li>Check MIME type with <code>finfo_file()</code> (not just <code>$_FILES[&#39;type&#39;]</code>).</li>
+<li>Check file size (max 2 MB).</li>
+<li>Verify the file is actually an image using <code>getimagesize()</code>.</li>
+</ul>
+</li>
+<li>Rename uploaded files to prevent path traversal (e.g., use <code>uniqid()</code> or <code>bin2hex(random_bytes(16))</code>).</li>
+<li>Store uploads <strong>outside</strong> the web root if possible, or protect the uploads directory with <code>.htaccess</code> to prevent script execution.</li>
+</ul>
+</li>
+<li><p><strong>Security Checklist Document</strong></p>
+<ul><li>Create a <code>SECURITY_CHECKLIST.md</code> file documenting every security measure implemented, organized by category.</li>
+</ul>
+</li>
+</ol>
+<h3 id="security-checklist-template-securitychecklistmd">Security Checklist Template (<code>SECURITY_CHECKLIST.md</code>)<a class="anchor" href="#security-checklist-template-securitychecklistmd" aria-label="Link to Security Checklist Template (SECURITYCHECKLIST.md)">#</a></h3>
+<figure class="code-block is-plain is-tall" data-language="output" data-lines="44"><figcaption><span class="code-language">Output</span><span class="code-meta"><span class="code-lines">44 lines</span></span></figcaption><pre tabindex="0"><code>
+## 1. CSRF Protection
+- [ ] Token generated per session
+- [ ] Token embedded in all forms
+- [ ] Token validated on all POST requests
+
+## 2. XSS Prevention
+- [ ] All output escaped with htmlspecialchars()
+- [ ] List of files audited: ...
+
+## 3. SQL Injection Prevention
+- [ ] All queries use prepared statements
+- [ ] PDO emulate prepares disabled
+- [ ] List of models/queries verified: ...
+
+## 4. Security Headers
+- [ ] X-Content-Type-Options: nosniff
+- [ ] X-Frame-Options: DENY
+- [ ] X-XSS-Protection
+- [ ] Referrer-Policy
+- [ ] Content-Security-Policy
+
+## 5. Rate Limiting
+- [ ] Max 5 login attempts per 15 minutes
+- [ ] Lockout message displayed
+- [ ] Counter resets on success
+
+## 6. File Upload Security
+- [ ] Extension allowlist
+- [ ] MIME type validation with finfo
+- [ ] Image verification with getimagesize()
+- [ ] Randomized file names
+- [ ] Upload directory protected
+
+## 7. Authentication Security
+- [ ] password_hash() with PASSWORD_DEFAULT
+- [ ] session_regenerate_id() on login
+- [ ] Session timeout / expiry
+- [ ] Remember-me tokens hashed in DB
+
+## 8. Additional Measures
+- [ ] Error messages don&#39;t leak sensitive info
+- [ ] Database credentials in config (not in code)
+- [ ] display_errors = Off in production</code></pre></figure><h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>app/core/Csrf.php</code></td><td>CSRF token generation and validation helper class</td></tr><tr><td><code>app/core/Security.php</code></td><td>Security headers middleware/helper</td></tr><tr><td><code>app/core/RateLimiter.php</code></td><td>Login rate limiting class</td></tr><tr><td>Updated <code>app/core/Auth.php</code></td><td>Integrated CSRF validation, rate limit check</td></tr><tr><td>Updated <code>app/controllers/AuthController.php</code></td><td>CSRF and rate limiting on login/register</td></tr><tr><td>Updated all <code>app/views/**/*.php</code></td><td>CSRF tokens in all forms; <code>htmlspecialchars()</code> on all output</td></tr><tr><td>Updated <code>app/models/**/*.php</code></td><td>Verified prepared statements; PDO emulate prepares = false</td></tr><tr><td>Updated <code>public/index.php</code> or <code>app/core/Router.php</code></td><td>Security headers sent on every response</td></tr><tr><td>Updated file upload logic</td><td>Multi-method validation, randomized names, upload protection</td></tr><tr><td><code>SECURITY_CHECKLIST.md</code></td><td>Complete security documentation with all measures listed</td></tr><tr><td><code>README.md</code></td><td>Updated setup instructions noting security features</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>CSRF Protection</td><td>30</td><td>CSRF tokens generated and validated on every form/POST; missing/invalid tokens rejected; covers all CRUD operations and auth forms</td></tr><tr><td>Output Escaping</td><td>25</td><td><code>htmlspecialchars()</code> applied consistently to all dynamic output in all views; no raw output of user data anywhere in the application</td></tr><tr><td>Security Headers</td><td>20</td><td>All required headers set on every response; CSP configured to allow only necessary sources; headers verified via browser DevTools</td></tr><tr><td>Rate Limiting</td><td>15</td><td>Login limited to 5 attempts per 15 min per IP; lockout message with remaining time; counter resets on success; works correctly under testing</td></tr><tr><td>Documentation</td><td>10</td><td><code>SECURITY_CHECKLIST.md</code> is complete, accurate, and matches the actual implementation; each item checked off corresponds to real code</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><p><strong>Start by auditing your existing code</strong>: open every view file and search for any <code>echo</code>, <code>&lt;?=</code>, or <code>&lt;td&gt;</code> that outputs data from the database or user input without <code>htmlspecialchars()</code>.</p>
+</li>
+<li><p><strong>CSRF implementation is straightforward</strong>: create a token with <code>bin2hex(random_bytes(32))</code>, store it in <code>$_SESSION[&#39;csrf_token&#39;]</code>, and include <code>&lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;&lt;?= $_SESSION[&#39;csrf_token&#39;] ?&gt;&quot;&gt;</code> in every form. Validate with <code>hash_equals()</code>.</p>
+</li>
+<li><p><strong>For rate limiting</strong>, a simple file-based approach works:</p>
+<figure class="code-block is-code" data-language="php" data-lines="2"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">2 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">// storage/ratelimit/{ip_address}.json</span>
+<span class="t-com">// Store: { &quot;attempts&quot;: [...timestamps...], &quot;locked_until&quot;: timestamp }</span></code></pre></figure><p>Clean up old entries on each check to prevent disk bloat.</p>
+</li>
+<li><p><strong><code>finfo_file()</code></strong> is the correct way to check MIME types — do not trust <code>$_FILES[&#39;file&#39;][&#39;type&#39;]</code> as it is client-supplied and easily spoofed.</p>
+</li>
+<li><p><strong>Test your security measures</strong>: try submitting a form without a CSRF token (should fail), try outputting <code>&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;</code> in a product name (should display as text, not execute), try logging in 6 times rapidly (should lock out).</p>
+</li>
+<li><p><strong>Use <code>hash_equals()</code></strong> for comparing CSRF tokens and remember-me tokens to prevent timing attacks.</p>
+</li>
+<li><p><strong><code>display_errors = Off</code></strong> in <code>php.ini</code> for production — errors should be logged, not shown to users.</p>
+</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your hardened Product Management System open in the browser.</li>
+<li>One vulnerability you fixed (CSRF, XSS, or SQL injection): show the &quot;before&quot; pattern in code, then the &quot;after&quot; pattern.</li>
+<li>The attack rejected live — e.g., submitting a form without a CSRF token and showing the 403 response.</li>
+<li>(Optional) A quick flash of your <code>SECURITY_CHECKLIST.md</code> summarizing everything you hardened.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-14.html"><span class="pager-label">Session hub</span><span class="pager-title">Security Methods</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

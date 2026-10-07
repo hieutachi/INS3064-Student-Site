@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 15: jQuery and AJAX — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="AJAX product app — JSON endpoints, live search with debounce, jQuery UI.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-15/homework.md">
+<meta name="source-sha256" content="7ef7fbfca13cf5dfeb17ce12278c47c7e6415e88d457fa04a9ae62e12bda9779">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 15</p><h1>Homework 15</h1><p class="lead">AJAX product app — JSON endpoints, live search with debounce, jQuery UI.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-3"><a href="#updated-folder-structure">Updated Folder Structure</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-15/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>homework-15.zip</code> containing <code>product_app/</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>product_app/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/product_app/</code></li>
+<li>Compress the folder into <code>homework-15.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the AJAX flow (not just silent screen capture) · the Network tab evidence is visible on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Enhance your Product Management System with <strong>AJAX-powered features</strong> using jQuery. The goal is to make the application feel more dynamic and responsive by eliminating unnecessary full-page reloads. You will build JSON API endpoints in PHP and consume them with jQuery AJAX calls on the front end. This assignment demonstrates how modern web applications provide a smooth, single-page-like user experience.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>Product List Without Page Reload</strong></p>
+<ul><li>Load the product list dynamically via AJAX when the page first loads.</li>
+<li>Render product rows using jQuery (append HTML to the table body, or use a template).</li>
+<li>Display product images, category name, price, and action buttons.</li>
+</ul>
+</li>
+<li><p><strong>Add Product via AJAX</strong></p>
+<ul><li>Open a modal or inline form to add a new product.</li>
+<li>Submit the form via AJAX (POST request with <code>FormData</code> to support file upload).</li>
+<li>On success: add the new product row to the table without reloading, close the modal, show a success notification.</li>
+<li>On failure: display validation errors in the form without reloading.</li>
+</ul>
+</li>
+<li><p><strong>Delete Product via AJAX</strong></p>
+<ul><li>Each product row has a &quot;Delete&quot; button.</li>
+<li>On click, show a confirmation dialog (<code>confirm()</code> or a Bootstrap modal).</li>
+<li>On confirmation, send an AJAX DELETE request (or POST with <code>_method=DELETE</code>).</li>
+<li>On success: remove the row from the table with a fade-out animation, show a success notification.</li>
+<li>On failure: show an error notification.</li>
+</ul>
+</li>
+<li><p><strong>Live Search with Debounce</strong></p>
+<ul><li>Add a search input above the product table.</li>
+<li>On every keystroke, send an AJAX request to search products by name.</li>
+<li><strong>Implement debounce (300ms)</strong> — only send the request 300ms after the user stops typing.</li>
+<li>Display matching results in the product table.</li>
+<li>If the search input is empty, load all products.</li>
+</ul>
+</li>
+<li><p><strong>Category Filter Without Reload</strong></p>
+<ul><li>Add a category dropdown filter above the product table.</li>
+<li>When the user selects a category, send an AJAX request to filter products.</li>
+<li>Combine with live search (both search term and category filter applied together).</li>
+</ul>
+</li>
+<li><p><strong>Loading Spinner</strong></p>
+<ul><li>Display a loading spinner or indicator during every AJAX request.</li>
+<li>Hide it when the request completes (both success and error).</li>
+<li>Use CSS animations or a spinner library.</li>
+</ul>
+</li>
+<li><p><strong>Error Handling</strong></p>
+<ul><li>Handle AJAX errors gracefully: show a user-friendly error notification for network failures, server errors (500), or unexpected responses.</li>
+<li>Implement a retry mechanism or at minimum a clear &quot;Something went wrong. Please try again.&quot; message.</li>
+</ul>
+</li>
+<li><p><strong>JSON API Endpoints in PHP</strong></p>
+<ul><li>Create dedicated API endpoints (or modify existing controllers to respond with JSON when an AJAX request is detected).</li>
+</ul>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Endpoint</th><th>Method</th><th>Response</th></tr></thead><tbody><tr><td><code>/api/products</code></td><td>GET</td><td>JSON array of products (supports <code>?search=</code> and <code>?category_id=</code>)</td></tr><tr><td><code>/api/products</code></td><td>POST</td><td>Create product; return JSON <code>{success: true, product: {...}}</code></td></tr><tr><td><code>/api/products/{id}</code></td><td>DELETE</td><td>Delete product; return JSON <code>{success: true}</code></td></tr><tr><td><code>/api/categories</code></td><td>GET</td><td>JSON array of categories</td></tr></tbody></table></div>
+<ul><li>All JSON responses must follow a consistent format:</li>
+</ul>
+<figure class="code-block is-code" data-language="javascript" data-lines="5"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code>{
+    <span class="t-str">&quot;success&quot;</span><span class="t-op">:</span> <span class="t-lit">true</span>,
+    <span class="t-str">&quot;data&quot;</span><span class="t-op">:</span> { <span class="t-op">...</span> },
+    <span class="t-str">&quot;message&quot;</span><span class="t-op">:</span> <span class="t-str">&quot;Product created successfully&quot;</span>
+}</code></pre></figure><p>or on error:</p>
+<figure class="code-block is-code" data-language="javascript" data-lines="5"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code>{
+    <span class="t-str">&quot;success&quot;</span><span class="t-op">:</span> <span class="t-lit">false</span>,
+    <span class="t-str">&quot;errors&quot;</span><span class="t-op">:</span> { <span class="t-str">&quot;name&quot;</span><span class="t-op">:</span> <span class="t-str">&quot;Name is required&quot;</span>, <span class="t-str">&quot;price&quot;</span><span class="t-op">:</span> <span class="t-str">&quot;Price must be a number&quot;</span> },
+    <span class="t-str">&quot;message&quot;</span><span class="t-op">:</span> <span class="t-str">&quot;Validation failed&quot;</span>
+}</code></pre></figure></li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Use <strong>jQuery</strong> (include via CDN: <code>&lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;</code>).</li>
+<li>Use <code>$.ajax()</code> or shorthand methods (<code>$.get()</code>, <code>$.post()</code>) — not <code>fetch()</code> API.</li>
+<li>Set the <code>X-Requested-With: XMLHttpRequest</code> header on AJAX requests so the server can detect AJAX.</li>
+<li>PHP endpoints should return <code>Content-Type: application/json</code> with <code>json_encode()</code>.</li>
+<li>Maintain CSRF protection on all AJAX POST/DELETE requests (send token in request header or body).</li>
+<li>The application must still work (with degraded experience) if JavaScript is disabled — i.e., keep the non-AJAX form submissions as a fallback, or acknowledge this is a progressive enhancement.</li>
+</ul>
+<h3 id="updated-folder-structure">Updated Folder Structure<a class="anchor" href="#updated-folder-structure" aria-label="Link to Updated Folder Structure">#</a></h3>
+<figure class="code-block is-plain is-tall" data-language="diagram" data-lines="38"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">38 lines</span></span></figcaption><pre tabindex="0"><code>product_app/
+├── public/
+│   ├── index.php
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── app.js           # NEW — all jQuery/AJAX code
+│   └── uploads/
+├── app/
+│   ├── core/
+│   │   ├── Database.php
+│   │   ├── Router.php
+│   │   ├── Auth.php
+│   │   ├── Csrf.php
+│   │   └── Security.php
+│   ├── controllers/
+│   │   ├── AuthController.php
+│   │   ├── UserController.php
+│   │   ├── CategoryController.php
+│   │   ├── ProductController.php
+│   │   └── ApiController.php  # NEW — JSON API endpoints
+│   ├── models/
+│   │   ├── UserModel.php
+│   │   ├── CategoryModel.php
+│   │   └── ProductModel.php
+│   └── views/
+│       ├── layout.php         # Updated — include jQuery + app.js
+│       ├── auth/
+│       ├── user/
+│       ├── categories/
+│       └── products/
+│           ├── index.php      # Updated — empty table body, JS renders rows
+│           └── _product_row.php  # NEW — partial for AJAX row rendering
+├── config/
+│   └── database.php
+├── sql/
+│   └── schema.sql
+└── README.md</code></pre></figure><h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>public/js/app.js</code></td><td>jQuery code: AJAX CRUD, live search with debounce, category filter, loading spinner, error handling</td></tr><tr><td><code>app/controllers/ApiController.php</code></td><td>JSON API endpoints for products and categories</td></tr><tr><td>Updated <code>app/views/products/index.php</code></td><td>Product list page with search input, category filter dropdown, empty table body for AJAX, loading spinner HTML</td></tr><tr><td>Updated <code>app/views/layout.php</code></td><td>Includes jQuery CDN and <code>app.js</code>; spinner overlay HTML</td></tr><tr><td>Updated <code>public/css/style.css</code></td><td>Spinner animation styles, notification styles, modal styles</td></tr><tr><td>Updated <code>app/core/Router.php</code></td><td>Routes for <code>/api/products</code>, <code>/api/categories</code></td></tr><tr><td>All previous Homework 14 files</td><td>Existing functionality preserved with CSRF and security measures</td></tr><tr><td><code>README.md</code></td><td>Updated setup instructions</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>AJAX CRUD Operations</td><td>30</td><td>Product list loads via AJAX; add product works with modal + AJAX (including file upload); delete product removes row with animation; no full-page reloads for CRUD</td></tr><tr><td>Live Search</td><td>25</td><td>Search input triggers AJAX after 300ms debounce; results update table dynamically; combined with category filter; empty search restores full list</td></tr><tr><td>Error Handling</td><td>20</td><td>AJAX failures show user-friendly notifications; network errors handled; validation errors displayed in form; server errors (non-200) caught and reported</td></tr><tr><td>User Experience</td><td>15</td><td>Loading spinner visible during requests; smooth animations (fade-in/fade-out); success notifications auto-dismiss; modal forms close properly; responsive design maintained</td></tr><tr><td>JSON API Design</td><td>10</td><td>Consistent JSON response format (<code>success</code>, <code>data</code>, <code>message</code>, <code>errors</code>); proper HTTP status codes (200, 201, 400, 404, 500); correct <code>Content-Type: application/json</code> header; API routes follow RESTful conventions</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><p><strong>Start with the API endpoints</strong>: build and test <code>ApiController</code> with tools like browser DevTools (Network tab) or curl before writing any jQuery code. Ensure each endpoint returns valid JSON.</p>
+</li>
+<li><p><strong>Debounce implementation</strong> is simple:</p>
+<figure class="code-block is-code" data-language="javascript" data-lines="7"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">let</span> searchTimer;
+<span class="t-fn">$</span>(<span class="t-str">&#39;#search-input&#39;</span>)<span class="t-op">.</span><span class="t-fn">on</span>(<span class="t-str">&#39;keyup&#39;</span>, <span class="t-kw">function</span>() {
+    <span class="t-fn">clearTimeout</span>(searchTimer);
+    searchTimer <span class="t-op">=</span> <span class="t-fn">setTimeout</span>(<span class="t-kw">function</span>() {
+        <span class="t-fn">loadProducts</span>(); <span class="t-com">// your AJAX function</span>
+    }, <span class="t-num">300</span>);
+});</code></pre></figure></li>
+<li><p><strong>For file upload with AJAX</strong>, use <code>FormData</code>:</p>
+<figure class="code-block is-code" data-language="javascript" data-lines="10"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">let</span> formData <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">FormData</span>(<span class="t-fn">$</span>(<span class="t-str">&#39;#product-form&#39;</span>)[<span class="t-num">0</span>]);
+formData<span class="t-op">.</span><span class="t-fn">append</span>(<span class="t-str">&#39;csrf_token&#39;</span>, csrfToken);
+<span class="t-fn">$.ajax</span>({
+    url<span class="t-op">:</span> <span class="t-str">&#39;/api/products&#39;</span>,
+    method<span class="t-op">:</span> <span class="t-str">&#39;POST&#39;</span>,
+    data<span class="t-op">:</span> formData,
+    processData<span class="t-op">:</span> <span class="t-lit">false</span>,
+    contentType<span class="t-op">:</span> <span class="t-lit">false</span>,
+    <span class="t-op">...</span>
+});</code></pre></figure></li>
+<li><p><strong>CSRF token with AJAX</strong>: include the token in a custom header (e.g., <code>X-CSRF-Token</code>) on every AJAX request. You can set a default header for all jQuery AJAX calls:</p>
+<figure class="code-block is-code" data-language="javascript" data-lines="3"><figcaption><span class="code-language">JavaScript</span><span class="code-meta"><span class="code-lines">3 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">$.ajaxSetup</span>({
+    headers<span class="t-op">:</span> { <span class="t-str">&#39;X-CSRF-Token&#39;</span><span class="t-op">:</span> <span class="t-fn">$</span>(<span class="t-str">&#39;meta[name=&quot;csrf-token&quot;]&#39;</span>)<span class="t-op">.</span><span class="t-fn">attr</span>(<span class="t-str">&#39;content&#39;</span>) }
+});</code></pre></figure><p>Add <code>&lt;meta name=&quot;csrf-token&quot; content=&quot;&lt;?= $_SESSION[&#39;csrf_token&#39;] ?&gt;&quot;&gt;</code> in your layout <code>&lt;head&gt;</code>.</p>
+</li>
+<li><p><strong>Loading spinner</strong>: create a simple overlay div that you <code>.show()</code> before the AJAX call and <code>.hide()</code> in the AJAX <code>complete</code> callback (not just <code>success</code> — also handles errors).</p>
+</li>
+<li><p><strong>Keep the non-AJAX forms as fallback</strong>: your <code>ProductController</code> should still handle standard form submissions. The <code>ApiController</code> handles AJAX requests separately. This way, the app works without JavaScript.</p>
+</li>
+<li><p><strong>Test edge cases</strong>: empty search, search with no results, delete the last product on a page, add a product with invalid data, lose network connection during an AJAX call.</p>
+</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your app open in the browser with the DevTools <strong>Network</strong> tab visible.</li>
+<li>Typing in the live search box, with the results updating without a page reload.</li>
+<li>The debounced requests in the Network tab — one request per pause, not one per keystroke.</li>
+<li>One XHR request clicked open, showing the JSON response your PHP endpoint returned.</li>
+<li>How jQuery renders that JSON into the table — point at the AJAX success handler in your code.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-15.html"><span class="pager-label">Session hub</span><span class="pager-title">jQuery and AJAX</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

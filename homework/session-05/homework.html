@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 5: Introduction to SQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="University queries — 10 commented SQL queries against your Homework 4 database.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-05/homework.md">
+<meta name="source-sha256" content="12d4a835304b006a1587687ea9eef114d38ade9a024ded4d5b670103fc15ee8d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 05</p><h1>Homework 5</h1><p class="lead">University queries — 10 commented SQL queries against your Homework 4 database.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#resources">Resources</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-05/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>university_queries.sql</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your <code>.sql</code> file as <code>university_queries.sql</code></li>
+<li>Test by importing into phpMyAdmin (SQL tab)</li>
+<li>Compress the file into a <code>.zip</code> named <code>homework05.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the chosen query (not just silent screen capture) · the query runs live without errors on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>In this assignment you will write <strong>10 SQL queries</strong> against the University Course Registration database you created in Homework 4. This exercise reinforces your understanding of core SQL operations: <code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>LIMIT</code>, <code>LIKE</code>, <code>JOIN</code>, aggregate functions, and grouping. Each query must include a comment explaining what it does, along with the expected output.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<p>Your <code>university_queries.sql</code> file must contain <strong>10 queries</strong> that cover the following topics. Each query must be preceded by a <strong>multi-line comment</strong> explaining its purpose.</p>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>#</th><th>Topic</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td><strong>Basic SELECT</strong></td><td>Retrieve all columns from one table (e.g., list all students).</td></tr><tr><td>2</td><td><strong>WHERE with comparison</strong></td><td>Filter records using a comparison operator (e.g., students with GPA &gt; 3.0).</td></tr><tr><td>3</td><td><strong>WHERE with AND/OR</strong></td><td>Combine multiple conditions (e.g., courses in a specific department with credits &gt;= 3).</td></tr><tr><td>4</td><td><strong>ORDER BY</strong></td><td>Sort results by one or more columns (e.g., students ordered by last name ascending).</td></tr><tr><td>5</td><td><strong>LIMIT</strong></td><td>Return only a fixed number of rows (e.g., top 3 highest-graded enrollments).</td></tr><tr><td>6</td><td><strong>LIKE</strong></td><td>Search for a pattern in text (e.g., courses whose title contains &quot;Introduction&quot;, or instructors whose name starts with &quot;Ng&quot;).</td></tr><tr><td>7</td><td><strong>Aggregate — COUNT / SUM</strong></td><td>Use an aggregate function (e.g., count the number of students per department, or total credits for all courses).</td></tr><tr><td>8</td><td><strong>Aggregate with GROUP BY + HAVING</strong></td><td>Group results and filter groups (e.g., departments that have more than 2 courses, or students enrolled in more than 3 courses).</td></tr><tr><td>9</td><td><strong>JOIN — two tables</strong></td><td>Join two tables using a foreign key (e.g., list all courses with their instructor names).</td></tr><tr><td>10</td><td><strong>JOIN — three or more tables</strong></td><td>A multi-table join (e.g., list all enrollments with student name, course title, semester name, and grade).</td></tr></tbody></table></div>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Deliver a <strong>single file</strong> named <code>university_queries.sql</code>.</li>
+<li>Begin the file with a <strong>comment header</strong> (name, student ID, assignment, date).</li>
+<li>Each query must have a <strong>comment block</strong> directly above it in the following format:<figure class="code-block is-code" data-language="sql" data-lines="5"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">/*
+ * Query N: &lt;Short Title&gt;
+ * Description: &lt;What this query does and why&gt;
+ * Expected Output: &lt;Brief description of what the result set looks like&gt;
+ */</span></code></pre></figure></li>
+<li>After each query, include a <strong>comment block showing the expected output</strong> as a text table (use your best guess based on your sample data from Homework 4):<figure class="code-block is-code" data-language="sql" data-lines="10"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">10 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">/*
+ * +----+-------------------+------+
+ * | id | name              | gpa  |
+ * +----+-------------------+------+
+ * |  1 | Nguyen Van An     | 3.50 |
+ * |  2 | Tran Thi Bich     | 3.80 |
+ * ...
+ * +----+-------------------+------+
+ * (5 rows)
+ */</span></code></pre></figure></li>
+<li>Use <strong>uppercase SQL keywords</strong> (<code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>, etc.) — this is the standard SQL formatting convention.</li>
+<li>End each statement with a semicolon (<code>;</code>).</li>
+<li>Use <strong>column aliases</strong> (<code>AS</code>) meaningfully in at least 2 queries to make output columns more readable.</li>
+<li>Include a <code>USE university_db;</code> statement at the top (after the header) so the script targets the correct database.</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>university_queries.sql</code></td><td>SQL script containing 10 commented queries with expected outputs.</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td><strong>Correctness</strong></td><td>40%</td><td>All 10 queries execute without errors on the database from Homework 4; results are logically correct and match the stated purpose of each query.</td></tr><tr><td><strong>Query Complexity</strong></td><td>25%</td><td>Queries demonstrate a solid range of SQL features — not just simple <code>SELECT *</code>; proper use of joins, aggregates, grouping, filtering, and sorting as specified.</td></tr><tr><td><strong>Comments &amp; Documentation</strong></td><td>20%</td><td>Every query has a clear comment block with title, description, and expected output; the file header is present; comments are accurate and helpful.</td></tr><tr><td><strong>Output Matching</strong></td><td>15%</td><td>Expected output blocks are included after each query and are consistent with the sample data from Homework 4; output formatting is clear and readable.</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li>Run your Homework 4 script first to ensure the database and data exist before testing queries.</li>
+<li>Test each query individually in MySQL and copy the actual output to format your expected results.</li>
+<li>Use <code>FORMAT()</code> or <code>ROUND()</code> for numeric output if needed for readability.</li>
+<li>For the <code>LIKE</code> query, try patterns like <code>&#39;%Introduction%&#39;</code> or <code>&#39;Ng%&#39;</code> — remember <code>%</code> matches any sequence of characters.</li>
+<li>Example of a well-commented query:<figure class="code-block is-code" data-language="sql" data-lines="13"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">13 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-com">/*
+ * Query 9: Courses with Instructor Names
+ * Description: Joins the courses and instructors tables to show
+ *              each course title alongside the instructor who teaches it.
+ * Expected Output: A list of course titles with instructor full names.
+ */</span>
+<span class="t-kw">SELECT</span>
+    c.course_code<span class="t-op">,</span>
+    c.title        <span class="t-kw">AS</span> course_title<span class="t-op">,</span>
+    <span class="t-fn">CONCAT</span>(i.first_name<span class="t-op">,</span> <span class="t-str">&#39; &#39;</span><span class="t-op">,</span> i.last_name) <span class="t-kw">AS</span> instructor_name
+<span class="t-kw">FROM</span> courses c
+<span class="t-kw">JOIN</span> instructors i <span class="t-kw">ON</span> c.instructor_id <span class="t-op">=</span> i.id
+<span class="t-kw">ORDER</span> <span class="t-kw">BY</span> c.course_code<span class="t-op">;</span></code></pre></figure></li>
+<li>Double-check that your expected output counts (row numbers) are accurate — an easy mistake to make.</li>
+<li>If your Homework 4 data changes, remember to update the expected outputs here too.</li>
+</ul>
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to Resources">#</a></h2>
+<ul><li><a href="https://dev.mysql.com/doc/refman/8.0/en/select.html" rel="noopener noreferrer">MySQL Manual — SELECT Statement</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/join.html" rel="noopener noreferrer">MySQL Manual — JOIN Clause</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html" rel="noopener noreferrer">MySQL Manual — Aggregate Functions</a></li>
+<li><a href="https://www.w3schools.com/sql/" rel="noopener noreferrer">W3Schools — SQL Tutorial</a></li>
+<li><a href="https://sqlbolt.com/" rel="noopener noreferrer">SQLBolt — Interactive SQL Exercises</a></li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>The SQL tab in phpMyAdmin open on your Homework 4 database.</li>
+<li>One JOIN or GROUP BY query from your file, selected and ready to run.</li>
+<li>The description comment above that query read out loud.</li>
+<li>The query run live with no errors.</li>
+<li>The result set on screen matching your expected-output comment.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-05.html"><span class="pager-label">Session hub</span><span class="pager-title">Introduction to SQL</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

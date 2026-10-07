@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 13: Cookies and Sessions — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Authentication — register, login, sessions, remember-me, guarded routes.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-13/homework.md">
+<meta name="source-sha256" content="206f73e33d5efa0ee4573a3d8e74aaf6e31dc19c948bd38f335cd40c2d464a83">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 13</p><h1>Homework 13</h1><p class="lead">Authentication — register, login, sessions, remember-me, guarded routes.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-3"><a href="#newupdated-folder-structure">New/Updated Folder Structure</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-13/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>homework-13.zip</code> containing <code>product_app/</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>product_app/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/product_app/</code></li>
+<li>Compress the folder into <code>homework-13.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice narrates the auth flow (not just silent screen capture) · the redirect-to-login is shown live on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Extend your Product Management System (Homework 12) with a complete <strong>authentication system</strong> using cookies and sessions. Users must register and log in before accessing the application. You will implement secure password hashing, session-based authentication, a &quot;remember me&quot; cookie, protected routes, and user account management features.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>User Registration</strong></p>
+<ul><li>Registration form with fields: username, email, password, confirm password.</li>
+<li>Validate: unique username/email, password minimum 8 characters, passwords must match.</li>
+<li>Hash passwords with <code>password_hash()</code> before storing in the database.</li>
+<li>After successful registration, redirect to the login page with a success message.</li>
+</ul>
+</li>
+<li><p><strong>User Login</strong></p>
+<ul><li>Login form with username/email and password.</li>
+<li>Verify credentials using <code>password_verify()</code>.</li>
+<li>On success, create a session and redirect to the product dashboard.</li>
+<li>On failure, display an error message and stay on the login page.</li>
+</ul>
+</li>
+<li><p><strong>Session-Based Authentication</strong></p>
+<ul><li>Start sessions on every page.</li>
+<li>Store <code>user_id</code> and <code>username</code> in <code>$_SESSION</code> upon login.</li>
+<li>Regenerate session ID on login (<code>session_regenerate_id(true)</code>) to prevent session fixation.</li>
+</ul>
+</li>
+<li><p><strong>&quot;Remember Me&quot; Cookie</strong></p>
+<ul><li>Checkbox on the login form: &quot;Remember me&quot;.</li>
+<li>When checked, set a long-lived cookie (e.g., 30 days) with a secure random token.</li>
+<li>Store the token (hashed) in the <code>users</code> table alongside the user ID.</li>
+<li>On subsequent visits, if no active session exists but a valid remember-me cookie is found, automatically log the user in.</li>
+<li>Cookie must be set with <code>httponly</code>, <code>secure</code> (in production), and <code>samesite=Lax</code> (or <code>Strict</code>).</li>
+</ul>
+</li>
+<li><p><strong>Logout</strong></p>
+<ul><li>Destroy the session (<code>session_destroy()</code>).</li>
+<li>Delete the remember-me cookie (and clear the token from the database).</li>
+<li>Redirect to the login page.</li>
+</ul>
+</li>
+<li><p><strong>Protected Routes</strong></p>
+<ul><li>All product and category routes must be <strong>protected</strong> — if the user is not logged in (no session and no valid remember-me cookie), redirect to <code>/login</code>.</li>
+<li>Login and registration pages should be accessible without authentication.</li>
+</ul>
+</li>
+<li><p><strong>User Profile Page</strong></p>
+<ul><li>Display current user&#39;s information (username, email, registration date).</li>
+<li>Allow the user to update their email.</li>
+</ul>
+</li>
+<li><p><strong>Change Password</strong></p>
+<ul><li>Form with current password, new password, and confirm new password.</li>
+<li>Verify the current password with <code>password_verify()</code> before updating.</li>
+<li>Hash the new password with <code>password_hash()</code>.</li>
+</ul>
+</li>
+<li><p><strong>Flash Messages</strong></p>
+<ul><li>Display success/error messages that persist across a redirect (store in <code>$_SESSION</code>, display once, then unset).</li>
+</ul>
+</li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Add a <code>users</code> table to the database:</li>
+</ul>
+<figure class="code-block is-code" data-language="sql" data-lines="8"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> users (
+    id <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    username <span class="t-type">VARCHAR</span>(<span class="t-num">50</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span> <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+    email <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span> <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+    password <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    remember_token <span class="t-type">VARCHAR</span>(<span class="t-num">255</span>) <span class="t-kw">DEFAULT</span> <span class="t-kw">NULL</span><span class="t-op">,</span>
+    created_at <span class="t-type">TIMESTAMP</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+)<span class="t-op">;</span></code></pre></figure><ul><li>Use <code>password_hash($password, PASSWORD_DEFAULT)</code> — do <strong>not</strong> use MD5, SHA1, or custom hashing.</li>
+<li>Use <code>password_verify($password, $hash)</code> to check passwords.</li>
+<li>Use <code>session_regenerate_id(true)</code> on login to prevent session fixation.</li>
+<li>Set cookies with appropriate security flags:</li>
+</ul>
+<figure class="code-block is-code" data-language="php" data-lines="8"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">setcookie</span>(<span class="t-str">&#39;remember_me&#39;</span>, <span class="t-var">$token</span>, [
+    <span class="t-str">&#39;expires&#39;</span>  <span class="t-op">=&gt;</span> <span class="t-fn">time</span>() <span class="t-op">+</span> <span class="t-num">86400</span> <span class="t-op">*</span> <span class="t-num">30</span>,
+    <span class="t-str">&#39;path&#39;</span>     <span class="t-op">=&gt;</span> <span class="t-str">&#39;/&#39;</span>,
+    <span class="t-str">&#39;domain&#39;</span>   <span class="t-op">=&gt;</span> <span class="t-str">&#39;&#39;</span>,
+    <span class="t-str">&#39;secure&#39;</span>   <span class="t-op">=&gt;</span> <span class="t-lit">true</span>,      <span class="t-com">// set to false for local HTTP testing</span>
+    <span class="t-str">&#39;httponly&#39;</span>  <span class="t-op">=&gt;</span> <span class="t-lit">true</span>,
+    <span class="t-str">&#39;samesite&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Lax&#39;</span>
+]);</code></pre></figure><h3 id="newupdated-folder-structure">New/Updated Folder Structure<a class="anchor" href="#newupdated-folder-structure" aria-label="Link to New/Updated Folder Structure">#</a></h3>
+<figure class="code-block is-plain is-tall" data-language="diagram" data-lines="35"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">35 lines</span></span></figcaption><pre tabindex="0"><code>product_app/
+├── public/
+│   ├── index.php
+│   ├── css/
+│   │   └── style.css
+│   └── uploads/
+├── app/
+│   ├── core/
+│   │   ├── Database.php
+│   │   ├── Router.php
+│   │   └── Auth.php          # NEW — authentication helper
+│   ├── controllers/
+│   │   ├── AuthController.php # NEW — login, register, logout
+│   │   ├── UserController.php # NEW — profile, change password
+│   │   ├── CategoryController.php
+│   │   └── ProductController.php
+│   ├── models/
+│   │   ├── UserModel.php      # NEW
+│   │   ├── CategoryModel.php
+│   │   └── ProductModel.php
+│   └── views/
+│       ├── layout.php
+│       ├── auth/              # NEW
+│       │   ├── login.php
+│       │   └── register.php
+│       ├── user/              # NEW
+│       │   ├── profile.php
+│       │   └── change-password.php
+│       ├── categories/
+│       └── products/
+├── config/
+│   └── database.php
+├── sql/
+│   └── schema.sql            # Updated with users table
+└── README.md</code></pre></figure><h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>app/core/Auth.php</code></td><td>Helper class: <code>login()</code>, <code>logout()</code>, <code>check()</code>, <code>user()</code>, <code>rememberMe()</code>, <code>validateRememberMe()</code></td></tr><tr><td><code>app/controllers/AuthController.php</code></td><td>Login, register, logout actions</td></tr><tr><td><code>app/controllers/UserController.php</code></td><td>Profile display, email update, change password</td></tr><tr><td><code>app/models/UserModel.php</code></td><td>User CRUD: create, findByUsername/Email, updatePassword, updateEmail, remember token operations</td></tr><tr><td><code>app/views/auth/login.php</code></td><td>Login form with remember-me checkbox</td></tr><tr><td><code>app/views/auth/register.php</code></td><td>Registration form</td></tr><tr><td><code>app/views/user/profile.php</code></td><td>User profile page</td></tr><tr><td><code>app/views/user/change-password.php</code></td><td>Change password form</td></tr><tr><td><code>sql/schema.sql</code></td><td>Updated schema including <code>users</code> table</td></tr><tr><td>All Homework 12 files</td><td>Existing product/category functionality, now protected</td></tr><tr><td><code>README.md</code></td><td>Updated setup instructions</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>Auth Functionality</td><td>30</td><td>Registration works (hashed passwords stored); login verifies credentials; logout destroys session; profile and change-password work correctly</td></tr><tr><td>Security</td><td>25</td><td><code>password_hash()</code>/<code>password_verify()</code> used (not MD5/SHA1); <code>session_regenerate_id()</code> on login; session hijacking prevention; prepared statements on all queries</td></tr><tr><td>Remember Me</td><td>20</td><td>Cookie set with <code>httponly</code>, <code>secure</code>, <code>samesite</code> flags; token stored hashed in DB; auto-login on return; token cleared on logout</td></tr><tr><td>Protected Routes</td><td>15</td><td>Unauthenticated users redirected to <code>/login</code>; authenticated users cannot access login/register pages; all product/category routes require login</td></tr><tr><td>User Experience</td><td>10</td><td>Flash messages display correctly; form validation errors shown clearly; smooth registration → login → dashboard flow</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><p><strong>Create an <code>Auth</code> helper class</strong> with static methods like <code>Auth::check()</code>, <code>Auth::user()</code>, <code>Auth::login($user)</code>, <code>Auth::logout()</code>. Call it from your Router or controller to protect routes.</p>
+</li>
+<li><p><strong>Call <code>session_start()</code> early</strong> — in your bootstrap file or at the top of <code>index.php</code>, before any output.</p>
+</li>
+<li><p><strong>Remember-me token security</strong>: generate a token with <code>bin_random(32)</code>, store its <strong>hash</strong> (<code>hash(&#39;sha256&#39;, $token)</code>) in the database, and send the raw token in the cookie. On validation, hash the cookie value and compare with the stored hash.</p>
+</li>
+<li><p><strong>For the Router</strong>, add a middleware concept or a simple check at the top of each protected controller:</p>
+<figure class="code-block is-code" data-language="php" data-lines="4"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">if</span> (<span class="t-op">!</span>Auth<span class="t-op">::</span><span class="t-fn">check</span>()) {
+    <span class="t-fn">header</span>(<span class="t-str">&#39;Location: /login&#39;</span>);
+    <span class="t-fn">exit</span>();
+}</code></pre></figure></li>
+<li><p><strong>Flash messages pattern</strong>: set <code>$_SESSION[&#39;flash&#39;] = [&#39;type&#39; =&gt; &#39;success&#39;, &#39;message&#39; =&gt; &#39;...&#39;]</code> before redirecting, then in the layout, display it and <code>unset($_SESSION[&#39;flash&#39;])</code>.</p>
+</li>
+<li><p><strong>Test the full flow</strong>: register → login → use app → logout → try accessing a protected page (should redirect) → login with remember me → close browser → reopen (should stay logged in).</p>
+</li>
+<li><p><strong>Cookie <code>secure</code> flag</strong>: set to <code>false</code> when testing on <code>http://localhost</code>; set to <code>true</code> in production over HTTPS.</p>
+</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Registering a new account live, with the success feedback on screen.</li>
+<li>Logging out, then logging back in with the new account.</li>
+<li>While logged out, opening a protected URL directly and showing the redirect to the login page.</li>
+<li>Where <code>session_regenerate_id()</code> runs in your code and how the remember-me cookie is set and checked.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-13.html"><span class="pager-label">Session hub</span><span class="pager-title">Cookies and Sessions</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 6: Database Design — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Bookstore database — ERD, 3NF design, full schema and sample data.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-06/homework.md">
+<meta name="source-sha256" content="a4e2c09610913f84e0a9a627ec222500a9e1d2dad4d3e3a11d8814198f020e9d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 06</p><h1>Homework 6</h1><p class="lead">Bookstore database — ERD, 3NF design, full schema and sample data.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">9 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-06/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>Files:</strong> <code>bookstore_erd.md</code>, <code>bookstore_db.sql</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your files as <code>bookstore_erd.md</code> and <code>bookstore_db.sql</code></li>
+<li>Test the SQL by importing into phpMyAdmin (SQL tab)</li>
+<li>Compress both files into a <code>.zip</code> named <code>homework06.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the design decisions (not just silent screen capture) · the ERD and the imported tables are visible on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Design a complete relational database for an <strong>Online Bookstore</strong> system. You will create an Entity-Relationship Diagram (ERD), normalize your design to Third Normal Form (3NF), write the full SQL schema with constraints, and populate the database with realistic sample data. This assignment builds the foundation for Homework 7 (Advanced SQL queries).</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>Tables</strong> — Your database must include all of the following tables:</p>
+<ul><li><code>authors</code> — Author information (name, biography, nationality, etc.)</li>
+<li><code>publishers</code> — Publisher details (name, address, website, etc.)</li>
+<li><code>categories</code> — Book categories/genres (name, description, parent category for sub-genres)</li>
+<li><code>books</code> — Book catalog (title, ISBN, price, stock, publication date, etc.)</li>
+<li><code>book_authors</code> — Many-to-many relationship between books and authors</li>
+<li><code>book_categories</code> — Many-to-many relationship between books and categories</li>
+<li><code>customers</code> — Customer accounts (name, email, password hash, address, etc.)</li>
+<li><code>orders</code> — Order header (customer, order date, status, total, shipping address)</li>
+<li><code>order_items</code> — Line items per order (book, quantity, unit price, subtotal)</li>
+<li><code>reviews</code> — Customer reviews of books (rating 1–5, comment, date)</li>
+</ul>
+</li>
+<li><p><strong>Relationships</strong> — Implement the following:</p>
+<ul><li>A book can have <strong>many</strong> authors; an author can write <strong>many</strong> books (M:N).</li>
+<li>A book can belong to <strong>many</strong> categories; a category contains <strong>many</strong> books (M:N).</li>
+<li>A book has <strong>one</strong> publisher; a publisher publishes <strong>many</strong> books (1:N).</li>
+<li>A customer can place <strong>many</strong> orders (1:N).</li>
+<li>An order contains <strong>many</strong> order items; each item refers to <strong>one</strong> book (M:N via order_items).</li>
+<li>A customer can write <strong>many</strong> reviews; each review is for <strong>one</strong> book (1:N from customer, 1:N from book).</li>
+</ul>
+</li>
+<li><p><strong>Normalization</strong> — Ensure your design is in <strong>Third Normal Form (3NF)</strong>:</p>
+<ul><li>1NF: All columns contain atomic values; no repeating groups.</li>
+<li>2NF: No partial dependencies (every non-key attribute depends on the whole primary key).</li>
+<li>3NF: No transitive dependencies (non-key attributes do not depend on other non-key attributes).</li>
+<li>In your <code>bookstore_db.sql</code>, include a comment block explaining how you achieved 3NF.</li>
+</ul>
+</li>
+<li><p><strong>Entity-Relationship Diagram (ERD)</strong> — Create a <strong>text-based ERD</strong> in <code>bookstore_erd.md</code> showing:</p>
+<ul><li>All entities (tables) with their attributes, marking primary keys (PK) and foreign keys (FK).</li>
+<li>All relationships with cardinality notation (1:1, 1:N, M:N).</li>
+<li>Use ASCII art, Markdown tables, or a clear text notation (e.g., Crow&#39;s Foot in text).</li>
+</ul>
+</li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ol start="5"><li><p><strong>SQL Schema</strong> (<code>bookstore_db.sql</code>):</p>
+<ul><li>Write <code>CREATE TABLE</code> statements for every table.</li>
+<li>Include the following constraints where appropriate:<ul><li><code>PRIMARY KEY</code> (auto-increment for surrogate keys)</li>
+<li><code>FOREIGN KEY</code> with appropriate <code>ON DELETE</code> / <code>ON UPDATE</code> actions</li>
+<li><code>NOT NULL</code> for required fields</li>
+<li><code>UNIQUE</code> for ISBN, email, etc.</li>
+<li><code>CHECK</code> constraints (e.g., rating between 1 and 5, price &gt; 0, stock &gt;= 0)</li>
+<li><code>DEFAULT</code> values (e.g., order status, timestamps)</li>
+<li>Appropriate data types (<code>INT</code>, <code>DECIMAL</code>, <code>VARCHAR</code>, <code>TEXT</code>, <code>DATE</code>, <code>DATETIME</code>, <code>ENUM</code>)</li>
+</ul>
+</li>
+<li>Use <code>InnoDB</code> engine and <code>utf8mb4</code> charset.</li>
+</ul>
+</li>
+<li><p><strong>Sample Data</strong> — Insert at least:</p>
+<ul><li>8 books, 6 authors, 4 publishers, 5 categories</li>
+<li>5 customers, 6 orders with 12+ order items total</li>
+<li>10 reviews</li>
+<li>All foreign key relationships must be correctly linked.</li>
+</ul>
+</li>
+</ol>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>bookstore_erd.md</code></td><td>Text-based ERD with all entities, attributes, and relationships</td></tr><tr><td><code>bookstore_db.sql</code></td><td>Complete SQL file: normalization explanation, CREATE TABLE statements with constraints, INSERT statements for sample data</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>Schema Design</td><td>35</td><td>All required tables, correct relationships, appropriate data types, complete coverage of the bookstore domain</td></tr><tr><td>Normalization</td><td>25</td><td>Proper 3NF design, clear explanation, no redundancy, junction tables for M:N relationships</td></tr><tr><td>Constraints</td><td>20</td><td>Correct PKs, FKs, NOT NULL, UNIQUE, CHECK, DEFAULT; appropriate ON DELETE/ON UPDATE actions</td></tr><tr><td>Sample Data</td><td>10</td><td>Sufficient, realistic data that satisfies all constraints and demonstrates relationships</td></tr><tr><td>ERD Clarity</td><td>10</td><td>Clear, readable diagram showing all entities, attributes, and cardinality</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><strong>Start with the ERD.</strong> Sketch your tables and relationships on paper before writing SQL.</li>
+<li><strong>Think in nouns and verbs.</strong> Nouns → entities; verbs → relationships.</li>
+<li><strong>Junction tables</strong> are the key to M:N relationships. Each junction table needs a composite primary key (or its own surrogate key plus a UNIQUE constraint on the pair).</li>
+<li><strong>ON DELETE choices:</strong> Use <code>CASCADE</code> for dependent data (e.g., deleting an order deletes its items), <code>SET NULL</code> for optional references, and <code>RESTRICT</code> when deletion should be blocked.</li>
+<li><strong>Test your SQL.</strong> Run <code>source bookstore_db.sql</code> in MySQL to verify it executes without errors.</li>
+<li><strong>3NF checklist:</strong> After designing, verify that no table has a column that depends on only part of the primary key (2NF) or depends on another non-key column (3NF).</li>
+<li>Review Session 6 lecture slides on ER modeling and normalization before starting.</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your ERD on screen (from <code>bookstore_erd.md</code> or a diagram tool).</li>
+<li>The two M:N relationships (books↔authors, books↔categories) and the junction tables that resolve them.</li>
+<li>Why your design satisfies 3NF — point at one example on the ERD.</li>
+<li>The <code>bookstore_db.sql</code> import succeeding in phpMyAdmin, with the created tables and sample data visible.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-06.html"><span class="pager-label">Session hub</span><span class="pager-title">Database Design</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

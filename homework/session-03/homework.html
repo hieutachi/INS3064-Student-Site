@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 3: Dynamic Websites and Forms — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Registration &amp; survey forms — multi-page flow with validation and sessions.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-03/homework.md">
+<meta name="source-sha256" content="8016e15b0b4641b47966762afc33e08164fb4d3b5e9d5878a0f67c31c49531b8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 03</p><h1>Homework 3</h1><p class="lead">Registration &amp; survey forms — multi-page flow with validation and sessions.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#resources">Resources</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-03/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>Files:</strong> <code>register.php</code>, <code>survey.php</code>, <code>summary.php</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files (<code>register.php</code>, <code>survey.php</code>, <code>summary.php</code>) in one folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/session03/</code></li>
+<li>Compress the folder into a <code>.zip</code> named <code>homework03.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the flow (not just silent screen capture) · validation errors are shown on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>In this assignment you will build a <strong>multi-page Registration &amp; Survey Form</strong> application. This exercise covers HTML forms, the PHP superglobals <code>$_GET</code> and <code>$_POST</code>, server-side form validation, and session management. The application spans three pages that guide the user through registration, a short survey, and a final summary of all collected data.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<h4 id="page-1-registerphp-registration-form">Page 1 — <code>register.php</code> (Registration Form)<a class="anchor" href="#page-1-registerphp-registration-form" aria-label="Link to Page 1 — register.php (Registration Form)">#</a></h4>
+<ul><li>A form with the following fields:<ul><li><strong>Full Name</strong> — text input, required.</li>
+<li><strong>Email</strong> — email input, required, must be a valid email format.</li>
+<li><strong>Password</strong> — password input, minimum 6 characters.</li>
+<li><strong>Confirm Password</strong> — must match the Password field.</li>
+<li><strong>Age</strong> — number input, must be between 10 and 100.</li>
+<li><strong>Gender</strong> — radio buttons (Male / Female / Other), required.</li>
+</ul>
+</li>
+<li>On submission (POST to itself), <strong>validate all fields server-side</strong>:<ul><li>If validation fails, display <strong>inline error messages</strong> next to each invalid field and <strong>preserve</strong> the previously entered values (except passwords) so the user doesn&#39;t have to re-type everything.</li>
+<li>If validation passes, store the data in a <strong>PHP session</strong> and redirect (via <code>header(&#39;Location: ...&#39;)</code>) to <code>survey.php</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="page-2-surveyphp-survey-form">Page 2 — <code>survey.php</code> (Survey Form)<a class="anchor" href="#page-2-surveyphp-survey-form" aria-label="Link to Page 2 — survey.php (Survey Form)">#</a></h4>
+<ul><li>Only accessible if the registration session data exists; otherwise redirect back to <code>register.php</code>.</li>
+<li>A form with the following fields:<ul><li><strong>Favorite Programming Language</strong> — dropdown select (PHP, JavaScript, Python, Java, C++, Other).</li>
+<li><strong>Experience Level</strong> — radio buttons (Beginner, Intermediate, Advanced).</li>
+<li><strong>Interests</strong> — checkboxes (at least 5 options, e.g., Web Development, Mobile Apps, Data Science, Cybersecurity, AI/ML).</li>
+</ul>
+</li>
+<li>On submission, validate that at least one interest is selected, then <strong>merge</strong> the survey data into the existing session and redirect to <code>summary.php</code>.</li>
+</ul>
+<h4 id="page-3-summaryphp-summary-page">Page 3 — <code>summary.php</code> (Summary Page)<a class="anchor" href="#page-3-summaryphp-summary-page" aria-label="Link to Page 3 — summary.php (Summary Page)">#</a></h4>
+<ul><li>Only accessible if the full session data exists; otherwise redirect back to <code>register.php</code>.</li>
+<li>Display <strong>all collected data</strong> from both the registration and survey in a clean, organized layout.</li>
+<li>Show a <strong>&quot;Thank you&quot;</strong> message with the user&#39;s name.</li>
+<li>Include a <strong>&quot;Start Over&quot;</strong> button/link that destroys the session and returns to <code>register.php</code>.</li>
+</ul>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Use <strong><code>session_start()</code></strong> at the top of every page to maintain state across pages.</li>
+<li>Use the <strong><code>$_POST</code></strong> superglobal to receive form data (not <code>$_GET</code>).</li>
+<li>Validation must happen <strong>server-side</strong> (PHP); client-side validation with HTML5 attributes (<code>required</code>, <code>minlength</code>, etc.) is encouraged as a bonus but does <strong>not</strong> replace server-side checks.</li>
+<li>Use <code>header(&#39;Location: ...&#39;)</code> for redirects (remember: no output before <code>header()</code>).</li>
+<li>Sanitize user input using <code>htmlspecialchars()</code> before displaying it on the summary page to prevent XSS.</li>
+<li>Each file must be valid HTML5 with a consistent visual style (shared CSS or inline styles).</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>register.php</code></td><td>Registration form with server-side validation and error display.</td></tr><tr><td><code>survey.php</code></td><td>Survey form that collects additional user preferences.</td></tr><tr><td><code>summary.php</code></td><td>Summary page displaying all collected data from registration and survey.</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td><strong>Functionality</strong></td><td>40%</td><td>All three pages work correctly end-to-end; session carries data between pages; redirects function properly; the &quot;Start Over&quot; flow resets everything.</td></tr><tr><td><strong>Validation</strong></td><td>25%</td><td>All fields are validated server-side; error messages are clear and specific; previously entered values are preserved on validation failure; email format and password match are enforced.</td></tr><tr><td><strong>User Experience (UX)</strong></td><td>20%</td><td>Clean form layout; inline errors appear next to the relevant field; consistent styling across all three pages; the summary page is well-organized and readable.</td></tr><tr><td><strong>Code Quality</strong></td><td>15%</td><td>Proper use of sessions; clean code structure with meaningful variable names; <code>htmlspecialchars()</code> used on output; appropriate comments.</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li>Start each file with:<figure class="code-block is-code" data-language="php" data-lines="8"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">8 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-meta">&lt;?php</span>
+<span class="t-fn">session_start</span>();
+<span class="t-com">// validation / logic here</span>
+<span class="t-meta">?&gt;</span>
+<span class="t-op">&lt;!</span><span class="t-const">DOCTYPE</span> html<span class="t-tag">&gt;</span>
+<span class="t-tag">&lt;html</span><span class="t-tag">&gt;</span>
+<span class="t-op">&lt;!--</span> <span class="t-const">HTML</span> here <span class="t-op">--&gt;</span>
+<span class="t-tag">&lt;/html</span><span class="t-tag">&gt;</span></code></pre></figure></li>
+<li>To preserve form values after a failed validation, use the <code>value</code> attribute:<figure class="code-block is-code" data-language="html" data-lines="1"><figcaption><span class="code-language">HTML</span><span class="code-meta"><span class="code-lines">1 line</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-tag">&lt;input</span> <span class="t-att">type</span>=<span class="t-str">&quot;text&quot;</span> <span class="t-att">name</span>=<span class="t-str">&quot;name&quot;</span> <span class="t-att">value</span>=<span class="t-str">&quot;&lt;?= htmlspecialchars($_POST[&#39;name&#39;] ?? &#39;&#39;) ?&gt;&quot;</span><span class="t-tag">&gt;</span></code></pre></figure></li>
+<li>To destroy a session on &quot;Start Over&quot;:<figure class="code-block is-code" data-language="php" data-lines="4"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">4 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-fn">session_unset</span>();
+<span class="t-fn">session_destroy</span>();
+<span class="t-fn">header</span>(<span class="t-str">&#39;Location: register.php&#39;</span>);
+exit;</code></pre></figure></li>
+<li>Remember that <code>header(&#39;Location: ...&#39;)</code> will fail if any HTML or whitespace has been output before it — keep all PHP logic at the very top of the file.</li>
+<li>Test the full flow: register → survey → summary → start over → register again.</li>
+</ul>
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to Resources">#</a></h2>
+<ul><li><a href="https://www.php.net/manual/en/book.session.php" rel="noopener noreferrer">PHP Manual — Sessions</a></li>
+<li><a href="https://www.php.net/manual/en/reserved.variables.post.php" rel="noopener noreferrer">PHP Manual — $_POST</a></li>
+<li><a href="https://www.php.net/manual/en/function.header.php" rel="noopener noreferrer">PHP Manual — header()</a></li>
+<li><a href="https://www.php.net/manual/en/function.htmlspecialchars.php" rel="noopener noreferrer">PHP Manual — htmlspecialchars()</a></li>
+<li><a href="https://www.w3schools.com/php/php_forms.asp" rel="noopener noreferrer">W3Schools — PHP Form Handling</a></li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>The full multi-page flow live: register → survey → summary/&quot;Thank you&quot; page.</li>
+<li>The user&#39;s name appearing on the summary page from the data just entered.</li>
+<li>One validation error live (e.g., an invalid email) and how your code detects and displays it.</li>
+<li>Where the session data is stored between pages — point at the <code>$_SESSION</code> usage in your code.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-03.html"><span class="pager-label">Session hub</span><span class="pager-title">Dynamic Websites and Forms</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

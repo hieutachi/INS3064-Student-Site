@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 9: Error Handling and Debugging — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Robust calculator — custom exceptions, try/catch, error log, history.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-09/homework.md">
+<meta name="source-sha256" content="8bc7b5f029d41bd703896f9287adcc092faf219da69030f386bcdc878aeb9b3b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 09</p><h1>Homework 9</h1><p class="lead">Robust calculator — custom exceptions, try/catch, error log, history.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">9 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-09/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>calculator.php</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your file as <code>calculator.php</code></li>
+<li>Test it in browser via <code>http://localhost/INS3064/session09/calculator.php</code></li>
+<li>Compress the file into a <code>.zip</code> named <code>homework09.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the error handling (not just silent screen capture) · at least two error cases are triggered live on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Build a <strong>Robust Calculator</strong> web application in PHP that demonstrates comprehensive error handling and debugging practices. The calculator accepts two numbers and an arithmetic operator from a user, performs the calculation, and handles every possible error gracefully — including division by zero, invalid operators, and non-numeric input. All errors are logged to a file, and the user sees friendly messages. The app also maintains a session-based calculation history.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>Input Form</strong></p>
+<ul><li>An HTML form with fields for: first number, operator (dropdown: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>), and second number.</li>
+<li>The form submits to itself (same file, <code>calculator.php</code>) using the POST method.</li>
+<li>Preserve entered values in the form after submission (sticky form).</li>
+</ul>
+</li>
+<li><p><strong>Calculation &amp; Output</strong></p>
+<ul><li>Display the full expression and result (e.g., <code>10 / 3 = 3.3333</code>).</li>
+<li>Format the result to 4 decimal places for division; show integers for other operations.</li>
+<li>Display a &quot;Calculate&quot; button and a &quot;Clear History&quot; button.</li>
+</ul>
+</li>
+<li><p><strong>Error Handling</strong> — Handle the following errors gracefully using <code>try-catch</code> with <strong>custom exception classes</strong>:</p>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Error Condition</th><th>Exception Class</th><th>Example Input</th></tr></thead><tbody><tr><td>Non-numeric input for either number</td><td><code>InvalidInputException</code></td><td><code>&quot;abc&quot; + 5</code></td></tr><tr><td>Invalid or unsupported operator</td><td><code>InvalidOperatorException</code></td><td><code>5 &amp; 3</code></td></tr><tr><td>Division by zero</td><td><code>DivisionByZeroException</code></td><td><code>10 / 0</code></td></tr><tr><td>Modulo by zero</td><td><code>DivisionByZeroException</code></td><td><code>10 % 0</code></td></tr><tr><td>Result exceeds PHP&#39;s integer/float limits (overflow)</td><td><code>OverflowException</code></td><td><code>99999 ** 99999</code></td></tr><tr><td>Any unexpected error</td><td>Generic catch block</td><td>—</td></tr></tbody></table></div>
+</li>
+<li><p><strong>Custom Exception Classes</strong></p>
+<ul><li>Define three custom exception classes in the same file:<ul><li><code>DivisionByZeroException extends Exception</code></li>
+<li><code>InvalidOperatorException extends Exception</code></li>
+<li><code>InvalidInputException extends Exception</code></li>
+</ul>
+</li>
+<li>Each custom exception should accept a user-friendly message.</li>
+</ul>
+</li>
+<li><p><strong>Error Logging</strong></p>
+<ul><li>Every caught error must be logged to a file called <code>calculator_errors.log</code> (in the same directory).</li>
+<li>Log format: <code>[YYYY-MM-DD HH:MM:SS] ExceptionType: message | Input: &quot;a op b&quot; | IP: user_ip</code></li>
+<li>Use <code>error_log()</code> or manual file writing (<code>file_put_contents</code> with <code>FILE_APPEND</code>).</li>
+<li>The log file must NOT be directly accessible from the web (add a <code>.htaccess</code> or place it outside web root, OR use a <code>.log</code> extension which is usually not served).</li>
+</ul>
+</li>
+<li><p><strong>User-Friendly Error Display</strong></p>
+<ul><li>Do NOT show raw PHP errors or stack traces to the user.</li>
+<li>Display a styled error box (CSS) with a clear message explaining what went wrong and how to fix it.</li>
+<li>Use different colors: green for success, red for errors, yellow for warnings.</li>
+</ul>
+</li>
+<li><p><strong>Session-Based Calculation History</strong></p>
+<ul><li>Store every successful calculation in <code>$_SESSION</code> as an array of records: <code>{ expression, result, timestamp }</code>.</li>
+<li>Display the history below the calculator as an HTML table (most recent first).</li>
+<li>The &quot;Clear History&quot; button should reset the session history.</li>
+<li>Use <code>session_start()</code> at the top of the file.</li>
+</ul>
+</li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Everything must be in a <strong>single file</strong>: <code>calculator.php</code> (PHP, HTML, and inline CSS are acceptable).</li>
+<li>Use <code>$_SERVER[&#39;REQUEST_METHOD&#39;]</code> to check if the form was submitted.</li>
+<li>Use <code>filter_input()</code> or manual validation for input sanitization.</li>
+<li>No external libraries or frameworks.</li>
+<li>The file must run without warnings or notices (<code>error_reporting(E_ALL)</code> at the top for development; handle all cases so nothing triggers).</li>
+<li>Include a file header comment with your name, student ID, and date.</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>calculator.php</code></td><td>Complete single-file application with form, calculation logic, custom exceptions, error logging, session history, and inline CSS</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>Error Handling</td><td>35</td><td>All 5 error conditions caught and handled correctly; no unhandled exceptions reach the user; form gracefully handles every edge case</td></tr><tr><td>Custom Exceptions</td><td>25</td><td>Three custom exception classes defined and thrown appropriately; clear separation between error types; proper use of try-catch-catch-catch structure</td></tr><tr><td>Logging</td><td>20</td><td>All errors logged to file with correct format (timestamp, type, message, input, IP); log file is append-only and not publicly accessible</td></tr><tr><td>Session History</td><td>10</td><td>History correctly stored in session, displayed in reverse chronological order, and clearable; persists across page reloads</td></tr><tr><td>UI &amp; Usability</td><td>10</td><td>Clean, readable form layout; color-coded success/error messages; sticky form preserves input; responsive styling</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><strong>Start with the custom exceptions.</strong> Define them at the top of the file, then build the calculation logic around them.</li>
+<li><strong>Validate early, fail fast.</strong> Check input types first, then operator validity, then math-specific errors (division by zero, overflow). Throw the first error you encounter.</li>
+<li><strong>Overflow detection:</strong> After calculating, check if the result is <code>INF</code> or <code>NAN</code> using <code>is_infinite()</code> and <code>is_nan()</code>.</li>
+<li><strong>Sticky form:</strong> After the form is submitted, echo the submitted values back into the <code>value</code> attribute of each input and the <code>selected</code> attribute of the correct <code>&lt;option&gt;</code>.</li>
+<li><strong>Log file path:</strong> Use <code>__DIR__ . &#39;/calculator_errors.log&#39;</code> to write next to the script regardless of the working directory.</li>
+<li><strong>Session note:</strong> <code>session_start()</code> must be called before any output. Place it at the very top of the file, even before <code>&lt;!DOCTYPE&gt;</code>.</li>
+<li>Review Session 9 lecture slides on exception handling and error logging before starting.</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your calculator running in the browser.</li>
+<li>Error case 1 live (e.g., <code>10 / 0</code>) showing the friendly error message.</li>
+<li>Error case 2 live (invalid operator or non-numeric input) showing its friendly message.</li>
+<li>Which custom exception class handles each error — point at the classes in your code.</li>
+<li>(Bonus) The error log file or the session calculation history on screen.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-09.html"><span class="pager-label">Session hub</span><span class="pager-title">Error Handling and Debugging</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

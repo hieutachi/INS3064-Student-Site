@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 10: PHP with MySQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Contact manager — full CRUD with PDO, prepared statements, and search.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-10/homework.md">
+<meta name="source-sha256" content="553414baac5788ed94cae8203b05572dc7a0794e17e6c148aa1143ec7d46f47d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 10</p><h1>Homework 10</h1><p class="lead">Contact manager — full CRUD with PDO, prepared statements, and search.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">9 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-10/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>Folder:</strong> <code>contact_manager/</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>contact_manager/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/contact_manager/</code></li>
+<li>Compress the folder into a <code>.zip</code> named <code>homework10.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice narrates the CRUD demo (not just silent screen capture) · add/edit/delete are all shown live on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Build a <strong>Contact Manager</strong> web application using PHP and MySQL with full CRUD (Create, Read, Update, Delete) functionality. This assignment brings together database design, SQL queries, PHP database connectivity (PDO), form handling, session management, and basic web UI into a single cohesive project.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ol><li><p><strong>Database Setup</strong></p>
+<ul><li><p>Create a MySQL database named <code>contact_manager</code>.</p>
+</li>
+<li><p>Create a <code>contacts</code> table with the following columns:</p>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Column</th><th>Type</th><th>Constraints</th></tr></thead><tbody><tr><td><code>id</code></td><td>INT</td><td>PRIMARY KEY, AUTO_INCREMENT</td></tr><tr><td><code>name</code></td><td>VARCHAR(100)</td><td>NOT NULL</td></tr><tr><td><code>email</code></td><td>VARCHAR(150)</td><td>UNIQUE</td></tr><tr><td><code>phone</code></td><td>VARCHAR(20)</td><td></td></tr><tr><td><code>group_name</code></td><td>VARCHAR(50)</td><td>DEFAULT &#39;General&#39; (e.g., Family, Friends, Work, General)</td></tr><tr><td><code>notes</code></td><td>TEXT</td><td></td></tr><tr><td><code>created_at</code></td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>updated_at</code></td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody></table></div>
+</li>
+<li><p>Include a <code>setup.sql</code> file with <code>CREATE DATABASE</code>, <code>CREATE TABLE</code>, and at least 5 sample <code>INSERT</code> statements.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>List Page</strong> (<code>index.php</code>)</p>
+<ul><li>Display all contacts in a sortable HTML table with columns: Name, Email, Phone, Group, Created At, Actions (Edit | Delete).</li>
+<li>Show the total number of contacts at the top.</li>
+<li>Include a <strong>search bar</strong> that filters contacts by name or email (search-as-you-type is optional; a form submit is sufficient).</li>
+<li>Include an &quot;Add New Contact&quot; button/link.</li>
+<li>Highlight rows alternately (zebra striping) using CSS.</li>
+</ul>
+</li>
+<li><p><strong>Add Contact</strong> (<code>add.php</code>)</p>
+<ul><li>Display a form to create a new contact with fields: Name (required), Email (must be valid and unique), Phone, Group (dropdown: Family, Friends, Work, Other, General), Notes (textarea).</li>
+<li>Validate all inputs server-side:<ul><li>Name cannot be empty.</li>
+<li>Email must be a valid format (<code>filter_var</code> with <code>FILTER_VALIDATE_EMAIL</code>).</li>
+<li>Email must be unique (check database before inserting).</li>
+</ul>
+</li>
+<li>On success: redirect to <code>index.php</code> with a <strong>success flash message</strong> (e.g., &quot;Contact added successfully!&quot;).</li>
+<li>On failure: redisplay the form with error messages and previously entered values (sticky form).</li>
+</ul>
+</li>
+<li><p><strong>Edit Contact</strong> (<code>edit.php</code>)</p>
+<ul><li>Load the existing contact data by <code>id</code> from the query string.</li>
+<li>Pre-fill the form with current values.</li>
+<li>Same validation rules as Add.</li>
+<li>On success: redirect to <code>index.php</code> with a success flash message.</li>
+<li>On failure: redisplay the form with error messages.</li>
+<li>If the <code>id</code> does not exist, show a &quot;Contact not found&quot; message and a link back.</li>
+</ul>
+</li>
+<li><p><strong>Delete Contact</strong> (<code>delete.php</code>)</p>
+<ul><li>Accept the contact <code>id</code> via GET request.</li>
+<li>Display a <strong>confirmation page</strong> showing the contact details and asking &quot;Are you sure you want to delete this contact?&quot;</li>
+<li>Only perform the deletion on POST confirmation (to prevent accidental deletions via link crawling).</li>
+<li>On success: redirect to <code>index.php</code> with a success flash message.</li>
+</ul>
+</li>
+<li><p><strong>Flash Messages</strong></p>
+<ul><li>Use <code>$_SESSION</code> to store one-time messages (success, error, warning).</li>
+<li>Display flash messages at the top of the page with appropriate CSS styling (green for success, red for error).</li>
+<li>Clear the flash message after displaying it once.</li>
+</ul>
+</li>
+</ol>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ol start="7"><li><p><strong>Database Connection</strong> (<code>config.php</code>)</p>
+<ul><li>Use <strong>PDO</strong> (not <code>mysqli</code>) for all database operations.</li>
+<li>Set PDO error mode to <code>ERRMODE_EXCEPTION</code>.</li>
+<li>Set <code>ATTR_DEFAULT_FETCH_MODE</code> to <code>FETCH_ASSOC</code>.</li>
+<li>Store connection parameters (host, dbname, user, pass) as constants.</li>
+<li>Use a singleton pattern or a simple <code>$pdo</code> variable shared across files.</li>
+</ul>
+</li>
+<li><p><strong>Security</strong></p>
+<ul><li>Use <strong>prepared statements</strong> with named placeholders (<code>:name</code>) or positional placeholders (<code>?</code>) for ALL database queries. No string concatenation of user input into SQL.</li>
+<li>Use <code>htmlspecialchars()</code> when outputting user data to HTML (prevent XSS).</li>
+<li>Validate and sanitize all inputs before using them.</li>
+<li>Use <code>filter_input()</code> where appropriate.</li>
+</ul>
+</li>
+<li><p><strong>Code Organization</strong></p>
+<ul><li>Separate concerns: <code>config.php</code> (connection), <code>index.php</code> (list), <code>add.php</code> (create), <code>edit.php</code> (update), <code>delete.php</code> (destroy), <code>style.css</code> (presentation).</li>
+<li>Use a consistent page layout: include a common header and footer in each page (you can use <code>include</code> or inline them).</li>
+<li>Meaningful variable names, consistent indentation, and file header comments.</li>
+</ul>
+</li>
+<li><p><strong>CSS Styling</strong> (<code>style.css</code>)</p>
+<ul><li>Clean, readable design — no need for a CSS framework, but the app should look polished.</li>
+<li>Style the table, forms, buttons, navigation, flash messages, and confirmation dialog.</li>
+<li>Use a consistent color scheme and readable font.</li>
+<li>The layout should work on both desktop and basic mobile (simple responsive design).</li>
+</ul>
+</li>
+</ol>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>contact_manager/setup.sql</code></td><td>SQL file to create the database, table, and sample data</td></tr><tr><td><code>contact_manager/config.php</code></td><td>PDO database connection configuration</td></tr><tr><td><code>contact_manager/index.php</code></td><td>List page with search and table display</td></tr><tr><td><code>contact_manager/add.php</code></td><td>Add new contact form and processing</td></tr><tr><td><code>contact_manager/edit.php</code></td><td>Edit existing contact form and processing</td></tr><tr><td><code>contact_manager/delete.php</code></td><td>Delete confirmation and processing</td></tr><tr><td><code>contact_manager/style.css</code></td><td>CSS stylesheet for all pages</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>CRUD Functionality</td><td>35</td><td>All four operations (Create, Read, Update, Delete) work correctly; list displays all contacts; forms validate properly; redirects after actions</td></tr><tr><td>Security (Prepared Statements)</td><td>25</td><td>ALL database queries use PDO prepared statements; no raw user input in SQL; htmlspecialchars used on output; proper input validation</td></tr><tr><td>User Experience (UX)</td><td>20</td><td>Flash messages for all actions; sticky forms on validation errors; confirmation before delete; clean layout; responsive design; helpful error messages</td></tr><tr><td>Search</td><td>10</td><td>Search by name or email works correctly; search term is preserved in the input after submission; uses prepared statements</td></tr><tr><td>Code Organization</td><td>10</td><td>Logical file structure; config.php separation; consistent coding style; comments; reusable header/footer; no code duplication</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><strong>Start with <code>setup.sql</code> and <code>config.php</code>.</strong> Get the database running and connected before building any pages.</li>
+<li><strong>PDO connection pattern:</strong><figure class="code-block is-code" data-language="php" data-lines="7"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">7 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">try</span> {
+    <span class="t-var">$pdo</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">PDO</span>(<span class="t-str">&quot;mysql:host=localhost;dbname=contact_manager;charset=utf8mb4&quot;</span>, <span class="t-str">&quot;root&quot;</span>, <span class="t-str">&quot;&quot;</span>);
+    <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">setAttribute</span>(<span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_ERRMODE</span>, <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ERRMODE_EXCEPTION</span>);
+    <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">setAttribute</span>(<span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">ATTR_DEFAULT_FETCH_MODE</span>, <span class="t-const">PDO</span><span class="t-op">::</span><span class="t-const">FETCH_ASSOC</span>);
+} <span class="t-kw">catch</span> (PDOException <span class="t-var">$e</span>) {
+    <span class="t-fn">die</span>(<span class="t-str">&quot;Database connection failed: &quot;</span> <span class="t-op">.</span> <span class="t-var">$e</span><span class="t-op">-&gt;</span><span class="t-fn">getMessage</span>());
+}</code></pre></figure></li>
+<li><strong>Prepared statement pattern:</strong><figure class="code-block is-code" data-language="php" data-lines="3"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">3 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-var">$stmt</span> <span class="t-op">=</span> <span class="t-var">$pdo</span><span class="t-op">-&gt;</span><span class="t-fn">prepare</span>(<span class="t-str">&quot;SELECT * FROM contacts WHERE name LIKE :search OR email LIKE :search&quot;</span>);
+<span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">execute</span>([<span class="t-str">&#39;search&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;%&#39;</span> <span class="t-op">.</span> <span class="t-var">$search</span> <span class="t-op">.</span> <span class="t-str">&#39;%&#39;</span>]);
+<span class="t-var">$contacts</span> <span class="t-op">=</span> <span class="t-var">$stmt</span><span class="t-op">-&gt;</span><span class="t-fn">fetchAll</span>();</code></pre></figure></li>
+<li><strong>Flash messages:</strong> Set <code>$_SESSION[&#39;message&#39;]</code> and <code>$_SESSION[&#39;message_type&#39;]</code> after each action. In your header, display the message and then <code>unset()</code> both session keys.</li>
+<li><strong>Delete pattern:</strong> <code>delete.php</code> should check <code>$_SERVER[&#39;REQUEST_METHOD&#39;]</code>. On GET, show confirmation. On POST, perform deletion.</li>
+<li><strong>Testing:</strong> Test every edge case: empty form submission, duplicate email, editing a non-existent ID, deleting while someone else is viewing the list.</li>
+<li>Review Session 10 lecture slides on PDO and prepared statements before starting.</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>Your Contact Manager running in the browser.</li>
+<li>Adding one new contact live and seeing it appear in the list.</li>
+<li>Editing that contact live and seeing the change saved.</li>
+<li>Deleting that contact live and confirming it is gone.</li>
+<li>The PDO prepared statements in your code behind all three operations.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-10.html"><span class="pager-label">Session hub</span><span class="pager-title">PHP with MySQL</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

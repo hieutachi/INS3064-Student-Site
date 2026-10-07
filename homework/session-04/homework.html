@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 4: Introduction to MySQL — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="University database — design 6 tables in SQL and seed them with data.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-04/homework.md">
+<meta name="source-sha256" content="f30c77bef8cca0d6d4f8ef935fb824ac096ddc669f496e468911cb52d28f7091">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 04</p><h1>Homework 4</h1><p class="lead">University database — design 6 tables in SQL and seed them with data.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#resources">Resources</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-04/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>university_db.sql</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your <code>.sql</code> file as <code>university_db.sql</code></li>
+<li>Test by importing into phpMyAdmin (SQL tab)</li>
+<li>Compress the file into a <code>.zip</code> named <code>homework04.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the schema (not just silent screen capture) · all tables and sample data are visible on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>In this assignment you will <strong>design and create</strong> a relational database schema for a <strong>University Course Registration System</strong> using MySQL. You will practice database design concepts including tables, primary keys, foreign keys, data types, constraints, and inserting sample data. The deliverable is a single <code>.sql</code> file that, when executed, creates the entire database from scratch.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ul><li><p>Create a database named <code>university_db</code>.</p>
+</li>
+<li><p>Design and create the following <strong>5 tables</strong>:</p>
+<ol><li><strong><code>departments</code></strong> — stores academic departments.</li>
+<li><strong><code>instructors</code></strong> — stores instructor information, linked to a department.</li>
+<li><strong><code>students</code></strong> — stores student information, linked to a department (major).</li>
+<li><strong><code>courses</code></strong> — stores course information, linked to a department and an instructor.</li>
+<li><strong><code>semesters</code></strong> — stores semester information (e.g., Fall 2024, Spring 2025).</li>
+</ol>
+</li>
+<li><p>Create a <strong>registration/enrollment</strong> table (e.g., <code>enrollments</code>) that links students to courses in a given semester, with an optional grade field.</p>
+</li>
+<li><p><strong>Insert sample data</strong> into every table:</p>
+<ul><li>At least <strong>5 records</strong> per table (departments, instructors, students, courses, semesters).</li>
+<li>At least <strong>10 records</strong> in the enrollment table (showing various student-course combinations).</li>
+<li>Use realistic and meaningful data (real department names, plausible course titles, Vietnamese names for students and instructors).</li>
+</ul>
+</li>
+</ul>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Deliver a <strong>single file</strong> named <code>university_db.sql</code>.</li>
+<li>The file must be <strong>idempotent</strong> — include <code>DROP DATABASE IF EXISTS</code> and <code>DROP TABLE IF EXISTS</code> statements so it can be re-run without errors.</li>
+<li>Use <strong>appropriate data types</strong>:<ul><li><code>INT</code> / <code>BIGINT</code> for IDs and numeric fields.</li>
+<li><code>VARCHAR</code> with reasonable lengths for names, emails, codes.</li>
+<li><code>TEXT</code> for descriptions.</li>
+<li><code>DECIMAL(3,2)</code> or <code>DECIMAL(4,2)</code> for GPA / grades.</li>
+<li><code>DATE</code> or <code>DATETIME</code> for dates.</li>
+<li><code>ENUM</code> for fields with a fixed set of values (e.g., gender, grade letter).</li>
+</ul>
+</li>
+<li>Apply <strong>constraints</strong>:<ul><li><code>PRIMARY KEY</code> on every table.</li>
+<li><code>FOREIGN KEY</code> with <code>ON DELETE</code> / <code>ON UPDATE</code> actions on all referencing columns.</li>
+<li><code>NOT NULL</code> on required fields.</li>
+<li><code>UNIQUE</code> on fields that must be unique (e.g., email, student_code, course_code).</li>
+<li><code>DEFAULT</code> values where appropriate.</li>
+<li><code>CHECK</code> constraints where useful (e.g., grade between 0.00 and 4.00).</li>
+</ul>
+</li>
+<li>Use <strong><code>AUTO_INCREMENT</code></strong> for primary key IDs.</li>
+<li>Include a <strong>comment header</strong> at the top of the file with: your name, student ID, assignment name, and date.</li>
+<li>Add <strong>inline comments</strong> explaining the purpose of each table and each constraint.</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>university_db.sql</code></td><td>Complete SQL script that creates the database, all tables with constraints, and inserts all sample data.</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td><strong>Schema Design</strong></td><td>40%</td><td>Tables are well-structured; relationships (1:N, M:N) are correctly modeled with foreign keys; the enrollment table properly references students, courses, and semesters; no redundant columns.</td></tr><tr><td><strong>Data Types &amp; Constraints</strong></td><td>25%</td><td>Appropriate data types chosen for every column; all primary keys, foreign keys, NOT NULL, UNIQUE, and DEFAULT constraints are correctly applied; foreign key actions are specified.</td></tr><tr><td><strong>Sample Data</strong></td><td>20%</td><td>At least 5 records per main table and 10 enrollments; data is realistic and internally consistent (foreign key values match existing records); enough variety to be useful for query testing in Homework 5.</td></tr><tr><td><strong>Naming Conventions</strong></td><td>15%</td><td>Table and column names are lowercase with underscores (snake_case), consistent, and descriptive; no reserved words used as identifiers; clear and helpful comments throughout.</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li>Start with an <strong>Entity-Relationship diagram</strong> on paper (or with a tool like dbdiagram.io) before writing SQL.</li>
+<li>Create tables in <strong>dependency order</strong>: tables with no foreign keys first (departments, semesters), then tables that reference them (instructors, students, courses), then the junction table (enrollments).</li>
+<li>Example structure:<figure class="code-block is-code" data-language="sql" data-lines="6"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">6 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">CREATE</span> <span class="t-kw">TABLE</span> departments (
+    id          <span class="t-type">INT</span> <span class="t-kw">AUTO_INCREMENT</span> <span class="t-kw">PRIMARY</span> <span class="t-kw">KEY</span><span class="t-op">,</span>
+    name        <span class="t-type">VARCHAR</span>(<span class="t-num">100</span>) <span class="t-kw">NOT</span> <span class="t-kw">NULL</span> <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+    code        <span class="t-type">VARCHAR</span>(<span class="t-num">10</span>)  <span class="t-kw">NOT</span> <span class="t-kw">NULL</span> <span class="t-kw">UNIQUE</span><span class="t-op">,</span>
+    created_at  <span class="t-type">DATETIME</span> <span class="t-kw">DEFAULT</span> <span class="t-lit">CURRENT_TIMESTAMP</span>
+) <span class="t-kw">ENGINE</span><span class="t-op">=</span>InnoDB<span class="t-op">;</span></code></pre></figure></li>
+<li>Use <code>ENGINE=InnoDB</code> to ensure foreign key support.</li>
+<li>For the enrollment table, consider a <strong>composite unique constraint</strong> to prevent duplicate enrollments:<figure class="code-block is-code" data-language="sql" data-lines="1"><figcaption><span class="code-language">SQL</span><span class="code-meta"><span class="code-lines">1 line</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-kw">UNIQUE</span> <span class="t-kw">KEY</span> <span class="t-att">`unique_enrollment`</span> (<span class="t-att">`student_id`</span><span class="t-op">,</span> <span class="t-att">`course_id`</span><span class="t-op">,</span> <span class="t-att">`semester_id`</span>)</code></pre></figure></li>
+<li>Test your script by running it in MySQL: <code>mysql -u root -p &lt; university_db.sql</code></li>
+</ul>
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to Resources">#</a></h2>
+<ul><li><a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html" rel="noopener noreferrer">MySQL Manual — CREATE TABLE</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html" rel="noopener noreferrer">MySQL Manual — Foreign Keys</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html" rel="noopener noreferrer">MySQL Data Types</a></li>
+<li><a href="https://dbdiagram.io/" rel="noopener noreferrer">dbdiagram.io — Free ER Diagram Tool</a></li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>phpMyAdmin open on your <code>university_db</code> database.</li>
+<li>The full table list (around 6 tables, including the enrollment table).</li>
+<li>The <code>students</code> and <code>enrollments</code> tables open with the primary key and foreign key columns pointed out.</li>
+<li>Why you chose 1–2 of the data types you used (e.g., <code>DECIMAL(3,2)</code> for GPA, <code>ENUM</code> for gender).</li>
+<li>Sample rows visible in at least one table.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-04.html"><span class="pager-label">Session hub</span><span class="pager-title">Introduction to MySQL</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

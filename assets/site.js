@@ -30,7 +30,7 @@
   });
 
   /* ---- Active nav ---- */
-  var section = window.location.pathname.match(/\/(sessions|ebook|slides|guides)\//);
+  var section = window.location.pathname.match(/\/(sessions|homework|ebook|slides|guides)\//);
   if (section) {
     var current = document.querySelector('[data-nav="' + section[1] + '"]');
     if (current) current.setAttribute("aria-current", "page");

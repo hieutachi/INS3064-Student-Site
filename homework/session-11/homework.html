@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 11: Programming Techniques — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Contact manager MVC — refactor Homework 10 into OOP with a Router.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-11/homework.md">
+<meta name="source-sha256" content="d059f76df1619935c1a470f73972db784c1a07343373a17294d5e7443d34b31e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 11</p><h1>Homework 11</h1><p class="lead">Contact manager MVC — refactor Homework 10 into OOP with a Router.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">9 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-11/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>homework-11.zip</code> containing <code>contact_manager/</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save all files in the <code>contact_manager/</code> folder</li>
+<li>Test each file in browser via <code>http://localhost/INS3064/contact_manager/</code></li>
+<li>Compress the folder into <code>homework-11.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the MVC structure (not just silent screen capture) · the app still works live in the browser on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>Refactor your Contact Manager from Homework 10 to use <strong>Object-Oriented Programming</strong> and the <strong>MVC (Model-View-Controller)</strong> architectural pattern. This assignment reinforces OOP principles — classes, inheritance, encapsulation, and design patterns — applied to a real PHP web application. You will also implement a simple front-controller with a Router class and use <code>spl_autoload_register</code> for automatic class loading.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ul><li><strong>All CRUD operations from Homework 10 must still work</strong> (Create, Read, Update, Delete contacts).</li>
+<li>The application must be accessible through a single entry point (<code>index.php</code>) that dispatches requests via a Router.</li>
+<li>Views must render the same HTML output as Homework 10 (forms, tables, validation messages).</li>
+</ul>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ol><li><p><strong>Database Class (Singleton Pattern)</strong></p>
+<ul><li>Create a <code>Database</code> class in <code>app/core/Database.php</code>.</li>
+<li>Implement the Singleton pattern so only one PDO connection exists per request.</li>
+<li>Provide a static <code>getInstance()</code> method and a <code>getConnection()</code> method.</li>
+</ul>
+</li>
+<li><p><strong>Base Model Class</strong></p>
+<ul><li>Create an abstract <code>Model</code> class in <code>app/models/Model.php</code>.</li>
+<li>It should receive the PDO connection from <code>Database::getInstance()</code> in its constructor.</li>
+<li>Provide a protected <code>$db</code> property for child models.</li>
+</ul>
+</li>
+<li><p><strong>ContactModel</strong></p>
+<ul><li>Create <code>app/models/ContactModel.php</code> extending <code>Model</code>.</li>
+<li>Move all database queries (INSERT, SELECT, UPDATE, DELETE) into this class as methods.</li>
+<li>All queries must use <strong>prepared statements</strong>.</li>
+</ul>
+</li>
+<li><p><strong>ContactController</strong></p>
+<ul><li>Create <code>app/controllers/ContactController.php</code>.</li>
+<li>Implement methods: <code>index()</code>, <code>create()</code>, <code>store()</code>, <code>edit()</code>, <code>update()</code>, <code>delete()</code>.</li>
+<li>Each method handles request processing, calls the model, and loads the appropriate view.</li>
+</ul>
+</li>
+<li><p><strong>Views</strong></p>
+<ul><li>Organize view files under <code>app/views/contacts/</code>:<ul><li><code>index.php</code> — list all contacts</li>
+<li><code>create.php</code> — create form</li>
+<li><code>edit.php</code> — edit form</li>
+<li><code>layout.php</code> or <code>header.php</code> / <code>footer.php</code> — shared HTML structure</li>
+</ul>
+</li>
+<li>Use <code>include</code> or <code>require</code> to compose views.</li>
+</ul>
+</li>
+<li><p><strong>Router Class</strong></p>
+<ul><li>Create <code>app/core/Router.php</code>.</li>
+<li>Parse the URL (using <code>$_GET[&#39;route&#39;]</code> or <code>$_SERVER[&#39;REQUEST_URI&#39;]</code>) and map it to the correct controller method.</li>
+<li>Support at minimum: <code>/</code>, <code>/create</code>, <code>/store</code>, <code>/edit?id=</code>, <code>/update</code>, <code>/delete?id=</code>.</li>
+</ul>
+</li>
+<li><p><strong>Autoloading</strong></p>
+<ul><li>Use <code>spl_autoload_register()</code> in <code>public/index.php</code> (or a <code>bootstrap.php</code>) to automatically load classes based on namespace or directory convention.</li>
+<li>Map namespaces to directories (e.g., <code>App\Controllers\*</code> → <code>app/controllers/</code>).</li>
+</ul>
+</li>
+<li><p><strong>Folder Structure</strong></p>
+<figure class="code-block is-plain" data-language="diagram" data-lines="23"><figcaption><span class="code-language">Structure</span><span class="code-meta"><span class="code-lines">23 lines</span></span></figcaption><pre tabindex="0"><code>contact_manager/
+├── public/
+│   ├── index.php          # Single entry point (front controller)
+│   └── css/
+│       └── style.css
+├── app/
+│   ├── core/
+│   │   ├── Database.php
+│   │   └── Router.php
+│   ├── controllers/
+│   │   └── ContactController.php
+│   ├── models/
+│   │   ├── Model.php
+│   │   └── ContactModel.php
+│   └── views/
+│       ├── layout.php
+│       └── contacts/
+│           ├── index.php
+│           ├── create.php
+│           └── edit.php
+├── config/
+│   └── database.php
+└── README.md</code></pre></figure></li>
+</ol>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>public/index.php</code></td><td>Front controller — entry point, autoloading, routing</td></tr><tr><td><code>app/core/Database.php</code></td><td>Singleton database connection class</td></tr><tr><td><code>app/core/Router.php</code></td><td>Simple URL-to-controller-method router</td></tr><tr><td><code>app/models/Model.php</code></td><td>Abstract base model with DB connection</td></tr><tr><td><code>app/models/ContactModel.php</code></td><td>Contact-specific database operations</td></tr><tr><td><code>app/controllers/ContactController.php</code></td><td>Controller handling all contact actions</td></tr><tr><td><code>app/views/contacts/*.php</code></td><td>View templates for each action</td></tr><tr><td><code>app/views/layout.php</code></td><td>Shared HTML layout (header/footer)</td></tr><tr><td><code>config/database.php</code></td><td>Database configuration (host, dbname, user, pass)</td></tr><tr><td><code>README.md</code></td><td>Setup instructions and brief architecture explanation</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td>OOP Implementation</td><td>30</td><td>Correct use of classes, inheritance (Model hierarchy), Singleton pattern, encapsulation, visibility modifiers (public/protected/private)</td></tr><tr><td>MVC Structure</td><td>25</td><td>Clean separation: models handle data, controllers handle logic, views handle presentation; correct folder organization</td></tr><tr><td>Functionality Preserved</td><td>20</td><td>All CRUD operations work identically to Homework 10; no broken features</td></tr><tr><td>Autoloading</td><td>15</td><td><code>spl_autoload_register()</code> correctly loads all classes without manual <code>require</code>/<code>include</code> for class files</td></tr><tr><td>Code Quality</td><td>10</td><td>Consistent naming conventions, meaningful method names, clean formatting, helpful comments, a clear README</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li><strong>Start with the Database singleton</strong> — everything else depends on the connection. Test it before moving on.</li>
+<li><strong>Refactor incrementally</strong>: first get the Model and ContactModel working with the old procedural code, then add the Controller and Router.</li>
+<li><strong>Use namespaces</strong> (e.g., <code>namespace App\Core;</code>, <code>namespace App\Models;</code>) to make autoloading clean and avoid class name conflicts.</li>
+<li><strong>Pass data to views</strong> by setting properties on the controller or by passing an associative array: <code>$this-&gt;view(&#39;contacts/index&#39;, [&#39;contacts&#39; =&gt; $contacts])</code>.</li>
+<li><strong>The Router does not need to be complex</strong> — a simple <code>switch</code> or <code>match</code> on the route parameter is sufficient for this assignment.</li>
+<li><strong>Test each piece in isolation</strong> before wiring everything together through the front controller.</li>
+<li>Refer to the session 11 lecture slides for examples of the Singleton pattern and MVC structure in PHP.</li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>The MVC folder structure of your refactored Contact Manager in VS Code (models, views, controllers, router).</li>
+<li>One Model and one Controller open, with you naming each one&#39;s responsibility.</li>
+<li>How the Router dispatches a request like <code>/contacts/edit</code> to the right controller action.</li>
+<li>The refactored app still running in the browser — do one action (e.g., open the contact list) live.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-11.html"><span class="pager-label">Session hub</span><span class="pager-title">Programming Techniques</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>

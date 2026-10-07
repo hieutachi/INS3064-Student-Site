@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework 2: Programming with PHP — INS3064 · Multimedia Design and Web Development</title>
+<meta name="description" content="Grade calculator — arrays, functions, loops, and an HTML results table.">
+<meta name="generator" content="INS3064 static-site builder">
+<meta name="color-scheme" content="light dark">
+<meta name="source-file" content="homework/session-02/homework.md">
+<meta name="source-sha256" content="6ff40f7ccffdac3c070a865701ba098d406d620bb06e552ad2cc8d22eb6eeb4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("ins3064.theme");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+</head>
+<body class="reading-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span data-reading-progress></span></div>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html" aria-label="INS3064 home"><span class="brand-mark" aria-hidden="true">PHP</span><span class="brand-copy"><strong>INS3064</strong><span>Web Development</span></span></a>
+<nav class="primary-nav" aria-label="Learning resources"><a data-nav="sessions" href="../../sessions/index.html">Sessions</a><a data-nav="homework" href="../../homework/index.html">Homework</a><a data-nav="ebook" href="../../ebook/index.html">Ebook</a><a data-nav="slides" href="../../slides/index.html">Slides</a><a data-nav="guides" href="../../guides/index.html">Guides</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark</span></button>
+</div></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>Homework</span></nav>
+<main id="main"><header class="page-head"><p class="eyebrow">Homework · Session 02</p><h1>Homework 2</h1><p class="lead">Grade calculator — arrays, functions, loops, and an HTML results table.</p></header><div class="reading-layout"><details class="toc" data-toc open><summary><span class="toc-title">On this page</span><span class="toc-count">10 sections</span></summary><ol><li class="depth-2"><a href="#how-to-submit">How to Submit</a></li><li class="depth-2"><a href="#overview">Overview</a></li><li class="depth-2"><a href="#requirements">Requirements</a></li><li class="depth-3"><a href="#functional-requirements">Functional Requirements</a></li><li class="depth-3"><a href="#technical-requirements">Technical Requirements</a></li><li class="depth-2"><a href="#deliverables">Deliverables</a></li><li class="depth-2"><a href="#grading-rubric">Grading Rubric</a></li><li class="depth-2"><a href="#tips">Tips</a></li><li class="depth-2"><a href="#resources">Resources</a></li><li class="depth-2"><a href="#video-checklist-what-to-show">Video Checklist — What to Show</a></li></ol></details><article class="doc" data-source="homework/session-02/homework.md"><blockquote class="quote"><p><strong>Due:</strong> Sunday 23:59 via LMS | <strong>File:</strong> <code>grade_calculator.php</code></p>
+</blockquote>
+<h2 id="how-to-submit">How to Submit<a class="anchor" href="#how-to-submit" aria-label="Link to How to Submit">#</a></h2>
+<p>Submit <strong>two things</strong> on LMS before the deadline (Sunday 23:59):</p>
+<p><strong>Part 1 — Code ZIP</strong></p>
+<ol><li>Save your file as <code>grade_calculator.php</code></li>
+<li>Test it in browser via <code>http://localhost/INS3064/session02/grade_calculator.php</code></li>
+<li>Compress the file into a <code>.zip</code> named <code>homework02.zip</code></li>
+<li>Upload the <code>.zip</code> to LMS before the deadline (Sunday 23:59)</li>
+</ol>
+<p><strong>Part 2 — Video presentation link (OBS → YouTube)</strong></p>
+<p>Record a short screen+voice video, upload it to <strong>your own YouTube channel as Unlisted</strong>, add it to your semester playlist, and paste the link on LMS. Do <strong>not</strong> upload the video file to LMS.</p>
+<ol><li><strong>Record with OBS (1–2 minutes).</strong> Open OBS Studio → add a <strong>Display Capture</strong> (or Window Capture) source → start recording. Walk through your finished homework <strong>live on screen</strong> and <strong>speak out loud</strong> — no camera needed, screen + microphone is enough. Follow the <strong>Video Checklist — What to Show</strong> section at the bottom of this sheet so the lecturer can confirm the work is done and is yours.</li>
+<li><strong>Upload to YouTube as Unlisted.</strong> In YouTube Studio, upload the recording and set visibility to <strong>Unlisted</strong> (not Public, not Private). Unlisted means only people with the link can watch — it does not appear in search or on your channel page, but the lecturer can open it. (Private links will not work for grading.)</li>
+<li><strong>Add it to your homework playlist.</strong> Create one playlist for the whole semester named <code>INS3064 — Homework — &lt;Your Full Name&gt;</code> and add this week&#39;s video to it (in YouTube Studio: SAVE → + Create new playlist, visibility Unlisted). The playlist collects every week&#39;s demo in one place; you create and own it — there is no shared class playlist.</li>
+<li><strong>Paste the link on LMS.</strong> Copy the <strong>video URL</strong> (or the playlist URL) and paste it into the <strong>&quot;Video Link&quot; field</strong> on LMS (next to the ZIP upload).</li>
+</ol>
+<blockquote class="quote"><p class="note-line is-good"><span class="note-icon" aria-hidden="true">✅</span><span class="note-copy"><strong>Checklist before submitting:</strong> video is 1–2 minutes · your voice explains the logic (not just silent screen capture) · the table sorts and color-codes correctly on screen · visibility is <strong>Unlisted</strong> · video is in your <code>INS3064 — Homework — &lt;Your Name&gt;</code> playlist · the YouTube link opens and plays in an incognito/private browser window (test this yourself!).</span></p>
+</blockquote>
+<h2 id="overview">Overview<a class="anchor" href="#overview" aria-label="Link to Overview">#</a></h2>
+<p>In this assignment you will build a <strong>Student Grade Calculator</strong> that demonstrates your understanding of PHP programming fundamentals: variables, arrays, control structures (<code>if/else</code>, <code>foreach</code>, <code>for</code>), functions, and string formatting. Your program will process student score data, compute statistics, assign letter grades, and display the results in a formatted HTML table.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="anchor" href="#functional-requirements" aria-label="Link to Functional Requirements">#</a></h3>
+<ul><li>Define a PHP <strong>array</strong> containing at least <strong>5 students</strong>. Each student is an associative array with:<ul><li><code>name</code> (string) — the student&#39;s full name.</li>
+<li><code>scores</code> (indexed array) — at least <strong>4 test scores</strong> per student (numeric, 0–100 scale).</li>
+</ul>
+</li>
+<li>For each student, <strong>calculate</strong>:<ul><li><strong>Average score</strong> (rounded to 1 decimal place).</li>
+<li><strong>Highest score</strong>.</li>
+<li><strong>Lowest score</strong>.</li>
+<li><strong>Letter grade</strong> assigned according to this scale:<ul><li>A: 90–100</li>
+<li>B: 80–89</li>
+<li>C: 70–79</li>
+<li>D: 60–69</li>
+<li>F: below 60</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Sort</strong> the student results by average score in <strong>descending order</strong> (highest average first).</li>
+<li>Display the final results in an <strong>HTML table</strong> with columns: <code>Rank</code>, <code>Name</code>, <code>Scores</code>, <code>Average</code>, <code>Highest</code>, <code>Lowest</code>, <code>Grade</code>.</li>
+<li>Color-code the letter grade in the table (e.g., green for A, red for F).</li>
+</ul>
+<h3 id="technical-requirements">Technical Requirements<a class="anchor" href="#technical-requirements" aria-label="Link to Technical Requirements">#</a></h3>
+<ul><li>Deliver a <strong>single file</strong> named <code>grade_calculator.php</code>.</li>
+<li>Write at least <strong>2 custom functions</strong> (e.g., <code>calculateAverage($scores)</code>, <code>assignGrade($average)</code>).</li>
+<li>Use <strong>control structures</strong>: <code>if/elseif/else</code>, <code>foreach</code>, and at least one <code>for</code> loop.</li>
+<li>Use both <strong>indexed arrays</strong> and <strong>associative arrays</strong>.</li>
+<li>Handle <strong>edge cases</strong>: a student with all identical scores, a student with a score of 0, a student with a perfect 100 on all tests.</li>
+<li>The page must be valid HTML5 and render without errors.</li>
+</ul>
+<h2 id="deliverables">Deliverables<a class="anchor" href="#deliverables" aria-label="Link to Deliverables">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>File</th><th>Description</th></tr></thead><tbody><tr><td><code>grade_calculator.php</code></td><td>Single PHP file containing all logic, data, and HTML output.</td></tr></tbody></table></div>
+<h2 id="grading-rubric">Grading Rubric<a class="anchor" href="#grading-rubric" aria-label="Link to Grading Rubric">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0"><table><thead><tr><th>Criteria</th><th>Points</th><th>Description</th></tr></thead><tbody><tr><td><strong>Correctness</strong></td><td>40%</td><td>Average, highest, lowest, and letter grade are calculated correctly for every student; sorting is correct; all edge cases produce valid results.</td></tr><tr><td><strong>Code Structure</strong></td><td>30%</td><td>Clean use of functions, meaningful variable names, proper indentation, comments explaining logic, well-organized code flow.</td></tr><tr><td><strong>Edge Case Handling</strong></td><td>15%</td><td>Program handles scores of 0, scores of 100, identical scores, and boundary values (e.g., average of exactly 90 → A) without errors.</td></tr><tr><td><strong>Output Formatting</strong></td><td>15%</td><td>HTML table is well-styled, grade colors are applied, table is readable with proper headers and alignment.</td></tr></tbody></table></div>
+<h2 id="tips">Tips<a class="anchor" href="#tips" aria-label="Link to Tips">#</a></h2>
+<ul><li>Define your student data as a PHP array at the top of the file:<figure class="code-block is-code" data-language="php" data-lines="5"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-var">$students</span> <span class="t-op">=</span> [
+    [<span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Alice Nguyen&#39;</span>,   <span class="t-str">&#39;scores&#39;</span> <span class="t-op">=&gt;</span> [<span class="t-num">85</span>, <span class="t-num">92</span>, <span class="t-num">78</span>, <span class="t-num">90</span>]],
+    [<span class="t-str">&#39;name&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;Bob Tran&#39;</span>,       <span class="t-str">&#39;scores&#39;</span> <span class="t-op">=&gt;</span> [<span class="t-num">70</span>, <span class="t-num">65</span>, <span class="t-num">80</span>, <span class="t-num">72</span>]],
+    <span class="t-com">// ... more students</span>
+];</code></pre></figure></li>
+<li>Use <code>round($average, 1)</code> to round averages to one decimal place.</li>
+<li>After calculating all results into a new array, use <code>usort()</code> with a custom comparison function to sort by average descending.</li>
+<li>Assign a CSS class to the grade cell based on the letter to apply color coding:<figure class="code-block is-code" data-language="php" data-lines="5"><figcaption><span class="code-language">PHP</span><span class="code-meta"><span class="code-lines">5 lines</span><button class="code-copy" type="button" data-code-copy>Copy</button></span></figcaption><pre tabindex="0"><code><span class="t-var">$gradeClass</span> <span class="t-op">=</span> <span class="t-kw">match</span>(<span class="t-var">$grade</span>) {
+    <span class="t-str">&#39;A&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;grade-a&#39;</span>,
+    <span class="t-str">&#39;B&#39;</span> <span class="t-op">=&gt;</span> <span class="t-str">&#39;grade-b&#39;</span>,
+    <span class="t-com">// ...</span>
+};</code></pre></figure></li>
+<li>Add some simple CSS in a <code>&lt;style&gt;</code> block to make the table readable (borders, padding, alternating row colors).</li>
+</ul>
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to Resources">#</a></h2>
+<ul><li><a href="https://www.php.net/manual/en/language.types.array.php" rel="noopener noreferrer">PHP Manual — Arrays</a></li>
+<li><a href="https://www.php.net/manual/en/language.control-structures.php" rel="noopener noreferrer">PHP Manual — Control Structures</a></li>
+<li><a href="https://www.php.net/manual/en/function.usort.php" rel="noopener noreferrer">PHP Manual — usort()</a></li>
+<li><a href="https://www.php.net/manual/en/function.round.php" rel="noopener noreferrer">PHP Manual — round()</a></li>
+</ul>
+<h2 id="video-checklist-what-to-show">Video Checklist — What to Show<a class="anchor" href="#video-checklist-what-to-show" aria-label="Link to Video Checklist — What to Show">#</a></h2>
+<p>In your 1–2 minute OBS recording, demonstrate <strong>all</strong> of the following on screen while narrating out loud:</p>
+<ul><li>The grade calculator table rendered in the browser with all students and columns.</li>
+<li>How the average is computed — show the array and the loop (or function) that calculates it.</li>
+<li>How the letter grade is assigned from the average — show the <code>if/else</code> chain.</li>
+<li>One edge case live (a student with all 0s or all 100s) producing the correct result.</li>
+<li>A quick scroll through the main code file(s) in your editor so the grader sees the code is yours.</li>
+</ul>
+</article></div>
+<nav class="pager" aria-label="Adjacent homework"><a class="pager-link is-prev" href="../../sessions/session-02.html"><span class="pager-label">Session hub</span><span class="pager-title">Programming with PHP</span></a><span class="pager-link is-empty"></span></nav></main>
+<footer class="footer"><div><strong>INS3064</strong><p>International School, Vietnam National University, Hanoi</p></div><p>Student learning materials. Assessment files, solutions, rubrics, and lecturer-only resources are not published here.</p></footer>
+<script src="../../assets/site.js" defer></script>
+</body></html>
