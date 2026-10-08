@@ -36,6 +36,36 @@
     if (current) current.setAttribute("aria-current", "page");
   }
 
+
+  /* ---- Homepage hash-routed app views ---- */
+  var spaViews = Array.prototype.slice.call(document.querySelectorAll("[data-spa-view]"));
+  var spaLinks = Array.prototype.slice.call(document.querySelectorAll("[data-spa-nav]"));
+  if (spaViews.length) {
+    function showSpaView(name, replace) {
+      var allowed = spaViews.some(function (view) { return view.getAttribute("data-spa-view") === name; });
+      var active = allowed ? name : "dashboard";
+      spaViews.forEach(function (view) {
+        var isActive = view.getAttribute("data-spa-view") === active;
+        view.hidden = !isActive;
+        view.classList.toggle("is-active", isActive);
+      });
+      spaLinks.forEach(function (link) {
+        var isActive = link.getAttribute("data-spa-nav") === active;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      if (replace && window.history.replaceState) window.history.replaceState(null, "", "#" + active);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function readSpaHash() { return window.location.hash.replace(/^#/, "") || "dashboard"; }
+    showSpaView(readSpaHash(), false);
+    window.addEventListener("hashchange", function () { showSpaView(readSpaHash(), false); });
+    spaLinks.forEach(function (link) {
+      link.addEventListener("click", function () { showSpaView(link.getAttribute("data-spa-nav"), false); });
+    });
+  }
+
   /* ---- Reading progress ---- */
   var progress = document.querySelector("[data-reading-progress]");
   function updateProgress() {
