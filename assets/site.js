@@ -4,6 +4,7 @@
 
   var root = document.documentElement;
   var themeKey = "ins3064.theme";
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   root.classList.add("js");
 
   /* ---- Theme ---- */
@@ -16,6 +17,10 @@
       var label = button.querySelector("[data-theme-label]");
       if (label) label.textContent = theme === "dark" ? "Light" : "Dark";
     });
+    var frame = document.querySelector("[data-reader-frame]");
+    try {
+      if (frame && frame.contentDocument) frame.contentDocument.documentElement.setAttribute("data-theme", theme);
+    } catch (_error) { /* A standalone page is always available. */ }
   }
 
   applyTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
@@ -37,11 +42,78 @@
   }
 
 
-  /* ---- Homepage hash-routed app views ---- */
+  /* ---- Hash-routed learning workspace; HTML pages remain the fallback. ---- */
   var spaViews = Array.prototype.slice.call(document.querySelectorAll("[data-spa-view]"));
   var spaLinks = Array.prototype.slice.call(document.querySelectorAll("[data-spa-nav]"));
   if (spaViews.length) {
-    function showSpaView(name, replace) {
+    var portalTitle = document.title;
+    var portalBase = new URL("./", window.location.href);
+    var publishedPages = document.querySelector("[data-material-pages]").getAttribute("data-material-pages").split(" ");
+    var frame = document.querySelector("[data-reader-frame]");
+    var readerStatus = document.querySelector("[data-reader-status]");
+    var readerTitle = document.querySelector("[data-reader-title]") || document.getElementById("reader-title");
+    var originalLink = document.querySelector("[data-reader-original]");
+    var completeButton = document.querySelector("[data-complete-session]");
+    var focusButton = document.querySelector("[data-focus-toggle]");
+    var progressKey = "ins3064.learning.v1";
+    var learning = { completed: [], last: "" };
+    var currentPath = "";
+    var readerDocumentTitle = portalTitle;
+    var currentSession = 0;
+    var loadTimer;
+    try {
+      var saved = JSON.parse(localStorage.getItem(progressKey));
+      if (saved && Array.isArray(saved.completed)) {
+        learning.completed = saved.completed.filter(function (n, index, list) {
+          return Number.isInteger(n) && n >= 1 && n <= 15 && list.indexOf(n) === index;
+        });
+        learning.last = typeof saved.last === "string" ? saved.last : "";
+      }
+    } catch (_error) { /* Private browsing and blocked storage still work. */ }
+
+    function materialPath(href) {
+      try {
+        var url = new URL(href, portalBase);
+        if (url.origin !== portalBase.origin || url.protocol !== portalBase.protocol || !url.pathname.startsWith(portalBase.pathname)) return "";
+        var relative = url.pathname.slice(portalBase.pathname.length);
+        if (!/^(?:(?:ebook|slides|sessions|guides)\/[a-z0-9-]+|homework\/(?:index|session-\d{2}\/homework))\.html$/.test(relative)) return "";
+        // Only navigate to published links, never arbitrary paths from a hash.
+        var published = publishedPages.indexOf(relative) !== -1;
+        return published ? relative + url.hash : "";
+      } catch (_error) { return ""; }
+    }
+
+    function saveLearning() {
+      try { localStorage.setItem(progressKey, JSON.stringify(learning)); } catch (_error) { /* session-only fallback */ }
+    }
+
+    function updateLearning() {
+      var count = learning.completed.length;
+      var percent = Math.round(count / 15 * 100);
+      document.querySelector("[data-completion-label]").textContent = count + " of 15 sessions completed";
+      document.querySelector("[data-completion-percent]").textContent = percent + "%";
+      var bar = document.querySelector("[data-completion-bar]");
+      bar.setAttribute("aria-valuenow", String(count));
+      bar.querySelector("span").style.width = percent + "%";
+      document.querySelectorAll("[data-session-state]").forEach(function (badge) {
+        var done = learning.completed.indexOf(Number(badge.getAttribute("data-session-state"))) !== -1;
+        badge.textContent = done ? "✓ Completed" : "Read →";
+        badge.classList.toggle("is-complete", done);
+      });
+      var last = materialPath(learning.last);
+      var resume = document.querySelector("[data-resume-link]");
+      if (last) {
+        resume.href = last;
+        resume.textContent = "Continue learning →";
+        document.querySelector("[data-resume-caption]").textContent = "Pick up where you left off. Your progress is saved on this device.";
+      }
+      var done = learning.completed.indexOf(currentSession) !== -1;
+      completeButton.hidden = !currentSession;
+      completeButton.setAttribute("aria-pressed", String(done));
+      completeButton.textContent = done ? "✓ Completed · Undo" : "Mark session complete";
+    }
+
+    function showSpaView(name, focus) {
       var allowed = spaViews.some(function (view) { return view.getAttribute("data-spa-view") === name; });
       var active = allowed ? name : "dashboard";
       spaViews.forEach(function (view) {
@@ -50,19 +122,157 @@
         view.classList.toggle("is-active", isActive);
       });
       spaLinks.forEach(function (link) {
-        var isActive = link.getAttribute("data-spa-nav") === active;
+        var sectionName = currentPath.split("/")[0];
+        var readerSection = { ebook: "library", slides: "resources", sessions: "course", homework: "homework", guides: "guides" }[sectionName];
+        var isActive = link.getAttribute("data-spa-nav") === (active === "reader" ? readerSection : active);
         link.classList.toggle("is-active", isActive);
         if (isActive) link.setAttribute("aria-current", "page");
         else link.removeAttribute("aria-current");
       });
-      if (replace && window.history.replaceState) window.history.replaceState(null, "", "#" + active);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.querySelectorAll(".primary-nav [data-nav]").forEach(function (link) {
+        var navView = { home: "dashboard", sessions: "course", ebook: "library", homework: "homework", guides: "guides", slides: "resources" }[link.getAttribute("data-nav")];
+        if (navView === active) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      document.body.classList.toggle("is-reading", active === "reader");
+      if (active === "reader") document.title = readerDocumentTitle;
+      if (active !== "reader") {
+        document.title = portalTitle;
+        document.body.classList.remove("is-focused");
+        focusButton.setAttribute("aria-pressed", "false");
+        focusButton.textContent = "Focus mode";
+      }
+      if (focus) {
+        var heading = document.querySelector('[data-spa-view="' + active + '"] h2');
+        if (heading) { heading.setAttribute("tabindex", "-1"); heading.focus({ preventScroll: true }); }
+        window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+      }
     }
-    function readSpaHash() { return window.location.hash.replace(/^#/, "") || "dashboard"; }
-    showSpaView(readSpaHash(), false);
-    window.addEventListener("hashchange", function () { showSpaView(readSpaHash(), false); });
-    spaLinks.forEach(function (link) {
-      link.addEventListener("click", function () { showSpaView(link.getAttribute("data-spa-nav"), false); });
+
+    function openMaterial(href) {
+      var relative = materialPath(href);
+      if (!relative) return false;
+      window.location.hash = "reader=" + encodeURIComponent(relative);
+      return true;
+    }
+    // Embedded documents use their existing code-copy, TOC and deck controls.
+    // Only cross-document navigation is handed back to the workspace.
+    window.ins3064OpenMaterial = openMaterial;
+    window.ins3064GoHome = function () { window.location.hash = "dashboard"; };
+    window.ins3064ExitFocus = function () {
+      if (document.body.classList.contains("is-focused")) focusButton.click();
+    };
+
+    function route(focus) {
+      var hash = window.location.hash.slice(1) || "dashboard";
+      if (hash.startsWith("reader=")) {
+        var requested = "";
+        try { requested = decodeURIComponent(hash.slice(7)); } catch (_error) { /* invalid URL */ }
+        var relative = materialPath(requested);
+        if (relative) {
+          currentSession = Number((relative.match(/(?:ebook|slides)\/(\d{2})-|sessions\/session-(\d{2})|homework\/session-(\d{2})/) || []).slice(1).find(Boolean)) || 0;
+          learning.last = relative;
+          saveLearning();
+          if (currentPath !== relative) {
+            currentPath = relative;
+            frame.hidden = true;
+            readerStatus.hidden = false;
+            readerStatus.textContent = "Loading your learning material…";
+            originalLink.href = relative;
+            readerTitle.textContent = "Learning material";
+            readerDocumentTitle = portalTitle;
+            frame.src = new URL(relative, portalBase).href;
+            window.clearTimeout(loadTimer);
+            loadTimer = window.setTimeout(function () {
+              readerStatus.textContent = "Taking longer than expected? Use ‘Open page’ to read the original document.";
+            }, 10000);
+          }
+          updateLearning();
+          showSpaView("reader", focus);
+          return;
+        }
+        window.history.replaceState(null, "", "#library");
+        hash = "library";
+      }
+      showSpaView(hash, focus);
+    }
+
+    frame.addEventListener("load", function () {
+      if (!currentPath) return;
+      window.clearTimeout(loadTimer);
+      try {
+        var doc = frame.contentDocument;
+        if (!doc || !doc.getElementById("main")) throw new Error("Missing document");
+        doc.body.classList.add("embedded-page");
+        doc.documentElement.setAttribute("data-theme", root.getAttribute("data-theme"));
+        var heading = doc.querySelector("h1");
+        var title = heading ? heading.textContent : doc.title.split(" — ")[0];
+        readerTitle.textContent = title;
+        frame.title = title;
+        readerDocumentTitle = doc.title;
+        if (window.location.hash.startsWith("#reader=")) document.title = doc.title;
+        readerStatus.hidden = true;
+        frame.hidden = false;
+      } catch (_error) {
+        // file:// restrictions vary between browsers; use the standalone link.
+        readerStatus.textContent = "This browser cannot embed the local document. Use ‘Open page’, or serve the site over HTTP.";
+      }
+    });
+    completeButton.addEventListener("click", function () {
+      if (!currentSession) return;
+      var index = learning.completed.indexOf(currentSession);
+      if (index === -1) learning.completed.push(currentSession);
+      else learning.completed.splice(index, 1);
+      saveLearning();
+      updateLearning();
+    });
+    focusButton.addEventListener("click", function () {
+      var focused = document.body.classList.toggle("is-focused");
+      focusButton.setAttribute("aria-pressed", String(focused));
+      focusButton.textContent = focused ? "Exit focus" : "Focus mode";
+    });
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link || link.target || link.hasAttribute("download") || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (link.closest(".primary-nav")) {
+        var view = { home: "dashboard", sessions: "course", ebook: "library", homework: "homework", guides: "guides" }[link.getAttribute("data-nav")];
+        if (view) { event.preventDefault(); window.location.hash = view; return; }
+      }
+      if (openMaterial(link.href)) event.preventDefault();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") { window.ins3064ExitFocus(); return; }
+      if (/input|textarea|select/i.test(event.target.tagName) || event.target.isContentEditable || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.key === "/") {
+        event.preventDefault();
+        window.location.hash = "library";
+        window.setTimeout(function () { document.getElementById("chapter-search").focus(); }, 0);
+      }
+    });
+    updateLearning();
+    route(false);
+    window.addEventListener("hashchange", function () { route(true); });
+  }
+
+  if (window.parent !== window) {
+    document.body.classList.add("embedded-page");
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      try {
+        if (window.parent.ins3064ExitFocus) window.parent.ins3064ExitFocus();
+      } catch (_error) { /* Cross-origin embedding has no workspace controls. */ }
+    });
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link || link.target || link.hasAttribute("download") || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      var url = new URL(link.href);
+      if (url.pathname === window.location.pathname && url.hash) return;
+      try {
+        if (window.parent.ins3064OpenMaterial && window.parent.ins3064OpenMaterial(url.href)) event.preventDefault();
+        else if (/\/index\.html$/.test(url.pathname) && url.pathname === new URL("./index.html", window.parent.location.href).pathname) {
+          event.preventDefault(); window.parent.ins3064GoHome();
+        }
+      } catch (_error) { /* Standalone links remain usable. */ }
     });
   }
 
@@ -81,7 +291,7 @@
   }
 
   /* ---- Scroll-triggered entrance animations ---- */
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && !reducedMotion) {
     var animatedEls = document.querySelectorAll(
       ".session-card, .resource-card, .stat, .flow-card, .part-block, .hero-actions .button-link"
     );
@@ -106,14 +316,17 @@
   /* ---- Filter cards ---- */
   document.querySelectorAll("[data-filter]").forEach(function (input) {
     var selector = input.getAttribute("data-filter");
-    var items = Array.prototype.slice.call(document.querySelectorAll(selector));
-    var blocks = Array.prototype.slice.call(document.querySelectorAll("[data-part-block]"));
-    var status = document.querySelector("[data-filter-status]");
+    var scope = input.closest("[data-filter-scope]") || document;
+    var items = Array.prototype.slice.call(scope.querySelectorAll(selector));
+    var blocks = Array.prototype.slice.call(scope.querySelectorAll("[data-part-block]"));
+    var status = scope.querySelector("[data-filter-status]");
+    var empty = scope.querySelector("[data-filter-empty]");
     function filterItems() {
       var query = input.value.trim().toLocaleLowerCase("en");
       var shown = 0;
       items.forEach(function (item) {
-        var match = !query || item.textContent.toLocaleLowerCase("en").indexOf(query) !== -1;
+        var text = item.textContent + " " + (item.getAttribute("data-search-text") || "");
+        var match = !query || text.toLocaleLowerCase("en").indexOf(query) !== -1;
         item.hidden = !match;
         if (match) shown += 1;
       });
@@ -122,6 +335,7 @@
         block.hidden = visible === 0;
       });
       if (status) status.textContent = shown + " session" + (shown === 1 ? "" : "s") + " shown";
+      if (empty) empty.hidden = shown !== 0;
     }
     input.addEventListener("input", filterItems);
     filterItems();
@@ -203,20 +417,6 @@
       .then(function () { flashButton(button, "Copied"); })
       .catch(fallback);
   });
-
-  /* ---- Card tilt micro-interaction ---- */
-  document.addEventListener("mousemove", function (event) {
-    var card = event.target.closest && event.target.closest(".session-card, .resource-card, .flow-card, .stat");
-    if (!card) return;
-    var rect = card.getBoundingClientRect();
-    var x = (event.clientX - rect.left) / rect.width - 0.5;
-    var y = (event.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = "translateY(-4px) perspective(600px) rotateY(" + (x * 3) + "deg) rotateX(" + (-y * 3) + "deg)";
-  });
-  document.addEventListener("mouseleave", function (event) {
-    var card = event.target.closest && event.target.closest(".session-card, .resource-card, .flow-card, .stat");
-    if (card) card.style.transform = "";
-  }, true);
 
   /* ---- Slide deck ---- */
   var deck = document.querySelector("[data-deck]");
