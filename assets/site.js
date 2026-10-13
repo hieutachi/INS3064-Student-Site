@@ -90,27 +90,68 @@
     function updateLearning() {
       var count = learning.completed.length;
       var percent = Math.round(count / 15 * 100);
-      document.querySelector("[data-completion-label]").textContent = count + " of 15 sessions completed";
-      document.querySelector("[data-completion-percent]").textContent = percent + "%";
+      var completionLabel = document.querySelector("[data-completion-label]");
+      var completionPercent = document.querySelector("[data-completion-percent]");
+      if (completionLabel) completionLabel.textContent = count + " of 15 sessions completed";
+      if (completionPercent) completionPercent.textContent = percent + "%";
       var bar = document.querySelector("[data-completion-bar]");
-      bar.setAttribute("aria-valuenow", String(count));
-      bar.querySelector("span").style.width = percent + "%";
-      document.querySelectorAll("[data-session-state]").forEach(function (badge) {
-        var done = learning.completed.indexOf(Number(badge.getAttribute("data-session-state"))) !== -1;
-        badge.textContent = done ? "✓ Completed" : "Read →";
-        badge.classList.toggle("is-complete", done);
-      });
+      if (bar) {
+        bar.setAttribute("aria-valuenow", String(count));
+        bar.querySelector("span").style.width = percent + "%";
+      }
       var last = materialPath(learning.last);
       var resume = document.querySelector("[data-resume-link]");
-      if (last) {
+      var resumeCaption = document.querySelector("[data-resume-caption]");
+      var nextTitle = document.querySelector("[data-next-step-title]");
+      var nextCopy = document.querySelector("[data-next-step-copy]");
+      var firstOpen = Array.prototype.slice.call(document.querySelectorAll("[data-session-item]"))
+        .find(function (item) { return learning.completed.indexOf(Number(item.getAttribute("data-session-item"))) === -1; });
+      var nextSession = firstOpen ? Number(firstOpen.getAttribute("data-session-item")) : 0;
+      var lastSessionMatch = last.match(/(?:ebook|slides)\/(\d{2})-|sessions\/session-(\d{2})|homework\/session-(\d{2})/);
+      var lastSession = lastSessionMatch ? Number(Array.prototype.slice.call(lastSessionMatch, 1).find(Boolean)) : 0;
+      function sessionStatus(n) {
+        return learning.completed.indexOf(n) !== -1 ? "completed" : n === lastSession ? "in-progress" : "not-started";
+      }
+      document.querySelectorAll("[data-session-state]").forEach(function (badge) {
+        var state = sessionStatus(Number(badge.getAttribute("data-session-state")));
+        badge.textContent = { completed: "✓ Completed", "in-progress": "In progress", "not-started": "Not started" }[state];
+        badge.classList.toggle("is-complete", state === "completed");
+      });
+      document.querySelectorAll("[data-session-item]").forEach(function (item) {
+        item.setAttribute("data-learning-status", sessionStatus(Number(item.getAttribute("data-session-item"))));
+      });
+      document.querySelectorAll("[data-part-progress]").forEach(function (label) {
+        var cards = document.querySelectorAll('[data-session-card][data-part="' + label.getAttribute("data-part-progress") + '"]');
+        var done = Array.prototype.filter.call(cards, function (card) {
+          return learning.completed.indexOf(Number(card.querySelector("[data-session-state]").getAttribute("data-session-state"))) !== -1;
+        }).length;
+        label.textContent = done + " / " + cards.length + " complete · Open stage →";
+      });
+      if (last && lastSession && learning.completed.indexOf(lastSession) === -1) {
         resume.href = last;
-        resume.textContent = "Continue learning →";
-        document.querySelector("[data-resume-caption]").textContent = "Pick up where you left off. Your progress is saved on this device.";
+        resume.textContent = "Continue Session " + String(lastSession).padStart(2, "0") + " →";
+        if (resumeCaption) resumeCaption.textContent = "Pick up where you left off. Your progress is saved on this device.";
+        var lastItem = document.querySelector('[data-session-item="' + lastSession + '"]');
+        if (nextTitle) nextTitle.textContent = "Continue: " + lastItem.getAttribute("data-session-title");
+        if (nextCopy) nextCopy.textContent = "You do not need to restart. Continue the lesson, try the example locally, and mark the session complete when it feels clear.";
+      } else if (nextSession) {
+        resume.href = "sessions/session-" + String(nextSession).padStart(2, "0") + ".html";
+        resume.textContent = "Start Session " + String(nextSession).padStart(2, "0") + " →";
+        if (resumeCaption) resumeCaption.textContent = count ? "Your next unfinished session is ready. Progress stays on this device." : "Start small: your progress is saved automatically on this device.";
+        if (nextTitle) nextTitle.textContent = count ? "Up next: " + firstOpen.getAttribute("data-session-title") : "Start with the server, not the stress.";
+        if (nextCopy) nextCopy.textContent = count ? "Build on what you already know. Read the next chapter, run the examples, and leave with one working result." : "Read one example, run it locally, then change one thing. The course gets easier when every session leaves you with something working.";
+      } else {
+        resume.href = "#course";
+        resume.textContent = "Review the course map →";
+        if (resumeCaption) resumeCaption.textContent = "You completed all 15 sessions. Revisit any chapter whenever you need a refresher.";
+        if (nextTitle) nextTitle.textContent = "Course complete. Keep building.";
+        if (nextCopy) nextCopy.textContent = "Take a breath, review the course map, and choose the project or topic you want to strengthen next.";
       }
       var done = learning.completed.indexOf(currentSession) !== -1;
       completeButton.hidden = !currentSession;
       completeButton.setAttribute("aria-pressed", String(done));
       completeButton.textContent = done ? "✓ Completed · Undo" : "Mark session complete";
+      document.dispatchEvent(new Event("ins3064:learning-updated"));
     }
 
     function showSpaView(name, focus) {
@@ -165,6 +206,14 @@
 
     function route(focus) {
       var hash = window.location.hash.slice(1) || "dashboard";
+      if (/^part-[1-4]$/.test(hash)) {
+        showSpaView("course", false);
+        var partHeading = document.querySelector("#" + hash + " h2");
+        partHeading.setAttribute("tabindex", "-1");
+        partHeading.focus({ preventScroll: true });
+        partHeading.scrollIntoView({ block: "start", behavior: reducedMotion ? "auto" : "smooth" });
+        return;
+      }
       if (hash.startsWith("reader=")) {
         var requested = "";
         try { requested = decodeURIComponent(hash.slice(7)); } catch (_error) { /* invalid URL */ }
@@ -254,6 +303,39 @@
     window.addEventListener("hashchange", function () { route(true); });
   }
 
+  /* ---- Personal self-checks: separate from completion and LMS grades. ---- */
+  var studyChecks = Array.prototype.slice.call(document.querySelectorAll("[data-study-check]"));
+  if (studyChecks.length) {
+    var checkKey = "ins3064.self-checks.v1";
+    var savedChecks = {};
+    var checkStorage = true;
+    var checkStatus = document.querySelector("[data-check-storage-status]");
+    try {
+      var parsedChecks = JSON.parse(localStorage.getItem(checkKey));
+      if (parsedChecks && typeof parsedChecks === "object" && !Array.isArray(parsedChecks)) {
+        Object.keys(parsedChecks).forEach(function (key) {
+          if (/^(?:0[1-9]|1[0-5])-[12]$/.test(key) && parsedChecks[key] === true) savedChecks[key] = true;
+        });
+      }
+    } catch (_error) { checkStorage = false; }
+    function reportChecks() {
+      var checked = studyChecks.filter(function (input) { return input.checked; }).length;
+      checkStatus.textContent = checked + " of " + studyChecks.length + " checked · " + (checkStorage ? "Saved in this browser, not submitted to LMS." : "Storage unavailable. Ticks last only while this page stays open.");
+    }
+    studyChecks.forEach(function (input) {
+      input.checked = savedChecks[input.getAttribute("data-study-check")] === true;
+      input.addEventListener("change", function () {
+        var key = input.getAttribute("data-study-check");
+        if (input.checked) savedChecks[key] = true;
+        else delete savedChecks[key];
+        try { localStorage.setItem(checkKey, JSON.stringify(savedChecks)); checkStorage = true; }
+        catch (_error) { checkStorage = false; }
+        reportChecks();
+      });
+    });
+    reportChecks();
+  }
+
   if (window.parent !== window) {
     document.body.classList.add("embedded-page");
     document.addEventListener("keydown", function (event) {
@@ -321,12 +403,19 @@
     var blocks = Array.prototype.slice.call(scope.querySelectorAll("[data-part-block]"));
     var status = scope.querySelector("[data-filter-status]");
     var empty = scope.querySelector("[data-filter-empty]");
+    var partFilter = scope.querySelector("[data-filter-part]");
+    var learningFilter = scope.querySelector("[data-filter-learning]");
+    var reset = scope.querySelector("[data-filter-reset]");
+    var filters = scope.querySelector("[data-library-filters]");
+    if (filters) filters.hidden = false;
     function filterItems() {
       var query = input.value.trim().toLocaleLowerCase("en");
       var shown = 0;
       items.forEach(function (item) {
         var text = item.textContent + " " + (item.getAttribute("data-search-text") || "");
-        var match = !query || text.toLocaleLowerCase("en").indexOf(query) !== -1;
+        var match = (!query || text.toLocaleLowerCase("en").indexOf(query) !== -1) &&
+          (!partFilter || !partFilter.value || item.getAttribute("data-part") === partFilter.value) &&
+          (!learningFilter || !learningFilter.value || item.getAttribute("data-learning-status") === learningFilter.value);
         item.hidden = !match;
         if (match) shown += 1;
       });
@@ -338,6 +427,16 @@
       if (empty) empty.hidden = shown !== 0;
     }
     input.addEventListener("input", filterItems);
+    if (partFilter) partFilter.addEventListener("change", filterItems);
+    if (learningFilter) learningFilter.addEventListener("change", filterItems);
+    if (reset) reset.addEventListener("click", function () {
+      input.value = "";
+      partFilter.value = "";
+      learningFilter.value = "";
+      filterItems();
+      input.focus();
+    });
+    document.addEventListener("ins3064:learning-updated", filterItems);
     filterItems();
   });
 
